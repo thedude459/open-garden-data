@@ -1,0 +1,20 @@
+# Every source the dataset draws on. Only sources whose terms allow CC0 output:
+# no share-alike (CC BY-SA) or non-commercial licenses.
+- id: hand-curation
+  name: Contributor curation
+  license: CC0-1.0
+  url: https://github.com/thedude459/open-garden-data
+  note: Values written by contributors in their own words, cross-checked against extension-service guides and seed packets. Facts are not copyrightable; prose is.
+- id: usda-plants
+  name: USDA PLANTS Database
+  license: Public domain
+  url: https://plants.usda.gov/
+- id: wikidata
+  name: Wikidata
+  license: CC0-1.0
+  url: https://www.wikidata.org/
+- id: openfarm-rescue
+  name: OpenFarm crops rescue
+  license: CC0-1.0
+  url: https://github.com/thefullnacho/openfarm-crops-rescue
+  note: CC0 is claimed for the archive; check each record before use.

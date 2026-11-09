@@ -1,0 +1,6 @@
+# Companion pairs. Each pair needs a source.
+# - crops: [tomato, basil]
+#   kind: helps            # helps | hinders | attracts-pollinators
+#   reason: Short reason in your own words.
+#   source: hand-curation
+[]

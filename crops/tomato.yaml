@@ -1,0 +1,32 @@
+id: tomato
+names:
+  en: Tomato
+scientificName: Solanum lycopersicum
+family: solanaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+spacingCm:
+  inRow: 50
+  betweenRows: 90
+sowingDepthCm: 0.6
+germinationDays: { min: 5, max: 10 }
+temperatureC: { min: 10, optimal: 24, max: 35 }
+minSoilTemperatureC: 16
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  transplant: { frost: last, weeksEarliest: 1, weeksLatest: 3 }
+daysToMaturity: { min: 55, max: 85 }
+varieties:
+  - id: tomato-cherry
+    name: Cherry
+    daysToMaturity: { min: 55, max: 65 }
+    spacingCm: { inRow: 45 }
+notes: Frost kills it. Wait until nights stay above 10 °C before planting out.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

@@ -1,0 +1,21 @@
+name: Add a crop
+description: Ask for a crop or variety that is missing.
+labels: [new-crop]
+body:
+  - type: input
+    id: crop
+    attributes:
+      label: Crop or variety
+      placeholder: Kentucky Wonder pole bean (Phaseolus vulgaris)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What you know about growing it
+      description: Spacing, when to sow relative to frost, days to maturity. Your own words.
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Where the details come from (extension service, seed company, your own records).

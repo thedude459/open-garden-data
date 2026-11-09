@@ -1,0 +1,67 @@
+name: Release
+
+# Publishing a GitHub Release tagged vMAJOR.MINOR.PATCH builds
+# open-garden-catalog-<version>.json, its SHA-256, and a build provenance
+# attestation, and attaches them to the release. The app pins a version.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+
+jobs:
+  catalog:
+    name: build catalog
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      # Upload release assets; sign the catalog with a provenance attestation.
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          # No dependency cache when publishing: a poisoned cache could alter the artifact.
+          package-manager-cache: false
+      - name: Check the tag is vMAJOR.MINOR.PATCH
+        id: tag
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          if [[ ! "${TAG}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Release tag must look like v0.1.0, got ${TAG}" >&2
+            exit 1
+          fi
+          echo "version=${TAG#v}" >> "${GITHUB_OUTPUT}"
+      - run: npm ci --ignore-scripts
+      - name: Build
+        env:
+          VERSION: ${{ steps.tag.outputs.version }}
+        run: npm run build -- "${VERSION}"
+      - name: Sign the catalog (build provenance)
+        id: attest
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: dist/open-garden-catalog-${{ steps.tag.outputs.version }}.json
+      - name: Upload to the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.event.release.tag_name }}
+          VERSION: ${{ steps.tag.outputs.version }}
+          BUNDLE: ${{ steps.attest.outputs.bundle-path }}
+        run: |
+          # Verify with: gh attestation verify open-garden-catalog-<version>.json --owner <owner>
+          NAME="open-garden-catalog-${VERSION}.json"
+          cp "${BUNDLE}" "dist/${NAME}.sigstore.json"
+          gh release upload "${TAG}" "dist/${NAME}" "dist/${NAME}.sha256" "dist/${NAME}.sigstore.json" \
+            --clobber --repo "${GITHUB_REPOSITORY}"

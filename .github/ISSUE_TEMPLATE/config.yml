@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: A problem with the Open Garden app
+    url: https://github.com/thedude459/open-garden/issues/new/choose
+    about: Bugs and features in the app itself belong in the app repository.

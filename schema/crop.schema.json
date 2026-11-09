@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/thedude459/open-garden-data/schema/crop.schema.json",
+  "title": "Crop",
+  "description": "One crop (species level) with its varieties. Units are metric: centimetres and degrees Celsius.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "names",
+    "scientificName",
+    "family",
+    "habit",
+    "use",
+    "lifeCycle",
+    "frostTolerance",
+    "sun",
+    "water",
+    "spacingCm",
+    "windows",
+    "sources"
+  ],
+  "properties": {
+    "id": { "$ref": "#/$defs/slug", "description": "Matches the file name: crops/<id>.yaml." },
+    "names": {
+      "type": "object",
+      "description": "Common names by locale. English is required.",
+      "required": ["en"],
+      "properties": { "en": { "type": "string", "minLength": 1, "maxLength": 80 } },
+      "propertyNames": { "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+      "additionalProperties": { "type": "string", "minLength": 1, "maxLength": 80 }
+    },
+    "scientificName": { "type": "string", "minLength": 3, "maxLength": 120 },
+    "family": { "$ref": "#/$defs/slug", "description": "An id from families.yaml." },
+    "habit": {
+      "enum": ["herbaceous", "vine", "cane", "shrub", "tree"],
+      "description": "Growth habit. Area types accept plants by habit and use."
+    },
+    "use": { "enum": ["vegetable", "fruit", "nut", "herb", "flower"] },
+    "lifeCycle": { "enum": ["annual", "biennial", "perennial"] },
+    "frostTolerance": { "enum": ["tender", "half-hardy", "hardy"] },
+    "sun": { "enum": ["full", "part", "shade"] },
+    "water": { "enum": ["low", "moderate", "high"] },
+    "spacingCm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inRow"],
+      "properties": {
+        "inRow": { "$ref": "#/$defs/cm", "description": "Between plants in a row or block." },
+        "betweenRows": { "$ref": "#/$defs/cm" }
+      }
+    },
+    "sowingDepthCm": { "type": "number", "minimum": 0, "maximum": 30 },
+    "germinationDays": { "$ref": "#/$defs/dayRange" },
+    "temperatureC": {
+      "type": "object",
+      "description": "Air temperatures for growth.",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "properties": {
+        "min": { "$ref": "#/$defs/celsius" },
+        "optimal": { "$ref": "#/$defs/celsius" },
+        "max": { "$ref": "#/$defs/celsius" }
+      }
+    },
+    "minSoilTemperatureC": {
+      "$ref": "#/$defs/celsius",
+      "description": "Soil temperature for sowing. The fallback where there is no frost to anchor windows to."
+    },
+    "windows": {
+      "type": "object",
+      "description": "Sowing windows in weeks relative to the last spring or first fall frost; negative is before. Leave out a method the crop is not grown by.",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "indoorStart": { "$ref": "#/$defs/window" },
+        "directSow": { "$ref": "#/$defs/window" },
+        "transplant": { "$ref": "#/$defs/window" }
+      }
+    },
+    "daysToMaturity": {
+      "$ref": "#/$defs/dayRange",
+      "description": "From transplant for crops usually transplanted, otherwise from sowing."
+    },
+    "varieties": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/variety" }
+    },
+    "notes": { "type": "string", "maxLength": 500 },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Where the values come from. Each entry names a source from sources.yaml and, optionally, the fields it supports.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source"],
+        "properties": {
+          "source": { "$ref": "#/$defs/slug" },
+          "fields": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "note": { "type": "string", "maxLength": 300 }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 60 },
+    "cm": { "type": "number", "exclusiveMinimum": 0, "maximum": 2000 },
+    "celsius": { "type": "number", "minimum": -40, "maximum": 50 },
+    "dayRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "properties": {
+        "min": { "type": "integer", "minimum": 1, "maximum": 1000 },
+        "max": { "type": "integer", "minimum": 1, "maximum": 1000 }
+      }
+    },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frost", "weeksEarliest", "weeksLatest"],
+      "properties": {
+        "frost": { "enum": ["last", "first"], "description": "Last spring frost or first fall frost." },
+        "weeksEarliest": { "type": "integer", "minimum": -52, "maximum": 52 },
+        "weeksLatest": { "type": "integer", "minimum": -52, "maximum": 52 }
+      }
+    },
+    "variety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug", "description": "Starts with the crop id: tomato-sungold." },
+        "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "daysToMaturity": { "$ref": "#/$defs/dayRange" },
+        "spacingCm": { "$ref": "#/properties/spacingCm" },
+        "notes": { "type": "string", "maxLength": 300 }
+      }
+    }
+  }
+}
