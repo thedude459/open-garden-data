@@ -71,6 +71,17 @@ export function validate(data, schema = readSchema()) {
     if (crop.hardinessZones && crop.hardinessZones.min > crop.hardinessZones.max) {
       errors.push(`${at}: hardinessZones.min is above max`);
     }
+    if (crop.habit === 'tree' && !crop.rootstocks) {
+      errors.push(`${at}: a tree needs rootstocks (spacing for dwarf, semi-dwarf, or standard)`);
+    }
+    if (crop.rootstocks && crop.habit !== 'tree') {
+      errors.push(`${at}: rootstocks apply only to trees`);
+    }
+    for (const [size, r] of Object.entries(crop.rootstocks ?? {})) {
+      for (const field of ['heightM', 'yearsToFruit']) {
+        if (r[field] && r[field].min > r[field].max) errors.push(`${at}: rootstocks.${size}.${field}.min is above max`);
+      }
+    }
     const t = crop.temperatureC;
     if (t && (t.min > t.max || (t.optimal !== undefined && (t.optimal < t.min || t.optimal > t.max)))) {
       errors.push(`${at}: temperatureC must run min ≤ optimal ≤ max`);

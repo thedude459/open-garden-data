@@ -23,6 +23,9 @@
 - id: cucurbitaceae
   name: Cucurbitaceae
   commonName: Gourd family (cucumber, squash, melon)
+- id: ericaceae
+  name: Ericaceae
+  commonName: Heath family (blueberry)
 - id: fabaceae
   name: Fabaceae
   commonName: Legume family (bean, pea)

@@ -55,6 +55,17 @@
         "betweenRows": { "$ref": "#/$defs/cm" }
       }
     },
+    "rootstocks": {
+      "type": "object",
+      "description": "Trees only: size and spacing by rootstock, which sets a tree's final size more than its variety does. spacingCm stays the default for an unknown rootstock (use the semi-dwarf values).",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "dwarf": { "$ref": "#/$defs/rootstock" },
+        "semiDwarf": { "$ref": "#/$defs/rootstock" },
+        "standard": { "$ref": "#/$defs/rootstock" }
+      }
+    },
     "sowingDepthCm": { "type": "number", "minimum": 0, "maximum": 30 },
     "germinationDays": { "$ref": "#/$defs/dayRange" },
     "temperatureC": {
@@ -139,6 +150,33 @@
         "frost": { "enum": ["last", "first"], "description": "Last spring frost or first fall frost." },
         "weeksEarliest": { "type": "integer", "minimum": -52, "maximum": 52 },
         "weeksLatest": { "type": "integer", "minimum": -52, "maximum": 52 }
+      }
+    },
+    "rootstock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spacingCm"],
+      "properties": {
+        "spacingCm": { "$ref": "#/properties/spacingCm" },
+        "heightM": {
+          "type": "object",
+          "description": "Typical mature height in metres.",
+          "additionalProperties": false,
+          "required": ["min", "max"],
+          "properties": {
+            "min": { "type": "number", "exclusiveMinimum": 0, "maximum": 40 },
+            "max": { "type": "number", "exclusiveMinimum": 0, "maximum": 40 }
+          }
+        },
+        "yearsToFruit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["min", "max"],
+          "properties": {
+            "min": { "type": "integer", "minimum": 1, "maximum": 20 },
+            "max": { "type": "integer", "minimum": 1, "maximum": 20 }
+          }
+        }
       }
     },
     "variety": {

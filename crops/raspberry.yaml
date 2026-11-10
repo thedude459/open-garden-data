@@ -1,0 +1,26 @@
+id: raspberry
+names:
+  en: Raspberry
+scientificName: Rubus idaeus
+family: rosaceae
+habit: cane
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 4, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 60
+  betweenRows: 240
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: raspberry-heritage
+    name: Heritage
+notes: Planted as dormant canes. Summer-bearing types fruit on last year's canes; fall-bearing types such as Heritage fruit on this year's and can be cut to the ground each winter. A wire or trellis keeps rows upright. Suckers spread, so keep a mown path around the row.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

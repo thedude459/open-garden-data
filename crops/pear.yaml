@@ -1,0 +1,39 @@
+id: pear
+names:
+  en: Pear
+scientificName: Pyrus communis
+family: rosaceae
+habit: tree
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 4, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 450
+  betweenRows: 600
+rootstocks:
+  dwarf:
+    spacingCm: { inRow: 300, betweenRows: 450 }
+    heightM: { min: 3, max: 4.5 }
+    yearsToFruit: { min: 3, max: 4 }
+  semiDwarf:
+    spacingCm: { inRow: 450, betweenRows: 600 }
+    heightM: { min: 4.5, max: 6 }
+    yearsToFruit: { min: 4, max: 6 }
+  standard:
+    spacingCm: { inRow: 750, betweenRows: 900 }
+    heightM: { min: 7, max: 12 }
+    yearsToFruit: { min: 5, max: 8 }
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: pear-bartlett
+    name: Bartlett
+notes: Needs a second variety nearby for pollination. Pick European pears mature but still firm and let them ripen indoors; tree-ripened pears turn gritty at the core. Starts fruiting in three to six years.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
