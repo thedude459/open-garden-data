@@ -1,0 +1,32 @@
+id: eggplant
+names:
+  en: Eggplant
+scientificName: Solanum melongena
+family: solanaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: heavy
+spacingCm:
+  inRow: 45
+  betweenRows: 75
+sowingDepthCm: 0.6
+germinationDays: { min: 7, max: 14 }
+temperatureC: { min: 15, optimal: 26, max: 35 }
+minSoilTemperatureC: 18
+windows:
+  indoorStart: { frost: last, weeksEarliest: -10, weeksLatest: -8 }
+  transplant: { frost: last, weeksEarliest: 2, weeksLatest: 4 }
+daysToMaturity: { min: 65, max: 85 }
+varieties:
+  - id: eggplant-black-beauty
+    name: Black Beauty
+    daysToMaturity: { min: 75, max: 85 }
+notes: Needs more heat than tomatoes or peppers. Plant out only once nights stay warm; a cold spell stunts plants for weeks.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

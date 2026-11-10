@@ -1,0 +1,32 @@
+id: broccoli
+names:
+  en: Broccoli
+scientificName: Brassica oleracea var. italica
+family: brassicaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: heavy
+spacingCm:
+  inRow: 45
+  betweenRows: 75
+sowingDepthCm: 1
+germinationDays: { min: 5, max: 10 }
+temperatureC: { min: 4, optimal: 18, max: 24 }
+minSoilTemperatureC: 7
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 1 }
+daysToMaturity: { min: 55, max: 80 }
+varieties:
+  - id: broccoli-waltham-29
+    name: Waltham 29
+    daysToMaturity: { min: 70, max: 80 }
+notes: Cut the main head while the buds are tight, before they show yellow; side shoots follow for weeks. Hot weather makes heads loose and quick to flower.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

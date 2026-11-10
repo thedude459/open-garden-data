@@ -1,0 +1,29 @@
+id: onion
+names:
+  en: Onion
+scientificName: Allium cepa
+family: amaryllidaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 10
+  betweenRows: 30
+sowingDepthCm: 1
+germinationDays: { min: 7, max: 14 }
+temperatureC: { min: 7, optimal: 18, max: 27 }
+minSoilTemperatureC: 7
+windows:
+  indoorStart: { frost: last, weeksEarliest: -12, weeksLatest: -8 }
+  directSow: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+daysToMaturity: { min: 90, max: 120 }
+notes: Bulbs form in response to day length, so choose a type for your latitude. Short-day onions suit mild-winter regions; long-day onions suit the north. Direct sowing here means planting sets (small bulbs), 2–3 cm deep.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
