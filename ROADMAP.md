@@ -35,10 +35,9 @@ shrub so the app's area rules have real plants to check.
 
 Each crop needs at least: English name, scientific name, family, habit, use,
 life cycle, frost tolerance, sun, water, feeding (light, moderate, or heavy),
-in-row spacing, the sowing windows it
-is grown by, days to maturity, hardiness zones for perennials, and its
-sources. Varieties are optional in
-v0.1.
+in-row spacing, the sowing windows it is grown by, days to maturity, and its
+sources. Perennials also need hardiness zones, and trees need spacing by
+rootstock (dwarf, semi-dwarf, standard). Varieties are optional in v0.1.
 
 **Decided (November 2026):** a crop is what gardeners grow as one kind, not strictly one
 species. Bush and pole beans, or summer squash and pumpkin, differ in habit,

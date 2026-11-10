@@ -39,6 +39,18 @@ test('a perennial needs hardiness zones, in order', () => {
   assert.deepEqual(validate(data), []);
 });
 
+test('trees need rootstocks, and only trees may have them', () => {
+  const data = clone(load());
+  const apple = data.crops.find((c) => c.crop.id === 'apple').crop;
+  const tomato = tomatoOf(data).crop;
+  const { rootstocks } = apple;
+  delete apple.rootstocks;
+  tomato.rootstocks = rootstocks;
+  const errors = validate(data).join('\n');
+  assert.match(errors, /apple.yaml: a tree needs rootstocks/);
+  assert.match(errors, /tomato.yaml: rootstocks apply only to trees/);
+});
+
 test('rejects values outside the schema', () => {
   const data = clone(load());
   const tomato = tomatoOf(data).crop;

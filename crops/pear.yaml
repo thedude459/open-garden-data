@@ -13,7 +13,20 @@ water: moderate
 feeding: moderate
 spacingCm:
   inRow: 450
-  betweenRows: 550
+  betweenRows: 600
+rootstocks:
+  dwarf:
+    spacingCm: { inRow: 300, betweenRows: 450 }
+    heightM: { min: 3, max: 4.5 }
+    yearsToFruit: { min: 3, max: 4 }
+  semiDwarf:
+    spacingCm: { inRow: 450, betweenRows: 600 }
+    heightM: { min: 4.5, max: 6 }
+    yearsToFruit: { min: 4, max: 6 }
+  standard:
+    spacingCm: { inRow: 750, betweenRows: 900 }
+    heightM: { min: 7, max: 12 }
+    yearsToFruit: { min: 5, max: 8 }
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
 varieties:
