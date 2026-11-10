@@ -10,8 +10,8 @@ version each app feature needs.
 | Version | Content | The app uses it for |
 |---|---|---|
 | **v0.1** | Schema v1 and the [first 50 crops](#v01-the-first-50-crops), each with family, habit, use, spacing, and sowing windows | The catalog importer, sowing calendars, crop rotation by family, and typed areas (habit and use decide what an area accepts) |
-| **v0.2** | Companion pairs, each with a reason and a source; hot pepper; fall sowing windows | Companion advice from data instead of only household-entered pairs, and fall crops in the calendar |
-| **v0.3** | About 150 crops: more vegetables and herbs, fruit and nut trees, cane fruit, and soft fruit | Orchard and bramble areas with real plants, and a catalog broad enough for most home gardens |
+| **v0.2** | Companion pairs, each with benefits, an evidence level, a reason, and a source; the [companion plants they need](#v02-companion-plants-first) as crops; hot pepper; fall sowing windows | Companion advice from data instead of only household-entered pairs, and fall crops in the calendar |
+| **v0.3** | About 150 crops: more vegetables and herbs, fruit and nut trees, cane fruit, and soft fruit; [common pests and diseases](#pests-and-diseases) linked to crops and companions | Orchard and bramble areas with real plants, a catalog broad enough for most home gardens, and pest advice on plant pages |
 | **Later** | Frost-free windows, names in other languages, crop icons | Worldwide climate support and a localized catalog |
 
 A release is a tag (`v0.1.0`); publishing it attaches
@@ -47,6 +47,30 @@ name. Varieties sit under a crop.
 Open a pull request per crop or small group; say which one you are working
 on in an issue first so two people do not research the same crop.
 
+### v0.2: companion plants first
+
+A companion pair names two crops, and the validator refuses a pair whose
+crop does not exist. Many well-known companions are not food crops, so v0.2
+adds them as crops before any pair can name them: marigold, nasturtium,
+borage, calendula, and tansy (`use: flower`, or `herb` for borage), plus
+others a pair needs.
+
+Each pair then carries:
+
+- **`benefits`**, one or more of: `deters-pests`, `trap-crop`,
+  `attracts-beneficials` (predators such as ladybirds and lacewings),
+  `attracts-pollinators`, `fixes-nitrogen`, `support`, `shade`,
+  `ground-cover`. A pair that hinders lists what goes wrong: `competes`,
+  `suppresses-growth`, or `shares-pests`.
+- **`evidence`**: `research` (field trials), `extension` (extension-service
+  guidance), or `traditional` (gardening lore without trials). Much
+  companion planting is lore, and apps should show which kind of advice it
+  is.
+- **`pests`** (from v0.3): the pest ids a `deters-pests` or `trap-crop`
+  benefit acts on.
+
+`kind` (helps, hinders) stays for a one-word summary.
+
 ## Schema changes planned
 
 | Change | When | Why |
@@ -62,6 +86,15 @@ on in an issue first so two people do not research the same crop.
 | Mature height (`heightCm`) | v0.3 | Planning borders and shade (corn, pole beans, sunflowers) |
 | Bloom season and a toxicity flag | With flowers | For flowers, days to maturity means days to bloom; a flag warns about plants harmful to pets or children |
 | New `use` values (cover crops, grains) | When needed | A minor release; apps skip what they cannot read |
+
+## Pests and diseases
+
+From v0.3, `pests.yaml` lists common garden pests and diseases the way
+`families.yaml` lists families: an id, a name, the signs to look for, and
+organic controls, written in our own words with sources. Crops list the pests
+they are prone to (`pests: [aphids, cabbage-worm]`), and companion benefits
+can name the pest they act on, with evidence. Crop rotation by family is the
+other half of disease control and needs no new data.
 
 ## Sources
 
