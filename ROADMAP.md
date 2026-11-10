@@ -5,12 +5,23 @@ What the dataset needs next, as releases. The
 sets the order of work across both repositories and says which dataset
 version each app feature needs.
 
+## Order of work
+
+The [Open Garden roadmap](https://github.com/thedude459/open-garden/blob/main/docs/roadmap.md#implementation-order)
+holds the one order across both repositories. For this repository:
+
+1. **Tag v0.1.0** (next): the 50 crops are in and every check passes.
+2. **[Data quality checks](#data-quality-checks) and release notes**, before
+   outside contributions start.
+3. **v0.2**, while the app builds typed areas and its redesign.
+4. **v0.3**, while the app adds care features.
+
 ## Releases
 
 | Version | Content | The app uses it for |
 |---|---|---|
 | **v0.1** | Schema v1 and the [first 50 crops](#v01-the-first-50-crops), each with family, habit, use, spacing, and sowing windows | The catalog importer, sowing calendars, crop rotation by family, and typed areas (habit and use decide what an area accepts) |
-| **v0.2** | Companion pairs, each with benefits, an evidence level, a reason, and a source; the [companion plants they need](#v02-companion-plants-first) as crops; hot pepper; fall sowing windows | Companion advice from data instead of only household-entered pairs, and fall crops in the calendar |
+| **v0.2** | Companion pairs, each with benefits, an evidence level, a reason, and a source; the [companion plants they need](#v02-companion-plants-first) as crops; hot pepper; fall sowing windows; `soilPh` per crop | Companion advice from data instead of only household-entered pairs, fall crops in the calendar, and soil-test advice |
 | **v0.3** | About 150 crops: more vegetables and herbs, fruit and nut trees, cane fruit, and soft fruit; [common pests and diseases](#pests-and-diseases) linked to crops and companions | Orchard and bramble areas with real plants, a catalog broad enough for most home gardens, and pest advice on plant pages |
 | **Later** | Frost-free windows, names in other languages, crop icons | Worldwide climate support and a localized catalog |
 
@@ -81,6 +92,7 @@ Each pair then carries:
 | Per-value `confidence` | If needed | Sources are recorded per crop today, optionally per field; add confidence only if reviewers need it |
 | Crop icons (CC0, made for the project) | Later | Photos only from Wikimedia Commons, with per-image license stored alongside |
 | `deprecated: true` and `replacedBy: <id>` on a crop or variety | Before the first removal | Ids never change and files are never deleted (that would be a major release); a deprecated record points apps at its replacement so plantings can move |
+| `soilPh: { min, max }` per crop | v0.2 | Soil-test advice in the app: blueberries need 4.5–5.5, most vegetables 6.0–7.0, potatoes 5.0–6.5 |
 | Variety-level `scientificName` | With hot pepper (v0.2) | Hot pepper is its own crop, but habanero is *Capsicum chinense* while jalapeño and cayenne are *C. annuum*, so a variety needs its own species |
 | A fall sowing window (`fallSow`) | v0.2 | Lettuce, peas, radish, and spinach are sown again for fall; each method has one window today |
 | Mature height (`heightCm`) | v0.3 | Planning borders and shade (corn, pole beans, sunflowers) |
@@ -112,6 +124,27 @@ in [sources.yaml](sources.yaml).
 **Not used:** Growstuff, Permapeople, and Practical Plants (CC BY-SA would
 force the whole dataset to BY-SA), PFAF (restrictive terms), and Perenual
 (needs a key, and its zone and sowing data is thin).
+
+## Data quality checks
+
+Added to `scripts/catalog.mjs` and CI before outside contributions start:
+
+- **Spacing ranges by habit**, to catch inches entered as centimetres (a
+  tomato at `inRow: 18` passes every rule today): herbaceous 2–150 cm, vines
+  15–300, shrubs 60–400, trees 150–1,200. Outliers fail with a hint.
+- **Consistency rules:** a variety's days to maturity within its crop's
+  range; a frost-tender perennial not hardy below zone 9; minimum soil
+  temperature no higher than the optimal air temperature. All 50 v0.1 crops
+  pass these today.
+- **`wikidataId` per crop** (`Q…`), checked against the name by
+  `verify:wikidata`. Names on Wikidata can be corrected or merged; the item
+  id stays fixed, and it makes filling names in other languages simple.
+- **A completeness report** in the CI summary: which optional fields each crop
+  lacks. Trees and perennials leave some out on purpose.
+- **A schema for the release file** (`open-garden-catalog-<version>.json`),
+  attached to each release, so other apps can validate what they download.
+- **A Prettier check** in CI, so formatting does not drift as contributors
+  join.
 
 ## Pipeline and process
 
