@@ -1,0 +1,30 @@
+id: sweet-potato
+names:
+  en: Sweet potato
+scientificName: Ipomoea batatas
+family: convolvulaceae
+habit: vine
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 30
+  betweenRows: 90
+temperatureC: { min: 18, optimal: 27, max: 35 }
+minSoilTemperatureC: 18
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  transplant: { frost: last, weeksEarliest: 2, weeksLatest: 4 }
+daysToMaturity: { min: 90, max: 120 }
+varieties:
+  - id: sweet-potato-beauregard
+    name: Beauregard
+    daysToMaturity: { min: 90, max: 100 }
+notes: Grown from slips (rooted sprouts) rather than seed; indoor start here means sprouting slips from a stored root. Needs warm soil and a long season. Too much nitrogen gives leaves instead of roots. Cure the roots somewhere warm for a week or two before storing.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

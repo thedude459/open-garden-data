@@ -8,12 +8,18 @@
 - id: apiaceae
   name: Apiaceae
   commonName: Carrot family (carrot, parsnip, celery, dill)
+- id: asparagaceae
+  name: Asparagaceae
+  commonName: Asparagus family (asparagus)
 - id: asteraceae
   name: Asteraceae
   commonName: Daisy family (lettuce, sunflower, endive)
 - id: brassicaceae
   name: Brassicaceae
   commonName: Cabbage family (cabbage, kale, broccoli, radish)
+- id: convolvulaceae
+  name: Convolvulaceae
+  commonName: Morning glory family (sweet potato)
 - id: cucurbitaceae
   name: Cucurbitaceae
   commonName: Gourd family (cucumber, squash, melon)
@@ -23,9 +29,15 @@
 - id: lamiaceae
   name: Lamiaceae
   commonName: Mint family (basil, mint, oregano)
+- id: malvaceae
+  name: Malvaceae
+  commonName: Mallow family (okra)
 - id: poaceae
   name: Poaceae
   commonName: Grass family (corn)
+- id: polygonaceae
+  name: Polygonaceae
+  commonName: Knotweed family (rhubarb)
 - id: rosaceae
   name: Rosaceae
   commonName: Rose family (apple, pear, strawberry, raspberry)

@@ -1,0 +1,32 @@
+id: oregano
+names:
+  en: Oregano
+scientificName: Origanum vulgare
+family: lamiaceae
+habit: herbaceous
+use: herb
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 5, max: 9 }
+sun: full
+water: low
+feeding: light
+spacingCm:
+  inRow: 30
+  betweenRows: 45
+sowingDepthCm: 0.3
+germinationDays: { min: 7, max: 14 }
+temperatureC: { min: 7, optimal: 21, max: 29 }
+minSoilTemperatureC: 13
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+daysToMaturity: { min: 60, max: 90 }
+varieties:
+  - id: oregano-greek
+    name: Greek
+notes: Flavor is strongest in lean, well-drained soil and full sun. Seed needs light to germinate, so press it onto the surface. Cut back after flowering.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
