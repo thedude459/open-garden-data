@@ -9,6 +9,7 @@ lifeCycle: annual
 frostTolerance: tender
 sun: full
 water: moderate
+feeding: heavy
 spacingCm:
   inRow: 50
   betweenRows: 90
