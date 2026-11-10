@@ -1,0 +1,26 @@
+id: blackberry
+names:
+  en: Blackberry
+scientificName: Rubus fruticosus
+family: rosaceae
+habit: cane
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 5, max: 9 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 90
+  betweenRows: 300
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: blackberry-triple-crown
+    name: Triple Crown
+notes: Canes fruit in their second year, then die back; cut them out after harvest. Thornless trailing types such as Triple Crown need a trellis. Rubus fruticosus names the wider blackberry group; garden blackberries are hybrids within it.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

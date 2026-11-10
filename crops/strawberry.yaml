@@ -1,0 +1,26 @@
+id: strawberry
+names:
+  en: Strawberry
+scientificName: Fragaria × ananassa
+family: rosaceae
+habit: herbaceous
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 4, max: 9 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 30
+  betweenRows: 90
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: strawberry-albion
+    name: Albion
+notes: Planted as bare-root crowns, with the crown level with the soil. June-bearing types fruit once a year from the second season; remove their first-year flowers. Day-neutral types such as Albion fruit through summer from the first year. Replant every three or four years as yields fall.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

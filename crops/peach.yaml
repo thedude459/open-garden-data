@@ -1,0 +1,26 @@
+id: peach
+names:
+  en: Peach
+scientificName: Prunus persica
+family: rosaceae
+habit: tree
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 5, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 450
+  betweenRows: 550
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: peach-redhaven
+    name: Redhaven
+notes: Self-fertile, so one tree is enough. It blooms early, and a late spring frost can take the crop even where the tree itself is hardy; plant on a slope rather than in a frost pocket. Fruits on last year's wood, so prune every year to an open centre.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

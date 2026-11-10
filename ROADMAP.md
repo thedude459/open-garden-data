@@ -31,7 +31,7 @@ shrub so the app's area rules have real plants to check.
   corn, celery, parsnip, sweet potato, okra, asparagus, rhubarb
 - **Herbs (8):** basil, parsley, cilantro, dill, chives, thyme, oregano, mint
 - **Fruit (8):** strawberry, raspberry, blackberry, blueberry, apple, pear,
-  peach, cherry
+  peach, sweet cherry
 
 Each crop needs at least: English name, scientific name, family, habit, use,
 life cycle, frost tolerance, sun, water, feeding (light, moderate, or heavy),

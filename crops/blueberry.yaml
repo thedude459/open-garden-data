@@ -1,0 +1,26 @@
+id: blueberry
+names:
+  en: Blueberry
+scientificName: Vaccinium corymbosum
+family: ericaceae
+habit: shrub
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 4, max: 7 }
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 120
+  betweenRows: 240
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: blueberry-bluecrop
+    name: Bluecrop
+notes: Needs acid soil, around pH 4.5 to 5.5; most garden soil must be amended or the plants grown in raised beds of acid mix. Shallow roots like mulch and steady moisture. Two different varieties crop better than one. Values are for northern highbush; rabbiteye and southern highbush suit warmer zones.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

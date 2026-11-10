@@ -1,0 +1,26 @@
+id: sweet-cherry
+names:
+  en: Sweet cherry
+scientificName: Prunus avium
+family: rosaceae
+habit: tree
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 5, max: 7 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 450
+  betweenRows: 550
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: sweet-cherry-stella
+    name: Stella
+notes: Most sweet cherries need a pollination partner; Stella is self-fertile. Net trees as fruit colours, or birds take the crop. Sour cherries (Prunus cerasus) are hardier and self-fertile, and are a separate crop.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

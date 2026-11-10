@@ -1,0 +1,26 @@
+id: apple
+names:
+  en: Apple
+scientificName: Malus domestica
+family: rosaceae
+habit: tree
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 360
+  betweenRows: 450
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: apple-honeycrisp
+    name: Honeycrisp
+notes: Spacing suits a semi-dwarf tree; the rootstock sets the final size, so check it when buying. Most apples need a second, different variety nearby that blooms at the same time. Trees start fruiting in two to five years.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
