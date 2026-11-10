@@ -1,0 +1,33 @@
+id: winter-squash
+names:
+  en: Winter squash
+scientificName: Cucurbita moschata
+family: cucurbitaceae
+habit: vine
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: heavy
+spacingCm:
+  inRow: 90
+  betweenRows: 180
+sowingDepthCm: 2.5
+germinationDays: { min: 5, max: 10 }
+temperatureC: { min: 15, optimal: 24, max: 32 }
+minSoilTemperatureC: 16
+windows:
+  indoorStart: { frost: last, weeksEarliest: -4, weeksLatest: -3 }
+  directSow: { frost: last, weeksEarliest: 1, weeksLatest: 3 }
+  transplant: { frost: last, weeksEarliest: 1, weeksLatest: 3 }
+daysToMaturity: { min: 80, max: 110 }
+varieties:
+  - id: winter-squash-waltham-butternut
+    name: Waltham Butternut
+    daysToMaturity: { min: 100, max: 110 }
+notes: Sprawling vines grown for storage. Winter squash covers several Cucurbita species; these values suit butternut types and are close for acorn and buttercup. Harvest when the rind resists a fingernail, before frost, and cure in the sun for storage.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

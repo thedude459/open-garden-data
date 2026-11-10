@@ -1,0 +1,32 @@
+id: cauliflower
+names:
+  en: Cauliflower
+scientificName: Brassica oleracea var. botrytis
+family: brassicaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: half-hardy
+sun: full
+water: moderate
+feeding: heavy
+spacingCm:
+  inRow: 45
+  betweenRows: 75
+sowingDepthCm: 1
+germinationDays: { min: 5, max: 10 }
+temperatureC: { min: 4, optimal: 18, max: 24 }
+minSoilTemperatureC: 7
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 1 }
+daysToMaturity: { min: 55, max: 80 }
+varieties:
+  - id: cauliflower-snowball
+    name: Snowball
+    daysToMaturity: { min: 60, max: 70 }
+notes: The fussiest of the cabbage family. Heat, drought, or a check in growth gives small, early heads. Fold the inner leaves over the head once it shows to keep it white.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

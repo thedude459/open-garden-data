@@ -1,0 +1,33 @@
+id: watermelon
+names:
+  en: Watermelon
+scientificName: Citrullus lanatus
+family: cucurbitaceae
+habit: vine
+use: fruit
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 60
+  betweenRows: 180
+sowingDepthCm: 2
+germinationDays: { min: 4, max: 12 }
+temperatureC: { min: 18, optimal: 27, max: 35 }
+minSoilTemperatureC: 21
+windows:
+  indoorStart: { frost: last, weeksEarliest: -4, weeksLatest: -3 }
+  directSow: { frost: last, weeksEarliest: 2, weeksLatest: 4 }
+  transplant: { frost: last, weeksEarliest: 2, weeksLatest: 4 }
+daysToMaturity: { min: 70, max: 100 }
+varieties:
+  - id: watermelon-sugar-baby
+    name: Sugar Baby
+    daysToMaturity: { min: 75, max: 80 }
+notes: Needs heat and space; small "icebox" types such as Sugar Baby suit shorter seasons. Ripe when the spot resting on the ground turns creamy yellow and the nearest tendril dries.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

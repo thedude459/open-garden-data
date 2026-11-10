@@ -1,0 +1,31 @@
+id: swiss-chard
+names:
+  en: Swiss chard
+scientificName: Beta vulgaris subsp. vulgaris
+family: amaranthaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: half-hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 25
+  betweenRows: 45
+sowingDepthCm: 1.3
+germinationDays: { min: 5, max: 14 }
+temperatureC: { min: 4, optimal: 18, max: 27 }
+minSoilTemperatureC: 7
+windows:
+  directSow: { frost: last, weeksEarliest: -2, weeksLatest: 3 }
+daysToMaturity: { min: 50, max: 60 }
+varieties:
+  - id: swiss-chard-bright-lights
+    name: Bright Lights
+    daysToMaturity: { min: 55, max: 60 }
+notes: Leafy beet relative grown for its leaves and stems. Pick outer leaves and it keeps producing from spring into fall; it tolerates more heat than spinach.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

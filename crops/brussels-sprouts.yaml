@@ -1,0 +1,32 @@
+id: brussels-sprouts
+names:
+  en: Brussels sprouts
+scientificName: Brassica oleracea var. gemmifera
+family: brassicaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: heavy
+spacingCm:
+  inRow: 60
+  betweenRows: 90
+sowingDepthCm: 1
+germinationDays: { min: 5, max: 10 }
+temperatureC: { min: 4, optimal: 18, max: 24 }
+minSoilTemperatureC: 7
+windows:
+  indoorStart: { frost: last, weeksEarliest: -6, weeksLatest: -4 }
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 2 }
+daysToMaturity: { min: 90, max: 110 }
+varieties:
+  - id: brussels-sprouts-long-island-improved
+    name: Long Island Improved
+    daysToMaturity: { min: 90, max: 100 }
+notes: A long-season crop for a fall harvest; frost improves the flavor. Pick sprouts from the bottom of the stem up as they firm.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

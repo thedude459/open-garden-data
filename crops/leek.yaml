@@ -1,0 +1,32 @@
+id: leek
+names:
+  en: Leek
+scientificName: Allium ampeloprasum
+family: amaryllidaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 15
+  betweenRows: 40
+sowingDepthCm: 0.6
+germinationDays: { min: 7, max: 14 }
+temperatureC: { min: 4, optimal: 18, max: 24 }
+minSoilTemperatureC: 7
+windows:
+  indoorStart: { frost: last, weeksEarliest: -12, weeksLatest: -10 }
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+daysToMaturity: { min: 90, max: 120 }
+varieties:
+  - id: leek-american-flag
+    name: American Flag
+    daysToMaturity: { min: 100, max: 120 }
+notes: Plant seedlings deep, or mound soil around the stems as they grow, to get long white shanks. Stands in the ground through frost for a late harvest.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
