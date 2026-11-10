@@ -1,0 +1,33 @@
+id: summer-squash
+names:
+  en: Summer squash
+scientificName: Cucurbita pepo
+family: cucurbitaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: heavy
+spacingCm:
+  inRow: 90
+  betweenRows: 120
+sowingDepthCm: 2.5
+germinationDays: { min: 5, max: 10 }
+temperatureC: { min: 15, optimal: 24, max: 32 }
+minSoilTemperatureC: 16
+windows:
+  indoorStart: { frost: last, weeksEarliest: -4, weeksLatest: -3 }
+  directSow: { frost: last, weeksEarliest: 1, weeksLatest: 3 }
+  transplant: { frost: last, weeksEarliest: 1, weeksLatest: 3 }
+daysToMaturity: { min: 45, max: 60 }
+varieties:
+  - id: summer-squash-black-beauty
+    name: Black Beauty
+    daysToMaturity: { min: 50, max: 60 }
+notes: Bush-type plants, including zucchini. Pick fruit young and often; one or two plants feed most households.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
