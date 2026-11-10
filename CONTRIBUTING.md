@@ -14,9 +14,37 @@ the Open Garden app to contribute: everything here is YAML.
   Growstuff, Permapeople, Practical Plants, or PFAF: they would force the
   whole dataset to change license.
 - **Name the source.** Every crop lists its `sources`; add a new source to
-  `sources.yaml` with its license before using it.
+  `sources.yaml` before using it. A source needs a license the validator
+  allows (CC0-1.0 or public domain) and a kind:
+  - `reference`: authoritative taxonomy such as Wikidata or USDA PLANTS. Each
+    crop's scientific name and family must be credited to one.
+  - `curation`: values contributors wrote and checked in their own words.
+  - `bootstrap`: a starting point such as the OpenFarm archive. It counts only
+    alongside `curation`, meaning someone checked it.
+- **Names are checked against Wikidata.** `npm run verify:wikidata` (and CI on
+  every crop change) confirms each scientific name exists there and has the
+  family we list.
 - **Say where advice applies.** Windows assume a temperate climate with frost.
   Put regional caveats in `notes`.
+
+## Ids never change
+
+A crop's `id` and a variety's `id` are permanent once released: apps use them
+as keys, and renaming one looks to an app like deleting a plant and adding a
+new one, which orphans what people planted. Fix a name in `names`, not in the
+id. Choose ids with care: lower-case, hyphenated, the common English name
+(`pole-bean`, `tomato-cherry`).
+
+## What counts as a breaking change
+
+Releases follow semver, and apps importing the catalog rely on it:
+
+- **Minor (0.x → 0.x+1, or 1.2 → 1.3):** adding crops, varieties, families,
+  sources, companion pairs, optional fields, or new values in a list such as
+  `use` or `habit`. Apps must ignore fields they do not know and skip a crop
+  they cannot read, rather than refuse the whole file.
+- **Major:** removing or renaming a field, an id, or a list value; making an
+  optional field required; changing a unit or what a field means.
 
 ## Your contribution is CC0
 

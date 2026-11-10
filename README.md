@@ -37,8 +37,10 @@ provenance attestation. Verify a download with:
 gh attestation verify open-garden-catalog-0.1.0.json --owner thedude459
 ```
 
-Versions follow semver: a new major version means a field was removed or
-changed meaning; minor versions add crops or fields.
+Versions follow semver: minor versions add crops, fields, or list values; a
+major version removes or renames something or changes what it means. Crop and
+variety ids never change. Apps should skip records they cannot read rather
+than refuse the file. See [CONTRIBUTING.md](CONTRIBUTING.md#what-counts-as-a-breaking-change).
 
 ## Working on the data
 
