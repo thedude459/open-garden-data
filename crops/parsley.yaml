@@ -1,0 +1,32 @@
+id: parsley
+names:
+  en: Parsley
+scientificName: Petroselinum crispum
+family: apiaceae
+habit: herbaceous
+use: herb
+lifeCycle: biennial
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 20
+  betweenRows: 40
+sowingDepthCm: 0.6
+germinationDays: { min: 14, max: 28 }
+temperatureC: { min: 4, optimal: 18, max: 27 }
+minSoilTemperatureC: 10
+windows:
+  indoorStart: { frost: last, weeksEarliest: -10, weeksLatest: -8 }
+  directSow: { frost: last, weeksEarliest: -3, weeksLatest: 0 }
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 1 }
+daysToMaturity: { min: 60, max: 90 }
+varieties:
+  - id: parsley-giant-of-italy
+    name: Giant of Italy
+notes: Very slow to germinate; soaking seed overnight helps. Grows in part shade. It flowers and turns bitter in its second year, so most gardeners sow it fresh each year.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

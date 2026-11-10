@@ -1,0 +1,30 @@
+id: potato
+names:
+  en: Potato
+scientificName: Solanum tuberosum
+family: solanaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: half-hardy
+sun: full
+water: moderate
+feeding: heavy
+spacingCm:
+  inRow: 30
+  betweenRows: 75
+sowingDepthCm: 10
+temperatureC: { min: 7, optimal: 18, max: 27 }
+minSoilTemperatureC: 7
+windows:
+  directSow: { frost: last, weeksEarliest: -3, weeksLatest: 0 }
+daysToMaturity: { min: 70, max: 120 }
+varieties:
+  - id: potato-yukon-gold
+    name: Yukon Gold
+    daysToMaturity: { min: 70, max: 90 }
+notes: Grown from seed potatoes (tubers or pieces with eyes), not seed. Mound soil over the stems as they grow so tubers stay covered and green-free. Frost kills the leaves, but the tubers underground survive a light frost.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
