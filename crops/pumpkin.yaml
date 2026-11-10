@@ -1,0 +1,33 @@
+id: pumpkin
+names:
+  en: Pumpkin
+scientificName: Cucurbita pepo
+family: cucurbitaceae
+habit: vine
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: heavy
+spacingCm:
+  inRow: 120
+  betweenRows: 240
+sowingDepthCm: 2.5
+germinationDays: { min: 5, max: 10 }
+temperatureC: { min: 15, optimal: 24, max: 32 }
+minSoilTemperatureC: 16
+windows:
+  indoorStart: { frost: last, weeksEarliest: -4, weeksLatest: -3 }
+  directSow: { frost: last, weeksEarliest: 1, weeksLatest: 3 }
+  transplant: { frost: last, weeksEarliest: 1, weeksLatest: 3 }
+daysToMaturity: { min: 90, max: 120 }
+varieties:
+  - id: pumpkin-connecticut-field
+    name: Connecticut Field
+    daysToMaturity: { min: 110, max: 120 }
+notes: Needs a lot of room. Count back from your first frost so fruit ripens in time; harvest when the skin is hard and the stem starts to dry.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

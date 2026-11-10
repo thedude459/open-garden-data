@@ -1,0 +1,32 @@
+id: celery
+names:
+  en: Celery
+scientificName: Apium graveolens var. dulce
+family: apiaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: half-hardy
+sun: full
+water: high
+feeding: heavy
+spacingCm:
+  inRow: 25
+  betweenRows: 60
+sowingDepthCm: 0.3
+germinationDays: { min: 14, max: 21 }
+temperatureC: { min: 7, optimal: 18, max: 24 }
+minSoilTemperatureC: 10
+windows:
+  indoorStart: { frost: last, weeksEarliest: -12, weeksLatest: -10 }
+  transplant: { frost: last, weeksEarliest: 1, weeksLatest: 3 }
+daysToMaturity: { min: 90, max: 120 }
+varieties:
+  - id: celery-tall-utah
+    name: Tall Utah
+    daysToMaturity: { min: 100, max: 120 }
+notes: Needs steady moisture and rich soil. Seed needs light to germinate, so press it onto the surface. Plant out after nights warm up; a long cold spell can make it bolt.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

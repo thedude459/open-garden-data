@@ -1,0 +1,31 @@
+id: sweet-corn
+names:
+  en: Sweet corn
+scientificName: Zea mays
+family: poaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: heavy
+spacingCm:
+  inRow: 25
+  betweenRows: 75
+sowingDepthCm: 3
+germinationDays: { min: 4, max: 10 }
+temperatureC: { min: 10, optimal: 24, max: 35 }
+minSoilTemperatureC: 16
+windows:
+  directSow: { frost: last, weeksEarliest: 1, weeksLatest: 3 }
+daysToMaturity: { min: 65, max: 90 }
+varieties:
+  - id: sweet-corn-golden-bantam
+    name: Golden Bantam
+    daysToMaturity: { min: 75, max: 85 }
+notes: Wind-pollinated, so plant a block of several short rows rather than one long row. Keep supersweet types apart from other corn, and give them warmer soil.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
