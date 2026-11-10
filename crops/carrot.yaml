@@ -1,0 +1,31 @@
+id: carrot
+names:
+  en: Carrot
+scientificName: Daucus carota subsp. sativus
+family: apiaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: half-hardy
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 5
+  betweenRows: 30
+sowingDepthCm: 0.6
+germinationDays: { min: 10, max: 21 }
+temperatureC: { min: 7, optimal: 18, max: 27 }
+minSoilTemperatureC: 7
+windows:
+  directSow: { frost: last, weeksEarliest: -3, weeksLatest: 2 }
+daysToMaturity: { min: 60, max: 80 }
+varieties:
+  - id: carrot-danvers
+    name: Danvers
+    daysToMaturity: { min: 65, max: 75 }
+notes: Sow where it will grow; carrots do not transplant. Keep the seedbed moist until seedlings appear, and thin to the in-row spacing. Grown as an annual; it flowers in its second year.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

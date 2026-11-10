@@ -1,0 +1,31 @@
+id: pea
+names:
+  en: Pea
+scientificName: Pisum sativum
+family: fabaceae
+habit: vine
+use: vegetable
+lifeCycle: annual
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 5
+  betweenRows: 45
+sowingDepthCm: 2.5
+germinationDays: { min: 7, max: 14 }
+temperatureC: { min: 4, optimal: 16, max: 24 }
+minSoilTemperatureC: 4
+windows:
+  directSow: { frost: last, weeksEarliest: -6, weeksLatest: -2 }
+daysToMaturity: { min: 55, max: 70 }
+varieties:
+  - id: pea-sugar-snap
+    name: Sugar Snap
+    daysToMaturity: { min: 60, max: 70 }
+notes: A cool-season crop sown as soon as the soil can be worked in spring; it stops cropping in summer heat. Most types climb and need netting or twiggy supports.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

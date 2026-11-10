@@ -1,0 +1,31 @@
+id: bush-bean
+names:
+  en: Bush bean
+scientificName: Phaseolus vulgaris
+family: fabaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 10
+  betweenRows: 45
+sowingDepthCm: 2.5
+germinationDays: { min: 6, max: 10 }
+temperatureC: { min: 10, optimal: 24, max: 32 }
+minSoilTemperatureC: 16
+windows:
+  directSow: { frost: last, weeksEarliest: 1, weeksLatest: 4 }
+daysToMaturity: { min: 50, max: 60 }
+varieties:
+  - id: bush-bean-provider
+    name: Provider
+    daysToMaturity: { min: 50, max: 55 }
+notes: Compact plants that need no support and crop over a few weeks. Seed rots in cold, wet soil, so wait for it to warm.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

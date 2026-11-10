@@ -1,0 +1,28 @@
+id: garlic
+names:
+  en: Garlic
+scientificName: Allium sativum
+family: amaryllidaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 9 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 15
+  betweenRows: 30
+sowingDepthCm: 5
+windows:
+  directSow: { frost: first, weeksEarliest: -2, weeksLatest: 4 }
+daysToMaturity: { min: 240, max: 270 }
+varieties:
+  - id: garlic-music
+    name: Music
+notes: Grown from cloves planted in fall, pointed end up, and harvested the next summer when the lower leaves turn brown. Grown as an annual crop. Hardneck types such as Music suit cold winters; softneck types suit mild ones.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

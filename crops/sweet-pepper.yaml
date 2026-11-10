@@ -1,0 +1,32 @@
+id: sweet-pepper
+names:
+  en: Sweet pepper
+scientificName: Capsicum annuum
+family: solanaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 45
+  betweenRows: 75
+sowingDepthCm: 0.6
+germinationDays: { min: 7, max: 21 }
+temperatureC: { min: 15, optimal: 24, max: 32 }
+minSoilTemperatureC: 18
+windows:
+  indoorStart: { frost: last, weeksEarliest: -10, weeksLatest: -8 }
+  transplant: { frost: last, weeksEarliest: 2, weeksLatest: 4 }
+daysToMaturity: { min: 60, max: 90 }
+varieties:
+  - id: sweet-pepper-california-wonder
+    name: California Wonder
+    daysToMaturity: { min: 70, max: 75 }
+notes: Slow to germinate and needs warm soil. Plant out once nights stay above about 13 °C; cold nights stall growth.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

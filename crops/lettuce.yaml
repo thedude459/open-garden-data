@@ -1,0 +1,33 @@
+id: lettuce
+names:
+  en: Lettuce
+scientificName: Lactuca sativa
+family: asteraceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: half-hardy
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 25
+  betweenRows: 40
+sowingDepthCm: 0.3
+germinationDays: { min: 4, max: 10 }
+temperatureC: { min: 4, optimal: 18, max: 24 }
+minSoilTemperatureC: 4
+windows:
+  indoorStart: { frost: last, weeksEarliest: -6, weeksLatest: -4 }
+  directSow: { frost: last, weeksEarliest: -4, weeksLatest: 0 }
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 1 }
+daysToMaturity: { min: 45, max: 75 }
+varieties:
+  - id: lettuce-buttercrunch
+    name: Buttercrunch
+    daysToMaturity: { min: 55, max: 65 }
+notes: A cool-season crop that bolts in summer heat. Sow small batches every two to three weeks; part shade helps in hot climates. Seed needs light to germinate, so cover it only lightly.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

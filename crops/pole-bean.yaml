@@ -1,0 +1,31 @@
+id: pole-bean
+names:
+  en: Pole bean
+scientificName: Phaseolus vulgaris
+family: fabaceae
+habit: vine
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 15
+  betweenRows: 75
+sowingDepthCm: 2.5
+germinationDays: { min: 6, max: 10 }
+temperatureC: { min: 10, optimal: 24, max: 32 }
+minSoilTemperatureC: 16
+windows:
+  directSow: { frost: last, weeksEarliest: 1, weeksLatest: 4 }
+daysToMaturity: { min: 60, max: 70 }
+varieties:
+  - id: pole-bean-kentucky-wonder
+    name: Kentucky Wonder
+    daysToMaturity: { min: 60, max: 70 }
+notes: Climbing vines that need a pole, trellis, or teepee about 2 m tall. Slower to start than bush beans but keep cropping until frost if picked often.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
