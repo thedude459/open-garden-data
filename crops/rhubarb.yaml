@@ -1,0 +1,27 @@
+id: rhubarb
+names:
+  en: Rhubarb
+scientificName: Rheum × hybridum
+family: polygonaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 8 }
+sun: full
+water: moderate
+feeding: heavy
+spacingCm:
+  inRow: 90
+  betweenRows: 120
+sowingDepthCm: 5
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: rhubarb-victoria
+    name: Victoria
+notes: Planted as crowns, with the buds just below the surface. Eat only the stalks; the leaves are poisonous. Skip harvest the first year, then pull stalks in spring and early summer. Needs a cold winter to do well.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

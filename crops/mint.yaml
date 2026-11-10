@@ -1,0 +1,26 @@
+id: mint
+names:
+  en: Mint
+scientificName: Mentha spicata
+family: lamiaceae
+habit: herbaceous
+use: herb
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 4, max: 9 }
+sun: full
+water: high
+feeding: light
+spacingCm:
+  inRow: 45
+  betweenRows: 60
+windows:
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 1 }
+varieties:
+  - id: mint-spearmint
+    name: Spearmint
+notes: Spreads fast by underground runners; grow it in a container or a pot sunk in the bed. Usually planted from divisions or nursery plants, since it does not come true from seed. Tolerates part shade.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

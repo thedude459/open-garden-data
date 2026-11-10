@@ -1,0 +1,30 @@
+id: chives
+names:
+  en: Chives
+scientificName: Allium schoenoprasum
+family: amaryllidaceae
+habit: herbaceous
+use: herb
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 9 }
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 20
+  betweenRows: 30
+sowingDepthCm: 0.6
+germinationDays: { min: 7, max: 14 }
+temperatureC: { min: 4, optimal: 18, max: 27 }
+minSoilTemperatureC: 10
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  directSow: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 1 }
+daysToMaturity: { min: 60, max: 90 }
+notes: Cut leaves to a few centimetres above the soil and they regrow all season. Divide clumps every few years. The flowers are edible too.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
