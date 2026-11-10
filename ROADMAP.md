@@ -95,6 +95,7 @@ Each pair then carries:
 | `soilPh: { min, max }` per crop | v0.2 | Soil-test advice in the app: blueberries need 4.5–5.5, most vegetables 6.0–7.0, potatoes 5.0–6.5 |
 | `cropCoefficients`: `{ initial, mid, late }` crop coefficients (Kc) and the length of each growth stage in days | v0.2 | Watering by water balance in the app: daily water use = reference evapotranspiration (ET₀) × Kc for the stage, minus rain. FAO-56 publishes Kc and stage lengths for common crops; write them in our own words and cite it |
 | Seeding data: `seedsPerGram` and typical `germinationRate` | v0.3 | Seed inventory and a seeds-needed calculator ("this bed needs about 2 g of carrot seed"); in-row spacing and the bed size give the plant count |
+| Sensor ranges: `soilMoisturePercent: { min, max }` and `lightDli: { min, max }` (daily light integral, mol/m²/day) | v0.3 | Open Garden judges moisture and light sensor readings against the crop (`temperatureC` already covers temperature). Values from CC0-compatible sources in our own words; Open Plantbook's ranges need an account and are not CC0, so they cannot be used |
 | Variety-level `scientificName` | With hot pepper (v0.2) | Hot pepper is its own crop, but habanero is *Capsicum chinense* while jalapeño and cayenne are *C. annuum*, so a variety needs its own species |
 | A fall sowing window (`fallSow`) | v0.2 | Lettuce, peas, radish, and spinach are sown again for fall; each method has one window today |
 | Mature height (`heightCm`) | v0.3 | Planning borders and shade (corn, pole beans, sunflowers) |
