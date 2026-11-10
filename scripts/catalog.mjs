@@ -11,6 +11,10 @@ import { parse } from 'yaml';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const COMPANION_KINDS = new Set(['helps', 'hinders', 'attracts-pollinators']);
+/** Licenses whose terms allow CC0 output. Anything else (BY-SA, NC, unknown) is refused. */
+const ALLOWED_LICENSES = new Set(['CC0-1.0', 'Public domain']);
+const SOURCE_KINDS = new Set(['reference', 'curation', 'bootstrap']);
+const ROOTSTOCK_ORDER = ['dwarf', 'semiDwarf', 'standard'];
 
 /** Read every data file under `dir`. */
 export function load(dir = ROOT) {
@@ -34,6 +38,16 @@ export function validate(data, schema = readSchema()) {
   const check = new Ajv2020({ allErrors: true, strict: true }).compile(schema);
   const familyIds = idSet(data.families, 'families.yaml', errors);
   const sourceIds = idSet(data.sources, 'sources.yaml', errors);
+  const sourceKind = new Map();
+  for (const src of Array.isArray(data.sources) ? data.sources : []) {
+    if (!ALLOWED_LICENSES.has(src?.license)) {
+      errors.push(`sources.yaml: "${src?.id}" has license "${src?.license}"; only ${[...ALLOWED_LICENSES].join(', ')} allow CC0 output`);
+    }
+    if (!SOURCE_KINDS.has(src?.kind)) {
+      errors.push(`sources.yaml: "${src?.id}" needs a kind: ${[...SOURCE_KINDS].join(', ')}`);
+    }
+    sourceKind.set(src?.id, src?.kind);
+  }
   const cropIds = new Set();
   const varietyIds = new Set();
   const englishNames = new Map();
@@ -56,6 +70,8 @@ export function validate(data, schema = readSchema()) {
     for (const s of crop.sources) {
       if (!sourceIds.has(s.source)) errors.push(`${at}: unknown source "${s.source}"`);
     }
+    errors.push(...checkProvenance(at, crop, sourceKind));
+    errors.push(...checkPlausible(at, crop));
     for (const [method, w] of Object.entries(crop.windows)) {
       if (w.weeksEarliest > w.weeksLatest) errors.push(`${at}: windows.${method} starts after it ends`);
     }
@@ -125,6 +141,62 @@ export function build(data, version) {
     crops: data.crops.map((c) => c.crop),
     companions: data.companions,
   };
+}
+
+/** Taxonomy must come from a reference source; a bootstrap source needs a curator too. */
+function checkProvenance(at, crop, sourceKind) {
+  const errors = [];
+  for (const field of ['scientificName', 'family']) {
+    const backed = crop.sources.some((s) => sourceKind.get(s.source) === 'reference' && s.fields?.includes(field));
+    if (!backed) errors.push(`${at}: ${field} must be credited to a reference source (fields: [${field}])`);
+  }
+  const kinds = new Set(crop.sources.map((s) => sourceKind.get(s.source)));
+  if (kinds.has('bootstrap') && !kinds.has('curation')) {
+    errors.push(`${at}: a bootstrap source must be checked by a curator; add the curation source`);
+  }
+  return errors;
+}
+
+/** Values that pass the schema but cannot be right. */
+function checkPlausible(at, crop) {
+  const errors = [];
+  const { indoorStart, directSow, transplant } = crop.windows;
+  if (crop.frostTolerance === 'tender') {
+    for (const [method, w] of [['directSow', directSow], ['transplant', transplant]]) {
+      if (w?.frost === 'last' && w.weeksEarliest < 0) {
+        errors.push(`${at}: a frost-tender crop cannot go outside before the last frost (windows.${method})`);
+      }
+    }
+  }
+  if (indoorStart && !transplant) {
+    errors.push(`${at}: an indoor start needs a transplant window for the seedlings`);
+  }
+  if (indoorStart && transplant && indoorStart.frost === transplant.frost && indoorStart.weeksLatest >= transplant.weeksEarliest) {
+    errors.push(`${at}: indoor start must end before transplanting begins`);
+  }
+  if (crop.germinationDays && crop.daysToMaturity && crop.germinationDays.max >= crop.daysToMaturity.min) {
+    errors.push(`${at}: germination must finish before the crop matures`);
+  }
+  const rows = [['spacingCm', crop.spacingCm], ...(crop.varieties ?? []).map((v) => [`variety "${v.id}" spacingCm`, v.spacingCm])];
+  for (const [size, r] of Object.entries(crop.rootstocks ?? {})) rows.push([`rootstocks.${size}.spacingCm`, r.spacingCm]);
+  for (const [where, sp] of rows) {
+    if (sp?.betweenRows !== undefined && sp.betweenRows < sp.inRow) errors.push(`${at}: ${where} rows cannot be closer than plants in a row`);
+  }
+  if (crop.rootstocks) {
+    const present = ROOTSTOCK_ORDER.filter((k) => crop.rootstocks[k]).map((k) => [k, crop.rootstocks[k]]);
+    for (let i = 1; i < present.length; i++) {
+      const [smallName, small] = present[i - 1];
+      const [bigName, big] = present[i];
+      if (small.spacingCm.inRow > big.spacingCm.inRow || (small.heightM && big.heightM && small.heightM.max > big.heightM.max)) {
+        errors.push(`${at}: rootstocks.${smallName} must be no larger than rootstocks.${bigName}`);
+      }
+    }
+    const semi = crop.rootstocks.semiDwarf;
+    if (semi && (semi.spacingCm.inRow !== crop.spacingCm.inRow || semi.spacingCm.betweenRows !== crop.spacingCm.betweenRows)) {
+      errors.push(`${at}: spacingCm is the default for an unknown rootstock and must match rootstocks.semiDwarf`);
+    }
+  }
+  return errors;
 }
 
 function idSet(list, file, errors) {
