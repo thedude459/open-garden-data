@@ -10,7 +10,7 @@ version each app feature needs.
 | Version | Content | The app uses it for |
 |---|---|---|
 | **v0.1** | Schema v1 and the [first 50 crops](#v01-the-first-50-crops), each with family, habit, use, spacing, and sowing windows | The catalog importer, sowing calendars, crop rotation by family, and typed areas (habit and use decide what an area accepts) |
-| **v0.2** | Companion pairs, each with a reason and a source | Companion advice from data instead of only household-entered pairs |
+| **v0.2** | Companion pairs, each with a reason and a source; hot pepper; fall sowing windows | Companion advice from data instead of only household-entered pairs, and fall crops in the calendar |
 | **v0.3** | About 150 crops: more vegetables and herbs, fruit and nut trees, cane fruit, and soft fruit | Orchard and bramble areas with real plants, and a catalog broad enough for most home gardens |
 | **Later** | Frost-free windows, names in other languages, crop icons | Worldwide climate support and a localized catalog |
 
@@ -56,6 +56,12 @@ on in an issue first so two people do not research the same crop.
 | Frost-free sowing by temperature or wet/dry season | Later | Windows tied to frost do not work where it never frosts; `minSoilTemperatureC` is the start |
 | Per-value `confidence` | If needed | Sources are recorded per crop today, optionally per field; add confidence only if reviewers need it |
 | Crop icons (CC0, made for the project) | Later | Photos only from Wikimedia Commons, with per-image license stored alongside |
+| `deprecated: true` and `replacedBy: <id>` on a crop or variety | Before the first removal | Ids never change and files are never deleted (that would be a major release); a deprecated record points apps at its replacement so plantings can move |
+| Variety-level `scientificName` | With hot pepper (v0.2) | Hot pepper is its own crop, but habanero is *Capsicum chinense* while jalapeño and cayenne are *C. annuum*, so a variety needs its own species |
+| A fall sowing window (`fallSow`) | v0.2 | Lettuce, peas, radish, and spinach are sown again for fall; each method has one window today |
+| Mature height (`heightCm`) | v0.3 | Planning borders and shade (corn, pole beans, sunflowers) |
+| Bloom season and a toxicity flag | With flowers | For flowers, days to maturity means days to bloom; a flag warns about plants harmful to pets or children |
+| New `use` values (cover crops, grains) | When needed | A minor release; apps skip what they cannot read |
 
 ## Sources
 
@@ -73,6 +79,23 @@ in [sources.yaml](sources.yaml).
 **Not used:** Growstuff, Permapeople, and Practical Plants (CC BY-SA would
 force the whole dataset to BY-SA), PFAF (restrictive terms), and Perenual
 (needs a key, and its zone and sowing data is thin).
+
+## Pipeline and process
+
+- **Release notes that say what changed.** Each release lists the crops and
+  varieties added, changed, and deprecated since the previous tag, generated
+  from the two builds and attached to the GitHub Release. Reviewers see the
+  impact, and Open Garden's planned "Catalog version" page can show the same
+  diff.
+- **Names in other languages from Wikidata.** Every crop is matched to a
+  Wikidata item, and Wikidata's labels are CC0. A script fills
+  `names.<locale>` for chosen languages; each addition is still reviewed in a
+  pull request.
+- **A required reviewer once there is a second contributor.** Add
+  `CODEOWNERS` so data pull requests need a review from someone other than
+  their author. Until then the maintainer reviews their own.
+- **Apps check each release.** Open Garden runs its importer against the
+  latest release on a schedule, so a release it cannot read is caught early.
 
 ## How changes get in
 
