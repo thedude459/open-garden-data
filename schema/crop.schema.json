@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/thedude459/open-garden-data/schema/crop.schema.json",
   "title": "Crop",
-  "description": "One crop (species level) with its varieties. Units are metric: centimetres and degrees Celsius.",
+  "description": "One crop: what gardeners grow as one kind (two crops may share a species, such as bush and pole beans), with its varieties. Units are metric: centimetres and degrees Celsius.",
   "type": "object",
   "additionalProperties": false,
   "required": [

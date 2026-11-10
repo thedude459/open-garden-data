@@ -15,7 +15,7 @@ catalog, but nothing here depends on that app.
 
 | Path | What it holds |
 |---|---|
-| `crops/<id>.yaml` | One crop (species level) per file, varieties nested |
+| `crops/<id>.yaml` | One crop per file (what gardeners grow as one kind), varieties nested |
 | `families.yaml` | Botanical families, used for crop rotation |
 | `companions.yaml` | Companion pairs: two crops, a kind, a reason, a source |
 | `sources.yaml` | Every source, with its license and URL |
@@ -49,4 +49,5 @@ npm test
 npm run build -- 0.1.0
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request, and
+[ROADMAP.md](ROADMAP.md) for which crops and fields are wanted next.
