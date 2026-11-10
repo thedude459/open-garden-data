@@ -21,7 +21,7 @@ holds the one order across both repositories. For this repository:
 | Version | Content | The app uses it for |
 |---|---|---|
 | **v0.1** | Schema v1 and the [first 50 crops](#v01-the-first-50-crops), each with family, habit, use, spacing, and sowing windows | The catalog importer, sowing calendars, crop rotation by family, and typed areas (habit and use decide what an area accepts) |
-| **v0.2** | Companion pairs, each with benefits, an evidence level, a reason, and a source; the [companion plants they need](#v02-companion-plants-first) as crops; hot pepper; fall sowing windows; `soilPh` per crop | Companion advice from data instead of only household-entered pairs, fall crops in the calendar, and soil-test advice |
+| **v0.2** | Companion pairs, each with benefits, an evidence level, a reason, and a source; the [companion plants they need](#v02-companion-plants-first) as crops; hot pepper; fall sowing windows; `soilPh` and crop coefficients per crop | Companion advice from data instead of only household-entered pairs, fall crops in the calendar, soil-test advice, and watering by water balance |
 | **v0.3** | About 150 crops: more vegetables and herbs, fruit and nut trees, cane fruit, and soft fruit; [common pests and diseases](#pests-and-diseases) linked to crops and companions | Orchard and bramble areas with real plants, a catalog broad enough for most home gardens, and pest advice on plant pages |
 | **Later** | Frost-free windows, names in other languages, crop icons | Worldwide climate support and a localized catalog |
 
@@ -93,6 +93,8 @@ Each pair then carries:
 | Crop icons (CC0, made for the project) | Later | Photos only from Wikimedia Commons, with per-image license stored alongside |
 | `deprecated: true` and `replacedBy: <id>` on a crop or variety | Before the first removal | Ids never change and files are never deleted (that would be a major release); a deprecated record points apps at its replacement so plantings can move |
 | `soilPh: { min, max }` per crop | v0.2 | Soil-test advice in the app: blueberries need 4.5–5.5, most vegetables 6.0–7.0, potatoes 5.0–6.5 |
+| `cropCoefficients`: `{ initial, mid, late }` crop coefficients (Kc) and the length of each growth stage in days | v0.2 | Watering by water balance in the app: daily water use = reference evapotranspiration (ET₀) × Kc for the stage, minus rain. FAO-56 publishes Kc and stage lengths for common crops; write them in our own words and cite it |
+| Seeding data: `seedsPerGram` and typical `germinationRate` | v0.3 | Seed inventory and a seeds-needed calculator ("this bed needs about 2 g of carrot seed"); in-row spacing and the bed size give the plant count |
 | Variety-level `scientificName` | With hot pepper (v0.2) | Hot pepper is its own crop, but habanero is *Capsicum chinense* while jalapeño and cayenne are *C. annuum*, so a variety needs its own species |
 | A fall sowing window (`fallSow`) | v0.2 | Lettuce, peas, radish, and spinach are sown again for fall; each method has one window today |
 | Mature height (`heightCm`) | v0.3 | Planning borders and shade (corn, pole beans, sunflowers) |
