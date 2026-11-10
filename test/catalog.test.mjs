@@ -26,11 +26,24 @@ test('catches the mistakes a schema cannot', () => {
   assert.match(errors, /unknown crop "nothing"/);
 });
 
+test('a perennial needs hardiness zones, in order', () => {
+  const data = clone(load());
+  const tomato = data.crops[0].crop;
+  tomato.lifeCycle = 'perennial';
+  assert.match(validate(data).join('\n'), /a perennial needs hardinessZones/);
+  tomato.hardinessZones = { min: 9, max: 4 };
+  assert.match(validate(data).join('\n'), /hardinessZones.min is above max/);
+  tomato.hardinessZones = { min: 4, max: 9 };
+  assert.deepEqual(validate(data), []);
+});
+
 test('rejects values outside the schema', () => {
   const data = clone(load());
   data.crops[0].crop.habit = 'bush';
   data.crops[0].crop.spacingCm.inRow = -5;
+  delete data.crops[0].crop.feeding;
   const errors = validate(data).join('\n');
+  assert.match(errors, /must have required property 'feeding'/);
   assert.match(errors, /\/habit must be equal to one of the allowed values/);
   assert.match(errors, /\/spacingCm\/inRow must be > 0/);
 });

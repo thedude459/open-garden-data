@@ -65,6 +65,12 @@ export function validate(data, schema = readSchema()) {
     ]) {
       if (range && range.min > range.max) errors.push(`${at}: ${field}.min is above max`);
     }
+    if (crop.lifeCycle === 'perennial' && !crop.hardinessZones) {
+      errors.push(`${at}: a perennial needs hardinessZones (the zones where it survives winter)`);
+    }
+    if (crop.hardinessZones && crop.hardinessZones.min > crop.hardinessZones.max) {
+      errors.push(`${at}: hardinessZones.min is above max`);
+    }
     const t = crop.temperatureC;
     if (t && (t.min > t.max || (t.optimal !== undefined && (t.optimal < t.min || t.optimal > t.max)))) {
       errors.push(`${at}: temperatureC must run min ≤ optimal ≤ max`);

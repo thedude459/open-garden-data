@@ -34,8 +34,10 @@ shrub so the app's area rules have real plants to check.
   peach, cherry
 
 Each crop needs at least: English name, scientific name, family, habit, use,
-life cycle, frost tolerance, sun, water, in-row spacing, the sowing windows it
-is grown by, days to maturity, and its sources. Varieties are optional in
+life cycle, frost tolerance, sun, water, feeding (light, moderate, or heavy),
+in-row spacing, the sowing windows it
+is grown by, days to maturity, hardiness zones for perennials, and its
+sources. Varieties are optional in
 v0.1.
 
 **Decided (November 2026):** a crop is what gardeners grow as one kind, not strictly one
