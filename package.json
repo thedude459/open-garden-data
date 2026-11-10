@@ -3,11 +3,14 @@
   "private": true,
   "license": "CC0-1.0",
   "type": "module",
-  "engines": { "node": ">=24" },
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "validate": "node scripts/catalog.mjs validate",
     "build": "node scripts/catalog.mjs build",
-    "test": "node --test \"test/**/*.test.mjs\""
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "verify:wikidata": "node scripts/verify-wikidata.mjs"
   },
   "devDependencies": {
     "ajv": "8.20.0",

@@ -1,0 +1,30 @@
+name: Verify names
+
+# Check every crop's scientific name and family against Wikidata. Runs on pull
+# requests that change crops and weekly. It needs the network, so it is not a
+# required check: a Wikidata outage must not block merges.
+on:
+  pull_request:
+    paths: ['crops/**', 'families.yaml', 'scripts/verify-wikidata.mjs']
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wikidata:
+    name: wikidata
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run verify:wikidata
