@@ -162,11 +162,6 @@ Added to `scripts/catalog.mjs` and CI before outside contributions start:
 - **A required reviewer once there is a second contributor.** Add
   `CODEOWNERS` so data pull requests need a review from someone other than
   their author. Until then the maintainer reviews their own.
-- **A Darwin Core mapping.** A table in the README mapping our fields to
-  [Darwin Core](https://dwc.tdwg.org/) terms (`scientificName`, `family`,
-  `vernacularName`, and so on), the biodiversity data standard, so other
-  projects can reuse the dataset with less work. Documentation only; the
-  file format does not change.
 - **Apps check each release.** Open Garden runs its importer against the
   latest release on a schedule, so a release it cannot read is caught early.
 
