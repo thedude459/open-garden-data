@@ -10,9 +10,9 @@ version each app feature needs.
 The [Open Garden roadmap](https://github.com/thedude459/open-garden/blob/main/docs/roadmap.md#implementation-order)
 holds the one order across both repositories. For this repository:
 
-1. **Tag v0.1.0** (next): the 50 crops are in and every check passes.
-2. **[Data quality checks](#data-quality-checks) and release notes**, before
-   outside contributions start.
+1. **Done: tag v0.1.0.** The app bundles it as its plant catalog.
+2. **[Data quality checks](#data-quality-checks) and release notes** (next),
+   before outside contributions start.
 3. **v0.2**, while the app builds typed areas and its redesign.
 4. **v0.3**, while the app adds care features.
 
@@ -163,8 +163,10 @@ Added to `scripts/catalog.mjs` and CI before outside contributions start:
 - **A required reviewer once there is a second contributor.** Add
   `CODEOWNERS` so data pull requests need a review from someone other than
   their author. Until then the maintainer reviews their own.
-- **Apps check each release.** Open Garden runs its importer against the
-  latest release on a schedule, so a release it cannot read is caught early.
+- **Done: apps check each release.** Open Garden's daily
+  [Dataset compatibility](https://github.com/thedude459/open-garden/blob/main/.github/workflows/dataset-compat.yml)
+  workflow imports the latest release, attestation included, so a release it
+  cannot read is caught within a day.
 
 ## How changes get in
 
