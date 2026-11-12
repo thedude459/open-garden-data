@@ -87,8 +87,8 @@ Each pair then carries:
 | Change | When | Why |
 |---|---|---|
 | `companions.yaml` filled, with `kind` = helps, hinders, or attracts-pollinators | v0.2 | Already in the schema; v0.2 adds the data |
-| Common names beyond English (`names.<locale>`) | Later | Already allowed by the schema; filled from Wikidata |
-| Frost-free sowing by temperature or wet/dry season | Later | Windows tied to frost do not work where it never frosts; `minSoilTemperatureC` is the start |
+| Common names beyond English (`names.<locale>`) | Later | Already allowed by the schema. Waits for Open Garden's interface translation, so names and interface arrive together; see the Wikidata findings below |
+| Frost-free sowing by wet/dry season | Later | By temperature is done: Open Garden places windows from `temperatureC` and `minSoilTemperatureC` where frost is rare ([its ADR 0025](https://github.com/thedude459/open-garden/blob/main/docs/adr/0025-sowing-by-temperature-where-frost-is-rare.md)). Wet and dry seasons need new data |
 | Per-value `confidence` | If needed | Sources are recorded per crop today, optionally per field; add confidence only if reviewers need it |
 | Crop icons (CC0, made for the project) | Later | Photos only from Wikimedia Commons, with per-image license stored alongside |
 | `deprecated: true` and `replacedBy: <id>` on a crop or variety | Before the first removal | Ids never change and files are never deleted (that would be a major release); a deprecated record points apps at its replacement so plantings can move |
@@ -160,7 +160,15 @@ Added to `scripts/catalog.mjs` and CI before outside contributions start:
 - **Names in other languages from Wikidata.** Every crop is matched to a
   Wikidata item, and Wikidata's labels are CC0. A script fills
   `names.<locale>` for chosen languages; each addition is still reviewed in a
-  pull request.
+  pull request. Findings from November 2026: taxon items carry almost no
+  common names now (labels moved to the language-neutral `mul`); the food
+  item each species links to with "this taxon is source of" (P1672) does,
+  and its shortest label was right for about 60% of crop and language pairs
+  in de, es, fr, it, nl, and pt. The rest were products (oils, juices,
+  sugar), Latin, or missing (blackberry, blueberry, Brussels sprouts,
+  celery, leek, mint), and crops that share a species (bush and pole bean,
+  the squashes) need names of their own. Expect to curate about two names in
+  five by hand. Waits for Open Garden's interface translation.
 - **A required reviewer once there is a second contributor.** Add
   `CODEOWNERS` so data pull requests need a review from someone other than
   their author. Until then the maintainer reviews their own.
