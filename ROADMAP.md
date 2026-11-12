@@ -22,7 +22,7 @@ holds the one order across both repositories. For this repository:
 |---|---|---|
 | **v0.1** | Schema v1 and the [first 50 crops](#v01-the-first-50-crops), each with family, habit, use, spacing, and sowing windows | The catalog importer, sowing calendars, crop rotation by family, and typed areas (habit and use decide what an area accepts) |
 | **v0.2** | Companion pairs, each with benefits, an evidence level, a reason, and a source; the [companion plants they need](#v02-companion-plants-first) as crops; hot pepper; fall sowing windows; `soilPh` and crop coefficients per crop | Companion advice from data instead of only household-entered pairs, fall crops in the calendar, soil-test advice, and watering by water balance |
-| **v0.3** | About 150 crops: more vegetables and herbs, fruit and nut trees, cane fruit, and soft fruit; [common pests and diseases](#pests-and-diseases) linked to crops and companions | Orchard and bramble areas with real plants, a catalog broad enough for most home gardens, and pest advice on plant pages |
+| **v0.3** | About 150 crops: more vegetables and herbs, fruit and nut trees (with [named rootstocks](#schema-changes-planned)), cane fruit, and soft fruit; [common pests and diseases](#pests-and-diseases) linked to crops and companions | Orchard and bramble areas with real plants, a catalog broad enough for most home gardens, and pest advice on plant pages |
 | **Later** | Frost-free windows, names in other languages, crop icons | Worldwide climate support and a localized catalog |
 
 A release is a tag (`v0.1.0`); publishing it attaches
@@ -98,6 +98,7 @@ Each pair then carries:
 | Sensor ranges: `soilMoisturePercent: { min, max }` and `lightDli: { min, max }` (daily light integral, mol/m²/day) | v0.3 | Open Garden judges moisture and light sensor readings against the crop (`temperatureC` already covers temperature). Values from CC0-compatible sources in our own words; Open Plantbook's ranges need an account and are not CC0, so they cannot be used |
 | Variety-level `scientificName` | With hot pepper (v0.2) | Hot pepper is its own crop, but habanero is *Capsicum chinense* while jalapeño and cayenne are *C. annuum*, so a variety needs its own species |
 | A fall sowing window (`fallSow`) | v0.2 | Lettuce, peas, radish, and spinach are sown again for fall; each method has one window today |
+| Named rootstocks per tree crop: `rootstocks.<class>.named[]`, each with an `id` and name (M.9, Bud 9, G.41, MM.111, Antonovka), size as a percent of standard, in-row spacing, `hardinessZones: { min, max }`, whether it needs staking, and its sources | v0.3, with the fruit trees | A tree is only as hardy as its rootstock: Bud 9 and G.41 dwarfs take colder winters than M.9, and a size class spans a range of spacings. The three classes stay as the fallback when the rootstock is not known |
 | Mature height (`heightCm`) | v0.3 | Planning borders and shade (corn, pole beans, sunflowers) |
 | Bloom season and a toxicity flag | With flowers | For flowers, days to maturity means days to bloom; a flag warns about plants harmful to pets or children |
 | New `use` values (cover crops, grains) | When needed | A minor release; apps skip what they cannot read |
