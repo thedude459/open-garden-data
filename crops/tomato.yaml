@@ -2,6 +2,7 @@ id: tomato
 names:
   en: Tomato
 scientificName: Solanum lycopersicum
+wikidataId: Q23501
 family: solanaceae
 habit: herbaceous
 use: vegetable

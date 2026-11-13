@@ -2,6 +2,7 @@ id: sweet-pepper
 names:
   en: Sweet pepper
 scientificName: Capsicum annuum
+wikidataId: Q1380
 family: solanaceae
 habit: herbaceous
 use: vegetable

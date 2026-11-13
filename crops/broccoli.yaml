@@ -2,6 +2,7 @@ id: broccoli
 names:
   en: Broccoli
 scientificName: Brassica oleracea var. italica
+wikidataId: Q47722
 family: brassicaceae
 habit: herbaceous
 use: vegetable

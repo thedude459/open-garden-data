@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { build, load, validate } from '../scripts/catalog.mjs';
+import { readFileSync } from 'node:fs';
+import Ajv2020 from 'ajv/dist/2020.js';
+import { build, completeness, load, releaseNotes, validate } from '../scripts/catalog.mjs';
 import { buildQuery, compare } from '../scripts/verify-wikidata.mjs';
 
 const clone = (value) => structuredClone(value);
@@ -18,7 +20,9 @@ test('catches the mistakes a schema cannot', () => {
   tomato.windows.transplant = { frost: 'last', weeksEarliest: 3, weeksLatest: 1 };
   tomato.varieties = [{ id: 'cherry', name: 'Cherry' }];
   data.crops.push({ file: 'wrong-name.yaml', crop: clone(tomatoOf(load()).crop) });
-  data.companions = [{ crops: ['tomato', 'nothing'], kind: 'helps', reason: 'x', source: 'hand-curation' }];
+  data.companions = [
+    { crops: ['tomato', 'nothing'], kind: 'helps', reason: 'x', source: 'hand-curation' },
+  ];
 
   const errors = validate(data).join('\n');
   assert.match(errors, /unknown family "no-such-family"/);
@@ -36,7 +40,8 @@ test('a perennial needs hardiness zones, in order', () => {
   assert.match(validate(data).join('\n'), /a perennial needs hardinessZones/);
   tomato.hardinessZones = { min: 9, max: 4 };
   assert.match(validate(data).join('\n'), /hardinessZones.min is above max/);
-  tomato.hardinessZones = { min: 4, max: 9 };
+  // Tomato is frost-tender, so as a perennial it survives only from zone 9.
+  tomato.hardinessZones = { min: 9, max: 11 };
   assert.deepEqual(validate(data), []);
 });
 
@@ -54,7 +59,12 @@ test('trees need rootstocks, and only trees may have them', () => {
 
 test('sources need an allowed license and a kind; taxonomy needs a reference source', () => {
   const data = clone(load());
-  data.sources.push({ id: 'some-wiki', name: 'Some wiki', license: 'CC-BY-SA-4.0', url: 'https://example.org' });
+  data.sources.push({
+    id: 'some-wiki',
+    name: 'Some wiki',
+    license: 'CC-BY-SA-4.0',
+    url: 'https://example.org',
+  });
   const tomato = tomatoOf(data).crop;
   tomato.sources = [{ source: 'hand-curation' }];
   const errors = validate(data).join('\n');
@@ -86,7 +96,10 @@ test('catches values that pass the schema but cannot be right', () => {
   apple.rootstocks.dwarf.spacingCm.inRow = 900;
   apple.spacingCm.inRow = 400;
   const errors = validate(data).join('\n');
-  assert.match(errors, /tomato.yaml: a frost-tender crop cannot go outside before the last frost \(windows.transplant\)/);
+  assert.match(
+    errors,
+    /tomato.yaml: a frost-tender crop cannot go outside before the last frost \(windows.transplant\)/,
+  );
   assert.match(errors, /tomato.yaml: indoor start must end before transplanting begins/);
   assert.match(errors, /tomato.yaml: germination must finish before the crop matures/);
   assert.match(errors, /tomato.yaml: spacingCm rows cannot be closer than plants in a row/);
@@ -121,11 +134,95 @@ test('the Wikidata check reports unknown names and family differences', () => {
     { id: 'b', scientificName: 'Other family', family: 'solanaceae' },
     { id: 'c', scientificName: 'Not there', family: 'rosaceae' },
   ];
-  const row = (name, family) => ({ name: { value: name }, ...(family && { familyName: { value: family } }) });
-  const problems = compare(crops, [row('Known one', 'Solanaceae'), row('Other family', 'Rosaceae')]);
+  const row = (name, family) => ({
+    name: { value: name },
+    ...(family && { familyName: { value: family } }),
+  });
+  const problems = compare(crops, [
+    row('Known one', 'Solanaceae'),
+    row('Other family', 'Rosaceae'),
+  ]);
   assert.deepEqual(problems, [
     'b: family is solanaceae, Wikidata says rosaceae',
     'c: Wikidata has no taxon named "Not there"',
   ]);
   assert.match(buildQuery(['A b']), /VALUES \?name \{ "A b" \}/);
+});
+
+test('the Wikidata check reports an item that is not the named taxon', () => {
+  const item = (name, q) => ({
+    name: { value: name },
+    item: { value: `http://www.wikidata.org/entity/${q}` },
+    familyName: { value: 'Solanaceae' },
+  });
+  const crop = { id: 'a', scientificName: 'Known one', family: 'solanaceae' };
+  assert.deepEqual(compare([{ ...crop, wikidataId: 'Q1' }], [item('Known one', 'Q1')]), []);
+  assert.deepEqual(compare([{ ...crop, wikidataId: 'Q2' }], [item('Known one', 'Q1')]), [
+    'a: Q2 is not the Wikidata item named "Known one"',
+  ]);
+});
+
+test('spacing must fit the habit, so a value in the wrong unit fails', () => {
+  const data = clone(load());
+  const tomato = tomatoOf(data).crop;
+  tomato.spacingCm = { inRow: 450 };
+  assert.match(
+    validate(data).join('\n'),
+    /spacingCm.inRow is 450 cm; a herbaceous is spaced 2–150 cm/,
+  );
+  tomato.spacingCm = { inRow: 1 };
+  assert.match(validate(data).join('\n'), /Is it in another unit\?/);
+});
+
+test('consistency: variety maturity, tender perennials, and soil temperature', () => {
+  const data = clone(load());
+  const tomato = tomatoOf(data).crop;
+  tomato.varieties[0].daysToMaturity = {
+    min: tomato.daysToMaturity.min - 10,
+    max: tomato.daysToMaturity.max,
+  };
+  tomato.lifeCycle = 'perennial';
+  tomato.hardinessZones = { min: 5, max: 11 };
+  tomato.minSoilTemperatureC = tomato.temperatureC.optimal + 1;
+  const errors = validate(data).join('\n');
+  assert.match(errors, /daysToMaturity must sit within the crop's/);
+  assert.match(errors, /frost-tender perennial cannot survive winter below zone 9/);
+  assert.match(errors, /minSoilTemperatureC .* is above the optimal air temperature/);
+});
+
+test('the completeness report lists optional fields each crop leaves out', () => {
+  const report = completeness(load());
+  assert.match(report, /^## Completeness/);
+  assert.match(report, /\| `temperatureC` \| 38 \|/);
+  assert.match(report, /\| apple \| [^|]*temperatureC/);
+  assert.doesNotMatch(report, /\| tomato \|/);
+});
+
+test('a built release matches the release-file schema', () => {
+  const schema = (name) =>
+    JSON.parse(readFileSync(new URL(`../schema/${name}`, import.meta.url), 'utf8'));
+  const ajv = new Ajv2020({ allErrors: true, strict: true });
+  ajv.addSchema(schema('crop.schema.json'));
+  const check = ajv.compile(schema('catalog.schema.json'));
+  assert.ok(check(build(load(), '1.2.3')), JSON.stringify(check.errors));
+  assert.equal(check({ ...build(load(), '1.2.3'), license: 'CC-BY-4.0' }), false);
+});
+
+test('release notes list what was added, removed, and changed', () => {
+  const before = build(load(), '0.1.0');
+  const after = structuredClone(before);
+  after.version = '0.2.0';
+  after.crops = after.crops.filter((c) => c.id !== 'okra');
+  const tomato = after.crops.find((c) => c.id === 'tomato');
+  tomato.spacingCm = { inRow: 50 };
+  tomato.varieties.push({ id: 'tomato-roma', name: 'Roma' });
+  after.crops.push({ ...structuredClone(tomato), id: 'hot-pepper', varieties: [] });
+  const notes = releaseNotes(before, after);
+  assert.match(notes, /since v0\.1\.0/);
+  assert.match(notes, /\*\*Crops added \(1\):\*\* hot-pepper/);
+  assert.match(notes, /\*\*Crops removed \(1\):\*\* okra/);
+  assert.match(notes, /\*\*Crops changed \(1\):\*\* tomato \(spacingCm\)/);
+  assert.match(notes, /\*\*Varieties added \(1\):\*\* tomato-roma/);
+  assert.match(releaseNotes(after, after), /No crop or variety changed\./);
+  assert.match(releaseNotes(null, after), /since nothing \(first release\)/);
 });

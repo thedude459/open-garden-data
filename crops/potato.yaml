@@ -2,6 +2,7 @@ id: potato
 names:
   en: Potato
 scientificName: Solanum tuberosum
+wikidataId: Q10998
 family: solanaceae
 habit: herbaceous
 use: vegetable

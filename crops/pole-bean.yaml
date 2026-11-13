@@ -2,6 +2,7 @@ id: pole-bean
 names:
   en: Pole bean
 scientificName: Phaseolus vulgaris
+wikidataId: Q42339
 family: fabaceae
 habit: vine
 use: vegetable

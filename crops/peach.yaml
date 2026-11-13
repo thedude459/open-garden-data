@@ -2,6 +2,7 @@ id: peach
 names:
   en: Peach
 scientificName: Prunus persica
+wikidataId: Q13189
 family: rosaceae
 habit: tree
 use: fruit

@@ -9,6 +9,7 @@
     "id",
     "names",
     "scientificName",
+    "wikidataId",
     "family",
     "habit",
     "use",
@@ -32,6 +33,11 @@
       "additionalProperties": { "type": "string", "minLength": 1, "maxLength": 80 }
     },
     "scientificName": { "type": "string", "minLength": 3, "maxLength": 120 },
+    "wikidataId": {
+      "type": "string",
+      "pattern": "^Q[1-9][0-9]*$",
+      "description": "The Wikidata item for this crop's taxon (Q…). Its taxon name must equal scientificName; npm run verify:wikidata checks it."
+    },
     "family": { "$ref": "#/$defs/slug", "description": "An id from families.yaml." },
     "habit": {
       "enum": ["herbaceous", "vine", "cane", "shrub", "tree"],
@@ -147,7 +153,10 @@
       "additionalProperties": false,
       "required": ["frost", "weeksEarliest", "weeksLatest"],
       "properties": {
-        "frost": { "enum": ["last", "first"], "description": "Last spring frost or first fall frost." },
+        "frost": {
+          "enum": ["last", "first"],
+          "description": "Last spring frost or first fall frost."
+        },
         "weeksEarliest": { "type": "integer", "minimum": -52, "maximum": 52 },
         "weeksLatest": { "type": "integer", "minimum": -52, "maximum": 52 }
       }
