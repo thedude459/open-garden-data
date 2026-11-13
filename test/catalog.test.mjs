@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { build, load, validate } from '../scripts/catalog.mjs';
+import { build, completeness, load, validate } from '../scripts/catalog.mjs';
 import { buildQuery, compare } from '../scripts/verify-wikidata.mjs';
 
 const clone = (value) => structuredClone(value);
@@ -18,7 +18,9 @@ test('catches the mistakes a schema cannot', () => {
   tomato.windows.transplant = { frost: 'last', weeksEarliest: 3, weeksLatest: 1 };
   tomato.varieties = [{ id: 'cherry', name: 'Cherry' }];
   data.crops.push({ file: 'wrong-name.yaml', crop: clone(tomatoOf(load()).crop) });
-  data.companions = [{ crops: ['tomato', 'nothing'], kind: 'helps', reason: 'x', source: 'hand-curation' }];
+  data.companions = [
+    { crops: ['tomato', 'nothing'], kind: 'helps', reason: 'x', source: 'hand-curation' },
+  ];
 
   const errors = validate(data).join('\n');
   assert.match(errors, /unknown family "no-such-family"/);
@@ -55,7 +57,12 @@ test('trees need rootstocks, and only trees may have them', () => {
 
 test('sources need an allowed license and a kind; taxonomy needs a reference source', () => {
   const data = clone(load());
-  data.sources.push({ id: 'some-wiki', name: 'Some wiki', license: 'CC-BY-SA-4.0', url: 'https://example.org' });
+  data.sources.push({
+    id: 'some-wiki',
+    name: 'Some wiki',
+    license: 'CC-BY-SA-4.0',
+    url: 'https://example.org',
+  });
   const tomato = tomatoOf(data).crop;
   tomato.sources = [{ source: 'hand-curation' }];
   const errors = validate(data).join('\n');
@@ -87,7 +94,10 @@ test('catches values that pass the schema but cannot be right', () => {
   apple.rootstocks.dwarf.spacingCm.inRow = 900;
   apple.spacingCm.inRow = 400;
   const errors = validate(data).join('\n');
-  assert.match(errors, /tomato.yaml: a frost-tender crop cannot go outside before the last frost \(windows.transplant\)/);
+  assert.match(
+    errors,
+    /tomato.yaml: a frost-tender crop cannot go outside before the last frost \(windows.transplant\)/,
+  );
   assert.match(errors, /tomato.yaml: indoor start must end before transplanting begins/);
   assert.match(errors, /tomato.yaml: germination must finish before the crop matures/);
   assert.match(errors, /tomato.yaml: spacingCm rows cannot be closer than plants in a row/);
@@ -122,8 +132,14 @@ test('the Wikidata check reports unknown names and family differences', () => {
     { id: 'b', scientificName: 'Other family', family: 'solanaceae' },
     { id: 'c', scientificName: 'Not there', family: 'rosaceae' },
   ];
-  const row = (name, family) => ({ name: { value: name }, ...(family && { familyName: { value: family } }) });
-  const problems = compare(crops, [row('Known one', 'Solanaceae'), row('Other family', 'Rosaceae')]);
+  const row = (name, family) => ({
+    name: { value: name },
+    ...(family && { familyName: { value: family } }),
+  });
+  const problems = compare(crops, [
+    row('Known one', 'Solanaceae'),
+    row('Other family', 'Rosaceae'),
+  ]);
   assert.deepEqual(problems, [
     'b: family is solanaceae, Wikidata says rosaceae',
     'c: Wikidata has no taxon named "Not there"',
@@ -148,7 +164,10 @@ test('spacing must fit the habit, so a value in the wrong unit fails', () => {
   const data = clone(load());
   const tomato = tomatoOf(data).crop;
   tomato.spacingCm = { inRow: 450 };
-  assert.match(validate(data).join('\n'), /spacingCm.inRow is 450 cm; a herbaceous is spaced 2–150 cm/);
+  assert.match(
+    validate(data).join('\n'),
+    /spacingCm.inRow is 450 cm; a herbaceous is spaced 2–150 cm/,
+  );
   tomato.spacingCm = { inRow: 1 };
   assert.match(validate(data).join('\n'), /Is it in another unit\?/);
 });
@@ -156,7 +175,10 @@ test('spacing must fit the habit, so a value in the wrong unit fails', () => {
 test('consistency: variety maturity, tender perennials, and soil temperature', () => {
   const data = clone(load());
   const tomato = tomatoOf(data).crop;
-  tomato.varieties[0].daysToMaturity = { min: tomato.daysToMaturity.min - 10, max: tomato.daysToMaturity.max };
+  tomato.varieties[0].daysToMaturity = {
+    min: tomato.daysToMaturity.min - 10,
+    max: tomato.daysToMaturity.max,
+  };
   tomato.lifeCycle = 'perennial';
   tomato.hardinessZones = { min: 5, max: 11 };
   tomato.minSoilTemperatureC = tomato.temperatureC.optimal + 1;
@@ -164,4 +186,12 @@ test('consistency: variety maturity, tender perennials, and soil temperature', (
   assert.match(errors, /daysToMaturity must sit within the crop's/);
   assert.match(errors, /frost-tender perennial cannot survive winter below zone 9/);
   assert.match(errors, /minSoilTemperatureC .* is above the optimal air temperature/);
+});
+
+test('the completeness report lists optional fields each crop leaves out', () => {
+  const report = completeness(load());
+  assert.match(report, /^## Completeness/);
+  assert.match(report, /\| `temperatureC` \| 38 \|/);
+  assert.match(report, /\| apple \| [^|]*temperatureC/);
+  assert.doesNotMatch(report, /\| tomato \|/);
 });

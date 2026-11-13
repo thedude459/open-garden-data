@@ -35,10 +35,14 @@ export function compare(crops, bindings) {
     const found = families.get(crop.scientificName);
     if (!found) problems.push(`${crop.id}: Wikidata has no taxon named "${crop.scientificName}"`);
     else if (!found.has(crop.family)) {
-      problems.push(`${crop.id}: family is ${crop.family}, Wikidata says ${[...found].join(', ') || 'none'}`);
+      problems.push(
+        `${crop.id}: family is ${crop.family}, Wikidata says ${[...found].join(', ') || 'none'}`,
+      );
     }
     if (found && crop.wikidataId && !items.get(crop.scientificName)?.has(crop.wikidataId)) {
-      problems.push(`${crop.id}: ${crop.wikidataId} is not the Wikidata item named "${crop.scientificName}"`);
+      problems.push(
+        `${crop.id}: ${crop.wikidataId} is not the Wikidata item named "${crop.scientificName}"`,
+      );
     }
   }
   return problems;

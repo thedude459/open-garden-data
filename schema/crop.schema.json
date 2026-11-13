@@ -153,7 +153,10 @@
       "additionalProperties": false,
       "required": ["frost", "weeksEarliest", "weeksLatest"],
       "properties": {
-        "frost": { "enum": ["last", "first"], "description": "Last spring frost or first fall frost." },
+        "frost": {
+          "enum": ["last", "first"],
+          "description": "Last spring frost or first fall frost."
+        },
         "weeksEarliest": { "type": "integer", "minimum": -52, "maximum": 52 },
         "weeksLatest": { "type": "integer", "minimum": -52, "maximum": 52 }
       }

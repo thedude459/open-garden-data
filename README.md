@@ -13,14 +13,14 @@ catalog, but nothing here depends on that app.
 
 ## Layout
 
-| Path | What it holds |
-|---|---|
-| `crops/<id>.yaml` | One crop per file (what gardeners grow as one kind), varieties nested |
-| `families.yaml` | Botanical families, used for crop rotation |
-| `companions.yaml` | Companion pairs: two crops, a kind, a reason, a source |
-| `sources.yaml` | Every source, with its license and URL |
-| `schema/crop.schema.json` | JSON Schema for a crop file |
-| `scripts/catalog.mjs` | Validates the data and builds the release file |
+| Path                      | What it holds                                                         |
+| ------------------------- | --------------------------------------------------------------------- |
+| `crops/<id>.yaml`         | One crop per file (what gardeners grow as one kind), varieties nested |
+| `families.yaml`           | Botanical families, used for crop rotation                            |
+| `companions.yaml`         | Companion pairs: two crops, a kind, a reason, a source                |
+| `sources.yaml`            | Every source, with its license and URL                                |
+| `schema/crop.schema.json` | JSON Schema for a crop file                                           |
+| `scripts/catalog.mjs`     | Validates the data and builds the release file                        |
 
 Units are metric: centimetres and degrees Celsius. Sowing windows are in weeks
 relative to the last spring frost or the first fall frost (negative means
