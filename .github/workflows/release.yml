@@ -1,10 +1,15 @@
 name: Release
 
-# Publishing a GitHub Release tagged vMAJOR.MINOR.PATCH builds
+# Pushing a tag vMAJOR.MINOR.PATCH creates the GitHub Release: it builds
 # open-garden-catalog-<version>.json, its SHA-256, and a build provenance
-# attestation, and attaches them to the release with what changed since the
-# previous release and the release-file schema. The app pins a version.
+# attestation, and publishes them with the release-file schema. The notes are
+# the version's section of CHANGELOG.md, then what changed in the data since
+# the previous release. A release published by hand on GitHub gets the same
+# files; its own description is kept and the list of changes is added. The
+# app pins a version.
 on:
+  push:
+    tags: ['v*']
   release:
     types: [published]
 
@@ -12,7 +17,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: release-${{ github.event.release.tag_name }}
+  group: release-${{ github.event.release.tag_name || github.ref_name }}
   cancel-in-progress: false
 
 jobs:
@@ -37,7 +42,7 @@ jobs:
       - name: Check the tag is vMAJOR.MINOR.PATCH
         id: tag
         env:
-          TAG: ${{ github.event.release.tag_name }}
+          TAG: ${{ github.event.release.tag_name || github.ref_name }}
         run: |
           if [[ ! "${TAG}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "Release tag must look like v0.1.0, got ${TAG}" >&2
@@ -45,6 +50,11 @@ jobs:
           fi
           echo "version=${TAG#v}" >> "${GITHUB_OUTPUT}"
       - run: npm ci --ignore-scripts
+      - name: Notes from CHANGELOG.md
+        env:
+          VERSION: ${{ steps.tag.outputs.version }}
+        # Fails when CHANGELOG.md has no section for this version.
+        run: node scripts/catalog.mjs changelog "${VERSION}" > changelog.md
       - name: Build
         env:
           VERSION: ${{ steps.tag.outputs.version }}
@@ -54,26 +64,18 @@ jobs:
         uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
           subject-path: dist/open-garden-catalog-${{ steps.tag.outputs.version }}.json
-      - name: Upload to the release
+      - name: Publish the release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ github.event.release.tag_name }}
+          TAG: ${{ github.event.release.tag_name || github.ref_name }}
           VERSION: ${{ steps.tag.outputs.version }}
           BUNDLE: ${{ steps.attest.outputs.bundle-path }}
         run: |
           # Verify with: gh attestation verify open-garden-catalog-<version>.json --owner <owner>
           NAME="open-garden-catalog-${VERSION}.json"
           cp "${BUNDLE}" "dist/${NAME}.sigstore.json"
-          gh release upload "${TAG}" "dist/${NAME}" "dist/${NAME}.sha256" "dist/${NAME}.sigstore.json" \
-            --clobber --repo "${GITHUB_REPOSITORY}"
-      - name: Release notes and schema
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ github.event.release.tag_name }}
-          VERSION: ${{ steps.tag.outputs.version }}
-        run: |
-          # What changed since the newest other published release, appended to
-          # this release's description and attached; plus the release-file schema.
+
+          # What changed since the newest other published release.
           PREV="$(gh release list --repo "${GITHUB_REPOSITORY}" --exclude-drafts --exclude-pre-releases \
             --json tagName --jq '.[].tagName' | grep -vx "${TAG}" | head -n 1 || true)"
           PREV_FILE=""
@@ -84,13 +86,24 @@ jobs:
               PREV_FILE="prev/open-garden-catalog-${PREV#v}.json"
             fi
           fi
-          node scripts/catalog.mjs notes "dist/open-garden-catalog-${VERSION}.json" ${PREV_FILE:+"${PREV_FILE}"} \
-            > "dist/open-garden-catalog-${VERSION}.changes.md"
+          CHANGES="dist/open-garden-catalog-${VERSION}.changes.md"
+          node scripts/catalog.mjs notes "dist/${NAME}" ${PREV_FILE:+"${PREV_FILE}"} > "${CHANGES}"
+          FILES=("dist/${NAME}" "dist/${NAME}.sha256" "dist/${NAME}.sigstore.json" "${CHANGES}" \
+            schema/catalog.schema.json schema/crop.schema.json)
+
+          if ! gh release view "${TAG}" --repo "${GITHUB_REPOSITORY}" > /dev/null 2>&1; then
+            { cat changelog.md; printf '\n'; cat "${CHANGES}"; } > body.md
+            gh release create "${TAG}" "${FILES[@]}" --repo "${GITHUB_REPOSITORY}" \
+              --verify-tag --title "${TAG}" --notes-file body.md
+            exit 0
+          fi
+          # Published by hand (or this ran twice for one tag): keep the
+          # description, use the changelog when it is empty, and add the
+          # list of changes once.
           gh release view "${TAG}" --repo "${GITHUB_REPOSITORY}" --json body --jq .body > body.md
           if ! grep -q '^## Changes in the data since' body.md; then
-            printf '\n\n' >> body.md
-            cat "dist/open-garden-catalog-${VERSION}.changes.md" >> body.md
+            if [[ -z "$(tr -d '[:space:]' < body.md)" ]]; then cp changelog.md body.md; fi
+            { printf '\n\n'; cat "${CHANGES}"; } >> body.md
             gh release edit "${TAG}" --repo "${GITHUB_REPOSITORY}" --notes-file body.md
           fi
-          gh release upload "${TAG}" "dist/open-garden-catalog-${VERSION}.changes.md" \
-            schema/catalog.schema.json schema/crop.schema.json --clobber --repo "${GITHUB_REPOSITORY}"
+          gh release upload "${TAG}" "${FILES[@]}" --clobber --repo "${GITHUB_REPOSITORY}"

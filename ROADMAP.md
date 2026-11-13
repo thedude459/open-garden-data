@@ -38,9 +38,9 @@ For this repository:
 | **v0.3**  | About 150 crops: more vegetables and herbs, fruit and nut trees (with [named rootstocks](#schema-changes-planned)), cane fruit, and soft fruit; [common pests and diseases](#pests-and-diseases) linked to crops and companions  | Orchard and bramble areas with real plants, a catalog broad enough for most home gardens, and pest advice on plant pages                        |
 | **Later** | Wet and dry seasons, crop icons; names in other languages as they are contributed                                                                                                                                                | Worldwide climate support and a localized catalog                                                                                               |
 
-A release is a tag (`v0.1.0`); publishing it attaches
-`open-garden-catalog-<version>.json`, its SHA-256, and a provenance
-attestation. Minor versions add crops or optional fields; a major version
+A release is a tag (`v0.1.0`); pushing it publishes the GitHub Release with
+`open-garden-catalog-<version>.json`, its SHA-256, a provenance attestation,
+and notes from [CHANGELOG.md](CHANGELOG.md) plus the generated list of changes. Minor versions add crops or optional fields; a major version
 removes a field or changes what one means.
 
 ### v0.1: the first 50 crops
@@ -171,6 +171,9 @@ Added to `scripts/catalog.mjs` and CI before outside contributions start:
   from the two builds and attached to the GitHub Release. Reviewers see the
   impact, and Open Garden's planned "Catalog version" page can show the same
   diff.
+- **Done: releases from a tag, with written notes.** Pushing `vX.Y.Z` publishes
+  the release; the notes are the version's section of `CHANGELOG.md` followed
+  by the generated changes, grouped by field.
 - **Names in other languages from Wikidata.** Every crop is matched to a
   Wikidata item, and Wikidata's labels are CC0. A script fills
   `names.<locale>` for chosen languages; each addition is still reviewed in a

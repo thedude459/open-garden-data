@@ -56,6 +56,25 @@ Releases follow semver, and apps importing the catalog rely on it:
 - **Major:** removing or renaming a field, an id, or a list value; making an
   optional field required; changing a unit or what a field means.
 
+## Changelog and releases
+
+Say what your pull request changes in a line under **Unreleased** in
+[CHANGELOG.md](CHANGELOG.md), in plain words: "Adds okra" or "Fixes the pea
+spacing". Fixes to scripts and docs only need no entry.
+
+To release, a maintainer renames **Unreleased** to the version (`## v0.2.1`),
+adds a new empty **Unreleased** above it, merges that, and pushes the tag:
+
+```bash
+git tag v0.2.1 origin/main && git push origin v0.2.1
+```
+
+The release workflow builds and signs the catalog and publishes the GitHub
+Release, with the changelog section and a generated list of what changed. It
+fails if the changelog has no section for the version. Publishing a release
+by hand on GitHub still works: the workflow attaches the same files and adds
+the list of changes to the description.
+
 ## Your contribution is CC0
 
 By opening a pull request you agree to release your contribution under
