@@ -28,7 +28,10 @@ For this repository:
 4. **v0.3**, about 150 crops and [pests and diseases, organized for
    integrated pest management](#pests-and-diseases-ipm), while the app adds
    care features.
-5. **Later:** wet and dry seasons, crop icons, and names in other languages
+5. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
+   soil texture, and nutrient recommendations by soil-test level, so the app
+   can turn a bed's soil test into advice.
+6. **Later:** wet and dry seasons, crop icons, and names in other languages
    as they are contributed.
 
 ## Releases
@@ -167,6 +170,29 @@ Each pest or disease carries:
 Companion benefits can then name the pest they act on (`pests: [squash-bug]`).
 Crop rotation by family is the other half of disease control and needs no
 new data.
+
+## Soil amendments
+
+Every crop already has `soilPh` and a `feeding` class, so an app with a
+soil test per bed can flag a mismatch ("blueberries want 4.5–5.5; this bed
+tests 6.8"). Saying what to add, and how much, needs data that does not
+depend on the crop alone. From v0.4:
+
+- **Lime and sulfur rates**: how much ground limestone raises pH, or
+  elemental sulfur lowers it, by soil texture (sand, loam, clay) and, where
+  the lab reports it, buffer pH. A sandy soil needs far less lime than a
+  clay for the same change. Extension soil labs publish these tables, and
+  they are regional, so each table carries `shownIn` and a `reference`.
+- **Nutrient recommendations by soil-test level**: nitrogen, phosphorus,
+  and potassium per crop or crop group for low, medium, and high test
+  results, replacing the rough `feeding` class where a test exists. Also
+  regional, from extension guides (Minnesota, Maine, Penn State, and others).
+- **Timing and organic options**: when to apply (lime in fall, sulfur a
+  season ahead of blueberries), and organic sources such as compost, bone
+  meal, and wood ash, with what each supplies.
+
+Like companion pairs, this is advice: apps suggest a lab test rather than
+guess from a home kit, and never block a planting over it.
 
 ## Sources
 
