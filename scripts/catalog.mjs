@@ -97,6 +97,14 @@ export function validate(data, schema = readSchema()) {
       if (w.weeksEarliest > w.weeksLatest)
         errors.push(`${at}: windows.${method} starts after it ends`);
     }
+    if (crop.windows.fallSow && crop.windows.fallSow.frost !== 'first') {
+      errors.push(
+        `${at}: windows.fallSow is a fall sowing, counted from the first fall frost (frost: first)`,
+      );
+    }
+    if (crop.soilPh && crop.soilPh.min > crop.soilPh.max) {
+      errors.push(`${at}: soilPh.min is above max`);
+    }
     for (const [field, range] of [
       ['germinationDays', crop.germinationDays],
       ['daysToMaturity', crop.daysToMaturity],

@@ -19,6 +19,7 @@ sowingDepthCm: 0.6
 germinationDays: { min: 7, max: 14 }
 temperatureC: { min: 4, optimal: 18, max: 27 }
 minSoilTemperatureC: 10
+soilPh: { min: 6.0, max: 7.0 }
 windows:
   indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
   directSow: { frost: last, weeksEarliest: -4, weeksLatest: -2 }

@@ -193,7 +193,7 @@ test('consistency: variety maturity, tender perennials, and soil temperature', (
 test('the completeness report lists optional fields each crop leaves out', () => {
   const report = completeness(load());
   assert.match(report, /^## Completeness/);
-  assert.match(report, /\| `temperatureC` \| 38 \|/);
+  assert.match(report, /\| `temperatureC` \| 39 \|/);
   assert.match(report, /\| apple \| [^|]*temperatureC/);
   assert.doesNotMatch(report, /\| tomato \|/);
 });
@@ -216,13 +216,23 @@ test('release notes list what was added, removed, and changed', () => {
   const tomato = after.crops.find((c) => c.id === 'tomato');
   tomato.spacingCm = { inRow: 50 };
   tomato.varieties.push({ id: 'tomato-roma', name: 'Roma' });
-  after.crops.push({ ...structuredClone(tomato), id: 'hot-pepper', varieties: [] });
+  after.crops.push({ ...structuredClone(tomato), id: 'tomatillo', varieties: [] });
   const notes = releaseNotes(before, after);
   assert.match(notes, /since v0\.1\.0/);
-  assert.match(notes, /\*\*Crops added \(1\):\*\* hot-pepper/);
+  assert.match(notes, /\*\*Crops added \(1\):\*\* tomatillo/);
   assert.match(notes, /\*\*Crops removed \(1\):\*\* okra/);
   assert.match(notes, /\*\*Crops changed \(1\):\*\* tomato \(spacingCm\)/);
   assert.match(notes, /\*\*Varieties added \(1\):\*\* tomato-roma/);
   assert.match(releaseNotes(after, after), /No crop or variety changed\./);
   assert.match(releaseNotes(null, after), /since nothing \(first release\)/);
+});
+
+test('a fall sowing counts from the first frost, and soil pH runs low to high', () => {
+  const data = clone(load());
+  const lettuce = data.crops.find((c) => c.crop.id === 'lettuce').crop;
+  lettuce.windows.fallSow.frost = 'last';
+  lettuce.soilPh = { min: 7, max: 6 };
+  const errors = validate(data).join('\n');
+  assert.match(errors, /windows.fallSow is a fall sowing, counted from the first fall frost/);
+  assert.match(errors, /soilPh.min is above max/);
 });

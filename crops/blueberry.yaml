@@ -15,6 +15,7 @@ feeding: light
 spacingCm:
   inRow: 120
   betweenRows: 240
+soilPh: { min: 4.5, max: 5.5 }
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
 varieties:

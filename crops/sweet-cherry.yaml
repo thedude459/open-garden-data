@@ -28,6 +28,7 @@ rootstocks:
     spacingCm: { inRow: 750, betweenRows: 900 }
     heightM: { min: 8, max: 12 }
     yearsToFruit: { min: 5, max: 7 }
+soilPh: { min: 6.0, max: 7.0 }
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
 varieties:

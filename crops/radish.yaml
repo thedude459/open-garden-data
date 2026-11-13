@@ -18,8 +18,10 @@ sowingDepthCm: 1
 germinationDays: { min: 3, max: 7 }
 temperatureC: { min: 4, optimal: 16, max: 24 }
 minSoilTemperatureC: 4
+soilPh: { min: 6.0, max: 7.0 }
 windows:
   directSow: { frost: last, weeksEarliest: -5, weeksLatest: 2 }
+  fallSow: { frost: first, weeksEarliest: -6, weeksLatest: -2 }
 daysToMaturity: { min: 22, max: 30 }
 varieties:
   - id: radish-cherry-belle
