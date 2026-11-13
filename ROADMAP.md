@@ -12,12 +12,12 @@ holds the one order across both repositories (re-prioritized November 2026).
 For this repository:
 
 1. **Done: tag v0.1.0.** The app bundles it as its plant catalog.
-2. **[Data quality checks](#data-quality-checks) and release notes** (next):
+2. **Done: [data quality checks](#data-quality-checks) and release notes**:
    spacing ranges by habit, the consistency rules, a completeness report, a
    schema for the release file, and a Prettier check. They guard the v0.2
    data, which Claude drafts from public-domain and CC0 sources and the
    maintainer reviews.
-3. **v0.2 in three small releases**, so each review stays short:
+3. **v0.2 in three small releases** (next), so each review stays short:
    - **v0.2.0:** `soilPh`, fall sowing windows (`fallSow`), and hot pepper.
    - **v0.2.1:** crop coefficients (`cropCoefficients`)
      for watering by water balance.
@@ -158,14 +158,14 @@ Added to `scripts/catalog.mjs` and CI before outside contributions start:
   id stays fixed, and it makes filling names in other languages simple.
 - **Done: a completeness report** in the CI summary: which optional fields each crop
   lacks. Trees and perennials leave some out on purpose.
-- **A schema for the release file** (`open-garden-catalog-<version>.json`),
+- **Done: a schema for the release file** (`open-garden-catalog-<version>.json`),
   attached to each release, so other apps can validate what they download.
 - **Done: a Prettier check** in CI, so formatting does not drift as contributors
   join.
 
 ## Pipeline and process
 
-- **Release notes that say what changed.** Each release lists the crops and
+- **Done: release notes that say what changed.** Each release lists the crops and
   varieties added, changed, and deprecated since the previous tag, generated
   from the two builds and attached to the GitHub Release. Reviewers see the
   impact, and Open Garden's planned "Catalog version" page can show the same

@@ -2,6 +2,7 @@
 //
 //   node scripts/catalog.mjs validate
 //   node scripts/catalog.mjs report          # Markdown: optional fields each crop lacks
+//   node scripts/catalog.mjs notes new.json old.json  # Markdown: what changed between releases
 //   node scripts/catalog.mjs build 0.1.0     # writes dist/open-garden-catalog-0.1.0.json + .sha256
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
@@ -171,6 +172,51 @@ export function build(data, version) {
     crops: data.crops.map((c) => c.crop),
     companions: data.companions,
   };
+}
+
+/**
+ * Release notes in Markdown: crops and varieties added, removed, and changed
+ * between two release files. A changed crop lists the fields that differ.
+ */
+export function releaseNotes(previous, current) {
+  const byId = (list) => new Map((list ?? []).map((item) => [item.id, item]));
+  const before = byId(previous?.crops);
+  const after = byId(current.crops);
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const added = [...after.keys()].filter((id) => !before.has(id));
+  const removed = [...before.keys()].filter((id) => !after.has(id));
+  const changed = [];
+  const varietiesAdded = [];
+  const varietiesRemoved = [];
+  for (const [id, crop] of after) {
+    const old = before.get(id);
+    if (!old) continue;
+    const fields = [...new Set([...Object.keys(old), ...Object.keys(crop)])]
+      .filter((f) => f !== 'varieties' && !same(old[f], crop[f]))
+      .sort();
+    const oldVarieties = byId(old.varieties);
+    const newVarieties = byId(crop.varieties);
+    for (const v of newVarieties.keys()) if (!oldVarieties.has(v)) varietiesAdded.push(v);
+    for (const v of oldVarieties.keys()) if (!newVarieties.has(v)) varietiesRemoved.push(v);
+    const variety = [...newVarieties].some(
+      ([v, item]) => oldVarieties.has(v) && !same(oldVarieties.get(v), item),
+    );
+    if (fields.length || variety)
+      changed.push(`${id} (${[...fields, ...(variety ? ['a variety'] : [])].join(', ')})`);
+  }
+  const list = (title, items) => (items.length ? [`**${title}:** ${items.join(', ')}`, ''] : []);
+  const from = previous ? `v${previous.version}` : 'nothing (first release)';
+  const lines = [
+    `## Changes in the data since ${from}`,
+    '',
+    ...list(`Crops added (${added.length})`, added),
+    ...list(`Crops removed (${removed.length})`, removed),
+    ...list(`Crops changed (${changed.length})`, changed),
+    ...list(`Varieties added (${varietiesAdded.length})`, varietiesAdded),
+    ...list(`Varieties removed (${varietiesRemoved.length})`, varietiesRemoved),
+  ];
+  if (lines.length === 2) lines.push('No crop or variety changed.', '');
+  return lines.join('\n');
 }
 
 /**
@@ -366,6 +412,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.log(
       `Valid: ${data.crops.length} crop(s), ${data.families.length} families, ${data.companions.length} companion pair(s).`,
     );
+  } else if (command === 'notes') {
+    // node scripts/catalog.mjs notes <current.json> [previous.json]
+    const [currentFile, previousFile] = process.argv.slice(3);
+    const read = (file) => JSON.parse(readFileSync(file, 'utf8'));
+    process.stdout.write(releaseNotes(previousFile ? read(previousFile) : null, read(currentFile)));
   } else if (command === 'report') {
     process.stdout.write(completeness(data));
   } else if (command === 'build') {
@@ -377,7 +428,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     writeFileSync(join(ROOT, 'dist', `${name}.sha256`), `${sha}  ${name}\n`);
     console.log(`Wrote dist/${name} (sha256 ${sha})`);
   } else {
-    console.error('Usage: node scripts/catalog.mjs validate | report | build <version>');
+    console.error(
+      'Usage: node scripts/catalog.mjs validate | report | build <version> | notes <current.json> [previous.json]',
+    );
     process.exit(2);
   }
 }

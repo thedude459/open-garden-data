@@ -2,7 +2,8 @@ name: Release
 
 # Publishing a GitHub Release tagged vMAJOR.MINOR.PATCH builds
 # open-garden-catalog-<version>.json, its SHA-256, and a build provenance
-# attestation, and attaches them to the release. The app pins a version.
+# attestation, and attaches them to the release with what changed since the
+# previous release and the release-file schema. The app pins a version.
 on:
   release:
     types: [published]
@@ -65,3 +66,31 @@ jobs:
           cp "${BUNDLE}" "dist/${NAME}.sigstore.json"
           gh release upload "${TAG}" "dist/${NAME}" "dist/${NAME}.sha256" "dist/${NAME}.sigstore.json" \
             --clobber --repo "${GITHUB_REPOSITORY}"
+      - name: Release notes and schema
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.event.release.tag_name }}
+          VERSION: ${{ steps.tag.outputs.version }}
+        run: |
+          # What changed since the newest other published release, appended to
+          # this release's description and attached; plus the release-file schema.
+          PREV="$(gh release list --repo "${GITHUB_REPOSITORY}" --exclude-drafts --exclude-pre-releases \
+            --json tagName --jq '.[].tagName' | grep -vx "${TAG}" | head -n 1 || true)"
+          PREV_FILE=""
+          if [[ -n "${PREV}" ]]; then
+            mkdir -p prev
+            if gh release download "${PREV}" --repo "${GITHUB_REPOSITORY}" --dir prev \
+              --pattern "open-garden-catalog-${PREV#v}.json"; then
+              PREV_FILE="prev/open-garden-catalog-${PREV#v}.json"
+            fi
+          fi
+          node scripts/catalog.mjs notes "dist/open-garden-catalog-${VERSION}.json" ${PREV_FILE:+"${PREV_FILE}"} \
+            > "dist/open-garden-catalog-${VERSION}.changes.md"
+          gh release view "${TAG}" --repo "${GITHUB_REPOSITORY}" --json body --jq .body > body.md
+          if ! grep -q '^## Changes in the data since' body.md; then
+            printf '\n\n' >> body.md
+            cat "dist/open-garden-catalog-${VERSION}.changes.md" >> body.md
+            gh release edit "${TAG}" --repo "${GITHUB_REPOSITORY}" --notes-file body.md
+          fi
+          gh release upload "${TAG}" "dist/open-garden-catalog-${VERSION}.changes.md" \
+            schema/catalog.schema.json schema/crop.schema.json --clobber --repo "${GITHUB_REPOSITORY}"

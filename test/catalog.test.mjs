@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { build, completeness, load, validate } from '../scripts/catalog.mjs';
+import { readFileSync } from 'node:fs';
+import Ajv2020 from 'ajv/dist/2020.js';
+import { build, completeness, load, releaseNotes, validate } from '../scripts/catalog.mjs';
 import { buildQuery, compare } from '../scripts/verify-wikidata.mjs';
 
 const clone = (value) => structuredClone(value);
@@ -194,4 +196,33 @@ test('the completeness report lists optional fields each crop leaves out', () =>
   assert.match(report, /\| `temperatureC` \| 38 \|/);
   assert.match(report, /\| apple \| [^|]*temperatureC/);
   assert.doesNotMatch(report, /\| tomato \|/);
+});
+
+test('a built release matches the release-file schema', () => {
+  const schema = (name) =>
+    JSON.parse(readFileSync(new URL(`../schema/${name}`, import.meta.url), 'utf8'));
+  const ajv = new Ajv2020({ allErrors: true, strict: true });
+  ajv.addSchema(schema('crop.schema.json'));
+  const check = ajv.compile(schema('catalog.schema.json'));
+  assert.ok(check(build(load(), '1.2.3')), JSON.stringify(check.errors));
+  assert.equal(check({ ...build(load(), '1.2.3'), license: 'CC-BY-4.0' }), false);
+});
+
+test('release notes list what was added, removed, and changed', () => {
+  const before = build(load(), '0.1.0');
+  const after = structuredClone(before);
+  after.version = '0.2.0';
+  after.crops = after.crops.filter((c) => c.id !== 'okra');
+  const tomato = after.crops.find((c) => c.id === 'tomato');
+  tomato.spacingCm = { inRow: 50 };
+  tomato.varieties.push({ id: 'tomato-roma', name: 'Roma' });
+  after.crops.push({ ...structuredClone(tomato), id: 'hot-pepper', varieties: [] });
+  const notes = releaseNotes(before, after);
+  assert.match(notes, /since v0\.1\.0/);
+  assert.match(notes, /\*\*Crops added \(1\):\*\* hot-pepper/);
+  assert.match(notes, /\*\*Crops removed \(1\):\*\* okra/);
+  assert.match(notes, /\*\*Crops changed \(1\):\*\* tomato \(spacingCm\)/);
+  assert.match(notes, /\*\*Varieties added \(1\):\*\* tomato-roma/);
+  assert.match(releaseNotes(after, after), /No crop or variety changed\./);
+  assert.match(releaseNotes(null, after), /since nothing \(first release\)/);
 });
