@@ -13,12 +13,14 @@ crops and fields that changed.
 
 Companion plants: the last of v0.2's three small releases.
 
-- **25 companion pairs** in `companions.yaml`, drawn from research trials and
+- **31 companion pairs** in `companions.yaml`, drawn from research trials and
   extension guidance only (no lore): trap crops (Blue Hubbard squash for
   squash bugs and cucumber beetles), plants that deter or distract pests
   (nasturtium, marigold, thyme, and onion with squash and cabbage-family
   crops; marigold and basil with tomato), plants that feed beneficial
-  insects (sweet alyssum and cilantro with lettuce), the three sisters, and
+  insects (sweet alyssum and cilantro with lettuce; dill, parsley, and tansy
+  with cabbage and broccoli, for the wasps and flies that attack cabbage
+  caterpillars), the three sisters, and
   flowers for pollination. Three pairs to keep apart: tomato and potato
   (late blight), potato and eggplant (Colorado potato beetle), tomato and
   sweet corn (corn earworm).
@@ -27,9 +29,14 @@ Companion plants: the last of v0.2's three small releases.
   and `reference` (the studies or extension guides behind it). `kind` is
   now `helps` or `hinders`; attracting pollinators moved to `benefits`.
   No release had companion pairs before, so nothing used the old values.
-- **Six companion crops:** marigold (French), nasturtium, borage, calendula,
-  sweet alyssum, and tansy. Tansy is invasive in much of North America and
-  toxic; its notes say so, and no pair names it.
+- **Seven new crops:** marigold (French), nasturtium, borage, calendula,
+  sweet alyssum, tansy, and comfrey. Tansy draws beneficial insects but is
+  invasive in much of North America and toxic, and as a potato companion it
+  did not reduce Colorado potato beetle in field trials; its notes say all
+  three. Comfrey is grown for potassium-rich leaves to mulch with; its notes
+  cover its pollinators, its spreading roots, and why it must not be eaten.
+  No source I could reach supports a comfrey companion pair, so none is
+  listed.
 - **Two families:** borage (Boraginaceae) and nasturtium (Tropaeolaceae).
 - **Validation:** a pair's benefits must match its kind, research and
   extension pairs need a reference, and every pair says where it was shown.
@@ -37,7 +44,9 @@ Companion plants: the last of v0.2's three small releases.
 Sources read: University of Minnesota Extension, Clemson Cooperative
 Extension HGIC, UC IPM, University of Maine and UNH Extension; studies cited
 by them (Iowa State, University of Missouri, University of Florida, PLOS ONE,
-Agronomy, Entomologia Experimentalis et Applicata).
+Agronomy, Entomologia Experimentalis et Applicata), and Moreau et al. (2006),
+Biological Agriculture & Horticulture 23(4), on companions for Colorado
+potato beetle.
 
 ## v0.2.1
 

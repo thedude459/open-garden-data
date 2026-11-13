@@ -22,7 +22,7 @@ For this repository:
      (`fallSow`) for lettuce, pea, radish, and spinach, and hot pepper.
    - **Done, v0.2.1:** crop coefficients (`cropCoefficients`) for watering
      by water balance, on the 39 crops FAO-56 lists.
-   - **v0.2.2 (drafted, in review):** companion plants as crops, and 25
+   - **v0.2.2 (drafted, in review):** companion plants as crops, and 31
      companion pairs from research and extension guidance, each with where
      it was shown.
 4. **v0.3**, about 150 crops and [pests and diseases, organized for

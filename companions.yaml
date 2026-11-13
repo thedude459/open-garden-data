@@ -133,6 +133,66 @@
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
   source: hand-curation
+- crops: [dill, cabbage]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Dill in flower draws parasitic wasps, which attack the caterpillars that feed on cabbage, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [dill, broccoli]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Dill in flower draws parasitic wasps, which attack the caterpillars that feed on broccoli, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [parsley, cabbage]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Parsley in flower draws parasitic wasps and tachinid flies, which attack the caterpillars that feed on cabbage, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [parsley, broccoli]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Parsley in flower draws parasitic wasps and tachinid flies, which attack the caterpillars that feed on broccoli, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [tansy, cabbage]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Tansy in flower draws parasitic wasps and tachinid flies, which attack the caterpillars that feed on cabbage, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [tansy, broccoli]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Tansy in flower draws parasitic wasps and tachinid flies, which attack the caterpillars that feed on broccoli, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
 - crops: [thyme, brussels-sprouts]
   kind: helps
   benefits: [deters-pests]
