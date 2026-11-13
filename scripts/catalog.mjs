@@ -103,6 +103,10 @@ export function validate(data, schema = readSchema()) {
         `${at}: windows.fallSow is a fall sowing, counted from the first fall frost (frost: first)`,
       );
     }
+    const kc = crop.cropCoefficients;
+    if (kc && (kc.mid < kc.initial || kc.mid < kc.end)) {
+      errors.push(`${at}: cropCoefficients.mid is the peak; it cannot be below initial or end`);
+    }
     if (crop.soilPh && crop.soilPh.min > crop.soilPh.max) {
       errors.push(`${at}: soilPh.min is above max`);
     }

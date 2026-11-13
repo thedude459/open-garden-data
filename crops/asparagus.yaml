@@ -17,6 +17,11 @@ spacingCm:
   betweenRows: 120
 sowingDepthCm: 15
 soilPh: { min: 6.5, max: 7.5 }
+cropCoefficients:
+  initial: 0.5
+  mid: 0.95
+  end: 0.3
+  stageDays: { initial: 50, development: 30, mid: 100, late: 50 }
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
 varieties:

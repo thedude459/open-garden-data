@@ -109,6 +109,35 @@
         "max": { "type": "number", "minimum": 3, "maximum": 10 }
       }
     },
+    "cropCoefficients": {
+      "type": "object",
+      "description": "Crop coefficients (Kc) for watering by water balance: the crop uses reference evapotranspiration (ET0) times Kc. Values follow FAO Irrigation and Drainage Paper 56, Table 12 (Kc) and Table 11 (stage lengths).",
+      "additionalProperties": false,
+      "required": ["initial", "mid", "end"],
+      "properties": {
+        "initial": {
+          "$ref": "#/$defs/kc",
+          "description": "Kc while the crop is young, before it covers about a tenth of the ground."
+        },
+        "mid": {
+          "$ref": "#/$defs/kc",
+          "description": "Kc at full cover, from flowering to the start of ripening."
+        },
+        "end": { "$ref": "#/$defs/kc", "description": "Kc at harvest or leaf fall." },
+        "stageDays": {
+          "type": "object",
+          "description": "Typical days in each growth stage for one spring planting in FAO-56 Table 11. Apps scale them to the crop's or variety's days to maturity.",
+          "additionalProperties": false,
+          "required": ["initial", "development", "mid", "late"],
+          "properties": {
+            "initial": { "type": "integer", "minimum": 1, "maximum": 400 },
+            "development": { "type": "integer", "minimum": 1, "maximum": 400 },
+            "mid": { "type": "integer", "minimum": 1, "maximum": 400 },
+            "late": { "type": "integer", "minimum": 1, "maximum": 400 }
+          }
+        }
+      }
+    },
     "windows": {
       "type": "object",
       "description": "Sowing windows in weeks relative to the last spring or first fall frost; negative is before. Leave out a method the crop is not grown by.",
@@ -153,6 +182,7 @@
     "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 60 },
     "cm": { "type": "number", "exclusiveMinimum": 0, "maximum": 2000 },
     "celsius": { "type": "number", "minimum": -40, "maximum": 50 },
+    "kc": { "type": "number", "minimum": 0.1, "maximum": 1.5 },
     "dayRange": {
       "type": "object",
       "additionalProperties": false,

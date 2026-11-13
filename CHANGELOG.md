@@ -9,6 +9,29 @@ crops and fields that changed.
 
 ## Unreleased
 
+## v0.2.1
+
+Crop coefficients, for watering by water balance: a crop uses about
+reference evapotranspiration (ET0) × its crop coefficient (Kc).
+
+- **`cropCoefficients { initial, mid, end }`** on 39 crops: Kc while young,
+  at full cover, and at harvest or leaf fall, from FAO Irrigation and
+  Drainage Paper 56 (FAO-56), Table 12.
+- **`cropCoefficients.stageDays { initial, development, mid, late }`** on 32
+  of them: typical days in each stage from FAO-56 Table 11, taken from the
+  first row planted in March to May (or its only row). Apps scale the stages
+  to the crop's days to maturity. Garlic, parsnip, mint, strawberry, and the
+  cane and bush berries have no Table 11 row, so no stage lengths.
+- Where FAO-56 groups or splits crops: hot pepper uses bell pepper's values;
+  melon uses "sweet melons"; Brussels sprouts use the "crucifers" stage row;
+  apple, pear, and sweet cherry use the orchard values without ground cover
+  and with a killing frost, peach the stone-fruit ones; raspberry,
+  blackberry, and blueberry use "berries (bushes)"; tomato's end value is
+  0.80, the middle of FAO-56's 0.70–0.90.
+- Not in FAO-56, so left out: basil, chives, cilantro, dill, kale, leek,
+  okra, oregano, parsley, rhubarb, Swiss chard, thyme.
+- Validation: `cropCoefficients.mid` must be at least `initial` and `end`.
+
 ## v0.2.0
 
 The first of v0.2's small releases: soil pH for every crop, a fall sowing

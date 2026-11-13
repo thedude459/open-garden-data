@@ -17,6 +17,10 @@ spacingCm:
   betweenRows: 30
 sowingDepthCm: 5
 soilPh: { min: 6.0, max: 7.0 }
+cropCoefficients:
+  initial: 0.7
+  mid: 1.0
+  end: 0.7
 windows:
   directSow: { frost: first, weeksEarliest: -2, weeksLatest: 4 }
 daysToMaturity: { min: 240, max: 270 }
