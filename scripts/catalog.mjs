@@ -15,6 +15,18 @@ const COMPANION_KINDS = new Set(['helps', 'hinders', 'attracts-pollinators']);
 const ALLOWED_LICENSES = new Set(['CC0-1.0', 'Public domain']);
 const SOURCE_KINDS = new Set(['reference', 'curation', 'bootstrap']);
 const ROOTSTOCK_ORDER = ['dwarf', 'semiDwarf', 'standard'];
+/**
+ * In-row spacing a plant of each habit can plausibly have, in cm. Wide enough
+ * for real crops (peas at 5 cm, thyme at 25), narrow enough to catch metres
+ * or feet entered as centimetres, or a stray zero.
+ */
+const SPACING_CM_BY_HABIT = {
+  herbaceous: [2, 150],
+  vine: [2, 300],
+  cane: [20, 200],
+  shrub: [15, 400],
+  tree: [150, 1200],
+};
 
 /** Read every data file under `dir`. */
 export function load(dir = ROOT) {
@@ -181,6 +193,26 @@ function checkPlausible(at, crop) {
   for (const [size, r] of Object.entries(crop.rootstocks ?? {})) rows.push([`rootstocks.${size}.spacingCm`, r.spacingCm]);
   for (const [where, sp] of rows) {
     if (sp?.betweenRows !== undefined && sp.betweenRows < sp.inRow) errors.push(`${at}: ${where} rows cannot be closer than plants in a row`);
+  }
+  const [low, high] = SPACING_CM_BY_HABIT[crop.habit] ?? [0, Infinity];
+  for (const [where, sp] of rows) {
+    if (sp && (sp.inRow < low || sp.inRow > high)) {
+      errors.push(`${at}: ${where}.inRow is ${sp.inRow} cm; a ${crop.habit} is spaced ${low}–${high} cm. Is it in another unit?`);
+    }
+  }
+  for (const v of crop.varieties ?? []) {
+    const own = v.daysToMaturity;
+    const all = crop.daysToMaturity;
+    if (own && all && (own.min < all.min || own.max > all.max)) {
+      errors.push(`${at}: variety "${v.id}" daysToMaturity must sit within the crop's (${all.min}–${all.max})`);
+    }
+  }
+  if (crop.frostTolerance === 'tender' && crop.lifeCycle === 'perennial' && crop.hardinessZones?.min < 9) {
+    errors.push(`${at}: a frost-tender perennial cannot survive winter below zone 9 (hardinessZones.min is ${crop.hardinessZones.min})`);
+  }
+  const optimal = crop.temperatureC?.optimal;
+  if (crop.minSoilTemperatureC !== undefined && optimal !== undefined && crop.minSoilTemperatureC > optimal) {
+    errors.push(`${at}: minSoilTemperatureC (${crop.minSoilTemperatureC}) is above the optimal air temperature (${optimal})`);
   }
   if (crop.rootstocks) {
     const present = ROOTSTOCK_ORDER.filter((k) => crop.rootstocks[k]).map((k) => [k, crop.rootstocks[k]]);

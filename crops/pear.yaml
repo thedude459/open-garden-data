@@ -2,6 +2,7 @@ id: pear
 names:
   en: Pear
 scientificName: Pyrus communis
+wikidataId: Q146281
 family: rosaceae
 habit: tree
 use: fruit

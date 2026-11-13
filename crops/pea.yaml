@@ -2,6 +2,7 @@ id: pea
 names:
   en: Pea
 scientificName: Pisum sativum
+wikidataId: Q25237
 family: fabaceae
 habit: vine
 use: vegetable

@@ -2,6 +2,7 @@ id: melon
 names:
   en: Melon
 scientificName: Cucumis melo
+wikidataId: Q81602
 family: cucurbitaceae
 habit: vine
 use: fruit

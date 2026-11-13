@@ -2,6 +2,7 @@ id: apple
 names:
   en: Apple
 scientificName: Malus domestica
+wikidataId: Q18674606
 family: rosaceae
 habit: tree
 use: fruit

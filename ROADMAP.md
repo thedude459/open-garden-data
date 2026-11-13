@@ -145,15 +145,16 @@ force the whole dataset to BY-SA), PFAF (restrictive terms), and Perenual
 
 Added to `scripts/catalog.mjs` and CI before outside contributions start:
 
-- **Spacing ranges by habit**, to catch inches entered as centimetres (a
-  tomato at `inRow: 18` passes every rule today): herbaceous 2–150 cm, vines
-  15–300, shrubs 60–400, trees 150–1,200. Outliers fail with a hint.
-- **Consistency rules:** a variety's days to maturity within its crop's
-  range; a frost-tender perennial not hardy below zone 9; minimum soil
-  temperature no higher than the optimal air temperature. All 50 v0.1 crops
-  pass these today.
-- **`wikidataId` per crop** (`Q…`), checked against the name by
-  `verify:wikidata`. Names on Wikidata can be corrected or merged; the item
+- **Done: spacing ranges by habit**, to catch spacing in the wrong unit or
+  with a stray zero: herbaceous 2–150 cm, vines 2–300 (peas at 5), canes
+  20–200, shrubs 15–400 (thyme at 25), trees 150–1,200. Outliers fail with a
+  hint. A tomato at `inRow: 18` (inches typed as cm) still passes; no range
+  can catch a factor of 2.54 inside a crop's real span.
+- **Done: consistency rules:** a variety's days to maturity within its
+  crop's range; a frost-tender perennial not hardy below zone 9; minimum soil
+  temperature no higher than the optimal air temperature.
+- **Done: `wikidataId` per crop** (`Q…`), required, and checked against
+  the scientific name by `verify:wikidata`. Names on Wikidata can be corrected or merged; the item
   id stays fixed, and it makes filling names in other languages simple.
 - **A completeness report** in the CI summary: which optional fields each crop
   lacks. Trees and perennials leave some out on purpose.

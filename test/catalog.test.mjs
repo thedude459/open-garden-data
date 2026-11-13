@@ -36,7 +36,8 @@ test('a perennial needs hardiness zones, in order', () => {
   assert.match(validate(data).join('\n'), /a perennial needs hardinessZones/);
   tomato.hardinessZones = { min: 9, max: 4 };
   assert.match(validate(data).join('\n'), /hardinessZones.min is above max/);
-  tomato.hardinessZones = { min: 4, max: 9 };
+  // Tomato is frost-tender, so as a perennial it survives only from zone 9.
+  tomato.hardinessZones = { min: 9, max: 11 };
   assert.deepEqual(validate(data), []);
 });
 
@@ -128,4 +129,39 @@ test('the Wikidata check reports unknown names and family differences', () => {
     'c: Wikidata has no taxon named "Not there"',
   ]);
   assert.match(buildQuery(['A b']), /VALUES \?name \{ "A b" \}/);
+});
+
+test('the Wikidata check reports an item that is not the named taxon', () => {
+  const item = (name, q) => ({
+    name: { value: name },
+    item: { value: `http://www.wikidata.org/entity/${q}` },
+    familyName: { value: 'Solanaceae' },
+  });
+  const crop = { id: 'a', scientificName: 'Known one', family: 'solanaceae' };
+  assert.deepEqual(compare([{ ...crop, wikidataId: 'Q1' }], [item('Known one', 'Q1')]), []);
+  assert.deepEqual(compare([{ ...crop, wikidataId: 'Q2' }], [item('Known one', 'Q1')]), [
+    'a: Q2 is not the Wikidata item named "Known one"',
+  ]);
+});
+
+test('spacing must fit the habit, so a value in the wrong unit fails', () => {
+  const data = clone(load());
+  const tomato = tomatoOf(data).crop;
+  tomato.spacingCm = { inRow: 450 };
+  assert.match(validate(data).join('\n'), /spacingCm.inRow is 450 cm; a herbaceous is spaced 2–150 cm/);
+  tomato.spacingCm = { inRow: 1 };
+  assert.match(validate(data).join('\n'), /Is it in another unit\?/);
+});
+
+test('consistency: variety maturity, tender perennials, and soil temperature', () => {
+  const data = clone(load());
+  const tomato = tomatoOf(data).crop;
+  tomato.varieties[0].daysToMaturity = { min: tomato.daysToMaturity.min - 10, max: tomato.daysToMaturity.max };
+  tomato.lifeCycle = 'perennial';
+  tomato.hardinessZones = { min: 5, max: 11 };
+  tomato.minSoilTemperatureC = tomato.temperatureC.optimal + 1;
+  const errors = validate(data).join('\n');
+  assert.match(errors, /daysToMaturity must sit within the crop's/);
+  assert.match(errors, /frost-tender perennial cannot survive winter below zone 9/);
+  assert.match(errors, /minSoilTemperatureC .* is above the optimal air temperature/);
 });
