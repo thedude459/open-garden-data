@@ -8,13 +8,25 @@ version each app feature needs.
 ## Order of work
 
 The [Open Garden roadmap](https://github.com/thedude459/open-garden/blob/main/docs/roadmap.md#implementation-order)
-holds the one order across both repositories. For this repository:
+holds the one order across both repositories (re-prioritized November 2026).
+For this repository:
 
 1. **Done: tag v0.1.0.** The app bundles it as its plant catalog.
-2. **[Data quality checks](#data-quality-checks) and release notes** (next),
-   before outside contributions start.
-3. **v0.2**, while the app builds typed areas and its redesign.
-4. **v0.3**, while the app adds care features.
+2. **[Data quality checks](#data-quality-checks) and release notes** (next):
+   spacing ranges by habit, the consistency rules, a completeness report, a
+   schema for the release file, and a Prettier check. They guard the v0.2
+   data, which Claude drafts from public-domain and CC0 sources and the
+   maintainer reviews.
+3. **v0.2 in three small releases**, so each review stays short:
+   - **v0.2.0:** `soilPh`, fall sowing windows (`fallSow`), and hot pepper.
+   - **v0.2.1:** crop coefficients (`cropCoefficients`)
+     for watering by water balance.
+   - **v0.2.2:** companion plants as crops, and companion pairs with
+     benefits, evidence, and sources.
+4. **v0.3**, about 150 crops and pests and diseases, while the app adds care
+   features.
+5. **Later:** wet and dry seasons, crop icons, and names in other languages
+   as they are contributed.
 
 ## Releases
 
