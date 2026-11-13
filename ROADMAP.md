@@ -23,7 +23,7 @@ holds the one order across both repositories. For this repository:
 | **v0.1** | Schema v1 and the [first 50 crops](#v01-the-first-50-crops), each with family, habit, use, spacing, and sowing windows | The catalog importer, sowing calendars, crop rotation by family, and typed areas (habit and use decide what an area accepts) |
 | **v0.2** | Companion pairs, each with benefits, an evidence level, a reason, and a source; the [companion plants they need](#v02-companion-plants-first) as crops; hot pepper; fall sowing windows; `soilPh` and crop coefficients per crop | Companion advice from data instead of only household-entered pairs, fall crops in the calendar, soil-test advice, and watering by water balance |
 | **v0.3** | About 150 crops: more vegetables and herbs, fruit and nut trees (with [named rootstocks](#schema-changes-planned)), cane fruit, and soft fruit; [common pests and diseases](#pests-and-diseases) linked to crops and companions | Orchard and bramble areas with real plants, a catalog broad enough for most home gardens, and pest advice on plant pages |
-| **Later** | Frost-free windows, names in other languages, crop icons | Worldwide climate support and a localized catalog |
+| **Later** | Wet and dry seasons, crop icons; names in other languages as they are contributed | Worldwide climate support and a localized catalog |
 
 A release is a tag (`v0.1.0`); publishing it attaches
 `open-garden-catalog-<version>.json`, its SHA-256, and a provenance
@@ -87,7 +87,7 @@ Each pair then carries:
 | Change | When | Why |
 |---|---|---|
 | `companions.yaml` filled, with `kind` = helps, hinders, or attracts-pollinators | v0.2 | Already in the schema; v0.2 adds the data |
-| Common names beyond English (`names.<locale>`) | Later | Already allowed by the schema. Waits for Open Garden's interface translation, so names and interface arrive together; see the Wikidata findings below |
+| Common names beyond English (`names.<locale>`) | Contributions | Already allowed by the schema. Added by people who speak the language ([CONTRIBUTING](CONTRIBUTING.md#names-in-other-languages)); Open Garden shows English only until its own translation is contributed. See the Wikidata findings below |
 | Frost-free sowing by wet/dry season | Later | By temperature is done: Open Garden places windows from `temperatureC` and `minSoilTemperatureC` where frost is rare ([its ADR 0025](https://github.com/thedude459/open-garden/blob/main/docs/adr/0025-sowing-by-temperature-where-frost-is-rare.md)). Wet and dry seasons need new data |
 | Per-value `confidence` | If needed | Sources are recorded per crop today, optionally per field; add confidence only if reviewers need it |
 | Crop icons (CC0, made for the project) | Later | Photos only from Wikimedia Commons, with per-image license stored alongside |
@@ -168,7 +168,7 @@ Added to `scripts/catalog.mjs` and CI before outside contributions start:
   sugar), Latin, or missing (blackberry, blueberry, Brussels sprouts,
   celery, leek, mint), and crops that share a species (bush and pole bean,
   the squashes) need names of their own. Expect to curate about two names in
-  five by hand. Waits for Open Garden's interface translation.
+  five by hand. Done as contributions from speakers of each language.
 - **A required reviewer once there is a second contributor.** Add
   `CODEOWNERS` so data pull requests need a review from someone other than
   their author. Until then the maintainer reviews their own.
