@@ -20,13 +20,18 @@ For this repository:
 3. **v0.2 in three small releases** (next), so each review stays short:
    - **Done, v0.2.0:** `soilPh` for every crop, fall sowing windows
      (`fallSow`) for lettuce, pea, radish, and spinach, and hot pepper.
-   - **v0.2.1 (drafted, in review):** crop coefficients (`cropCoefficients`)
-     for watering by water balance, on the 39 crops FAO-56 lists.
-   - **v0.2.2:** companion plants as crops, and companion pairs with
-     benefits, evidence, and sources.
-4. **v0.3**, about 150 crops and pests and diseases, while the app adds care
-   features.
-5. **Later:** wet and dry seasons, crop icons, and names in other languages
+   - **Done, v0.2.1:** crop coefficients (`cropCoefficients`) for watering
+     by water balance, on the 39 crops FAO-56 lists.
+   - **v0.2.2 (drafted, in review):** companion plants as crops, and 31
+     companion pairs from research and extension guidance, each with where
+     it was shown.
+4. **v0.3**, about 150 crops and [pests and diseases, organized for
+   integrated pest management](#pests-and-diseases-ipm), while the app adds
+   care features.
+5. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
+   soil texture, and nutrient recommendations by soil-test level, so the app
+   can turn a bed's soil test into advice.
+6. **Later:** wet and dry seasons, crop icons, and names in other languages
    as they are contributed.
 
 ## Releases
@@ -95,6 +100,26 @@ Each pair then carries:
 
 `kind` (helps, hinders) stays for a one-word summary.
 
+Two more fields, added in v0.2.2:
+
+- **`shownIn`**: where the evidence comes from, each place with its USDA
+  hardiness zones (a greenhouse has none). Pests and pressures differ by
+  region: squash bugs and striped cucumber beetles are eastern and central
+  North American pests, and a trial in Iowa says little about the Central
+  Valley. Apps rank pairs shown near a garden first and say where each was
+  shown; they do not hide the rest, since most pairs were tested in one or
+  two places.
+- **`reference`**: the studies or extension guides behind the pair, as a
+  citation. Extension publications and papers are not CC0, so they cannot
+  be `sources.yaml` entries; the facts are written in our own words and
+  the reference says where to check them.
+
+v0.2.2 draws on extension services across regions: Minnesota (and the Iowa,
+Missouri, and Florida trials its list cites), Clemson (South Carolina), and
+UC IPM (California). UMaine and UNH were read too; both point gardeners to
+Minnesota's research list rather than keeping their own. Mid-Atlantic and
+Pacific Northwest guidance is still to add.
+
 ## Schema changes planned
 
 | Change                                                                                                                                                                                                                                                   | When                       | Why                                                                                                                                                                                                                                                                                      |
@@ -116,14 +141,58 @@ Each pair then carries:
 | Bloom season and a toxicity flag                                                                                                                                                                                                                         | With flowers               | For flowers, days to maturity means days to bloom; a flag warns about plants harmful to pets or children                                                                                                                                                                                 |
 | New `use` values (cover crops, grains)                                                                                                                                                                                                                   | When needed                | A minor release; apps skip what they cannot read                                                                                                                                                                                                                                         |
 
-## Pests and diseases
+## Pests and diseases (IPM)
 
 From v0.3, `pests.yaml` lists common garden pests and diseases the way
-`families.yaml` lists families: an id, a name, the signs to look for, and
-organic controls, written in our own words with sources. Crops list the pests
-they are prone to (`pests: [aphids, cabbage-worm]`), and companion benefits
-can name the pest they act on, with evidence. Crop rotation by family is the
-other half of disease control and needs no new data.
+`families.yaml` lists families, organized the way extension services teach
+integrated pest management (IPM): know the pest, watch for it, and reach for
+the least disruptive control that works.
+
+Each pest or disease carries:
+
+- **Identification**: the signs to look for and the crops it attacks.
+  Crops list the pests they are prone to (`pests: [aphids, cabbage-worm]`).
+- **When to scout**: the season or crop stage it appears, so an app can
+  remind a household to look (for example flea beetles on young brassica
+  and eggplant transplants in spring).
+- **Threshold**, where extension guidance gives one: when damage is worth
+  acting on (for example spray seedlings only after they lose about a third
+  of their leaf area).
+- **Controls, in IPM order**: cultural (rotation, timing, resistant
+  varieties, clean-up), physical (row covers until bloom, hand-picking,
+  traps), biological (beneficial insects, and the companion pairs and trap
+  crops that act on this pest, linked by id), and chemical last, by active
+  ingredient and least-toxic first, with a reminder to follow the label.
+- **`shownIn` and `reference`**, as for companion pairs: which regions the
+  guidance comes from, so advice for squash bugs in New England is not
+  offered unchanged in California.
+
+Companion benefits can then name the pest they act on (`pests: [squash-bug]`).
+Crop rotation by family is the other half of disease control and needs no
+new data.
+
+## Soil amendments
+
+Every crop already has `soilPh` and a `feeding` class, so an app with a
+soil test per bed can flag a mismatch ("blueberries want 4.5–5.5; this bed
+tests 6.8"). Saying what to add, and how much, needs data that does not
+depend on the crop alone. From v0.4:
+
+- **Lime and sulfur rates**: how much ground limestone raises pH, or
+  elemental sulfur lowers it, by soil texture (sand, loam, clay) and, where
+  the lab reports it, buffer pH. A sandy soil needs far less lime than a
+  clay for the same change. Extension soil labs publish these tables, and
+  they are regional, so each table carries `shownIn` and a `reference`.
+- **Nutrient recommendations by soil-test level**: nitrogen, phosphorus,
+  and potassium per crop or crop group for low, medium, and high test
+  results, replacing the rough `feeding` class where a test exists. Also
+  regional, from extension guides (Minnesota, Maine, Penn State, and others).
+- **Timing and organic options**: when to apply (lime in fall, sulfur a
+  season ahead of blueberries), and organic sources such as compost, bone
+  meal, and wood ash, with what each supplies.
+
+Like companion pairs, this is advice: apps suggest a lab test rather than
+guess from a home kit, and never block a planting over it.
 
 ## Sources
 

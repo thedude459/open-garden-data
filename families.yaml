@@ -14,6 +14,9 @@
 - id: asteraceae
   name: Asteraceae
   commonName: Daisy family (lettuce, sunflower, endive)
+- id: boraginaceae
+  name: Boraginaceae
+  commonName: Borage family (borage, comfrey)
 - id: brassicaceae
   name: Brassicaceae
   commonName: Cabbage family (cabbage, kale, broccoli, radish)
@@ -47,3 +50,6 @@
 - id: solanaceae
   name: Solanaceae
   commonName: Nightshade family (tomato, pepper, potato, eggplant)
+- id: tropaeolaceae
+  name: Tropaeolaceae
+  commonName: Nasturtium family (nasturtium)

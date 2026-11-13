@@ -1,0 +1,25 @@
+id: tansy
+names:
+  en: Tansy
+scientificName: Tanacetum vulgare
+wikidataId: Q27079
+family: asteraceae
+habit: herbaceous
+use: herb
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 8 }
+sun: full
+water: low
+feeding: light
+spacingCm:
+  inRow: 45
+  betweenRows: 60
+soilPh: { min: 6.0, max: 7.0 }
+windows:
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 2 }
+notes: Its flowers draw lacewings, lady beetles, parasitic wasps, and tachinid flies, which prey on aphids, whiteflies, and caterpillars. As a companion for potatoes it did not reduce Colorado potato beetle in field trials. Invasive in much of North America and a listed noxious weed in several states; check local rules. Toxic to people and livestock. Spreads by roots and seed, so grow it contained and cut flowers before they set seed.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

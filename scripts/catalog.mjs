@@ -13,7 +13,19 @@ import Ajv2020 from 'ajv/dist/2020.js';
 import { parse } from 'yaml';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const COMPANION_KINDS = new Set(['helps', 'hinders', 'attracts-pollinators']);
+const COMPANION_KINDS = new Set(['helps', 'hinders']);
+const HELPS = new Set([
+  'deters-pests',
+  'trap-crop',
+  'attracts-beneficials',
+  'attracts-pollinators',
+  'fixes-nitrogen',
+  'support',
+  'shade',
+  'ground-cover',
+]);
+const HINDERS = new Set(['competes', 'suppresses-growth', 'shares-pests']);
+const EVIDENCE = new Set(['research', 'extension', 'traditional']);
 /** Licenses whose terms allow CC0 output. Anything else (BY-SA, NC, unknown) is refused. */
 const ALLOWED_LICENSES = new Set(['CC0-1.0', 'Public domain']);
 const SOURCE_KINDS = new Set(['reference', 'curation', 'bootstrap']);
@@ -167,6 +179,27 @@ export function validate(data, schema = readSchema()) {
       if (typeof pair.reason !== 'string' || !pair.reason.trim())
         errors.push(`${at}: reason is required`);
       if (!sourceIds.has(pair.source)) errors.push(`${at}: unknown source "${pair.source}"`);
+      const allowed = pair.kind === 'hinders' ? HINDERS : HELPS;
+      if (!Array.isArray(pair.benefits) || pair.benefits.length === 0) {
+        errors.push(`${at}: benefits must list what the pairing does`);
+      } else {
+        for (const b of pair.benefits)
+          if (!allowed.has(b))
+            errors.push(`${at}: "${b}" is not a benefit of a pair that ${pair.kind}`);
+      }
+      if (!EVIDENCE.has(pair.evidence))
+        errors.push(`${at}: evidence must be one of ${[...EVIDENCE].join(', ')}`);
+      if (pair.evidence !== 'traditional' && !pair.reference?.trim())
+        errors.push(`${at}: ${pair.evidence} evidence needs a reference`);
+      if (!Array.isArray(pair.shownIn) || pair.shownIn.length === 0) {
+        errors.push(`${at}: shownIn must say where the evidence comes from`);
+      } else {
+        for (const place of pair.shownIn) {
+          if (!place?.where?.trim()) errors.push(`${at}: each shownIn entry needs where`);
+          if (place?.zones && place.zones.min > place.zones.max)
+            errors.push(`${at}: shownIn "${place.where}" zones.min is above max`);
+        }
+      }
     });
   }
   return errors;

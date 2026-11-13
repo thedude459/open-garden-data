@@ -200,7 +200,7 @@ test('consistency: variety maturity, tender perennials, and soil temperature', (
 test('the completeness report lists optional fields each crop leaves out', () => {
   const report = completeness(load());
   assert.match(report, /^## Completeness/);
-  assert.match(report, /\| `temperatureC` \| 39 \|/);
+  assert.match(report, /\| `temperatureC` \| 44 \|/);
   assert.match(report, /\| apple \| [^|]*temperatureC/);
   assert.doesNotMatch(report, /\| tomato \|/);
 });
@@ -273,4 +273,46 @@ test('a crop coefficient peaks mid-season', () => {
   const tomato = data.crops.find((c) => c.crop.id === 'tomato').crop;
   tomato.cropCoefficients.initial = 1.2;
   assert.match(validate(data).join('\n'), /cropCoefficients.mid is the peak/);
+});
+
+test('a companion pair says what it does, how well it is known, and where', () => {
+  const data = clone(load());
+  data.companions = [
+    {
+      crops: ['tomato', 'basil'],
+      kind: 'helps',
+      benefits: ['shares-pests'],
+      evidence: 'research',
+      reason: 'x',
+      shownIn: [{ where: 'Iowa', zones: { min: 6, max: 5 } }],
+      source: 'hand-curation',
+    },
+    {
+      crops: ['tomato', 'potato'],
+      kind: 'hinders',
+      benefits: [],
+      evidence: 'hearsay',
+      reason: 'x',
+      shownIn: [],
+      source: 'hand-curation',
+    },
+    {
+      crops: ['tomato', 'potato'],
+      kind: 'hinders',
+      benefits: ['shares-pests'],
+      evidence: 'traditional',
+      reason: 'x',
+      shownIn: [{ where: 'Anywhere' }],
+      source: 'hand-curation',
+    },
+  ];
+  const errors = validate(data).join('\n');
+  assert.match(errors, /"shares-pests" is not a benefit of a pair that helps/);
+  assert.match(errors, /research evidence needs a reference/);
+  assert.match(errors, /zones.min is above max/);
+  assert.match(errors, /benefits must list what the pairing does/);
+  assert.match(errors, /evidence must be one of research, extension, traditional/);
+  assert.match(errors, /shownIn must say where the evidence comes from/);
+  // Lore needs no reference.
+  assert.doesNotMatch(errors, /companions.yaml\[2\]/);
 });

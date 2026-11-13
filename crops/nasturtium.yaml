@@ -1,0 +1,29 @@
+id: nasturtium
+names:
+  en: Nasturtium
+scientificName: Tropaeolum majus
+wikidataId: Q156288
+family: tropaeolaceae
+habit: herbaceous
+use: flower
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: low
+feeding: light
+spacingCm:
+  inRow: 30
+  betweenRows: 45
+sowingDepthCm: 1.5
+germinationDays: { min: 7, max: 12 }
+temperatureC: { min: 10, optimal: 21, max: 30 }
+minSoilTemperatureC: 13
+soilPh: { min: 6.0, max: 7.5 }
+windows:
+  directSow: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+daysToMaturity: { min: 50, max: 60 }
+notes: Sow where it is to grow; it resents transplanting. Rich soil gives leaves instead of flowers. Leaves and flowers are edible. Days to maturity are days to first bloom.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

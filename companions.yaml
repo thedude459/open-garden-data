@@ -1,6 +1,349 @@
-# Companion pairs. Each pair needs a source.
-# - crops: [tomato, basil]
-#   kind: helps            # helps | hinders | attracts-pollinators
-#   reason: Short reason in your own words.
-#   source: hand-curation
-[]
+# Companion pairs: advice, never a rule. Each pair says what it does
+# (benefits), how well it is known (evidence), where it was shown (shownIn,
+# with USDA hardiness zones so apps can rank pairs shown near a garden first),
+# and the studies or extension guides behind it (reference). The facts are
+# written in our own words; see CONTRIBUTING.md.
+#
+# References used below:
+#   UMN = University of Minnesota Extension, "Companion planting in home
+#         gardens" (N. Hoidal, reviewed 2026)
+#   Clemson = Clemson Cooperative Extension HGIC, "Plant Partners: 5 Benefits
+#         of Companion Planting" (J. Nichols, 2025); "Can Plants Repel
+#         Problematic Insects?" (J. Jordan, 2025); "Cucumber, Squash, Melon &
+#         Other Cucurbit Insect Pests"
+#   UC IPM = UC Statewide IPM Program, "Lettuce aphid" (Pest Management
+#         Guidelines: Lettuce)
+
+# Trap crops and deterrents for squash and cucumber pests
+- crops: [winter-squash, summer-squash]
+  kind: helps
+  benefits: [trap-crop]
+  evidence: research
+  reason: Blue Hubbard squash draws squash bugs, striped cucumber beetles, and squash vine borers away from other squash. Plant it around the edge and manage the pests on it.
+  shownIn:
+    - where: Missouri, USA
+      zones: { min: 6, max: 6 }
+    - where: Minnesota, USA
+      zones: { min: 3, max: 5 }
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Pinero (2017), University of Missouri Environment & Garden; UMN; Clemson (Hubbard types are the most damaged by squash bug)
+  source: hand-curation
+- crops: [winter-squash, cucumber]
+  kind: helps
+  benefits: [trap-crop]
+  evidence: extension
+  reason: Blue Hubbard squash pulls striped cucumber beetles away from nearby cucumbers.
+  shownIn:
+    - where: Minnesota, USA
+      zones: { min: 3, max: 5 }
+  reference: UMN
+  source: hand-curation
+- crops: [nasturtium, summer-squash]
+  kind: helps
+  benefits: [deters-pests]
+  evidence: research
+  reason: Nasturtium planted with squash reduced squash bugs, and in an Iowa trial reduced squash bug and cucumber beetle damage.
+  shownIn:
+    - where: Iowa, USA
+      zones: { min: 5, max: 5 }
+  reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; Doughty et al. (2016), Journal of Integrated Pest Management 7(1); UMN
+  source: hand-curation
+- crops: [marigold, summer-squash]
+  kind: helps
+  benefits: [deters-pests, attracts-beneficials]
+  evidence: research
+  reason: Marigold reduced squash bug and cucumber beetle damage in an Iowa trial, and marigold with sweet alyssum raised the natural enemies of aphids on squash in Florida.
+  shownIn:
+    - where: Iowa, USA
+      zones: { min: 5, max: 5 }
+    - where: Florida, USA
+      zones: { min: 9, max: 9 }
+  reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; Lopez & Liburd (2019), SARE report GS17-171; UMN
+  source: hand-curation
+- crops: [sweet-alyssum, summer-squash]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: research
+  reason: Sweet alyssum with marigold raised the natural enemies of aphids on squash and slightly improved yield.
+  shownIn:
+    - where: Florida, USA
+      zones: { min: 9, max: 9 }
+  reference: Lopez & Liburd (2019), SARE report GS17-171; UMN
+  source: hand-curation
+
+# Cabbage family
+- crops: [thyme, broccoli]
+  kind: helps
+  benefits: [deters-pests]
+  evidence: research
+  reason: Thyme planted with broccoli reduced cabbage looper and imported cabbageworm damage.
+  shownIn:
+    - where: Iowa, USA
+      zones: { min: 5, max: 5 }
+  reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  source: hand-curation
+- crops: [nasturtium, broccoli]
+  kind: helps
+  benefits: [deters-pests]
+  evidence: research
+  reason: Nasturtium planted with broccoli reduced cabbage looper and imported cabbageworm damage.
+  shownIn:
+    - where: Iowa, USA
+      zones: { min: 5, max: 5 }
+  reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  source: hand-curation
+- crops: [onion, broccoli]
+  kind: helps
+  benefits: [deters-pests]
+  evidence: research
+  reason: Onion planted with broccoli reduced cabbage looper and imported cabbageworm damage.
+  shownIn:
+    - where: Iowa, USA
+      zones: { min: 5, max: 5 }
+  reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  source: hand-curation
+- crops: [marigold, cabbage]
+  kind: helps
+  benefits: [deters-pests]
+  evidence: research
+  reason: Marigold planted with cabbage reduced cabbage looper and imported cabbageworm damage.
+  shownIn:
+    - where: Iowa, USA
+      zones: { min: 5, max: 5 }
+  reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  source: hand-curation
+- crops: [nasturtium, cabbage]
+  kind: helps
+  benefits: [deters-pests]
+  evidence: research
+  reason: Nasturtium planted with cabbage reduced cabbage looper and imported cabbageworm damage.
+  shownIn:
+    - where: Iowa, USA
+      zones: { min: 5, max: 5 }
+  reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  source: hand-curation
+- crops: [onion, cabbage]
+  kind: helps
+  benefits: [deters-pests]
+  evidence: research
+  reason: Onion planted with cabbage reduced cabbage looper and imported cabbageworm damage.
+  shownIn:
+    - where: Iowa, USA
+      zones: { min: 5, max: 5 }
+  reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  source: hand-curation
+- crops: [dill, cabbage]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Dill in flower draws parasitic wasps, which attack the caterpillars that feed on cabbage, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [dill, broccoli]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Dill in flower draws parasitic wasps, which attack the caterpillars that feed on broccoli, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [parsley, cabbage]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Parsley in flower draws parasitic wasps and tachinid flies, which attack the caterpillars that feed on cabbage, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [parsley, broccoli]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Parsley in flower draws parasitic wasps and tachinid flies, which attack the caterpillars that feed on broccoli, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [tansy, cabbage]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Tansy in flower draws parasitic wasps and tachinid flies, which attack the caterpillars that feed on cabbage, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [tansy, broccoli]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Tansy in flower draws parasitic wasps and tachinid flies, which attack the caterpillars that feed on broccoli, such as cabbage looper and imported cabbageworm.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  source: hand-curation
+- crops: [thyme, brussels-sprouts]
+  kind: helps
+  benefits: [deters-pests]
+  evidence: research
+  reason: Thyme cut diamondback moth egg-laying on Brussels sprouts in a greenhouse, but only when the moths landed on the thyme; the scent alone did not mask the crop.
+  shownIn:
+    - where: Greenhouse, United Kingdom
+  reference: Dover (1986), Entomologia Experimentalis et Applicata 42; UMN; Clemson
+  source: hand-curation
+
+# Tomato
+- crops: [marigold, tomato]
+  kind: helps
+  benefits: [deters-pests]
+  evidence: research
+  reason: French marigold protected tomatoes from greenhouse whitefly through the limonene it gives off, and marigold reduced thrips on tomatoes in field and greenhouse studies.
+  shownIn:
+    - where: Greenhouse, United Kingdom
+  reference: Conboy et al. (2019), PLOS ONE 14(3) e0213071; UMN
+  source: hand-curation
+- crops: [basil, tomato]
+  kind: helps
+  benefits: [deters-pests]
+  evidence: research
+  reason: Basil interplanted with tomatoes reduced thrips and, under net covers, whiteflies, and may help tomato growth.
+  shownIn:
+    - where: Kenya (open field)
+    - where: Greenhouse, Japan
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Mutisya et al. (2016), Agronomy 6(3) 42; Ahmad et al. (2020), American Journal of Plant Sciences 11; UMN; Clemson
+  source: hand-curation
+
+# Lettuce
+- crops: [cilantro, lettuce]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Flowering coriander feeds adult hoverflies, whose larvae eat lettuce aphids. Organic growers intercrop it with lettuce for that reason.
+  shownIn:
+    - where: California Central Coast, USA
+      zones: { min: 9, max: 10 }
+  reference: UC IPM
+  source: hand-curation
+- crops: [sweet-alyssum, lettuce]
+  kind: helps
+  benefits: [attracts-beneficials]
+  evidence: extension
+  reason: Sweet alyssum feeds adult hoverflies, whose larvae eat lettuce aphids. Skip it where Bagrada bug is building up; it is one of that pest's favorite hosts.
+  shownIn:
+    - where: California Central Coast, USA
+      zones: { min: 9, max: 10 }
+  reference: UC IPM
+  source: hand-curation
+
+# Three sisters and space sharing
+- crops: [sweet-corn, pole-bean]
+  kind: helps
+  benefits: [support, fixes-nitrogen]
+  evidence: extension
+  reason: Corn stalks give pole beans something to climb, and the beans fix nitrogen. Part of the three sisters planting of corn, beans, and squash.
+  shownIn:
+    - where: Minnesota, USA
+      zones: { min: 3, max: 5 }
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: UMN; Clemson
+  source: hand-curation
+- crops: [sweet-corn, winter-squash]
+  kind: helps
+  benefits: [ground-cover, shade]
+  evidence: extension
+  reason: Squash vines cover and shade the soil under the corn, holding moisture and keeping weeds down. Part of the three sisters planting.
+  shownIn:
+    - where: Minnesota, USA
+      zones: { min: 3, max: 5 }
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: UMN; Clemson
+  source: hand-curation
+
+# Pollinators for crops that need them
+- crops: [borage, summer-squash]
+  kind: helps
+  benefits: [attracts-pollinators]
+  evidence: extension
+  reason: Borage flowers draw bees that pollinate squash, which cannot set fruit without insect pollination.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson
+  source: hand-curation
+- crops: [borage, melon]
+  kind: helps
+  benefits: [attracts-pollinators]
+  evidence: extension
+  reason: Borage flowers draw bees that pollinate melons, which cannot set fruit without insect pollination.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson
+  source: hand-curation
+- crops: [calendula, summer-squash]
+  kind: helps
+  benefits: [attracts-pollinators]
+  evidence: extension
+  reason: Calendula flowers draw bees that pollinate squash, which cannot set fruit without insect pollination.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson
+  source: hand-curation
+- crops: [calendula, melon]
+  kind: helps
+  benefits: [attracts-pollinators]
+  evidence: extension
+  reason: Calendula flowers draw bees that pollinate melons, which cannot set fruit without insect pollination.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson
+  source: hand-curation
+
+# Keep apart
+- crops: [tomato, potato]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get late blight, and the same strains move between them. Infected potato tubers are a common way it starts. Keep them apart and rotate.
+  shownIn:
+    - where: Minnesota, USA
+      zones: { min: 3, max: 5 }
+  reference: University of Minnesota Extension, "Late blight of tomato and potato"
+  source: hand-curation
+- crops: [potato, eggplant]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Colorado potato beetle feeds on both. In Minnesota trials, eggplant did not work as a trap crop to protect potatoes.
+  shownIn:
+    - where: Minnesota, USA
+      zones: { min: 3, max: 5 }
+  reference: University of Minnesota Extension, "Colorado potato beetle"
+  source: hand-curation
+- crops: [tomato, sweet-corn]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Corn earworm is also the tomato fruitworm; planting the two together makes it easier for the pest to spread between them.
+  shownIn:
+    - where: South Carolina, USA
+      zones: { min: 7, max: 9 }
+  reference: Clemson
+  source: hand-curation

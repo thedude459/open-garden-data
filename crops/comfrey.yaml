@@ -1,0 +1,25 @@
+id: comfrey
+names:
+  en: Comfrey
+scientificName: Symphytum officinale
+wikidataId: Q157561
+family: boraginaceae
+habit: herbaceous
+use: herb
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 4, max: 9 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 60
+  betweenRows: 90
+soilPh: { min: 6.0, max: 7.5 }
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: 0 }
+notes: Grown for its leaves, which are rich in potassium and break down fast, as a mulch, compost material, or soaked into a liquid feed; bumblebees work the flowers. Most gardeners plant Russian comfrey 'Bocking 14' (Symphytum × uplandicum), which sets no seed, from root cuttings. Any piece of root left in the ground regrows, so choose a permanent spot. Contains pyrrolizidine alkaloids, which harm the liver; do not eat it or drink it as tea.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
