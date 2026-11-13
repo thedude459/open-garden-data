@@ -18,7 +18,8 @@ For this repository:
    data, which Claude drafts from public-domain and CC0 sources and the
    maintainer reviews.
 3. **v0.2 in three small releases** (next), so each review stays short:
-   - **v0.2.0:** `soilPh`, fall sowing windows (`fallSow`), and hot pepper.
+   - **v0.2.0 (drafted, in review):** `soilPh` for every crop, fall sowing
+     windows (`fallSow`) for lettuce, pea, radish, and spinach, and hot pepper.
    - **v0.2.1:** crop coefficients (`cropCoefficients`)
      for watering by water balance.
    - **v0.2.2:** companion plants as crops, and companion pairs with

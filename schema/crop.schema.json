@@ -99,6 +99,16 @@
       "$ref": "#/$defs/celsius",
       "description": "Soil temperature for sowing. The fallback where there is no frost to anchor windows to."
     },
+    "soilPh": {
+      "type": "object",
+      "description": "Soil pH the crop grows best in.",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "properties": {
+        "min": { "type": "number", "minimum": 3, "maximum": 10 },
+        "max": { "type": "number", "minimum": 3, "maximum": 10 }
+      }
+    },
     "windows": {
       "type": "object",
       "description": "Sowing windows in weeks relative to the last spring or first fall frost; negative is before. Leave out a method the crop is not grown by.",
@@ -107,7 +117,11 @@
       "properties": {
         "indoorStart": { "$ref": "#/$defs/window" },
         "directSow": { "$ref": "#/$defs/window" },
-        "transplant": { "$ref": "#/$defs/window" }
+        "transplant": { "$ref": "#/$defs/window" },
+        "fallSow": {
+          "$ref": "#/$defs/window",
+          "description": "A second sowing outdoors for a fall crop, counted from the first fall frost."
+        }
       }
     },
     "daysToMaturity": {

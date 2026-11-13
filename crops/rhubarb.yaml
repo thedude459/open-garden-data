@@ -16,6 +16,7 @@ spacingCm:
   inRow: 90
   betweenRows: 120
 sowingDepthCm: 5
+soilPh: { min: 6.0, max: 7.0 }
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
 varieties:
