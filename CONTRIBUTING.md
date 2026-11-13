@@ -56,6 +56,16 @@ Releases follow semver, and apps importing the catalog rely on it:
 - **Major:** removing or renaming a field, an id, or a list value; making an
   optional field required; changing a unit or what a field means.
 
+## Companion pairs
+
+A pair in `companions.yaml` names two crops, what the pairing does
+(`benefits`), how well it is known (`evidence`: research, extension, or
+traditional), where it was shown (`shownIn`, with USDA hardiness zones), and
+for research or extension evidence a `reference` to the study or extension
+guide. Write the reason in your own words; extension pages and papers are
+references, not sources, because they are not CC0. Advice that only appears
+in gardening charts is `traditional`.
+
 ## Changelog and releases
 
 Say what your pull request changes in a line under **Unreleased** in

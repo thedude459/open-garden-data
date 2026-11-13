@@ -1,0 +1,30 @@
+id: calendula
+names:
+  en: Calendula
+scientificName: Calendula officinalis
+wikidataId: Q145930
+family: asteraceae
+habit: herbaceous
+use: flower
+lifeCycle: annual
+frostTolerance: half-hardy
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 25
+  betweenRows: 40
+sowingDepthCm: 0.6
+germinationDays: { min: 5, max: 15 }
+temperatureC: { min: 5, optimal: 18, max: 27 }
+soilPh: { min: 6.0, max: 7.0 }
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  directSow: { frost: last, weeksEarliest: -2, weeksLatest: 0 }
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 0 }
+daysToMaturity: { min: 45, max: 60 }
+notes: Pot marigold. Flowers best in cool weather and may stall in midsummer heat; cut back and it blooms again in fall. Days to maturity are days to first bloom.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

@@ -9,6 +9,36 @@ crops and fields that changed.
 
 ## Unreleased
 
+## v0.2.2
+
+Companion plants: the last of v0.2's three small releases.
+
+- **25 companion pairs** in `companions.yaml`, drawn from research trials and
+  extension guidance only (no lore): trap crops (Blue Hubbard squash for
+  squash bugs and cucumber beetles), plants that deter or distract pests
+  (nasturtium, marigold, thyme, and onion with squash and cabbage-family
+  crops; marigold and basil with tomato), plants that feed beneficial
+  insects (sweet alyssum and cilantro with lettuce), the three sisters, and
+  flowers for pollination. Three pairs to keep apart: tomato and potato
+  (late blight), potato and eggplant (Colorado potato beetle), tomato and
+  sweet corn (corn earworm).
+- **Each pair now carries** `benefits`, `evidence` (research, extension, or
+  traditional), `shownIn` (where it was shown, with USDA hardiness zones),
+  and `reference` (the studies or extension guides behind it). `kind` is
+  now `helps` or `hinders`; attracting pollinators moved to `benefits`.
+  No release had companion pairs before, so nothing used the old values.
+- **Six companion crops:** marigold (French), nasturtium, borage, calendula,
+  sweet alyssum, and tansy. Tansy is invasive in much of North America and
+  toxic; its notes say so, and no pair names it.
+- **Two families:** borage (Boraginaceae) and nasturtium (Tropaeolaceae).
+- **Validation:** a pair's benefits must match its kind, research and
+  extension pairs need a reference, and every pair says where it was shown.
+
+Sources read: University of Minnesota Extension, Clemson Cooperative
+Extension HGIC, UC IPM, University of Maine and UNH Extension; studies cited
+by them (Iowa State, University of Missouri, University of Florida, PLOS ONE,
+Agronomy, Entomologia Experimentalis et Applicata).
+
 ## v0.2.1
 
 Crop coefficients, for watering by water balance: a crop uses about

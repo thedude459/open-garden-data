@@ -46,13 +46,69 @@
     "crops": { "type": "array", "items": { "$ref": "crop.schema.json" } },
     "companions": {
       "type": "array",
+      "description": "Companion pairs. Advice, never a rule: apps must not block a planting over one.",
       "items": {
         "type": "object",
-        "required": ["crops", "kind", "reason", "source"],
+        "additionalProperties": false,
+        "required": ["crops", "kind", "benefits", "evidence", "reason", "shownIn", "source"],
         "properties": {
           "crops": { "type": "array", "items": { "type": "string" }, "minItems": 2, "maxItems": 2 },
-          "kind": { "enum": ["helps", "hinders", "attracts-pollinators"] },
+          "kind": {
+            "enum": ["helps", "hinders"],
+            "description": "A one-word summary of the benefits."
+          },
+          "benefits": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "description": "What the pairing does. A pair that helps lists help benefits; one that hinders lists what goes wrong.",
+            "items": {
+              "enum": [
+                "deters-pests",
+                "trap-crop",
+                "attracts-beneficials",
+                "attracts-pollinators",
+                "fixes-nitrogen",
+                "support",
+                "shade",
+                "ground-cover",
+                "competes",
+                "suppresses-growth",
+                "shares-pests"
+              ]
+            }
+          },
+          "evidence": {
+            "enum": ["research", "extension", "traditional"],
+            "description": "research: field or greenhouse trials; extension: extension-service guidance; traditional: gardening lore without trials."
+          },
           "reason": { "type": "string" },
+          "shownIn": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Where the evidence comes from, so apps can rank pairs shown near a garden first. zones are the USDA hardiness zones of that place; a greenhouse has none.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["where"],
+              "properties": {
+                "where": { "type": "string" },
+                "zones": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["min", "max"],
+                  "properties": {
+                    "min": { "type": "integer", "minimum": 1, "maximum": 13 },
+                    "max": { "type": "integer", "minimum": 1, "maximum": 13 }
+                  }
+                }
+              }
+            }
+          },
+          "reference": {
+            "type": "string",
+            "description": "The studies or extension guides behind the pair, as a citation. Not a data source: the facts are written in our own words."
+          },
           "source": { "type": "string" }
         }
       }

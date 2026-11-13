@@ -1,0 +1,29 @@
+id: sweet-alyssum
+names:
+  en: Sweet alyssum
+scientificName: Lobularia maritima
+wikidataId: Q2094356
+family: brassicaceae
+habit: herbaceous
+use: flower
+lifeCycle: annual
+frostTolerance: half-hardy
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 15
+  betweenRows: 25
+germinationDays: { min: 5, max: 15 }
+temperatureC: { min: 7, optimal: 18, max: 27 }
+soilPh: { min: 6.0, max: 7.5 }
+windows:
+  indoorStart: { frost: last, weeksEarliest: -6, weeksLatest: -4 }
+  directSow: { frost: last, weeksEarliest: -2, weeksLatest: 0 }
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 1 }
+daysToMaturity: { min: 40, max: 50 }
+notes: Sow on the surface; the seed needs light. Its small flowers feed hoverflies, whose larvae eat aphids. A favorite host of Bagrada bug, so skip it where that pest is building up. Days to maturity are days to first bloom.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

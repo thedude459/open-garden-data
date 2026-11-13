@@ -1,0 +1,31 @@
+id: marigold
+names:
+  en: Marigold
+scientificName: Tagetes patula
+wikidataId: Q644934
+family: asteraceae
+habit: herbaceous
+use: flower
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 20
+  betweenRows: 30
+sowingDepthCm: 0.6
+germinationDays: { min: 5, max: 7 }
+temperatureC: { min: 10, optimal: 21, max: 32 }
+minSoilTemperatureC: 18
+soilPh: { min: 6.0, max: 7.0 }
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  directSow: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+daysToMaturity: { min: 50, max: 60 }
+notes: French marigold, the kind used in the companion trials. Days to maturity are days to first bloom. Frost kills it.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
