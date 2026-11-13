@@ -27,6 +27,16 @@ the Open Garden app to contribute: everything here is YAML.
 - **Say where advice applies.** Windows assume a temperate climate with frost.
   Put regional caveats in `notes`.
 
+## Names in other languages
+
+Every crop needs an English name (`names.en`). Names in other languages are
+welcome from people who speak them: add `names.<locale>` (`de`, `fr`, `es`,
+`pt-BR`, ...) with the name a gardener there would use for the crop, not the
+fruit, an oil, or the Latin name. Cite Wikidata (CC0) where the name comes
+from there, or say in the pull request that you are a speaker. Open Garden
+shows English only until a translation of the app itself is contributed;
+the names are ready for it.
+
 ## Ids never change
 
 A crop's `id` and a variety's `id` are permanent once released: apps use them
