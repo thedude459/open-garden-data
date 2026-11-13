@@ -16,6 +16,10 @@ spacingCm:
   inRow: 45
   betweenRows: 60
 soilPh: { min: 6.0, max: 7.0 }
+cropCoefficients:
+  initial: 0.6
+  mid: 1.15
+  end: 1.1
 windows:
   transplant: { frost: last, weeksEarliest: -2, weeksLatest: 1 }
 varieties:

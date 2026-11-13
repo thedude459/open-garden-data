@@ -29,6 +29,11 @@ rootstocks:
     heightM: { min: 6, max: 9 }
     yearsToFruit: { min: 5, max: 8 }
 soilPh: { min: 6.0, max: 7.0 }
+cropCoefficients:
+  initial: 0.45
+  mid: 0.95
+  end: 0.7
+  stageDays: { initial: 20, development: 70, mid: 90, late: 30 }
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
 varieties:

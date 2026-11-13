@@ -18,6 +18,11 @@ sowingDepthCm: 10
 temperatureC: { min: 7, optimal: 18, max: 27 }
 minSoilTemperatureC: 7
 soilPh: { min: 5.0, max: 6.5 }
+cropCoefficients:
+  initial: 0.5
+  mid: 1.15
+  end: 0.75
+  stageDays: { initial: 25, development: 30, mid: 45, late: 30 }
 windows:
   directSow: { frost: last, weeksEarliest: -3, weeksLatest: 0 }
 daysToMaturity: { min: 70, max: 120 }

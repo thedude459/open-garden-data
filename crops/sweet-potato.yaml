@@ -17,6 +17,11 @@ spacingCm:
 temperatureC: { min: 18, optimal: 27, max: 35 }
 minSoilTemperatureC: 18
 soilPh: { min: 5.5, max: 6.5 }
+cropCoefficients:
+  initial: 0.5
+  mid: 1.15
+  end: 0.65
+  stageDays: { initial: 20, development: 30, mid: 60, late: 40 }
 windows:
   indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
   transplant: { frost: last, weeksEarliest: 2, weeksLatest: 4 }

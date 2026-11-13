@@ -267,3 +267,10 @@ test('a fall sowing counts from the first frost, and soil pH runs low to high', 
   assert.match(errors, /windows.fallSow is a fall sowing, counted from the first fall frost/);
   assert.match(errors, /soilPh.min is above max/);
 });
+
+test('a crop coefficient peaks mid-season', () => {
+  const data = clone(load());
+  const tomato = data.crops.find((c) => c.crop.id === 'tomato').crop;
+  tomato.cropCoefficients.initial = 1.2;
+  assert.match(validate(data).join('\n'), /cropCoefficients.mid is the peak/);
+});

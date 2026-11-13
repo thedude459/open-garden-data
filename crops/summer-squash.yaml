@@ -19,6 +19,11 @@ germinationDays: { min: 5, max: 10 }
 temperatureC: { min: 15, optimal: 24, max: 32 }
 minSoilTemperatureC: 16
 soilPh: { min: 6.0, max: 7.0 }
+cropCoefficients:
+  initial: 0.5
+  mid: 0.95
+  end: 0.75
+  stageDays: { initial: 25, development: 35, mid: 25, late: 15 }
 windows:
   indoorStart: { frost: last, weeksEarliest: -4, weeksLatest: -3 }
   directSow: { frost: last, weeksEarliest: 1, weeksLatest: 3 }
