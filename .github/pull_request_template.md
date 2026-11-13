@@ -9,5 +9,6 @@
 ## Checklist
 
 - [ ] `npm run validate` and `npm test` pass
+- [ ] A line under **Unreleased** in `CHANGELOG.md` says what changed, if the data or schema did
 - [ ] Every crop I touched lists its sources, and new sources are in `sources.yaml` with a CC0-compatible license
 - [ ] I release this contribution under CC0 1.0

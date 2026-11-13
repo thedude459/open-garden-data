@@ -31,7 +31,8 @@ frost.
 
 Each [release](https://github.com/thedude459/open-garden-data/releases)
 attaches `open-garden-catalog-<version>.json`, its SHA-256, and a build
-provenance attestation. Verify a download with:
+provenance attestation. Its notes come from [CHANGELOG.md](CHANGELOG.md), followed
+by a generated list of the crops and fields that changed. Verify a download with:
 
 ```bash
 gh attestation verify open-garden-catalog-0.1.0.json --owner thedude459

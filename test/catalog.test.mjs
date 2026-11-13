@@ -2,7 +2,14 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import Ajv2020 from 'ajv/dist/2020.js';
-import { build, completeness, load, releaseNotes, validate } from '../scripts/catalog.mjs';
+import {
+  build,
+  changelogSection,
+  completeness,
+  load,
+  releaseNotes,
+  validate,
+} from '../scripts/catalog.mjs';
 import { buildQuery, compare } from '../scripts/verify-wikidata.mjs';
 
 const clone = (value) => structuredClone(value);
@@ -215,16 +222,40 @@ test('release notes list what was added, removed, and changed', () => {
   after.crops = after.crops.filter((c) => c.id !== 'okra');
   const tomato = after.crops.find((c) => c.id === 'tomato');
   tomato.spacingCm = { inRow: 50 };
+  tomato.varieties[0].name = 'Renamed';
   tomato.varieties.push({ id: 'tomato-roma', name: 'Roma' });
   after.crops.push({ ...structuredClone(tomato), id: 'tomatillo', varieties: [] });
   const notes = releaseNotes(before, after);
   assert.match(notes, /since v0\.1\.0/);
   assert.match(notes, /\*\*Crops added \(1\):\*\* tomatillo/);
   assert.match(notes, /\*\*Crops removed \(1\):\*\* okra/);
-  assert.match(notes, /\*\*Crops changed \(1\):\*\* tomato \(spacingCm\)/);
+  assert.match(notes, /- `spacingCm` \(1\): tomato/);
+  assert.match(notes, /- `varieties` \(1\): tomato/);
   assert.match(notes, /\*\*Varieties added \(1\):\*\* tomato-roma/);
   assert.match(releaseNotes(after, after), /No crop or variety changed\./);
   assert.match(releaseNotes(null, after), /since nothing \(first release\)/);
+});
+
+test('release notes group a field changed in every crop', () => {
+  const before = build(load(), '0.1.0');
+  const after = structuredClone(before);
+  for (const crop of after.crops) crop.soilPh = { min: 3, max: 10 };
+  assert.match(
+    releaseNotes(before, after),
+    new RegExp(`- \`soilPh\`: every crop \\(${after.crops.length}\\)`),
+  );
+});
+
+test('the changelog gives a version its notes', () => {
+  const text = '# Changelog\n\n## Unreleased\n\n## v0.2.0\n\nAdded pH.\n\n## v0.1.0\n\nFirst.\n';
+  assert.equal(changelogSection(text, '0.2.0'), 'Added pH.');
+  assert.equal(changelogSection(text, '0.1.0'), 'First.');
+  assert.equal(changelogSection(text, '0.3.0'), null);
+  assert.equal(changelogSection('## v0.2.0\n\n## v0.1.0\n', '0.2.0'), null);
+  // The real changelog has notes for every version released so far.
+  const real = readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8');
+  assert.ok(changelogSection(real, '0.2.0'));
+  assert.ok(changelogSection(real, '0.1.0'));
 });
 
 test('a fall sowing counts from the first frost, and soil pH runs low to high', () => {
