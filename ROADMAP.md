@@ -27,15 +27,27 @@ For this repository:
 4. **Done, ships in the next release:** crop icons (`icons/`), one per crop
    with a style guide, continuing OpenFarm's open-crop-icons. Merged and
    listed under **Unreleased** in `CHANGELOG.md`.
-5. **Next: v0.3**, about 150 crops and [pests and diseases, organized for
+5. **Next: before v0.3**, two small steps:
+   - **Releases ship the icons.** Each release publishes `icons/` (a zip or
+     one asset per icon) beside the catalog, so Open Garden copies them from
+     the version it pins instead of keeping a hand-copied set.
+   - **Fill gaps in today's crops.** Crop coefficients for the 19 crops
+     without them (herbs, kale, leek, okra, Swiss chard, and the companion
+     flowers) where FAO-56 or another open source covers them; Open Garden
+     waters a crop without them on a fixed interval instead of by water
+     balance. A minimum soil temperature for borage, calendula, and sweet
+     alyssum, so their sowing windows work where frost is rare. The
+     completeness report lists the rest.
+6. **Then: v0.3**, about 150 crops and [pests and diseases, organized for
    integrated pest management](#pests-and-diseases-ipm), in parallel with
    the app's test and CI fixes, account basics, and remaining care
    features. The app's light catalog query lands first, so the larger
-   catalog stays fast.
-6. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
+   catalog stays fast. `icons/library/` already holds icons for many of the
+   crops to come.
+7. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
    soil texture, and nutrient recommendations by soil-test level, so the app
    can turn a bed's soil test into advice.
-7. **Later:** wet and dry seasons, and names in other languages
+8. **Later:** wet and dry seasons, and names in other languages
    as they are contributed.
 
 ## Releases
@@ -259,6 +271,13 @@ Added to `scripts/catalog.mjs` and CI before outside contributions start:
   celery, leek, mint), and crops that share a species (bush and pole bean,
   the squashes) need names of their own. Expect to curate about two names in
   five by hand. Done as contributions from speakers of each language.
+- **Workflow and secret checks, as in Open Garden.** The release workflow can
+  write to the repository and sign releases, but nothing lints it. Add
+  actionlint and zizmor (pinned, as Open Garden's `workflows` job runs them)
+  and gitleaks to `validate.yml`, and consider OpenSSF Scorecard.
+- **Coverage for the scripts.** `scripts/catalog.mjs` builds and checks
+  every release and has tests, but nothing measures what they cover. Run
+  `node --test` with `--experimental-test-coverage` and set a floor.
 - **A required reviewer once there is a second contributor.** Add
   `CODEOWNERS` so data pull requests need a review from someone other than
   their author. Until then the maintainer reviews their own.
