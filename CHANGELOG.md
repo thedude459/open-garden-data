@@ -9,6 +9,14 @@ crops and fields that changed.
 
 ## Unreleased
 
+- **Crop icons** in `icons/`: one colour SVG per crop, named by crop id, and
+  a check that every crop has one and that each is a plain drawing. 51 come
+  from OpenFarm's [open-crop-icons](https://github.com/openfarmcc/open-crop-icons)
+  (CC0), credited in `icons/CREDITS.md`; calendula, comfrey, marigold,
+  nasturtium, rhubarb, sweet alyssum, and tansy were drawn to match. The rest
+  of that set is in `icons/library/` for crops still to come, and
+  `icons/README.md` is the style guide for new icons.
+
 ## v0.2.2
 
 Companion plants: the last of v0.2's three small releases.

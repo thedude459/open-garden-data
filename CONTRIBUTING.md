@@ -95,8 +95,11 @@ By opening a pull request you agree to release your contribution under
 1. Edit or add a file under `crops/`. The file name is the crop id
    (`crops/pole-bean.yaml` has `id: pole-bean`); variety ids start with the
    crop id (`pole-bean-kentucky-wonder`).
-2. Run `npm ci`, then `npm run validate` and `npm test`.
-3. Open a pull request. CI runs the same checks.
+2. A new crop needs an icon at `icons/<crop id>.svg`: look in
+   `icons/library/` first, or draw one to the
+   [icon style guide](icons/README.md).
+3. Run `npm ci`, then `npm run validate` and `npm test`.
+4. Open a pull request. CI runs the same checks.
 
 To report a problem without editing YAML, open a
 [plant data issue](https://github.com/thedude459/open-garden-data/issues/new/choose).

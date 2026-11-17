@@ -467,6 +467,52 @@ function idSet(list, file, errors) {
   return ids;
 }
 
+/** Icon files are drawings only, so a page can show them without risk. */
+const UNSAFE_SVG =
+  /<script|<foreignObject|<image|<iframe|\son[a-z]+\s*=|(?:xlink:)?href\s*=\s*["'](?!#)/i;
+/** No icon may be larger than this; the style guide asks for far less. */
+const ICON_MAX_BYTES = 150_000;
+
+/**
+ * Problems with `icons/`: every crop needs `icons/<crop id>.svg`; the top
+ * level holds only crop icons and the generic ones; and every icon there and
+ * in `icons/library/` is a plain SVG drawing (see icons/README.md).
+ */
+export function checkIcons(cropIds, dir = join(ROOT, 'icons')) {
+  const errors = [];
+  const svgs = (sub) =>
+    readdirSync(join(dir, sub))
+      .filter((f) => f.endsWith('.svg'))
+      .map((f) => join(sub, f));
+  const top = svgs('.');
+  const crops = new Set(cropIds);
+  for (const id of cropIds) {
+    if (!top.includes(`${id}.svg`)) errors.push(`crops/${id}.yaml: no icon at icons/${id}.svg`);
+  }
+  for (const file of top) {
+    const name = basename(file, '.svg');
+    if (!crops.has(name) && !name.startsWith('generic-')) {
+      errors.push(
+        `icons/${file}: not a crop id; put icons for crops not in the catalog in icons/library/`,
+      );
+    }
+  }
+  for (const file of [...top, ...svgs('library')]) {
+    const svg = readFileSync(join(dir, file), 'utf8');
+    const where = `icons/${file.replace(/^\.\//, '')}`;
+    if (!/^(?:<\?xml[^>]*\?>\s*)?<svg[\s>]/.test(svg)) errors.push(`${where}: must be an SVG file`);
+    else if (!/viewBox=/.test(svg)) errors.push(`${where}: needs a viewBox`);
+    if (UNSAFE_SVG.test(svg)) {
+      errors.push(
+        `${where}: only drawing elements; no scripts, event handlers, embedded images, or links out`,
+      );
+    }
+    if (Buffer.byteLength(svg) > ICON_MAX_BYTES)
+      errors.push(`${where}: larger than ${ICON_MAX_BYTES} bytes`);
+  }
+  return errors;
+}
+
 function readSchema() {
   return JSON.parse(readFileSync(join(ROOT, 'schema', 'crop.schema.json'), 'utf8'));
 }
@@ -474,7 +520,7 @@ function readSchema() {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const [command, version] = process.argv.slice(2);
   const data = load();
-  const errors = validate(data);
+  const errors = [...validate(data), ...checkIcons(data.crops.map((c) => c.crop.id))];
   if (errors.length) {
     console.error(errors.join('\n'));
     console.error(`\n${errors.length} problem(s) found.`);
@@ -482,7 +528,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   }
   if (command === 'validate') {
     console.log(
-      `Valid: ${data.crops.length} crop(s), ${data.families.length} families, ${data.companions.length} companion pair(s).`,
+      `Valid: ${data.crops.length} crop(s) with icons, ${data.families.length} families, ${data.companions.length} companion pair(s).`,
     );
   } else if (command === 'notes') {
     // node scripts/catalog.mjs notes <current.json> [previous.json]

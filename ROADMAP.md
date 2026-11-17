@@ -17,21 +17,22 @@ For this repository:
    schema for the release file, and a Prettier check. They guard the v0.2
    data, which Claude drafts from public-domain and CC0 sources and the
    maintainer reviews.
-3. **v0.2 in three small releases** (next), so each review stays short:
+3. **v0.2 in three small releases**, so each review stays short:
    - **Done, v0.2.0:** `soilPh` for every crop, fall sowing windows
      (`fallSow`) for lettuce, pea, radish, and spinach, and hot pepper.
    - **Done, v0.2.1:** crop coefficients (`cropCoefficients`) for watering
      by water balance, on the 39 crops FAO-56 lists.
-   - **v0.2.2 (drafted, in review):** companion plants as crops, and 31
-     companion pairs from research and extension guidance, each with where
-     it was shown.
+   - **Done, v0.2.2:** companion plants as crops, and 31 companion pairs
+     from research and extension guidance, each with where it was shown.
+   - **Next:** crop icons (`icons/`), one per crop with a style guide,
+     continuing OpenFarm's open-crop-icons.
 4. **v0.3**, about 150 crops and [pests and diseases, organized for
    integrated pest management](#pests-and-diseases-ipm), while the app adds
    care features.
 5. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
    soil texture, and nutrient recommendations by soil-test level, so the app
    can turn a bed's soil test into advice.
-6. **Later:** wet and dry seasons, crop icons, and names in other languages
+6. **Later:** wet and dry seasons, and names in other languages
    as they are contributed.
 
 ## Releases
@@ -41,7 +42,7 @@ For this repository:
 | **v0.1**  | Schema v1 and the [first 50 crops](#v01-the-first-50-crops), each with family, habit, use, spacing, and sowing windows                                                                                                           | The catalog importer, sowing calendars, crop rotation by family, and typed areas (habit and use decide what an area accepts)                    |
 | **v0.2**  | Companion pairs, each with benefits, an evidence level, a reason, and a source; the [companion plants they need](#v02-companion-plants-first) as crops; hot pepper; fall sowing windows; `soilPh` and crop coefficients per crop | Companion advice from data instead of only household-entered pairs, fall crops in the calendar, soil-test advice, and watering by water balance |
 | **v0.3**  | About 150 crops: more vegetables and herbs, fruit and nut trees (with [named rootstocks](#schema-changes-planned)), cane fruit, and soft fruit; [common pests and diseases](#pests-and-diseases) linked to crops and companions  | Orchard and bramble areas with real plants, a catalog broad enough for most home gardens, and pest advice on plant pages                        |
-| **Later** | Wet and dry seasons, crop icons; names in other languages as they are contributed                                                                                                                                                | Worldwide climate support and a localized catalog                                                                                               |
+| **Later** | Wet and dry seasons; names in other languages as they are contributed                                                                                                                                                            | Worldwide climate support and a localized catalog                                                                                               |
 
 A release is a tag (`v0.1.0`); pushing it publishes the GitHub Release with
 `open-garden-catalog-<version>.json`, its SHA-256, a provenance attestation,
