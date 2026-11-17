@@ -1,10 +1,13 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { readFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import {
   build,
   changelogSection,
+  checkIcons,
   completeness,
   load,
   releaseNotes,
@@ -18,6 +21,37 @@ const tomatoOf = (data) => data.crops.find((c) => c.crop.id === 'tomato');
 
 test('the dataset in this repository is valid', () => {
   assert.deepEqual(validate(load()), []);
+});
+
+test('every crop has an icon, and every icon is a plain drawing', () => {
+  assert.deepEqual(checkIcons(load().crops.map((c) => c.crop.id)), []);
+});
+
+test('icons: catches a missing icon, a stray file, and an unsafe or broken drawing', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'icons-'));
+  mkdirSync(join(dir, 'library'));
+  const drawing =
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle r="4"/></svg>';
+  writeFileSync(join(dir, 'tomato.svg'), `<?xml version="1.0"?>\n${drawing}`);
+  writeFileSync(join(dir, 'generic-plant.svg'), drawing);
+  writeFileSync(join(dir, 'fennel.svg'), drawing);
+  writeFileSync(join(dir, 'library', 'a.svg'), '<svg viewBox="0 0 1 1"><script>x()</script></svg>');
+  writeFileSync(join(dir, 'library', 'b.svg'), '<svg onload="x()" viewBox="0 0 1 1"/>');
+  writeFileSync(
+    join(dir, 'library', 'c.svg'),
+    '<svg viewBox="0 0 1 1"><use href="https://x.example/a.svg#b"/></svg>',
+  );
+  writeFileSync(join(dir, 'library', 'd.svg'), '<svg width="1"/>');
+  writeFileSync(join(dir, 'library', 'e.svg'), '<html></html>');
+  const errors = checkIcons(['tomato', 'basil'], dir).join('\n');
+  assert.match(errors, /crops\/basil.yaml: no icon at icons\/basil.svg/);
+  assert.match(errors, /icons\/fennel.svg: not a crop id/);
+  assert.match(errors, /icons\/library\/a.svg: only drawing elements/);
+  assert.match(errors, /icons\/library\/b.svg: only drawing elements/);
+  assert.match(errors, /icons\/library\/c.svg: only drawing elements/);
+  assert.match(errors, /icons\/library\/d.svg: needs a viewBox/);
+  assert.match(errors, /icons\/library\/e.svg: must be an SVG file/);
+  assert.doesNotMatch(errors, /tomato|generic-plant/);
 });
 
 test('catches the mistakes a schema cannot', () => {
