@@ -17,22 +17,37 @@ For this repository:
    schema for the release file, and a Prettier check. They guard the v0.2
    data, which Claude drafts from public-domain and CC0 sources and the
    maintainer reviews.
-3. **v0.2 in three small releases**, so each review stays short:
+3. **Done: v0.2 in three small releases**, so each review stays short:
    - **Done, v0.2.0:** `soilPh` for every crop, fall sowing windows
      (`fallSow`) for lettuce, pea, radish, and spinach, and hot pepper.
    - **Done, v0.2.1:** crop coefficients (`cropCoefficients`) for watering
      by water balance, on the 39 crops FAO-56 lists.
    - **Done, v0.2.2:** companion plants as crops, and 31 companion pairs
      from research and extension guidance, each with where it was shown.
-   - **Next:** crop icons (`icons/`), one per crop with a style guide,
-     continuing OpenFarm's open-crop-icons.
-4. **v0.3**, about 150 crops and [pests and diseases, organized for
-   integrated pest management](#pests-and-diseases-ipm), while the app adds
-   care features.
-5. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
+4. **Done, ships in the next release:** crop icons (`icons/`), one per crop
+   with a style guide, continuing OpenFarm's open-crop-icons. Merged and
+   listed under **Unreleased** in `CHANGELOG.md`.
+5. **Next: before v0.3**, two small steps:
+   - **Releases ship the icons.** Each release publishes `icons/` (a zip or
+     one asset per icon) beside the catalog, so Open Garden copies them from
+     the version it pins instead of keeping a hand-copied set.
+   - **Fill gaps in today's crops.** Crop coefficients for the 19 crops
+     without them (herbs, kale, leek, okra, Swiss chard, and the companion
+     flowers) where FAO-56 or another open source covers them; Open Garden
+     waters a crop without them on a fixed interval instead of by water
+     balance. A minimum soil temperature for borage, calendula, and sweet
+     alyssum, so their sowing windows work where frost is rare. The
+     completeness report lists the rest.
+6. **Then: v0.3**, about 150 crops and [pests and diseases, organized for
+   integrated pest management](#pests-and-diseases-ipm), in parallel with
+   the app's test and CI fixes, account basics, and remaining care
+   features. The app's light catalog query lands first, so the larger
+   catalog stays fast. `icons/library/` already holds icons for many of the
+   crops to come.
+7. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
    soil texture, and nutrient recommendations by soil-test level, so the app
    can turn a bed's soil test into advice.
-6. **Later:** wet and dry seasons, and names in other languages
+8. **Later:** wet and dry seasons, and names in other languages
    as they are contributed.
 
 ## Releases
@@ -125,18 +140,18 @@ Pacific Northwest guidance is still to add.
 
 | Change                                                                                                                                                                                                                                                   | When                       | Why                                                                                                                                                                                                                                                                                      |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `companions.yaml` filled, with `kind` = helps, hinders, or attracts-pollinators                                                                                                                                                                          | v0.2                       | Already in the schema; v0.2 adds the data                                                                                                                                                                                                                                                |
+| `companions.yaml` filled, with `kind` = helps, hinders, or attracts-pollinators                                                                                                                                                                          | Done, v0.2.2               | Already in the schema; v0.2 adds the data                                                                                                                                                                                                                                                |
 | Common names beyond English (`names.<locale>`)                                                                                                                                                                                                           | Contributions              | Already allowed by the schema. Added by people who speak the language ([CONTRIBUTING](CONTRIBUTING.md#names-in-other-languages)); Open Garden shows English only until its own translation is contributed. See the Wikidata findings below                                               |
 | Frost-free sowing by wet/dry season                                                                                                                                                                                                                      | Later                      | By temperature is done: Open Garden places windows from `temperatureC` and `minSoilTemperatureC` where frost is rare ([its ADR 0025](https://github.com/thedude459/open-garden/blob/main/docs/adr/0025-sowing-by-temperature-where-frost-is-rare.md)). Wet and dry seasons need new data |
 | Per-value `confidence`                                                                                                                                                                                                                                   | If needed                  | Sources are recorded per crop today, optionally per field; add confidence only if reviewers need it                                                                                                                                                                                      |
-| Crop icons (CC0, made for the project)                                                                                                                                                                                                                   | Later                      | Photos only from Wikimedia Commons, with per-image license stored alongside                                                                                                                                                                                                              |
+| Crop icons (CC0, made for the project)                                                                                                                                                                                                                   | Done, next release         | One colour SVG per crop, 51 from OpenFarm's CC0 open-crop-icons and the rest drawn to match (`icons/README.md` is the style guide). Photos, if ever added, only from Wikimedia Commons with each image's license stored alongside                                                        |
 | `deprecated: true` and `replacedBy: <id>` on a crop or variety                                                                                                                                                                                           | Before the first removal   | Ids never change and files are never deleted (that would be a major release); a deprecated record points apps at its replacement so plantings can move                                                                                                                                   |
-| `soilPh: { min, max }` per crop                                                                                                                                                                                                                          | v0.2                       | Soil-test advice in the app: blueberries need 4.5–5.5, most vegetables 6.0–7.0, potatoes 5.0–6.5                                                                                                                                                                                         |
-| `cropCoefficients`: `{ initial, mid, end }` crop coefficients (Kc) and the length of each growth stage in days (`stageDays`)                                                                                                                             | v0.2                       | Watering by water balance in the app: daily water use = reference evapotranspiration (ET₀) × Kc for the stage, minus rain. FAO-56 publishes Kc and stage lengths for common crops; write them in our own words and cite it                                                               |
+| `soilPh: { min, max }` per crop                                                                                                                                                                                                                          | Done, v0.2.0               | Soil-test advice in the app: blueberries need 4.5–5.5, most vegetables 6.0–7.0, potatoes 5.0–6.5                                                                                                                                                                                         |
+| `cropCoefficients`: `{ initial, mid, end }` crop coefficients (Kc) and the length of each growth stage in days (`stageDays`)                                                                                                                             | Done, v0.2.1               | Watering by water balance in the app: daily water use = reference evapotranspiration (ET₀) × Kc for the stage, minus rain. FAO-56 publishes Kc and stage lengths for common crops; write them in our own words and cite it                                                               |
 | Seeding data: `seedsPerGram` and typical `germinationRate`                                                                                                                                                                                               | v0.3                       | Seed inventory and a seeds-needed calculator ("this bed needs about 2 g of carrot seed"); in-row spacing and the bed size give the plant count                                                                                                                                           |
 | Sensor ranges: `soilMoisturePercent: { min, max }` and `lightDli: { min, max }` (daily light integral, mol/m²/day)                                                                                                                                       | v0.3                       | Open Garden judges moisture and light sensor readings against the crop (`temperatureC` already covers temperature). Values from CC0-compatible sources in our own words; Open Plantbook's ranges need an account and are not CC0, so they cannot be used                                 |
 | Variety-level `scientificName`                                                                                                                                                                                                                           | With hot pepper (v0.2)     | Hot pepper is its own crop, but habanero is _Capsicum chinense_ while jalapeño and cayenne are _C. annuum_, so a variety needs its own species                                                                                                                                           |
-| A fall sowing window (`fallSow`)                                                                                                                                                                                                                         | v0.2                       | Lettuce, peas, radish, and spinach are sown again for fall; each method has one window today                                                                                                                                                                                             |
+| A fall sowing window (`fallSow`)                                                                                                                                                                                                                         | Done, v0.2.0               | Lettuce, peas, radish, and spinach are sown again for fall; each method has one window today                                                                                                                                                                                             |
 | Named rootstocks per tree crop: `rootstocks.<class>.named[]`, each with an `id` and name (M.9, Bud 9, G.41, MM.111, Antonovka), size as a percent of standard, in-row spacing, `hardinessZones: { min, max }`, whether it needs staking, and its sources | v0.3, with the fruit trees | A tree is only as hardy as its rootstock: Bud 9 and G.41 dwarfs take colder winters than M.9, and a size class spans a range of spacings. The three classes stay as the fallback when the rootstock is not known                                                                         |
 | Mature height (`heightCm`)                                                                                                                                                                                                                               | v0.3                       | Planning borders and shade (corn, pole beans, sunflowers)                                                                                                                                                                                                                                |
 | Bloom season and a toxicity flag                                                                                                                                                                                                                         | With flowers               | For flowers, days to maturity means days to bloom; a flag warns about plants harmful to pets or children                                                                                                                                                                                 |
@@ -256,6 +271,13 @@ Added to `scripts/catalog.mjs` and CI before outside contributions start:
   celery, leek, mint), and crops that share a species (bush and pole bean,
   the squashes) need names of their own. Expect to curate about two names in
   five by hand. Done as contributions from speakers of each language.
+- **Workflow and secret checks, as in Open Garden.** The release workflow can
+  write to the repository and sign releases, but nothing lints it. Add
+  actionlint and zizmor (pinned, as Open Garden's `workflows` job runs them)
+  and gitleaks to `validate.yml`, and consider OpenSSF Scorecard.
+- **Coverage for the scripts.** `scripts/catalog.mjs` builds and checks
+  every release and has tests, but nothing measures what they cover. Run
+  `node --test` with `--experimental-test-coverage` and set a floor.
 - **A required reviewer once there is a second contributor.** Add
   `CODEOWNERS` so data pull requests need a review from someone other than
   their author. Until then the maintainer reviews their own.
@@ -274,3 +296,14 @@ Added to `scripts/catalog.mjs` and CI before outside contributions start:
 3. Later, the Open Garden app lets users suggest a correction on a plant page;
    admins export those as issues or patches here. Households can also keep
    custom varieties in their own garden and offer them upstream.
+
+## Ideas
+
+Data gaps, performance gains, features, and pipeline improvements noticed
+while working on something else ([CONTRIBUTING](CONTRIBUTING.md#making-a-change)).
+Not planned yet: move one into the [order of work](#order-of-work) when it is
+chosen. Size is a rough guess: S is under a day, M a few days, L longer.
+
+| Idea        | Why | Size |
+| ----------- | --- | ---- |
+| _None yet._ |     |      |

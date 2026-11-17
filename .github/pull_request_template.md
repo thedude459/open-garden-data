@@ -6,6 +6,10 @@
 
 <!-- Where the values come from. Facts in your own words; no copied text. -->
 
+## Noticed
+
+<!-- Ideas outside this change (data gaps, performance, pipeline), each also added under Ideas in ROADMAP.md. "None" if none. -->
+
 ## Checklist
 
 - [ ] `npm run validate` and `npm test` pass
