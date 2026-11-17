@@ -101,6 +101,14 @@ By opening a pull request you agree to release your contribution under
 3. Run `npm ci`, then `npm run validate` and `npm test`.
 4. Open a pull request. CI runs the same checks.
 
+While working, watch for data gaps, performance gains, and pipeline or CI
+improvements outside the change at hand. Do not make them in the same pull
+request. Add each as one line under
+[Ideas](ROADMAP.md#ideas) in `ROADMAP.md` (what, why, rough size), and list
+them in the pull request under **Noticed**. Bugs go in a
+[GitHub issue](https://github.com/thedude459/open-garden-data/issues/new/choose)
+with the `bug` label instead.
+
 To report a problem without editing YAML, open a
 [plant data issue](https://github.com/thedude459/open-garden-data/issues/new/choose).
 

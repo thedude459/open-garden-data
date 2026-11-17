@@ -296,3 +296,14 @@ Added to `scripts/catalog.mjs` and CI before outside contributions start:
 3. Later, the Open Garden app lets users suggest a correction on a plant page;
    admins export those as issues or patches here. Households can also keep
    custom varieties in their own garden and offer them upstream.
+
+## Ideas
+
+Data gaps, performance gains, features, and pipeline improvements noticed
+while working on something else ([CONTRIBUTING](CONTRIBUTING.md#making-a-change)).
+Not planned yet: move one into the [order of work](#order-of-work) when it is
+chosen. Size is a rough guess: S is under a day, M a few days, L longer.
+
+| Idea        | Why | Size |
+| ----------- | --- | ---- |
+| _None yet._ |     |      |
