@@ -1,13 +1,24 @@
 # Changelog
 
-What each release changes, in plain words. A pull request that changes the
-data or the schema adds a line under **Unreleased**. To release, rename
-**Unreleased** to the version (`## v0.2.1`), start a new empty **Unreleased**
-above it, merge, and push the tag. The release workflow puts the version's
-section at the top of the release notes, followed by a generated list of the
-crops and fields that changed.
+What each release changes, in plain words. Every pull request adds a line
+under **Unreleased**, in the section it belongs to (a CI check asks for it;
+see [CONTRIBUTING](CONTRIBUTING.md#changelog-and-releases)). The Release
+workflow publishes a version's entry as its release notes, in The Good Docs
+Project's layout, followed by a generated list of the crops and fields that
+changed.
+
+Sections, in this order (leave one empty when nothing belongs there):
+**Summary** (one or two sentences, written when the release is cut), **New
+features**, **Improvements**, **Bug fixes**, **Security** (a dataset release
+has no code that runs, so this is normally empty and the notes say "Not
+applicable"), **Known issues**, and **Deprecated features** (crops or fields a
+later release removes; see "Ids never change" in CONTRIBUTING).
 
 ## Unreleased
+
+### Summary
+
+### New features
 
 - **Crop icons** in `icons/`: one colour SVG per crop, named by crop id, and
   a check that every crop has one and that each is a plain drawing. 51 come
@@ -16,6 +27,16 @@ crops and fields that changed.
   nasturtium, rhubarb, sweet alyssum, and tansy were drawn to match. The rest
   of that set is in `icons/library/` for crops still to come, and
   `icons/README.md` is the style guide for new icons.
+
+### Improvements
+
+### Bug fixes
+
+### Security
+
+### Known issues
+
+### Deprecated features
 
 ## v0.2.2
 

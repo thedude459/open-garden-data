@@ -1,23 +1,25 @@
 name: Release
 
-# Pushing a tag vMAJOR.MINOR.PATCH creates the GitHub Release: it builds
+# Run from Actions -> Release -> Run workflow, on main, with the version
+# (CONTRIBUTING.md, "Changelog and releases"). It builds
 # open-garden-catalog-<version>.json, its SHA-256, and a build provenance
-# attestation, and publishes them with the release-file schema. The notes are
-# the version's section of CHANGELOG.md, then what changed in the data since
-# the previous release. A release published by hand on GitHub gets the same
-# files; its own description is kept and the list of changes is added. The
-# app pins a version.
+# attestation, and publishes them with the release-file schema in a GitHub
+# Release, which creates the tag. The notes are the version's CHANGELOG.md
+# entry in the release notes template layout, then what changed in the data
+# since the previous release. The app pins a version.
 on:
-  push:
-    tags: ['v*']
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release, e.g. 0.3.0 (CHANGELOG.md must have "## v0.3.0 (date)")'
+        required: true
+        type: string
 
 permissions:
   contents: read
 
 concurrency:
-  group: release-${{ github.event.release.tag_name || github.ref_name }}
+  group: release-${{ inputs.version }}
   cancel-in-progress: false
 
 jobs:
@@ -26,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
-      # Upload release assets; sign the catalog with a provenance attestation.
+      # Create the release with its assets; sign the catalog with a provenance attestation.
       contents: write
       id-token: write
       attestations: write
@@ -39,22 +41,35 @@ jobs:
           node-version-file: .nvmrc
           # No dependency cache when publishing: a poisoned cache could alter the artifact.
           package-manager-cache: false
-      - name: Check the tag is vMAJOR.MINOR.PATCH
+      - name: Check the version and branch
         id: tag
         env:
-          TAG: ${{ github.event.release.tag_name || github.ref_name }}
+          INPUT: ${{ inputs.version }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [[ ! "${TAG}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "Release tag must look like v0.1.0, got ${TAG}" >&2
+          VERSION="${INPUT#v}"
+          if [[ ! "${VERSION}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Version must look like 0.3.0, got ${INPUT}" >&2
             exit 1
           fi
-          echo "version=${TAG#v}" >> "${GITHUB_OUTPUT}"
+          if [[ "${GITHUB_REF}" != "refs/heads/main" ]]; then
+            echo "Run the release from main (got ${GITHUB_REF})" >&2
+            exit 1
+          fi
+          if gh release view "v${VERSION}" --repo "${GITHUB_REPOSITORY}" > /dev/null 2>&1; then
+            echo "Release v${VERSION} already exists" >&2
+            exit 1
+          fi
+          echo "version=${VERSION}" >> "${GITHUB_OUTPUT}"
+          echo "tag=v${VERSION}" >> "${GITHUB_OUTPUT}"
       - run: npm ci --ignore-scripts
       - name: Notes from CHANGELOG.md
         env:
           VERSION: ${{ steps.tag.outputs.version }}
-        # Fails when CHANGELOG.md has no section for this version.
-        run: node scripts/catalog.mjs changelog "${VERSION}" > changelog.md
+        # Fails when CHANGELOG.md has no entry for this version.
+        run: |
+          node scripts/catalog.mjs changelog-check
+          node scripts/catalog.mjs changelog "${VERSION}" > changelog.md
       - name: Build
         env:
           VERSION: ${{ steps.tag.outputs.version }}
@@ -67,7 +82,7 @@ jobs:
       - name: Publish the release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ github.event.release.tag_name || github.ref_name }}
+          TAG: ${{ steps.tag.outputs.tag }}
           VERSION: ${{ steps.tag.outputs.version }}
           BUNDLE: ${{ steps.attest.outputs.bundle-path }}
         run: |
@@ -75,9 +90,9 @@ jobs:
           NAME="open-garden-catalog-${VERSION}.json"
           cp "${BUNDLE}" "dist/${NAME}.sigstore.json"
 
-          # What changed since the newest other published release.
+          # What changed since the newest published release.
           PREV="$(gh release list --repo "${GITHUB_REPOSITORY}" --exclude-drafts --exclude-pre-releases \
-            --json tagName --jq '.[].tagName' | grep -vx "${TAG}" | head -n 1 || true)"
+            --json tagName --jq '.[].tagName' | head -n 1 || true)"
           PREV_FILE=""
           if [[ -n "${PREV}" ]]; then
             mkdir -p prev
@@ -88,22 +103,8 @@ jobs:
           fi
           CHANGES="dist/open-garden-catalog-${VERSION}.changes.md"
           node scripts/catalog.mjs notes "dist/${NAME}" ${PREV_FILE:+"${PREV_FILE}"} > "${CHANGES}"
-          FILES=("dist/${NAME}" "dist/${NAME}.sha256" "dist/${NAME}.sigstore.json" "${CHANGES}" \
-            schema/catalog.schema.json schema/crop.schema.json)
-
-          if ! gh release view "${TAG}" --repo "${GITHUB_REPOSITORY}" > /dev/null 2>&1; then
-            { cat changelog.md; printf '\n'; cat "${CHANGES}"; } > body.md
-            gh release create "${TAG}" "${FILES[@]}" --repo "${GITHUB_REPOSITORY}" \
-              --verify-tag --title "${TAG}" --notes-file body.md
-            exit 0
-          fi
-          # Published by hand (or this ran twice for one tag): keep the
-          # description, use the changelog when it is empty, and add the
-          # list of changes once.
-          gh release view "${TAG}" --repo "${GITHUB_REPOSITORY}" --json body --jq .body > body.md
-          if ! grep -q '^## Changes in the data since' body.md; then
-            if [[ -z "$(tr -d '[:space:]' < body.md)" ]]; then cp changelog.md body.md; fi
-            { printf '\n\n'; cat "${CHANGES}"; } >> body.md
-            gh release edit "${TAG}" --repo "${GITHUB_REPOSITORY}" --notes-file body.md
-          fi
-          gh release upload "${TAG}" "${FILES[@]}" --clobber --repo "${GITHUB_REPOSITORY}"
+          { cat changelog.md; printf '\n'; cat "${CHANGES}"; } > body.md
+          cat body.md >> "${GITHUB_STEP_SUMMARY}"
+          gh release create "${TAG}" "dist/${NAME}" "dist/${NAME}.sha256" "dist/${NAME}.sigstore.json" \
+            "${CHANGES}" schema/catalog.schema.json schema/crop.schema.json \
+            --repo "${GITHUB_REPOSITORY}" --target "${GITHUB_SHA}" --title "${TAG}" --notes-file body.md

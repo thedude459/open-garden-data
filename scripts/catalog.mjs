@@ -4,7 +4,9 @@
 //   node scripts/catalog.mjs report          # Markdown: optional fields each crop lacks
 //   node scripts/catalog.mjs notes new.json old.json  # Markdown: what changed between releases
 //   node scripts/catalog.mjs build 0.1.0     # writes dist/open-garden-catalog-0.1.0.json + .sha256
-//   node scripts/catalog.mjs changelog 0.1.0 # Markdown: that version's notes from CHANGELOG.md
+//   node scripts/catalog.mjs changelog 0.1.0 # Markdown: that version's release notes from CHANGELOG.md
+//   node scripts/catalog.mjs changelog-check # CHANGELOG.md can make release notes
+//   node scripts/catalog.mjs cut 0.3.0 2026-12-01  # Unreleased becomes v0.3.0
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';
@@ -274,21 +276,137 @@ export function releaseNotes(previous, current) {
   return lines.join('\n');
 }
 
+/** Release notes sections, in order (The Good Docs Project's template). */
+export const NOTES_SECTIONS = [
+  'Summary',
+  'New features',
+  'Improvements',
+  'Bug fixes',
+  'Security',
+  'Known issues',
+  'Deprecated features',
+];
+
+const NOTES_EMPTY = {
+  'New features': 'None in this release.',
+  Improvements: 'None in this release.',
+  'Bug fixes': 'None in this release.',
+  // A dataset release holds data that apps read, not code that runs.
+  Security:
+    'Not applicable: a dataset release is data that apps read, with no code that runs, so ' +
+    'it has no run-time vulnerabilities to fix.',
+  'Known issues': 'None known.',
+  'Deprecated features': 'None.',
+};
+
+/** CHANGELOG.md's entries (Unreleased, then versions), each with its sections. */
+export function changelogEntries(text) {
+  return text
+    .split(/^## /m)
+    .slice(1)
+    .map((part) => {
+      const [headingLine, ...rest] = part.split('\n');
+      const heading = headingLine.trim();
+      const body = rest.join('\n');
+      const match = /^v(\S+?)(?: \((\d{4}-\d{2}-\d{2})\))?$/.exec(heading);
+      const blocks = body.split(/^### /m);
+      const notesVersion = /^Release notes version: (\d+)$/m.exec(blocks[0]);
+      const sections = {};
+      for (const block of blocks.slice(1)) {
+        const [name, ...lines] = block.split('\n');
+        sections[name.trim()] = lines
+          .join('\n')
+          .replace(/<!--[\s\S]*?-->/g, '')
+          .trim();
+      }
+      return {
+        heading,
+        version: match ? match[1] : null,
+        date: match?.[2] ?? null,
+        notesVersion: notesVersion ? Number(notesVersion[1]) : 1,
+        intro: blocks[0].replace(/^Release notes version: \d+$/m, '').trim(),
+        sections,
+      };
+    });
+}
+
 /**
  * The CHANGELOG.md section for a version (`## v0.2.0`), without its heading,
  * or null when there is none or it is empty.
  */
 export function changelogSection(text, version) {
-  const heading = `## v${version}`;
+  const entry = changelogEntries(text).find((e) => e.version === version);
+  if (!entry) return null;
   const lines = text.split('\n');
-  const at = lines.findIndex((line) => line.trim() === heading);
-  if (at === -1) return null;
+  const at = lines.findIndex((line) => line.trim() === `## ${entry.heading}`);
   const next = lines.findIndex((line, i) => i > at && line.startsWith('## '));
   const body = lines
     .slice(at + 1, next === -1 ? undefined : next)
     .join('\n')
     .trim();
   return body || null;
+}
+
+/** Problems that keep CHANGELOG.md from making release notes. */
+export function changelogProblems(text) {
+  const entries = changelogEntries(text);
+  const problems = [];
+  if (!entries.some((e) => e.heading === 'Unreleased')) problems.push('No "## Unreleased" entry.');
+  for (const e of entries) {
+    if (e.heading !== 'Unreleased' && !e.version) {
+      problems.push(`"## ${e.heading}": use "## Unreleased" or "## v1.2.3 (YYYY-MM-DD)".`);
+    }
+    for (const name of Object.keys(e.sections)) {
+      if (!NOTES_SECTIONS.includes(name)) {
+        problems.push(
+          `"## ${e.heading}" has "### ${name}"; use one of: ${NOTES_SECTIONS.join(', ')}.`,
+        );
+      }
+    }
+  }
+  return problems;
+}
+
+/** Unreleased renamed to a version and date, with a new empty Unreleased above. */
+export function cutChangelog(text, version, date) {
+  if (!/^\d+\.\d+\.\d+$/.test(version))
+    throw new Error(`Version must look like 1.2.3, got ${version}`);
+  if (changelogEntries(text).some((e) => e.version === version)) {
+    throw new Error(`CHANGELOG.md already has v${version}`);
+  }
+  if (!/^## Unreleased$/m.test(text)) throw new Error('No "## Unreleased" entry to cut.');
+  const empty = ['## Unreleased', '', ...NOTES_SECTIONS.flatMap((n) => [`### ${n}`, ''])].join(
+    '\n',
+  );
+  return text.replace(/^## Unreleased$/m, `${empty}\n## v${version} (${date})`);
+}
+
+/**
+ * A version's release notes in the template layout: title, the notes' own
+ * version, Summary, then each section ("None" when empty). An entry written
+ * before the template (no sections) is kept as its Summary.
+ */
+export function changelogNotes(text, version) {
+  const entry = changelogEntries(text).find((e) => e.version === version);
+  if (!entry) return null;
+  const sections = Object.keys(entry.sections).length
+    ? entry.sections
+    : { Summary: changelogSection(text, version) ?? '' };
+  const summary = [entry.intro, sections.Summary].filter(Boolean).join('\n\n');
+  if (!summary) return null;
+  const out = [
+    `# open-garden-data v${version} release notes`,
+    '',
+    `Release notes version ${entry.notesVersion}${entry.date ? ` · Released ${entry.date}` : ''}`,
+    '',
+    '## Summary',
+    '',
+    summary,
+  ];
+  for (const name of NOTES_SECTIONS.slice(1)) {
+    out.push('', `## ${name}`, '', sections[name] || NOTES_EMPTY[name]);
+  }
+  return `${out.join('\n')}\n`;
 }
 
 /**
@@ -536,13 +654,26 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const read = (file) => JSON.parse(readFileSync(file, 'utf8'));
     process.stdout.write(releaseNotes(previousFile ? read(previousFile) : null, read(currentFile)));
   } else if (command === 'changelog') {
-    // node scripts/catalog.mjs changelog <version>: that version's notes from CHANGELOG.md
-    const section = changelogSection(readFileSync(join(ROOT, 'CHANGELOG.md'), 'utf8'), version);
-    if (!section) {
-      console.error(`CHANGELOG.md has no notes under "## v${version}"`);
-      process.exit(1);
+    // node scripts/catalog.mjs changelog <version>: that version's release notes
+    const notes = changelogNotes(readFileSync(join(ROOT, 'CHANGELOG.md'), 'utf8'), version);
+    if (!notes) {
+      console.error(
+        `CHANGELOG.md has no notes for v${version}; cut it first (see CONTRIBUTING.md).`,
+      );
+      process.exitCode = 1;
+    } else {
+      process.stdout.write(notes);
     }
-    process.stdout.write(`${section}\n`);
+  } else if (command === 'changelog-check') {
+    const problems = changelogProblems(readFileSync(join(ROOT, 'CHANGELOG.md'), 'utf8'));
+    for (const p of problems) console.error(p);
+    if (problems.length) process.exitCode = 1;
+    else console.log('CHANGELOG.md is well formed.');
+  } else if (command === 'cut') {
+    // node scripts/catalog.mjs cut <version> <date>: Unreleased becomes that version
+    const file = join(ROOT, 'CHANGELOG.md');
+    writeFileSync(file, cutChangelog(readFileSync(file, 'utf8'), version, process.argv[4]));
+    console.log(`CHANGELOG.md: Unreleased is now v${version}.`);
   } else if (command === 'report') {
     process.stdout.write(completeness(data));
   } else if (command === 'build') {
@@ -555,7 +686,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.log(`Wrote dist/${name} (sha256 ${sha})`);
   } else {
     console.error(
-      'Usage: node scripts/catalog.mjs validate | report | build <version> | changelog <version> | notes <current.json> [previous.json]',
+      'Usage: node scripts/catalog.mjs validate | report | build <version> | changelog <version> | changelog-check | cut <version> <date> | notes <current.json> [previous.json]',
     );
     process.exit(2);
   }
