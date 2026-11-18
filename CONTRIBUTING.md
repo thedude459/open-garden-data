@@ -69,21 +69,36 @@ in gardening charts is `traditional`.
 ## Changelog and releases
 
 Say what your pull request changes in a line under **Unreleased** in
-[CHANGELOG.md](CHANGELOG.md), in plain words: "Adds okra" or "Fixes the pea
-spacing". Fixes to scripts and docs only need no entry.
+[CHANGELOG.md](CHANGELOG.md), under the section it belongs to (New features,
+Improvements, Bug fixes, Known issues, Deprecated features), in plain words:
+"Adds okra" or "Fixes the pea spacing". The `changelog` CI check asks for
+it; label a pull request that changes only scripts, CI, or the roadmap
+`skip-changelog`.
 
-To release, a maintainer renames **Unreleased** to the version (`## v0.2.1`),
-adds a new empty **Unreleased** above it, merges that, and pushes the tag:
+**When:** a release whenever the data has changed in a way apps should pick
+up; Open Garden's roadmap says which version each of its features needs.
 
-```bash
-git tag v0.2.1 origin/main && git push origin v0.2.1
-```
+**To release** (a maintainer):
 
-The release workflow builds and signs the catalog and publishes the GitHub
-Release, with the changelog section and a generated list of what changed. It
-fails if the changelog has no section for the version. Publishing a release
-by hand on GitHub still works: the workflow attaches the same files and adds
-the list of changes to the description.
+1. In a pull request, cut the entry and write its Summary:
+
+   ```bash
+   node scripts/catalog.mjs cut 0.3.0 "$(date +%F)"
+   ```
+
+   This renames **Unreleased** to `## v0.3.0 (date)` and starts a new empty
+   **Unreleased**. Merge it.
+
+2. Run **Actions → Release → Run workflow** on `main` with the version
+   (`0.3.0`). The release workflow builds and signs the catalog, writes the
+   notes (title, notes version, Summary, each section, "None" when empty,
+   then a generated list of the crops and fields that changed), and
+   publishes the GitHub Release, which creates the `v0.3.0` tag. It fails if
+   the changelog has no entry for the version or the release already exists.
+
+To correct notes after a release, edit the entry, add
+`Release notes version: 2` under its heading, and paste the output of
+`node scripts/catalog.mjs changelog 0.3.0` into the GitHub Release.
 
 ## Your contribution is CC0
 

@@ -7,6 +7,9 @@ import Ajv2020 from 'ajv/dist/2020.js';
 import {
   build,
   changelogSection,
+  changelogNotes,
+  changelogProblems,
+  cutChangelog,
   checkIcons,
   completeness,
   load,
@@ -349,4 +352,56 @@ test('a companion pair says what it does, how well it is known, and where', () =
   assert.match(errors, /shownIn must say where the evidence comes from/);
   // Lore needs no reference.
   assert.doesNotMatch(errors, /companions.yaml\[2\]/);
+});
+
+test('the changelog makes release notes in the template layout', () => {
+  const text = [
+    '# Changelog',
+    '',
+    '## Unreleased',
+    '',
+    '### Summary',
+    '',
+    'Okra and better pea spacing.',
+    '',
+    '### New features',
+    '',
+    '- Adds okra.',
+    '',
+    '### Bug fixes',
+    '',
+    '- Fixes the pea spacing.',
+    '',
+    '## v0.2.2',
+    '',
+    'Companion plants.',
+    '',
+  ].join('\n');
+  assert.deepEqual(changelogProblems(text), []);
+  assert.match(changelogProblems(text.replace('### Bug fixes', '### Fixes'))[0], /### Fixes/);
+  assert.match(changelogProblems('## v0.1.0\n')[0], /Unreleased/);
+
+  const cut = cutChangelog(text, '0.3.0', '2026-12-01');
+  assert.match(cut, /^## Unreleased\n\n### Summary\n/m);
+  assert.match(cut, /^## v0\.3\.0 \(2026-12-01\)$/m);
+  assert.throws(() => cutChangelog(cut, '0.3.0', '2026-12-02'), /already has v0\.3\.0/);
+  assert.throws(() => cutChangelog(text, 'soon', '2026-12-02'), /1\.2\.3/);
+
+  const notes = changelogNotes(cut, '0.3.0');
+  assert.match(notes, /^# open-garden-data v0\.3\.0 release notes\n/);
+  assert.match(notes, /Release notes version 1 · Released 2026-12-01/);
+  assert.match(notes, /## New features\n\n- Adds okra\./);
+  assert.match(notes, /## Improvements\n\nNone in this release\./);
+  assert.match(notes, /## Security\n\nNot applicable/);
+  // An entry written before the template becomes its Summary.
+  assert.match(changelogNotes(cut, '0.2.2'), /## Summary\n\nCompanion plants\./);
+  assert.equal(changelogNotes(cut, '9.9.9'), null);
+  const revised = cut.replace(
+    '## v0.3.0 (2026-12-01)',
+    '## v0.3.0 (2026-12-01)\n\nRelease notes version: 2',
+  );
+  assert.match(changelogNotes(revised, '0.3.0'), /Release notes version 2/);
+  // The real changelog can make notes.
+  const real = readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8');
+  assert.deepEqual(changelogProblems(real), []);
 });
