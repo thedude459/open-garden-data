@@ -314,10 +314,7 @@ export function changelogEntries(text) {
       const sections = {};
       for (const block of blocks.slice(1)) {
         const [name, ...lines] = block.split('\n');
-        sections[name.trim()] = lines
-          .join('\n')
-          .replace(/<!--[\s\S]*?-->/g, '')
-          .trim();
+        sections[name.trim()] = lines.join('\n').trim();
       }
       return {
         heading,
