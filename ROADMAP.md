@@ -304,6 +304,6 @@ while working on something else ([CONTRIBUTING](CONTRIBUTING.md#making-a-change)
 Not planned yet: move one into the [order of work](#order-of-work) when it is
 chosen. Size is a rough guess: S is under a day, M a few days, L longer.
 
-| Idea        | Why | Size |
-| ----------- | --- | ---- |
-| _None yet._ |     |      |
+| Idea                                                                                                                                                | Why                                                                                                                                                                                                                  | Size |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| **Data:** a `successionDays` per crop: how often to resow it for a steady harvest (radish and leaf lettuce about 7 days, bush beans 10, carrots 21) | Open Garden's succession planting (its ADR 0037) defaults to two weeks for every crop. Extension tables vary by crop, but the one found (Kentucky's) credits Johnny's Seeds, so the values need an open source first | S    |
