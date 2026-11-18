@@ -282,6 +282,7 @@ export const NOTES_SECTIONS = [
   'New features',
   'Improvements',
   'Bug fixes',
+  'Documentation',
   'Security',
   'Known issues',
   'Deprecated features',
@@ -291,6 +292,7 @@ const NOTES_EMPTY = {
   'New features': 'None in this release.',
   Improvements: 'None in this release.',
   'Bug fixes': 'None in this release.',
+  Documentation: 'None in this release.',
   // A dataset release holds data that apps read, not code that runs.
   Security:
     'Not applicable: a dataset release is data that apps read, with no code that runs, so ' +

@@ -70,10 +70,10 @@ in gardening charts is `traditional`.
 
 Say what your pull request changes in a line under **Unreleased** in
 [CHANGELOG.md](CHANGELOG.md), under the section it belongs to (New features,
-Improvements, Bug fixes, Known issues, Deprecated features), in plain words:
-"Adds okra" or "Fixes the pea spacing". The `changelog` CI check asks for
-it; label a pull request that changes only scripts, CI, or the roadmap
-`skip-changelog`.
+Improvements, Bug fixes, Documentation, Known issues, Deprecated features),
+in plain words: "Adds okra", "Fixes the pea spacing", or "Explains how to draw
+an icon". The `changelog` CI check asks for it; label a pull request that
+changes only scripts, CI, or the roadmap `skip-changelog`.
 
 **When:** a release whenever the data has changed in a way apps should pick
 up; Open Garden's roadmap says which version each of its features needs.

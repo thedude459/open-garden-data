@@ -9,7 +9,8 @@ changed.
 
 Sections, in this order (leave one empty when nothing belongs there):
 **Summary** (one or two sentences, written when the release is cut), **New
-features**, **Improvements**, **Bug fixes**, **Security** (a dataset release
+features**, **Improvements**, **Bug fixes**, **Documentation** (the README,
+CONTRIBUTING, the icon style guide, and other guides), **Security** (a dataset release
 has no code that runs, so this is normally empty and the notes say "Not
 applicable"), **Known issues**, and **Deprecated features** (crops or fields a
 later release removes; see "Ids never change" in CONTRIBUTING).
@@ -30,7 +31,12 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### Improvements
 
+- Release notes start with the Summary under a release titled with the
+  version, and have a Documentation section for guide and install changes.
+
 ### Bug fixes
+
+### Documentation
 
 ### Security
 
