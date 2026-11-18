@@ -70,10 +70,10 @@ in gardening charts is `traditional`.
 
 Say what your pull request changes in a line under **Unreleased** in
 [CHANGELOG.md](CHANGELOG.md), under the section it belongs to (New features,
-Improvements, Bug fixes, Known issues, Deprecated features), in plain words:
-"Adds okra" or "Fixes the pea spacing". The `changelog` CI check asks for
-it; label a pull request that changes only scripts, CI, or the roadmap
-`skip-changelog`.
+Improvements, Bug fixes, Documentation, Known issues, Deprecated features),
+in plain words: "Adds okra", "Fixes the pea spacing", or "Explains how to draw
+an icon". The `changelog` CI check asks for it; label a pull request that
+changes only scripts, CI, or the roadmap `skip-changelog`.
 
 **When:** a release whenever the data has changed in a way apps should pick
 up; Open Garden's roadmap says which version each of its features needs.
@@ -91,13 +91,12 @@ up; Open Garden's roadmap says which version each of its features needs.
 
 2. Run **Actions → Release → Run workflow** on `main` with the version
    (`0.3.0`). The release workflow builds and signs the catalog, writes the
-   notes (title, notes version, Summary, each section, "None" when empty,
+   notes (the Summary, then each section, "None" when empty,
    then a generated list of the crops and fields that changed), and
    publishes the GitHub Release, which creates the `v0.3.0` tag. It fails if
    the changelog has no entry for the version or the release already exists.
 
-To correct notes after a release, edit the entry, add
-`Release notes version: 2` under its heading, and paste the output of
+To correct notes after a release, edit the entry and paste the output of
 `node scripts/catalog.mjs changelog 0.3.0` into the GitHub Release.
 
 ## Your contribution is CC0
