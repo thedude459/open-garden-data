@@ -91,13 +91,12 @@ up; Open Garden's roadmap says which version each of its features needs.
 
 2. Run **Actions → Release → Run workflow** on `main` with the version
    (`0.3.0`). The release workflow builds and signs the catalog, writes the
-   notes (title, notes version, Summary, each section, "None" when empty,
+   notes (the Summary, then each section, "None" when empty,
    then a generated list of the crops and fields that changed), and
    publishes the GitHub Release, which creates the `v0.3.0` tag. It fails if
    the changelog has no entry for the version or the release already exists.
 
-To correct notes after a release, edit the entry, add
-`Release notes version: 2` under its heading, and paste the output of
+To correct notes after a release, edit the entry and paste the output of
 `node scripts/catalog.mjs changelog 0.3.0` into the GitHub Release.
 
 ## Your contribution is CC0

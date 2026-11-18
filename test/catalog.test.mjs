@@ -388,19 +388,14 @@ test('the changelog makes release notes in the template layout', () => {
   assert.throws(() => cutChangelog(text, 'soon', '2026-12-02'), /1\.2\.3/);
 
   const notes = changelogNotes(cut, '0.3.0');
-  assert.match(notes, /^# open-garden-data v0\.3\.0 release notes\n/);
-  assert.match(notes, /Release notes version 1 · Released 2026-12-01/);
+  // The release is titled with the version; the notes start with the Summary.
+  assert.match(notes, /^## Summary\n\nOkra and better pea spacing\./);
   assert.match(notes, /## New features\n\n- Adds okra\./);
   assert.match(notes, /## Improvements\n\nNone in this release\./);
   assert.match(notes, /## Security\n\nNot applicable/);
   // An entry written before the template becomes its Summary.
   assert.match(changelogNotes(cut, '0.2.2'), /## Summary\n\nCompanion plants\./);
   assert.equal(changelogNotes(cut, '9.9.9'), null);
-  const revised = cut.replace(
-    '## v0.3.0 (2026-12-01)',
-    '## v0.3.0 (2026-12-01)\n\nRelease notes version: 2',
-  );
-  assert.match(changelogNotes(revised, '0.3.0'), /Release notes version 2/);
   // The real changelog can make notes.
   const real = readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8');
   assert.deepEqual(changelogProblems(real), []);

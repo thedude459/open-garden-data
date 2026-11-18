@@ -310,7 +310,6 @@ export function changelogEntries(text) {
       const body = rest.join('\n');
       const match = /^v(\S+?)(?: \((\d{4}-\d{2}-\d{2})\))?$/.exec(heading);
       const blocks = body.split(/^### /m);
-      const notesVersion = /^Release notes version: (\d+)$/m.exec(blocks[0]);
       const sections = {};
       for (const block of blocks.slice(1)) {
         const [name, ...lines] = block.split('\n');
@@ -320,8 +319,7 @@ export function changelogEntries(text) {
         heading,
         version: match ? match[1] : null,
         date: match?.[2] ?? null,
-        notesVersion: notesVersion ? Number(notesVersion[1]) : 1,
-        intro: blocks[0].replace(/^Release notes version: \d+$/m, '').trim(),
+        intro: blocks[0].trim(),
         sections,
       };
     });
@@ -379,8 +377,8 @@ export function cutChangelog(text, version, date) {
 }
 
 /**
- * A version's release notes in the template layout: title, the notes' own
- * version, Summary, then each section ("None" when empty). An entry written
+ * A version's release notes in the template layout: the Summary, then each
+ * section ("None" when empty); the release's title is the version. An entry written
  * before the template (no sections) is kept as its Summary.
  */
 export function changelogNotes(text, version) {
@@ -391,15 +389,7 @@ export function changelogNotes(text, version) {
     : { Summary: changelogSection(text, version) ?? '' };
   const summary = [entry.intro, sections.Summary].filter(Boolean).join('\n\n');
   if (!summary) return null;
-  const out = [
-    `# open-garden-data v${version} release notes`,
-    '',
-    `Release notes version ${entry.notesVersion}${entry.date ? ` · Released ${entry.date}` : ''}`,
-    '',
-    '## Summary',
-    '',
-    summary,
-  ];
+  const out = ['## Summary', '', summary];
   for (const name of NOTES_SECTIONS.slice(1)) {
     out.push('', `## ${name}`, '', sections[name] || NOTES_EMPTY[name]);
   }
