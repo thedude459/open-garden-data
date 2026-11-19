@@ -28,9 +28,10 @@ For this repository:
    with a style guide, continuing OpenFarm's open-crop-icons. Merged and
    listed under **Unreleased** in `CHANGELOG.md`.
 5. **Next: before v0.3**, two small steps:
-   - **Releases ship the icons.** Each release publishes `icons/` (a zip or
-     one asset per icon) beside the catalog, so Open Garden copies them from
-     the version it pins instead of keeping a hand-copied set.
+   - **Done: releases ship the icons.** Each release attaches
+     `open-garden-icons-<version>.zip` beside the catalog, under the same
+     attestation, so Open Garden can copy them from the version it pins
+     instead of keeping a hand-copied set.
    - **Fill gaps in today's crops.** Crop coefficients for the 19 crops
      without them (herbs, kale, leek, okra, Swiss chard, and the companion
      flowers) where FAO-56 or another open source covers them; Open Garden
@@ -60,7 +61,8 @@ For this repository:
 | **Later** | Wet and dry seasons; names in other languages as they are contributed                                                                                                                                                            | Worldwide climate support and a localized catalog                                                                                               |
 
 A release is a tag (`v0.1.0`); pushing it publishes the GitHub Release with
-`open-garden-catalog-<version>.json`, its SHA-256, a provenance attestation,
+`open-garden-catalog-<version>.json`, `open-garden-icons-<version>.zip`, their
+SHA-256s, a provenance attestation,
 and notes from [CHANGELOG.md](CHANGELOG.md) plus the generated list of changes. Minor versions add crops or optional fields; a major version
 removes a field or changes what one means.
 

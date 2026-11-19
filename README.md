@@ -31,8 +31,9 @@ frost.
 ## Releases
 
 Each [release](https://github.com/thedude459/open-garden-data/releases)
-attaches `open-garden-catalog-<version>.json`, its SHA-256, and a build
-provenance attestation. Its notes come from [CHANGELOG.md](CHANGELOG.md), followed
+attaches `open-garden-catalog-<version>.json`, `open-garden-icons-<version>.zip`
+(the crop icons in `icons/`, with their credits and style guide), their
+SHA-256s, and a build provenance attestation covering both. Its notes come from [CHANGELOG.md](CHANGELOG.md), followed
 by a generated list of the crops and fields that changed. Verify a download with:
 
 ```bash
