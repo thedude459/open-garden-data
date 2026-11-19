@@ -90,7 +90,8 @@ up; Open Garden's roadmap says which version each of its features needs.
    **Unreleased**. Merge it.
 
 2. Run **Actions → Release → Run workflow** on `main` with the version
-   (`0.3.0`). The release workflow builds and signs the catalog, writes the
+   (`0.3.0`). The release workflow builds the catalog and packs the icons
+   (`open-garden-icons-<version>.zip`), signs both, writes the
    notes (the Summary, then each section, "None" when empty,
    then a generated list of the crops and fields that changed), and
    publishes the GitHub Release, which creates the `v0.3.0` tag. It fails if

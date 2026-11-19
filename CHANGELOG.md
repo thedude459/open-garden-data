@@ -28,6 +28,9 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   nasturtium, rhubarb, sweet alyssum, and tansy were drawn to match. The rest
   of that set is in `icons/library/` for crops still to come, and
   `icons/README.md` is the style guide for new icons.
+- **Releases ship the icons:** each release attaches
+  `open-garden-icons-<version>.zip`, signed like the catalog, so an app can
+  take the icons of the version it pins.
 
 ### Improvements
 

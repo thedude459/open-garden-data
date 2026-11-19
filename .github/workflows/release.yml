@@ -2,8 +2,9 @@ name: Release
 
 # Run from Actions -> Release -> Run workflow, on main, with the version
 # (CONTRIBUTING.md, "Changelog and releases"). It builds
-# open-garden-catalog-<version>.json, its SHA-256, and a build provenance
-# attestation, and publishes them with the release-file schema in a GitHub
+# open-garden-catalog-<version>.json and open-garden-icons-<version>.zip (the
+# crop icons), their SHA-256s, and a build provenance attestation, and
+# publishes them with the release-file schema in a GitHub
 # Release, which creates the tag. The notes are the version's CHANGELOG.md
 # entry in the release notes template layout, then what changed in the data
 # since the previous release. The app pins a version.
@@ -74,11 +75,22 @@ jobs:
         env:
           VERSION: ${{ steps.tag.outputs.version }}
         run: npm run build -- "${VERSION}"
-      - name: Sign the catalog (build provenance)
+      - name: Pack the icons
+        env:
+          VERSION: ${{ steps.tag.outputs.version }}
+        # The crop and generic icons with their credits and style guide; not
+        # icons/library/, which holds drawings for crops still to come.
+        run: |
+          ZIP="open-garden-icons-${VERSION}.zip"
+          (cd icons && zip -X -q "../dist/${ZIP}" ./*.svg CREDITS.md README.md)
+          (cd dist && sha256sum "${ZIP}" > "${ZIP}.sha256")
+      - name: Sign the catalog and icons (build provenance)
         id: attest
         uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
-          subject-path: dist/open-garden-catalog-${{ steps.tag.outputs.version }}.json
+          subject-path: |
+            dist/open-garden-catalog-${{ steps.tag.outputs.version }}.json
+            dist/open-garden-icons-${{ steps.tag.outputs.version }}.zip
       - name: Publish the release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -87,7 +99,9 @@ jobs:
           BUNDLE: ${{ steps.attest.outputs.bundle-path }}
         run: |
           # Verify with: gh attestation verify open-garden-catalog-<version>.json --owner <owner>
+          # (the same for open-garden-icons-<version>.zip).
           NAME="open-garden-catalog-${VERSION}.json"
+          ICONS="open-garden-icons-${VERSION}.zip"
           cp "${BUNDLE}" "dist/${NAME}.sigstore.json"
 
           # What changed since the newest published release.
@@ -106,5 +120,5 @@ jobs:
           { cat changelog.md; printf '\n'; cat "${CHANGES}"; } > body.md
           cat body.md >> "${GITHUB_STEP_SUMMARY}"
           gh release create "${TAG}" "dist/${NAME}" "dist/${NAME}.sha256" "dist/${NAME}.sigstore.json" \
-            "${CHANGES}" schema/catalog.schema.json schema/crop.schema.json \
+            "dist/${ICONS}" "dist/${ICONS}.sha256" "${CHANGES}" schema/catalog.schema.json schema/crop.schema.json \
             --repo "${GITHUB_REPOSITORY}" --target "${GITHUB_SHA}" --title "${TAG}" --notes-file body.md
