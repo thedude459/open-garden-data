@@ -31,7 +31,7 @@ daysToMaturity: { min: 60, max: 90 }
 varieties:
   - id: oregano-greek
     name: Greek
-notes: Flavor is strongest in lean, well-drained soil and full sun. Seed needs light to germinate, so press it onto the surface. Cut back after flowering.
+notes: Flavor is strongest in lean, well-drained soil and full sun. Seed needs light to germinate, so press it onto the surface. Cut back after flowering. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4.
 sources:
   - source: wikidata
     fields: [scientificName, family]

@@ -32,7 +32,7 @@ varieties:
   - id: okra-clemson-spineless
     name: Clemson Spineless
     daysToMaturity: { min: 55, max: 60 }
-notes: A hot-weather crop. Soak seed overnight before sowing. Pick pods small and every day or two; they toughen quickly.
+notes: A hot-weather crop. Soak seed overnight before sowing. Pick pods small and every day or two; they toughen quickly. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4.
 sources:
   - source: wikidata
     fields: [scientificName, family]

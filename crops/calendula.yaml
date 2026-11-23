@@ -24,7 +24,7 @@ windows:
   directSow: { frost: last, weeksEarliest: -2, weeksLatest: 0 }
   transplant: { frost: last, weeksEarliest: -2, weeksLatest: 0 }
 daysToMaturity: { min: 45, max: 60 }
-notes: Pot marigold. Flowers best in cool weather and may stall in midsummer heat; cut back and it blooms again in fall. Days to maturity are days to first bloom.
+notes: Pot marigold. Flowers best in cool weather and may stall in midsummer heat; cut back and it blooms again in fall. Days to maturity are days to first bloom. Soil temperature for sowing from UNH Extension, "How to grow calendula".
 sources:
   - source: wikidata
     fields: [scientificName, family]
