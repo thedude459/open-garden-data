@@ -21,6 +21,12 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Four tree crops:** apricot and European plum (zones 5 to 8), almond
+  (zones 6 to 9), and Asian pear (zones 5 to 8), with spacing, pollination,
+  and spring-frost advice from Utah State, University of California,
+  Oregon State, North Carolina State, Georgia, and Alabama guides, crop
+  coefficients from FAO-56 Table 12, and named rootstocks for plum and
+  Asian pear.
 - **Named rootstocks** (`rootstocks.<class>.named`): each rootstock a
   nursery sells by name, in the size class it falls in, with its size as a
   percent of a standard tree, spacing where it differs, whether the tree

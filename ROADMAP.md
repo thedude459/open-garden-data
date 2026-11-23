@@ -46,8 +46,9 @@ For this repository:
      Horseradish waits for an icon; fava bean, black salsify, garlic chives,
      and lovage still want a frost-anchored source for their windows.
    - **In progress, v0.3.1:** fruit and nut trees with
-     [named rootstocks](#schema-changes-planned) (the field and the rootstocks
-     of apple, pear, sweet cherry, and peach are under **Unreleased**), cane fruit, and soft fruit,
+     [named rootstocks](#schema-changes-planned) (the field, the rootstocks of
+     apple, pear, sweet cherry, and peach, and apricot, plum, almond, and
+     Asian pear are under **Unreleased**), cane fruit, and soft fruit,
      for the app's orchard and bramble areas.
    - **v0.3.2:** `pests.yaml` and the first pests and diseases.
    - Then more crops in batches toward about 150. `icons/library/` already

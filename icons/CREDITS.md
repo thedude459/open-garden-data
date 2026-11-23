@@ -13,7 +13,7 @@ Only the SVG files were taken, unchanged:
 
 - `generic-plant.svg` and `generic-flower.svg`.
 - Every drawing in `library/`, named as in open-crop-icons.
-- These crop icons, under the same name: arugula, asparagus, basil, beet, black-salsify, blackberry, blueberry, bok-choy, borage, broccoli, carrot, cauliflower, celery, cilantro, cucumber, dill, eggplant, garlic, kohlrabi, lavender, leek, lemon-balm, lemongrass, lima-bean, lovage, mint, napa-cabbage, okra, oregano, parsley, parsnip, peach, peanut, pumpkin, radicchio, raspberry, rosemary, rutabaga, sage, salsify, shallot, spinach, stevia, strawberry, sweet-potato, swiss-chard, thyme, tomatillo, tomato, turnip, watercress, watermelon.
+- These crop icons, under the same name: almond, apricot, arugula, asian-pear, asparagus, basil, beet, black-salsify, blackberry, blueberry, bok-choy, borage, broccoli, carrot, cauliflower, celery, cilantro, cucumber, dill, eggplant, garlic, kohlrabi, lavender, leek, lemon-balm, lemongrass, lima-bean, lovage, mint, napa-cabbage, okra, oregano, parsley, parsnip, peach, peanut, plum, pumpkin, radicchio, raspberry, rosemary, rutabaga, sage, salsify, shallot, spinach, stevia, strawberry, sweet-potato, swiss-chard, thyme, tomatillo, tomato, turnip, watercress, watermelon.
 - These crop icons, renamed to the crop's id:
 
 | Here                   | In open-crop-icons    |

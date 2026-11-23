@@ -1,0 +1,38 @@
+id: plum
+names:
+  en: Plum
+scientificName: Prunus domestica
+wikidataId: Q44120
+family: rosaceae
+habit: tree
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 5, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 550
+  betweenRows: 670
+rootstocks:
+  standard:
+    spacingCm: { inRow: 550, betweenRows: 670 }
+    named:
+      - id: lovell
+        name: Lovell (peach)
+        notes: The preferred rootstock for European plums in Alabama.
+      - id: myrobalan
+        name: Myrobalan
+        notes: A plum seedling rootstock, acceptable for European plums.
+cropCoefficients:
+  initial: 0.45
+  mid: 0.9
+  end: 0.65
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: European plum. Many are self-fruitful but bear more with a second European variety nearby. Japanese plums (zones 5 to 9) need a Japanese or American plum to pollinate them, as European plum pollen does not work. Poor in wet or heavy soil. Values from Utah State and Alabama extension guides; crop coefficients from FAO-56 Table 12 (stone fruit).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
