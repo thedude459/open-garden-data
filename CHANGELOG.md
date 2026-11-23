@@ -21,6 +21,28 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+### Improvements
+
+### Bug fixes
+
+### Documentation
+
+### Security
+
+### Known issues
+
+### Deprecated features
+
+## v0.2.3 (2026-11-23)
+
+### Summary
+
+Crop icons, shipped with each release, and the gaps in today's crops
+filled: crop coefficients for 12 more crops (51 of 58 now) and soil
+temperatures for sowing borage and calendula.
+
+### New features
+
 - **Crop icons** in `icons/`: one colour SVG per crop, named by crop id, and
   a check that every crop has one and that each is a plain drawing. 51 come
   from OpenFarm's [open-crop-icons](https://github.com/openfarmcc/open-crop-icons)
@@ -68,6 +90,9 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 ### Security
 
 ### Known issues
+
+- The seven companion flowers have no crop coefficients, and sweet alyssum
+  no soil temperature for sowing: no open source gives them yet.
 
 ### Deprecated features
 
