@@ -25,6 +25,10 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### Bug fixes
 
+- The stevia icon no longer starts with an XML declaration, and the icon
+  check now requires every icon to start with `<svg`, so apps can inline
+  them as released.
+
 ### Documentation
 
 ### Security

@@ -35,7 +35,8 @@ test('icons: catches a missing icon, a stray file, and an unsafe or broken drawi
   mkdirSync(join(dir, 'library'));
   const drawing =
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle r="4"/></svg>';
-  writeFileSync(join(dir, 'tomato.svg'), `<?xml version="1.0"?>\n${drawing}`);
+  writeFileSync(join(dir, 'tomato.svg'), drawing);
+  writeFileSync(join(dir, 'library', 'f.svg'), `<?xml version="1.0"?>\n${drawing}`);
   writeFileSync(join(dir, 'generic-plant.svg'), drawing);
   writeFileSync(join(dir, 'fennel.svg'), drawing);
   writeFileSync(join(dir, 'library', 'a.svg'), '<svg viewBox="0 0 1 1"><script>x()</script></svg>');
@@ -53,7 +54,8 @@ test('icons: catches a missing icon, a stray file, and an unsafe or broken drawi
   assert.match(errors, /icons\/library\/b.svg: only drawing elements/);
   assert.match(errors, /icons\/library\/c.svg: only drawing elements/);
   assert.match(errors, /icons\/library\/d.svg: needs a viewBox/);
-  assert.match(errors, /icons\/library\/e.svg: must be an SVG file/);
+  assert.match(errors, /icons\/library\/e.svg: must start with <svg/);
+  assert.match(errors, /icons\/library\/f.svg: must start with <svg/);
   assert.doesNotMatch(errors, /tomato|generic-plant/);
 });
 
