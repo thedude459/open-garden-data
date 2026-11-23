@@ -34,6 +34,17 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### Improvements
 
+- **Crop coefficients for seven more crops:** kale, basil, cilantro, parsley,
+  oregano, thyme, and okra now have `cropCoefficients { initial, mid, end }`,
+  from the standard values in Table 7 of Pereira, Mota, Raziei, and Paredes
+  (2024), "Water requirements and crop coefficients of edible, spicy and
+  medicinal herbs and vegetables", _Irrigation Science_ 42:1199–1228
+  (doi:10.1007/s00271-024-00960-4, CC BY 4.0). The review gives no stage
+  lengths, so none are set. Still without values: chives, dill, leek,
+  rhubarb, Swiss chard, and the companion flowers.
+- **Calendula's soil temperature for sowing:** 16 °C (`minSoilTemperatureC`),
+  from UNH Extension's "How to grow calendula" (60 °F), so its sowing window
+  works where frost is rare. Borage and sweet alyssum still have none.
 - Release notes start with the Summary under a release titled with the
   version, and have a Documentation section for guide and install changes.
 

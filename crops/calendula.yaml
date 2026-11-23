@@ -17,6 +17,7 @@ spacingCm:
 sowingDepthCm: 0.6
 germinationDays: { min: 5, max: 15 }
 temperatureC: { min: 5, optimal: 18, max: 27 }
+minSoilTemperatureC: 16
 soilPh: { min: 6.0, max: 7.0 }
 windows:
   indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
