@@ -25,11 +25,11 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   nursery sells by name, in the size class it falls in, with its size as a
   percent of a standard tree, spacing where it differs, whether the tree
   needs support, and notes on hardiness, soil, and disease. Apple has 17
-  (Bud 9 to seedling, including the Geneva series), pear 11, sweet cherry 9
-  (Gisela 3 to Mazzard), and peach 6. Where sources give different sizes,
+  (Bud 9 to seedling, including the Geneva series), pear 10, sweet cherry 9
+  (Gisela 3 to Mazzard), and peach 7. Where sources give different sizes,
   the range spans them. Sources: Kentucky (HO-82), West Virginia, Penn
   State, Maryland, Minnesota, New Hampshire, and Alabama extension guides;
-  Oregon State's PNW 619; Michigan State; UC Davis Foundation Plant
+  Oregon State's PNW 619; Michigan State; Ontario's peach guide; UC Davis Foundation Plant
   Services rootstock records; Cornell and Virginia Tech cold and
   spring-frost trials. The size classes stay the fallback when the
   rootstock is not known.

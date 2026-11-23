@@ -48,10 +48,7 @@ rootstocks:
         notes: The most precocious Old Home x Farmingdale; winter hardy, well anchored, does not sucker, and resists fire blight.
       - id: ohxf-40
         name: OHxF 40
-        notes: Semi-dwarf; the OHxF rootstocks give trees about two-thirds of standard size.
-      - id: ohxf-513
-        name: OHxF 513
-        notes: Semi-dwarf; the OHxF rootstocks give trees about two-thirds of standard size.
+        notes: About two-thirds of standard size; resists fire blight, crown rot, and pear decline.
   standard:
     spacingCm: { inRow: 750, betweenRows: 900 }
     heightM: { min: 7, max: 12 }

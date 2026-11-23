@@ -27,7 +27,8 @@ rootstocks:
     named:
       - id: mp-29
         name: MP-29
-        notes: Semi-dwarf; resists peach tree short life and Armillaria root rot.
+        sizePercent: { min: 40, max: 75 }
+        notes: Semi-dwarf, about 40 to 75 percent the size of trees on Guardian depending on site; resists peach tree short life and Armillaria root rot.
   standard:
     spacingCm: { inRow: 600, betweenRows: 750 }
     heightM: { min: 5, max: 7 }
@@ -39,7 +40,7 @@ rootstocks:
         notes: The long-standing reference rootstock, with good anchorage, high survival in northern trials, and more cold hardiness than Nemaguard, but suffers in waterlogged soil.
       - id: bailey
         name: Bailey
-        notes: Good cold hardiness; slightly dwarfing, with yield efficiency at least as good as Lovell.
+        notes: Recommended in Ontario; gives uniform medium to large trees, lends some cold hardiness to the variety, and survives severe winters well. Slightly dwarfing.
       - id: guardian
         name: Guardian
         notes: Preferred in the Southeast for tolerance of peach tree short life.
@@ -49,6 +50,9 @@ rootstocks:
       - id: halford
         name: Halford
         notes: An older, vigorous rootstock.
+      - id: nemaguard
+        name: Nemaguard
+        notes: Needs well-drained soil, as it is very susceptible to wet feet, and is less cold hardy than Lovell; best only where stone fruit has not been grown before.
 soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45
