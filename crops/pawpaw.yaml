@@ -1,0 +1,27 @@
+id: pawpaw
+names:
+  en: Pawpaw
+scientificName: Asimina triloba
+wikidataId: Q948827
+family: annonaceae
+habit: tree
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 5, max: 8 }
+sun: part
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 300
+  betweenRows: 300
+rootstocks:
+  standard:
+    spacingCm: { inRow: 300, betweenRows: 300 }
+windows:
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 2 }
+notes: A native understory tree up to about 9 m in full sun. Not self-pollinating, so plant two unrelated trees within about 9 m of each other; hand pollination helps where pollinators are scarce. Young own-root plants need shade to establish, and it suckers into a patch. Grafted trees bear in a few years, seedlings in up to 10. Values from Clemson, Maryland, Penn State, Illinois, and North Carolina State guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

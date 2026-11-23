@@ -8,6 +8,9 @@
 - id: amaryllidaceae
   name: Amaryllidaceae
   commonName: Onion family (onion, garlic, leek)
+- id: annonaceae
+  name: Annonaceae
+  commonName: Custard apple family (pawpaw)
 - id: apiaceae
   name: Apiaceae
   commonName: Carrot family (carrot, parsnip, celery, dill)
@@ -35,6 +38,9 @@
 - id: cucurbitaceae
   name: Cucurbitaceae
   commonName: Gourd family (cucumber, squash, melon)
+- id: ebenaceae
+  name: Ebenaceae
+  commonName: Ebony family (persimmon)
 - id: ericaceae
   name: Ericaceae
   commonName: Heath family (blueberry)

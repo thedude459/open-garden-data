@@ -1,0 +1,27 @@
+id: persimmon
+names:
+  en: American persimmon
+scientificName: Diospyros virginiana
+wikidataId: Q158356
+family: ebenaceae
+habit: tree
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 5, max: 8 }
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 460
+  betweenRows: 610
+rootstocks:
+  standard:
+    spacingCm: { inRow: 460, betweenRows: 610 }
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: A native fruit tree hardy to zone 5. Sources differ on pollination; some named varieties bear alone, but planting two trees gives the most reliable crop. Fruit ripens late in fall and is astringent until fully soft. Asian persimmons are less hardy, surviving only to about -12 °C. Values from Illinois, Oregon State, Penn State, Missouri, and North Carolina State guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

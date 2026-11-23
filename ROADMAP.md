@@ -49,8 +49,9 @@ For this repository:
      [named rootstocks](#schema-changes-planned) (the field, the rootstocks of
      apple, pear, sweet cherry, and peach, and apricot, plum, almond,
      Asian pear, nectarine, sour cherry, red currant, gooseberry,
-     elderberry, fig, hazelnut, grape, hardy kiwi, and haskap are under
-     **Unreleased**), cane fruit, and soft fruit,
+     elderberry, fig, hazelnut, grape, hardy kiwi, haskap, pawpaw, American
+     persimmon, and aronia are under **Unreleased**; quince, mulberry, and
+     serviceberry wait for sources), cane fruit, and soft fruit,
      for the app's orchard and bramble areas.
    - **v0.3.2:** `pests.yaml` and the first pests and diseases.
    - Then more crops in batches toward about 150. `icons/library/` already

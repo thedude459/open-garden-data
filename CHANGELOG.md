@@ -21,6 +21,12 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Pawpaw, American persimmon, and aronia:** native fruits, with zones,
+  spacing, and pollination from Clemson, Maryland, Penn State, Illinois,
+  Minnesota, Missouri, Oregon State, and North Carolina State guides, and
+  icons drawn to the style guide. Two families join (Annonaceae,
+  Ebenaceae). Quince, mulberry, and serviceberry wait for a source giving
+  both their zones and spacing.
 - **Grape, hardy kiwi, and haskap:** grape covers American and cold-hardy
   hybrid grapes (zones 3 to 8, with Concord, Marquette, and Bluebell), hardy
   kiwi needs a male vine near the females, and haskap needs a second

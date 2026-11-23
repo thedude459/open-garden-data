@@ -55,6 +55,6 @@ Only the SVG files were taken, unchanged:
 
 Drawn for this repository to match the style guide in [README.md](README.md),
 and dedicated to the public domain (CC0) with the rest of it:
-calendula, comfrey, elderberry, fig, gooseberry, grape, hardy-kiwi, haskap,
-hazelnut, marigold, nasturtium, red-currant, rhubarb, sour-cherry,
+aronia, calendula, comfrey, elderberry, fig, gooseberry, grape, hardy-kiwi, haskap,
+hazelnut, marigold, nasturtium, pawpaw, persimmon, red-currant, rhubarb, sour-cherry,
 sweet-alyssum, tansy.
