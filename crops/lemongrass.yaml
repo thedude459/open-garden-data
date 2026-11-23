@@ -1,0 +1,24 @@
+id: lemongrass
+names:
+  en: Lemongrass
+scientificName: Cymbopogon citratus
+wikidataId: Q33913
+family: poaceae
+habit: herbaceous
+use: herb
+lifeCycle: perennial
+frostTolerance: tender
+hardinessZones: { min: 9, max: 10 }
+sun: full
+water: high
+feeding: moderate
+spacingCm:
+  inRow: 90
+  betweenRows: 90
+windows:
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+notes: A tender grass grown from divisions or rooted stalks, planted out once frost has passed; it grows slowly until summer heat, then up to 1 to 2 m tall and about 1 m wide with plenty of water. Outside zones 9 and 10, grow it in a pot or keep a rooted piece of the stalk base indoors over winter. Values from Utah State and Clemson extension guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

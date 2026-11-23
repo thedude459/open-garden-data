@@ -22,9 +22,10 @@ cropCoefficients:
   mid: 1.05
   end: 0.75
 windows:
-  directSow: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+  directSow: { frost: last, weeksEarliest: -3, weeksLatest: 2 }
+  fallSow: { frost: first, weeksEarliest: -4, weeksLatest: -2 }
 daysToMaturity: { min: 60, max: 75 }
-notes: Usually planted as bulb sets, 2.5 to 5 cm deep. Close spacing gives single bulbs, wider spacing clusters of up to a dozen. Lift when the tops fall over, and stop feeding by midsummer so the bulbs store. The guides say only to plant sets as soon as the soil can be worked; the window here assumes that is two to four weeks before the last frost, as for onion sets. Values from Utah State and Washington State extension guides; crop coefficients from FAO-56 Table 12 (dry onions).
+notes: Usually planted as bulb sets, 2.5 to 5 cm deep. Close spacing gives single bulbs, wider spacing clusters of up to a dozen. Lift when the tops fall over, and stop feeding by midsummer so the bulbs store. Plant in early spring or, where winters allow, in fall. Values from Utah State, Washington State, and Maryland extension guides; crop coefficients from FAO-56 Table 12 (dry onions).
 sources:
   - source: wikidata
     fields: [scientificName, family]

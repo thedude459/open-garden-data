@@ -1,0 +1,32 @@
+id: napa-cabbage
+names:
+  en: Napa cabbage
+scientificName: Brassica rapa subsp. pekinensis
+wikidataId: Q13360268
+family: brassicaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: half-hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 30
+  betweenRows: 60
+sowingDepthCm: 1
+germinationDays: { min: 4, max: 10 }
+soilPh: { min: 6.0, max: 7.5 }
+cropCoefficients:
+  initial: 0.7
+  mid: 1.0
+  end: 1.0
+windows:
+  directSow: { frost: last, weeksEarliest: -4, weeksLatest: 2 }
+  fallSow: { frost: first, weeksEarliest: -16, weeksLatest: -10 }
+daysToMaturity: { min: 70, max: 90 }
+notes: Chinese cabbage with tall, tight heads. A late frost or a week of nights below about 10 °C makes spring plants bolt, and heat as heads form loosens them, so a crop sown in midsummer to head in cool fall weather is the more reliable one. Values from Minnesota, Maryland, Penn State, and Washington State extension guides. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

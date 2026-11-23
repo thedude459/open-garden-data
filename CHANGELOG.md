@@ -21,10 +21,46 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
-- **Shallot**, from Utah State and Washington State guides, with FAO-56's
-  dry-onion crop coefficients. The guides say only to plant sets as soon as
-  the soil can be worked; its window assumes two to four weeks before the
-  last frost, as for onion sets, and its `notes` say so.
+### Improvements
+
+### Bug fixes
+
+### Documentation
+
+### Security
+
+### Known issues
+
+### Deprecated features
+
+## v0.3.0 (2026-11-23)
+
+### Summary
+
+The first v0.3 release: 32 more vegetables and herbs, for 90 crops in all,
+each with values from named extension guides and, for most, crop
+coefficients for watering by water balance.
+
+### New features
+
+- **Eight more vegetables and herbs:** fava bean, bunching onion, black
+  salsify, watercress, chamomile, garlic chives, lovage, and stevia. Fava
+  bean, black salsify, garlic chives, and lovage have no frost-anchored
+  date in any guide found, so they take the windows of pea, salsify, and
+  chives, and their `notes` say so; lovage's and stevia's hardiness zones
+  come from seed-company guides. Crop coefficients from FAO-56 for fava bean
+  and bunching onion (green onions), Pereira et al. (2024) for chamomile and
+  stevia, and FAO-56's root group for black salsify.
+- **Seven more crops:** napa cabbage, celeriac, endive, salsify, radicchio,
+  peanut, and lemongrass, from Maryland, Penn State, Washington State, Utah
+  State, Minnesota, and Clemson extension guides, named in each crop's
+  `notes`. Crop coefficients come from Pereira et al. (2024) for napa
+  cabbage, celeriac, and endive; from FAO-56 for peanut (groundnut); and
+  from FAO-56's group values for salsify (roots and tubers) and radicchio
+  (small vegetables). Lemongrass has none.
+- **Shallot**, from Utah State, Washington State, and Maryland guides, with
+  FAO-56's dry-onion crop coefficients and spring and fall planting windows
+  from Maryland's calendar.
 - **Sixteen crops:** the vegetables kohlrabi, turnip, rutabaga, collards,
   lima bean, edamame, tomatillo, arugula, bok choy, mustard greens, and
   Florence fennel, and the herbs lemon balm, lavender, rosemary, sage, and
@@ -53,6 +89,12 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 ### Security
 
 ### Known issues
+
+- Fava bean, black salsify, garlic chives, and lovage borrow the sowing
+  windows of pea, salsify, and chives, as no guide found ties them to frost
+  dates; lovage's and stevia's hardiness zones come from seed-company guides.
+- Edamame, sage, marjoram, lemongrass, garlic chives, lovage, and watercress
+  have no crop coefficients, so Open Garden waters them on a fixed interval.
 
 ### Deprecated features
 

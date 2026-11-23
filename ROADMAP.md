@@ -42,19 +42,13 @@ For this repository:
 6. **Next: v0.3**, about 150 crops and [pests and diseases, organized for
    integrated pest management](#pests-and-diseases-ipm), in small releases
    like v0.2, each crop's values from extension guides named in its notes:
-   - **In progress, v0.3.0:** vegetables and herbs first. Kohlrabi, turnip,
-     rutabaga, collards, lima bean, edamame, tomatillo, arugula, bok choy,
-     mustard greens, Florence fennel, lemon balm, lavender, rosemary, sage,
-     and sweet marjoram are under **Unreleased**.
-   - **v0.3.1:** shallot is under **Unreleased**. Fava bean, bunching
-     onion, and chamomile still need a source that ties sowing to frost
-     dates (Washington State's and Oregon State's calendars are by month,
-     and fava there is sown in late summer to overwinter); bunching onion
-     also needs hardiness zones. Then the next vegetables and herbs.
-   - **v0.3.2:** fruit and nut trees with
+   - **Done, v0.3.0:** vegetables and herbs, 32 crops (90 in all).
+     Horseradish waits for an icon; fava bean, black salsify, garlic chives,
+     and lovage still want a frost-anchored source for their windows.
+   - **Next, v0.3.1:** fruit and nut trees with
      [named rootstocks](#schema-changes-planned), cane fruit, and soft fruit,
      for the app's orchard and bramble areas.
-   - **v0.3.3:** `pests.yaml` and the first pests and diseases.
+   - **v0.3.2:** `pests.yaml` and the first pests and diseases.
    - Then more crops in batches toward about 150. `icons/library/` already
      holds icons for many of them.
 7. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by

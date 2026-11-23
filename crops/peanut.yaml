@@ -1,0 +1,31 @@
+id: peanut
+names:
+  en: Peanut
+scientificName: Arachis hypogaea
+wikidataId: Q37383
+family: fabaceae
+habit: herbaceous
+use: nut
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 45
+  betweenRows: 60
+sowingDepthCm: 4
+minSoilTemperatureC: 18
+soilPh: { min: 5.0, max: 6.0 }
+cropCoefficients:
+  initial: 0.4
+  mid: 1.15
+  end: 0.6
+windows:
+  directSow: { frost: last, weeksEarliest: 0, weeksLatest: 3 }
+daysToMaturity: { min: 110, max: 130 }
+notes: Needs a frost-free season of at least 110 to 130 days. After flowering the pegs push into the soil, so hill soil around plants once they are about 30 cm tall and keep it loose and evenly moist. Dig before frost and dry the plants for a week or two before picking the pods. Values from Utah State and Penn State extension guides; crop coefficients from FAO-56 Table 12 (groundnut).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

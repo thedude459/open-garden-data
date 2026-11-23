@@ -1,0 +1,29 @@
+id: garlic-chives
+names:
+  en: Garlic chives
+scientificName: Allium tuberosum
+wikidataId: Q42285
+family: amaryllidaceae
+habit: herbaceous
+use: herb
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 9 }
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 30
+  betweenRows: 30
+sowingDepthCm: 0.6
+germinationDays: { min: 7, max: 14 }
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  directSow: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 1 }
+daysToMaturity: { min: 80, max: 90 }
+notes: Flat, mildly garlic-flavored leaves and white late-summer flowers. It self-sows heavily and can spread, so cut the flower heads before they set seed. Clumps can be divided in early spring. The guides give no frost-anchored dates, so the windows are those of chives. Values from Wisconsin, New Hampshire, and Clemson extension guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

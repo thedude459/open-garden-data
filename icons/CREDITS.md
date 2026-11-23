@@ -13,19 +13,25 @@ Only the SVG files were taken, unchanged:
 
 - `generic-plant.svg` and `generic-flower.svg`.
 - Every drawing in `library/`, named as in open-crop-icons.
-- These crop icons, under the same name: arugula, asparagus, basil, beet, blackberry, blueberry, bok-choy, borage, broccoli, carrot, cauliflower, celery, cilantro, cucumber, dill, eggplant, garlic, kohlrabi, lavender, leek, lemon-balm, lima-bean, mint, okra, oregano, parsley, parsnip, peach, pumpkin, raspberry, rosemary, rutabaga, sage, shallot, spinach, strawberry, sweet-potato, swiss-chard, thyme, tomatillo, tomato, turnip, watermelon.
+- These crop icons, under the same name: arugula, asparagus, basil, beet, black-salsify, blackberry, blueberry, bok-choy, borage, broccoli, carrot, cauliflower, celery, cilantro, cucumber, dill, eggplant, garlic, kohlrabi, lavender, leek, lemon-balm, lemongrass, lima-bean, lovage, mint, napa-cabbage, okra, oregano, parsley, parsnip, peach, peanut, pumpkin, radicchio, raspberry, rosemary, rutabaga, sage, salsify, shallot, spinach, stevia, strawberry, sweet-potato, swiss-chard, thyme, tomatillo, tomato, turnip, watercress, watermelon.
 - These crop icons, renamed to the crop's id:
 
 | Here                   | In open-crop-icons    |
 | ---------------------- | --------------------- |
 | `apple.svg`            | `generic-apple`       |
 | `brussels-sprouts.svg` | `brussel-sprout`      |
+| `bunching-onion.svg`   | `green-onion`         |
 | `bush-bean.svg`        | `blue-lake-bean`      |
 | `cabbage.svg`          | `green-cabbage`       |
+| `celeriac.svg`         | `celeriac-root`       |
+| `chamomile.svg`        | `german-chamomile`    |
 | `chives.svg`           | `onion-chive`         |
 | `collards.svg`         | `collard-greens`      |
 | `edamame.svg`          | `soy-bean`            |
+| `endive.svg`           | `curly-endive`        |
+| `fava-bean.svg`        | `broad-bean`          |
 | `florence-fennel.svg`  | `fennel`              |
+| `garlic-chives.svg`    | `garlic-chive`        |
 | `hot-pepper.svg`       | `cayenne-pepper`      |
 | `kale.svg`             | `curly-kale`          |
 | `lettuce.svg`          | `loose-leaf-lettuce`  |

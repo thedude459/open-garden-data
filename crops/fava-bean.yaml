@@ -1,0 +1,28 @@
+id: fava-bean
+names:
+  en: Fava bean
+scientificName: Vicia faba
+wikidataId: Q131342
+family: fabaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 25
+  betweenRows: 60
+sowingDepthCm: 2.5
+cropCoefficients:
+  initial: 0.5
+  mid: 1.15
+  end: 1.1
+windows:
+  directSow: { frost: last, weeksEarliest: -6, weeksLatest: -2 }
+notes: Broad bean, a cool-season crop grown like peas rather than like warm-season beans; plants take frost down to about -7 to -9 °C and grow 60 to 120 cm tall. The guides say to sow in early spring as soon as the soil can be worked, so the window here is pea's. Where winters are mild it is also sown in fall to overwinter. Values from Oregon State and University of California guides; crop coefficients from FAO-56 Table 12 (fresh faba bean).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
