@@ -1,0 +1,31 @@
+id: lavender
+names:
+  en: Lavender
+scientificName: Lavandula angustifolia
+wikidataId: Q42081
+family: lamiaceae
+habit: shrub
+use: herb
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 5, max: 8 }
+sun: full
+water: low
+feeding: light
+spacingCm:
+  inRow: 45
+  betweenRows: 60
+sowingDepthCm: 0.3
+germinationDays: { min: 14, max: 21 }
+soilPh: { min: 6.5, max: 7.5 }
+cropCoefficients:
+  initial: 0.35
+  mid: 0.95
+  end: 0.8
+windows:
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 4 }
+notes: English lavender. Usually started from cuttings, since seed is slow and takes months to reach planting size. Needs sharp drainage and little water or fertilizer; wet soil rots the roots, and rich feeding gives leaves over flowers. Fall planting works only with about two months of mild weather before winter. Values from Utah State and Florida extension guides. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

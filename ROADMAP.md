@@ -42,13 +42,13 @@ For this repository:
 6. **Next: v0.3**, about 150 crops and [pests and diseases, organized for
    integrated pest management](#pests-and-diseases-ipm), in small releases
    like v0.2, each crop's values from extension guides named in its notes:
-   - **In progress, v0.3.0:** vegetables first. Kohlrabi, turnip, rutabaga,
-     collards, lima bean, edamame, tomatillo, and lemon balm are under
-     **Unreleased**.
-   - **v0.3.1:** more vegetables and the herbs: arugula, bok choy, mustard
-     greens, shallot, bunching onion, Florence fennel, fava bean, rosemary,
-     sage, lavender, chamomile, and marjoram. Most extension herb guides
-     give no spacing, so these need more sources.
+   - **In progress, v0.3.0:** vegetables and herbs first. Kohlrabi, turnip,
+     rutabaga, collards, lima bean, edamame, tomatillo, arugula, bok choy,
+     mustard greens, Florence fennel, lemon balm, lavender, rosemary, sage,
+     and sweet marjoram are under **Unreleased**.
+   - **v0.3.1:** shallot, bunching onion, fava bean, and chamomile, which
+     still need a source for frost-anchored windows (and for bunching onion,
+     hardiness zones), plus the next vegetables and herbs.
    - **v0.3.2:** fruit and nut trees with
      [named rootstocks](#schema-changes-planned), cane fruit, and soft fruit,
      for the app's orchard and bramble areas.

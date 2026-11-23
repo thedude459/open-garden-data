@@ -1,0 +1,29 @@
+id: rosemary
+names:
+  en: Rosemary
+scientificName: Salvia rosmarinus
+wikidataId: Q102240169
+family: lamiaceae
+habit: shrub
+use: herb
+lifeCycle: perennial
+frostTolerance: half-hardy
+hardinessZones: { min: 8, max: 10 }
+sun: full
+water: low
+feeding: light
+spacingCm:
+  inRow: 60
+  betweenRows: 60
+soilPh: { min: 6.5, max: 7.0 }
+cropCoefficients:
+  initial: 0.3
+  mid: 1.0
+  end: 0.85
+windows:
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+notes: An evergreen shrub, grown from cuttings because seed is slow and unreliable. Outside zones 8 to 10 grow it in a pot and bring it in before frost; a few varieties such as Arp take zone 7 with shelter. Wet soil and overwatering cause root rot. Values from Penn State, Illinois, and Texas A&M extension guides. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

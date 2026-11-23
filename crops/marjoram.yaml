@@ -1,0 +1,24 @@
+id: marjoram
+names:
+  en: Sweet marjoram
+scientificName: Origanum majorana
+wikidataId: Q22694
+family: lamiaceae
+habit: herbaceous
+use: herb
+lifeCycle: annual
+frostTolerance: half-hardy
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 25
+  betweenRows: 30
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+notes: Milder than oregano. A tender perennial grown as an annual outside mild winters; it grows 15 to 30 cm tall and does well in pots. Values from Clemson, Missouri, and Texas A&M extension guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
