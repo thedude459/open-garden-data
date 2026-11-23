@@ -28,7 +28,7 @@ windows:
   transplant: { frost: last, weeksEarliest: -1, weeksLatest: 1 }
   fallSow: { frost: first, weeksEarliest: -14, weeksLatest: -10 }
 daysToMaturity: { min: 25, max: 50 }
-notes: Young plants shrug off light frost, though a hard freeze can injure them. Heat above about 24 °C slows growth and brings on bolting, so the fall crop, maturing in cool weather, is usually the better one. Values from Utah State, Clemson, and Maryland extension guides. Crop coefficients are FAO-56 Table 12's small-vegetable group values; FAO-56 does not list mustard greens.
+notes: Young plants shrug off light frost, though a hard freeze can injure them. Heat above about 24 °C slows growth and brings on bolting, so the fall crop, maturing in cool weather, is usually the better one. The spacing is for picking young leaves; give plants grown to full size 20 to 45 cm. Values from Utah State, Clemson, Maryland, and Washington State extension guides. Crop coefficients are FAO-56 Table 12's small-vegetable group values; FAO-56 does not list mustard greens.
 sources:
   - source: wikidata
     fields: [scientificName, family]

@@ -23,7 +23,8 @@ cropCoefficients:
 windows:
   directSow: { frost: last, weeksEarliest: -2, weeksLatest: 3 }
   fallSow: { frost: first, weeksEarliest: -11, weeksLatest: -7 }
-notes: A late spring frost or a week of nights below about 10 °C makes young plants bolt once it warms, and heat while heads form loosens them, so a crop sown in summer to mature in cool fall weather is the easier one. Dwarf types can sit closer. Values from Minnesota and Maryland extension guides. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
+daysToMaturity: { min: 30, max: 50 }
+notes: A late spring frost or a week of nights below about 10 °C makes young plants bolt once it warms, and heat while heads form loosens them, so a crop sown in summer to mature in cool fall weather is the easier one. Dwarf types can sit closer. Values from Minnesota, Maryland, and Washington State extension guides. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
 sources:
   - source: wikidata
     fields: [scientificName, family]
