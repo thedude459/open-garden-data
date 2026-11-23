@@ -24,10 +24,27 @@ rootstocks:
     spacingCm: { inRow: 450, betweenRows: 600 }
     heightM: { min: 4.5, max: 6 }
     yearsToFruit: { min: 4, max: 6 }
+    named:
+      - id: ohxf-87
+        name: OHxF 87
+        sizePercent: { min: 85, max: 90 }
+        notes: Semi-dwarf and the most precocious of the Old Home x Farmingdale series.
+      - id: ohxf-333
+        name: OHxF 333
+        sizePercent: { min: 50, max: 67 }
+        notes: The smaller of the common Old Home x Farmingdale rootstocks.
+      - id: ohxf-97
+        name: OHxF 97
+        notes: Resists fire blight and suits Asian pears; less precocious than OHxF 87.
   standard:
     spacingCm: { inRow: 750, betweenRows: 900 }
     heightM: { min: 7, max: 12 }
     yearsToFruit: { min: 5, max: 8 }
+    named:
+      - id: pear-seedling
+        name: Seedling
+        sizePercent: { min: 100, max: 100 }
+        spacingCm: { inRow: 610, betweenRows: 850 }
 soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45

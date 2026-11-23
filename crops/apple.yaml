@@ -20,14 +20,73 @@ rootstocks:
     spacingCm: { inRow: 240, betweenRows: 360 }
     heightM: { min: 2.5, max: 3.5 }
     yearsToFruit: { min: 2, max: 3 }
+    named:
+      - id: bud-9
+        name: Bud 9 (B.9)
+        sizePercent: { min: 25, max: 25 }
+        support: always
+        notes: Very hardy; a replacement for M.9 where winters are cold.
+      - id: m9
+        name: M.9
+        sizePercent: { min: 35, max: 50 }
+        support: always
+        notes: Brittle roots and heavy crops for its size, so it needs a stake for life.
+      - id: g41
+        name: G.41
+        sizePercent: { min: 35, max: 35 }
+        support: always
+        notes: Like M.9 in size but more productive, with fewer root suckers; resists fire blight and crown rot.
+      - id: g11
+        name: G.11
+        support: young
+        notes: Close to M.9 in size; cold hardy and resists fire blight and crown rot.
+      - id: m26
+        name: M.26
+        sizePercent: { min: 40, max: 60 }
+        spacingCm: { inRow: 240, betweenRows: 490 }
+        support: young
+        notes: Reliably hardy but very prone to fire blight; on windy sites keep the stake for life.
+      - id: g935
+        name: G.935
+        sizePercent: { min: 40, max: 45 }
+        spacingCm: { inRow: 230, betweenRows: 400 }
+        notes: A little larger than M.26; resists fire blight and crown rot but not woolly apple aphid.
+      - id: bud-10
+        name: Bud 10 (B.10)
+        sizePercent: { min: 40, max: 40 }
+        spacingCm: { inRow: 230, betweenRows: 400 }
+        notes: Cold hardy and well anchored; tolerates fire blight.
   semiDwarf:
     spacingCm: { inRow: 420, betweenRows: 540 }
     heightM: { min: 3.5, max: 5 }
     yearsToFruit: { min: 3, max: 5 }
+    named:
+      - id: m7
+        name: M.7
+        sizePercent: { min: 60, max: 60 }
+        spacingCm: { inRow: 360, betweenRows: 600 }
+      - id: mm106
+        name: MM.106
+        support: none
+        notes: Cold hardy and productive, but prone to collar and root rot, so not for poorly drained soil.
+      - id: mm111
+        name: MM.111
+        sizePercent: { min: 70, max: 85 }
+        spacingCm: { inRow: 550, betweenRows: 790 }
+        support: none
+        notes: Very cold hardy, well anchored, and tolerates drier soil; resists woolly apple aphid.
+      - id: bud-118
+        name: Bud 118 (B.118)
+        notes: The most vigorous of the Budagovsky series; suits spur-type varieties and poor soil.
   standard:
     spacingCm: { inRow: 750, betweenRows: 900 }
     heightM: { min: 6, max: 9 }
     yearsToFruit: { min: 5, max: 8 }
+    named:
+      - id: apple-seedling
+        name: Seedling
+        sizePercent: { min: 100, max: 100 }
+        notes: Grown from seed of a hardy variety; excellent hardiness, anchorage, and soil tolerance.
 soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45

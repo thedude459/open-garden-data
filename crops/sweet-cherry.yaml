@@ -24,10 +24,42 @@ rootstocks:
     spacingCm: { inRow: 450, betweenRows: 600 }
     heightM: { min: 4, max: 6 }
     yearsToFruit: { min: 3, max: 5 }
+    named:
+      - id: gisela-5
+        name: Gisela 5
+        sizePercent: { min: 50, max: 60 }
+        support: none
+        notes: Needs well-drained soil and does poorly in heavy soil; may lean away from strong wind.
+      - id: gisela-6
+        name: Gisela 6
+        sizePercent: { min: 60, max: 90 }
+        support: none
+        notes: About 60 percent of full size in the eastern U.S. and up to 90 percent in the Pacific Northwest.
+      - id: gisela-12
+        name: Gisela 12
+        sizePercent: { min: 80, max: 90 }
+      - id: krymsk-5
+        name: Krymsk 5
+        sizePercent: { min: 80, max: 90 }
+        notes: Adapted to cold and hot climates and to heavier soils.
+      - id: krymsk-6
+        name: Krymsk 6
+        sizePercent: { min: 80, max: 90 }
+        notes: Adapted to cold and hot climates and to heavier soils.
   standard:
     spacingCm: { inRow: 750, betweenRows: 900 }
     heightM: { min: 8, max: 12 }
     yearsToFruit: { min: 5, max: 7 }
+    named:
+      - id: mazzard
+        name: Mazzard
+        sizePercent: { min: 100, max: 100 }
+      - id: mahaleb
+        name: Mahaleb
+        notes: One of the most drought tolerant; very sensitive to waterlogged soil.
+      - id: colt
+        name: Colt
+        sizePercent: { min: 100, max: 100 }
 soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45

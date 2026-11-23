@@ -21,6 +21,16 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Named rootstocks** (`rootstocks.<class>.named`): each rootstock a
+  nursery sells by name, in the size class it falls in, with its size as a
+  percent of a standard tree, spacing where it differs, whether the tree
+  needs support, and notes on hardiness and disease. Apple has 12 (Bud 9,
+  M.9, G.41, G.11, M.26, G.935, Bud 10, M.7, MM.106, MM.111, Bud 118, and
+  seedling), pear 4, sweet cherry 8, and peach 4, from Penn State, Maryland,
+  Minnesota, New Hampshire, Oregon State (PNW 619), Washington State, and
+  West Virginia guides. The size classes stay the fallback when the
+  rootstock is not known.
+
 ### Improvements
 
 ### Bug fixes

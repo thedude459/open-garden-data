@@ -28,6 +28,20 @@ rootstocks:
     spacingCm: { inRow: 600, betweenRows: 750 }
     heightM: { min: 5, max: 7 }
     yearsToFruit: { min: 3, max: 5 }
+    named:
+      - id: lovell
+        name: Lovell
+        sizePercent: { min: 100, max: 100 }
+        notes: The long-standing reference rootstock, with high tree survival in northern trials.
+      - id: bailey
+        name: Bailey
+        notes: Cold hardy and slightly dwarfing, with yield efficiency at least as good as Lovell.
+      - id: guardian
+        name: Guardian
+        notes: Preferred in the Southeast for tolerance of peach tree short life.
+      - id: halford
+        name: Halford
+        notes: An older, vigorous rootstock.
 soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45
