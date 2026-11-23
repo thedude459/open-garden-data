@@ -13,7 +13,7 @@ Only the SVG files were taken, unchanged:
 
 - `generic-plant.svg` and `generic-flower.svg`.
 - Every drawing in `library/`, named as in open-crop-icons.
-- These crop icons, under the same name: asparagus, basil, beet, blackberry, blueberry, borage, broccoli, carrot, cauliflower, celery, cilantro, cucumber, dill, eggplant, garlic, leek, mint, okra, oregano, parsley, parsnip, peach, pumpkin, raspberry, spinach, strawberry, sweet-potato, swiss-chard, thyme, tomato, watermelon.
+- These crop icons, under the same name: asparagus, basil, beet, blackberry, blueberry, borage, broccoli, carrot, cauliflower, celery, cilantro, cucumber, dill, eggplant, garlic, kohlrabi, leek, lemon-balm, lima-bean, mint, okra, oregano, parsley, parsnip, peach, pumpkin, raspberry, rutabaga, spinach, strawberry, sweet-potato, swiss-chard, thyme, tomatillo, tomato, turnip, watermelon.
 - These crop icons, renamed to the crop's id:
 
 | Here                   | In open-crop-icons    |
@@ -23,6 +23,8 @@ Only the SVG files were taken, unchanged:
 | `bush-bean.svg`        | `blue-lake-bean`      |
 | `cabbage.svg`          | `green-cabbage`       |
 | `chives.svg`           | `onion-chive`         |
+| `collards.svg`         | `collard-greens`      |
+| `edamame.svg`          | `soy-bean`            |
 | `hot-pepper.svg`       | `cayenne-pepper`      |
 | `kale.svg`             | `curly-kale`          |
 | `lettuce.svg`          | `loose-leaf-lettuce`  |

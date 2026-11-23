@@ -1,0 +1,32 @@
+id: collards
+names:
+  en: Collards
+scientificName: Brassica oleracea var. viridis
+wikidataId: Q14879985
+family: brassicaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 30
+  betweenRows: 90
+sowingDepthCm: 1
+soilPh: { min: 6.0, max: 6.5 }
+cropCoefficients:
+  initial: 0.6
+  mid: 0.95
+  end: 0.95
+windows:
+  indoorStart: { frost: last, weeksEarliest: -10, weeksLatest: -8 }
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 0 }
+  fallSow: { frost: first, weeksEarliest: -13, weeksLatest: -10 }
+daysToMaturity: { min: 60, max: 80 }
+notes: Seed comes up slowly in cold spring soil, so start spring plants indoors and sow in place in late summer for fall. Pick the lower leaves and the plant keeps growing; it stands through frost and light freezes. Values from Clemson and Penn State extension guides. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

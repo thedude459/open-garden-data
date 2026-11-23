@@ -1,0 +1,36 @@
+id: kohlrabi
+names:
+  en: Kohlrabi
+scientificName: Brassica oleracea var. gongylodes
+wikidataId: Q147202
+family: brassicaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 15
+  betweenRows: 30
+sowingDepthCm: 1
+germinationDays: { min: 3, max: 10 }
+temperatureC: { min: 7, optimal: 21, max: 24 }
+minSoilTemperatureC: 4
+soilPh: { min: 6.0, max: 7.5 }
+cropCoefficients:
+  initial: 0.7
+  mid: 1.05
+  end: 0.95
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -5 }
+  directSow: { frost: last, weeksEarliest: -3, weeksLatest: -1 }
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: -1 }
+  fallSow: { frost: first, weeksEarliest: -8, weeksLatest: -4 }
+daysToMaturity: { min: 40, max: 60 }
+notes: Grown for its swollen stem; pick it at 5 to 8 cm across, before it turns woody. A week or more of nights below about 10 °C can make young plants bolt, and summer heat makes the stems tough, so grow it in spring or fall. Values from Utah State, Minnesota, and Colorado State extension guides. Crop coefficients are FAO-56 Table 12's small-vegetable group values; FAO-56 does not list kohlrabi.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

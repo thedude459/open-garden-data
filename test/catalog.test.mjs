@@ -237,7 +237,8 @@ test('consistency: variety maturity, tender perennials, and soil temperature', (
 test('the completeness report lists optional fields each crop leaves out', () => {
   const report = completeness(load());
   assert.match(report, /^## Completeness/);
-  assert.match(report, /\| `temperatureC` \| 44 \|/);
+  const withTemperature = load().crops.filter((c) => c.crop.temperatureC).length;
+  assert.match(report, new RegExp(`\\| \`temperatureC\` \\| ${withTemperature} \\|`));
   assert.match(report, /\| apple \| [^|]*temperatureC/);
   assert.doesNotMatch(report, /\| tomato \|/);
 });
@@ -261,10 +262,10 @@ test('release notes list what was added, removed, and changed', () => {
   tomato.spacingCm = { inRow: 50 };
   tomato.varieties[0].name = 'Renamed';
   tomato.varieties.push({ id: 'tomato-roma', name: 'Roma' });
-  after.crops.push({ ...structuredClone(tomato), id: 'tomatillo', varieties: [] });
+  after.crops.push({ ...structuredClone(tomato), id: 'not-a-crop', varieties: [] });
   const notes = releaseNotes(before, after);
   assert.match(notes, /since v0\.1\.0/);
-  assert.match(notes, /\*\*Crops added \(1\):\*\* tomatillo/);
+  assert.match(notes, /\*\*Crops added \(1\):\*\* not-a-crop/);
   assert.match(notes, /\*\*Crops removed \(1\):\*\* okra/);
   assert.match(notes, /- `spacingCm` \(1\): tomato/);
   assert.match(notes, /- `varieties` \(1\): tomato/);

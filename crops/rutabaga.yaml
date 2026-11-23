@@ -1,0 +1,32 @@
+id: rutabaga
+names:
+  en: Rutabaga
+scientificName: Brassica napus var. napobrassica
+wikidataId: Q25117577
+family: brassicaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 15
+  betweenRows: 45
+sowingDepthCm: 1
+germinationDays: { min: 7, max: 10 }
+soilPh: { min: 6.0, max: 6.5 }
+cropCoefficients:
+  initial: 0.5
+  mid: 1.1
+  end: 0.95
+windows:
+  directSow: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+  fallSow: { frost: first, weeksEarliest: -11, weeksLatest: -8 }
+daysToMaturity: { min: 60, max: 90 }
+notes: Slower than turnip and sweetest when the roots fill out in cool fall weather, so it is mostly sown in summer to mature a few weeks after the first frost; a spring crop works only where summers stay cool. Pull roots at about 10 cm across. Values from Utah State and Clemson extension guides; crop coefficients from FAO-56 Table 12.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

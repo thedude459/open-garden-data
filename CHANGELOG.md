@@ -21,6 +21,17 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Seven vegetables and an herb:** kohlrabi, turnip, rutabaga,
+  collards, lima bean, edamame, tomatillo, and lemon balm, each with spacing,
+  sowing windows, soil pH, and where sourced a sowing soil temperature and
+  crop coefficients. Values come from extension guides (Utah State,
+  Minnesota, Colorado State, Penn State, Clemson, Wisconsin, Oregon State,
+  and Maine), named in each crop's `notes`. Crop coefficients are from
+  Pereira et al. (2024) for collards, lima bean, and lemon balm, FAO-56 for
+  turnip and rutabaga, and FAO-56's group values for kohlrabi and tomatillo;
+  edamame has none, since FAO-56's soybean values are for a dry-seed harvest.
+  Icons come from `icons/library/`.
+
 ### Improvements
 
 ### Bug fixes
