@@ -46,11 +46,12 @@ For this repository:
      rutabaga, collards, lima bean, edamame, tomatillo, arugula, bok choy,
      mustard greens, Florence fennel, lemon balm, lavender, rosemary, sage,
      and sweet marjoram are under **Unreleased**.
-   - **v0.3.1:** shallot is under **Unreleased**. Fava bean, bunching
-     onion, and chamomile still need a source that ties sowing to frost
-     dates (Washington State's and Oregon State's calendars are by month,
-     and fava there is sown in late summer to overwinter); bunching onion
-     also needs hardiness zones. Then the next vegetables and herbs.
+   - **v0.3.1:** shallot, napa cabbage, celeriac, endive, salsify,
+     radicchio, peanut, and lemongrass are under **Unreleased**. Still
+     waiting on a source that ties sowing to frost dates: fava bean,
+     bunching onion (also hardiness zones), chamomile, and black salsify;
+     and on hardiness zones: horseradish, watercress, lovage, garlic
+     chives, and stevia.
    - **v0.3.2:** fruit and nut trees with
      [named rootstocks](#schema-changes-planned), cane fruit, and soft fruit,
      for the app's orchard and bramble areas.

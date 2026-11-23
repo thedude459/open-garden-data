@@ -21,10 +21,16 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
-- **Shallot**, from Utah State and Washington State guides, with FAO-56's
-  dry-onion crop coefficients. The guides say only to plant sets as soon as
-  the soil can be worked; its window assumes two to four weeks before the
-  last frost, as for onion sets, and its `notes` say so.
+- **Seven more crops:** napa cabbage, celeriac, endive, salsify, radicchio,
+  peanut, and lemongrass, from Maryland, Penn State, Washington State, Utah
+  State, Minnesota, and Clemson extension guides, named in each crop's
+  `notes`. Crop coefficients come from Pereira et al. (2024) for napa
+  cabbage, celeriac, and endive; from FAO-56 for peanut (groundnut); and
+  from FAO-56's group values for salsify (roots and tubers) and radicchio
+  (small vegetables). Lemongrass has none.
+- **Shallot**, from Utah State, Washington State, and Maryland guides, with
+  FAO-56's dry-onion crop coefficients and spring and fall planting windows
+  from Maryland's calendar.
 - **Sixteen crops:** the vegetables kohlrabi, turnip, rutabaga, collards,
   lima bean, edamame, tomatillo, arugula, bok choy, mustard greens, and
   Florence fennel, and the herbs lemon balm, lavender, rosemary, sage, and

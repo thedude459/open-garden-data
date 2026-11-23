@@ -1,0 +1,32 @@
+id: radicchio
+names:
+  en: Radicchio
+scientificName: Cichorium intybus var. foliosum
+wikidataId: Q1474
+family: asteraceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 20
+  betweenRows: 30
+sowingDepthCm: 0.6
+germinationDays: { min: 7, max: 10 }
+cropCoefficients:
+  initial: 0.7
+  mid: 1.05
+  end: 0.95
+windows:
+  indoorStart: { frost: last, weeksEarliest: -7, weeksLatest: -5 }
+  directSow: { frost: last, weeksEarliest: -4, weeksLatest: -3 }
+  transplant: { frost: last, weeksEarliest: -1, weeksLatest: 1 }
+daysToMaturity: { min: 65, max: 90 }
+notes: A heading chicory with bitter red leaves. Young plants take frost down to about -7 °C, but heat above about 24 °C makes it bolt and turn bitter, so it does best maturing in cool weather. Sow a few seeds for each plant, as germination is uneven. Grown as an annual, though chicory is a perennial. Values from Utah State and Washington State extension guides. Crop coefficients are FAO-56 Table 12's small-vegetable group values; FAO-56 does not list radicchio.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

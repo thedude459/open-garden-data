@@ -1,0 +1,31 @@
+id: endive
+names:
+  en: Endive
+scientificName: Cichorium endivia
+wikidataId: Q178547
+family: asteraceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: half-hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 25
+  betweenRows: 45
+sowingDepthCm: 1
+germinationDays: { min: 5, max: 9 }
+soilPh: { min: 6.0, max: 7.0 }
+cropCoefficients:
+  initial: 0.4
+  mid: 0.9
+  end: 0.85
+windows:
+  directSow: { frost: last, weeksEarliest: -3, weeksLatest: 4 }
+daysToMaturity: { min: 50, max: 90 }
+notes: Curly endive and broad-leaved escarole, grown like lettuce but more bitter; tying the outer leaves over the heart for a week or two before harvest blanches it milder. Values from Washington State and Penn State extension guides. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

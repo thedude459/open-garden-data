@@ -1,0 +1,32 @@
+id: celeriac
+names:
+  en: Celeriac
+scientificName: Apium graveolens var. rapaceum
+wikidataId: Q575174
+family: apiaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: half-hardy
+sun: full
+water: high
+feeding: heavy
+spacingCm:
+  inRow: 20
+  betweenRows: 45
+sowingDepthCm: 0.3
+germinationDays: { min: 9, max: 21 }
+soilPh: { min: 6.0, max: 7.0 }
+cropCoefficients:
+  initial: 0.6
+  mid: 1.05
+  end: 1.0
+windows:
+  indoorStart: { frost: last, weeksEarliest: -12, weeksLatest: -10 }
+  transplant: { frost: last, weeksEarliest: -1, weeksLatest: 4 }
+daysToMaturity: { min: 90, max: 120 }
+notes: Celery grown for its swollen base. Seed is tiny and slow, so start it indoors about ten weeks ahead. It needs steady moisture and a long cool season; dig the roots in fall at about 8 to 10 cm across. Values from Washington State and Penn State extension guides. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
