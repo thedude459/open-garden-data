@@ -1,0 +1,24 @@
+id: elderberry
+names:
+  en: Elderberry
+scientificName: Sambucus canadensis
+wikidataId: Q21877280
+family: viburnaceae
+habit: shrub
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 120
+  betweenRows: 240
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: American elderberry, a large shrub 2 to 2.5 m tall and wide. Only partly self-fruitful, so plant two varieties for good crops. Tolerates some shade but fruits best in full sun; prune every year. In zone 3 it survives but may not ripen. Values from Utah State, Minnesota, and Wisconsin extension guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

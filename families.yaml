@@ -14,6 +14,9 @@
 - id: asteraceae
   name: Asteraceae
   commonName: Daisy family (lettuce, sunflower, endive)
+- id: betulaceae
+  name: Betulaceae
+  commonName: Birch family (hazelnut)
 - id: boraginaceae
   name: Boraginaceae
   commonName: Borage family (borage, comfrey)
@@ -32,12 +35,18 @@
 - id: fabaceae
   name: Fabaceae
   commonName: Legume family (bean, pea)
+- id: grossulariaceae
+  name: Grossulariaceae
+  commonName: Currant family (currant, gooseberry)
 - id: lamiaceae
   name: Lamiaceae
   commonName: Mint family (basil, mint, oregano)
 - id: malvaceae
   name: Malvaceae
   commonName: Mallow family (okra)
+- id: moraceae
+  name: Moraceae
+  commonName: Mulberry family (fig, mulberry)
 - id: poaceae
   name: Poaceae
   commonName: Grass family (corn)
@@ -53,3 +62,6 @@
 - id: tropaeolaceae
   name: Tropaeolaceae
   commonName: Nasturtium family (nasturtium)
+- id: viburnaceae
+  name: Viburnaceae
+  commonName: Viburnum family (elderberry)

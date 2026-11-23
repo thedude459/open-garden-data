@@ -37,6 +37,7 @@ Only the SVG files were taken, unchanged:
 | `lettuce.svg`          | `loose-leaf-lettuce`  |
 | `marjoram.svg`         | `majoram`             |
 | `melon.svg`            | `generic-melon`       |
+| `nectarine.svg`        | `nectratine`          |
 | `mustard-greens.svg`   | `red-giant-mustard`   |
 | `onion.svg`            | `yellow-onion`        |
 | `pea.svg`              | `snap-pea`            |
@@ -54,4 +55,5 @@ Only the SVG files were taken, unchanged:
 
 Drawn for this repository to match the style guide in [README.md](README.md),
 and dedicated to the public domain (CC0) with the rest of it:
-calendula, comfrey, marigold, nasturtium, rhubarb, sweet-alyssum, tansy.
+calendula, comfrey, elderberry, fig, gooseberry, hazelnut, marigold, nasturtium,
+red-currant, rhubarb, sour-cherry, sweet-alyssum, tansy.

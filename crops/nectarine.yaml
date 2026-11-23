@@ -1,0 +1,38 @@
+id: nectarine
+names:
+  en: Nectarine
+scientificName: Prunus persica var. nucipersica
+wikidataId: Q3408651
+family: rosaceae
+habit: tree
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 5, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 450
+  betweenRows: 550
+rootstocks:
+  standard:
+    spacingCm: { inRow: 450, betweenRows: 550 }
+    named:
+      - id: guardian
+        name: Guardian
+        notes: Preferred in the Southeast for tolerance of peach tree short life.
+      - id: lovell
+        name: Lovell
+        notes: The long-standing reference peach rootstock, also used for nectarines.
+cropCoefficients:
+  initial: 0.45
+  mid: 0.9
+  end: 0.65
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: A smooth-skinned peach, grown the same way; self-fruitful. Like peach it blooms early, so spring frost can take the crop, and it is prone to brown rot and blight. Prune every year to an open centre. Values from Oregon State and Alabama extension guides; crop coefficients from FAO-56 Table 12 (stone fruit).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

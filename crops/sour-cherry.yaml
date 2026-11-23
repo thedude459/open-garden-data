@@ -1,0 +1,36 @@
+id: sour-cherry
+names:
+  en: Sour cherry
+scientificName: Prunus cerasus
+wikidataId: Q131517
+family: rosaceae
+habit: tree
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 4, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 430
+  betweenRows: 670
+rootstocks:
+  standard:
+    spacingCm: { inRow: 430, betweenRows: 670 }
+    yearsToFruit: { min: 3, max: 5 }
+    named:
+      - id: mahaleb
+        name: Mahaleb
+        notes: The usual rootstock for standard sour cherries; Gisela semi-dwarfs are becoming common.
+cropCoefficients:
+  initial: 0.45
+  mid: 0.95
+  end: 0.7
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: Tart or pie cherry, such as Montmorency. Self-fruitful, so one tree is enough, and hardier than sweet cherry. Sweet and sour cherries cannot pollinate each other. Compact varieties such as North Star stay near 3 m. Values from Penn State, Oregon State, Illinois, and Minnesota extension guides; crop coefficients from FAO-56 Table 12 (cherries).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

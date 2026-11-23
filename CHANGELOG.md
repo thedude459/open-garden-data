@@ -21,6 +21,14 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Seven more fruits and nuts:** nectarine and sour cherry (trees), red
+  currant, gooseberry, elderberry, and fig (shrubs), and hazelnut, with
+  zones, spacing, pollination, and site advice from Utah State, Minnesota,
+  Penn State, Oregon State, Illinois, Wisconsin, North Carolina State,
+  Georgia, and Alabama guides. Four families join for them (Betulaceae,
+  Grossulariaceae, Moraceae, Viburnaceae). New icons were drawn for sour
+  cherry, red currant, gooseberry, elderberry, fig, and hazelnut; nectarine's
+  comes from `icons/library/`.
 - **Four tree crops:** apricot and European plum (zones 5 to 8), almond
   (zones 6 to 9), and Asian pear (zones 5 to 8), with spacing, pollination,
   and spring-frost advice from Utah State, University of California,

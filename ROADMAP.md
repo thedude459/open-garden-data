@@ -47,8 +47,10 @@ For this repository:
      and lovage still want a frost-anchored source for their windows.
    - **In progress, v0.3.1:** fruit and nut trees with
      [named rootstocks](#schema-changes-planned) (the field, the rootstocks of
-     apple, pear, sweet cherry, and peach, and apricot, plum, almond, and
-     Asian pear are under **Unreleased**), cane fruit, and soft fruit,
+     apple, pear, sweet cherry, and peach, and apricot, plum, almond,
+     Asian pear, nectarine, sour cherry, red currant, gooseberry,
+     elderberry, fig, and hazelnut are under **Unreleased**; grape waits on
+     a source for its species and zones), cane fruit, and soft fruit,
      for the app's orchard and bramble areas.
    - **v0.3.2:** `pests.yaml` and the first pests and diseases.
    - Then more crops in batches toward about 150. `icons/library/` already

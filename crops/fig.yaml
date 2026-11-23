@@ -1,0 +1,24 @@
+id: fig
+names:
+  en: Fig
+scientificName: Ficus carica
+wikidataId: Q36146
+family: moraceae
+habit: shrub
+use: fruit
+lifeCycle: perennial
+frostTolerance: half-hardy
+hardinessZones: { min: 7, max: 9 }
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 300
+  betweenRows: 460
+windows:
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 4 }
+notes: Grown as a bush or small tree. Choose a variety that sets fruit without pollination, such as Celeste, Brown Turkey, or Marseilles. Temperatures near -18 °C kill parts of the plant, so give it a sunny, sheltered spot; it starts bearing in about five or six years. Values from North Carolina State, Georgia, and Oregon State guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
