@@ -1,0 +1,30 @@
+id: black-salsify
+names:
+  en: Black salsify
+scientificName: Scorzonera hispanica
+wikidataId: Q385259
+family: asteraceae
+habit: herbaceous
+use: vegetable
+lifeCycle: biennial
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 5
+  betweenRows: 30
+sowingDepthCm: 1.3
+soilPh: { min: 6.0, max: 8.0 }
+cropCoefficients:
+  initial: 0.5
+  mid: 1.1
+  end: 0.95
+windows:
+  directSow: { frost: last, weeksEarliest: -2, weeksLatest: 4 }
+daysToMaturity: { min: 120, max: 120 }
+notes: Scorzonera, a long black-skinned root grown like salsify. Needs deep, loose soil worked 45 to 60 cm down for straight roots, and even moisture. The guide says to sow as soon as the soil can be worked, so the window is that of salsify. Values from Utah State extension. Crop coefficients are FAO-56 Table 12's root and tuber group values.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

@@ -1,0 +1,24 @@
+id: lovage
+names:
+  en: Lovage
+scientificName: Levisticum officinale
+wikidataId: Q27615
+family: apiaceae
+habit: herbaceous
+use: herb
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 4, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 75
+  betweenRows: 75
+windows:
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 1 }
+notes: A tall celery-flavored perennial, 90 to 120 cm, for rich, fairly moist soil; light shade helps in hot summers. Seed is sown in late summer, and young plants or divisions are set out in early spring; the window is that of chives, since the guides give no frost-anchored date. Zones come from seed-company guides (Johnny's Seeds), as extension guides give none. Values from Maryland, Illinois, and Missouri extension guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

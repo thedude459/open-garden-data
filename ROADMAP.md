@@ -46,12 +46,11 @@ For this repository:
      rutabaga, collards, lima bean, edamame, tomatillo, arugula, bok choy,
      mustard greens, Florence fennel, lemon balm, lavender, rosemary, sage,
      and sweet marjoram are under **Unreleased**.
-   - **v0.3.1:** shallot, napa cabbage, celeriac, endive, salsify,
-     radicchio, peanut, and lemongrass are under **Unreleased**. Still
-     waiting on a source that ties sowing to frost dates: fava bean,
-     bunching onion (also hardiness zones), chamomile, and black salsify;
-     and on hardiness zones: horseradish, watercress, lovage, garlic
-     chives, and stevia.
+   - **v0.3.1:** the rest of the vegetables and herbs with an icon: shallot,
+     napa cabbage, celeriac, endive, salsify, black salsify, radicchio,
+     peanut, fava bean, bunching onion, watercress, lemongrass, chamomile,
+     garlic chives, lovage, and stevia, under **Unreleased** with v0.3.0's.
+     Horseradish waits for an icon.
    - **v0.3.2:** fruit and nut trees with
      [named rootstocks](#schema-changes-planned), cane fruit, and soft fruit,
      for the app's orchard and bramble areas.

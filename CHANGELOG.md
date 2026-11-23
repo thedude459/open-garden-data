@@ -21,6 +21,14 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Eight more vegetables and herbs:** fava bean, bunching onion, black
+  salsify, watercress, chamomile, garlic chives, lovage, and stevia. Fava
+  bean, black salsify, garlic chives, and lovage have no frost-anchored
+  date in any guide found, so they take the windows of pea, salsify, and
+  chives, and their `notes` say so; lovage's and stevia's hardiness zones
+  come from seed-company guides. Crop coefficients from FAO-56 for fava bean
+  and bunching onion (green onions), Pereira et al. (2024) for chamomile and
+  stevia, and FAO-56's root group for black salsify.
 - **Seven more crops:** napa cabbage, celeriac, endive, salsify, radicchio,
   peanut, and lemongrass, from Maryland, Penn State, Washington State, Utah
   State, Minnesota, and Clemson extension guides, named in each crop's

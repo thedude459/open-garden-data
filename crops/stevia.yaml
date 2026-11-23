@@ -1,0 +1,28 @@
+id: stevia
+names:
+  en: Stevia
+scientificName: Stevia rebaudiana
+wikidataId: Q7213452
+family: asteraceae
+habit: herbaceous
+use: herb
+lifeCycle: perennial
+frostTolerance: tender
+hardinessZones: { min: 9, max: 11 }
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 30
+  betweenRows: 45
+cropCoefficients:
+  initial: 0.45
+  mid: 0.95
+  end: 0.7
+windows:
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 3 }
+notes: The sweetleaf herb. It does not take frost and barely grows below about 15 °C, so set plants out after the last frost once nights stay above about 10 °C, and pinch the tips for bushier plants. Outside zones 9 to 11 grow it as an annual or bring it indoors. Zones and spacing from seed-company guides (Johnny's Seeds), as extension guides give none. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

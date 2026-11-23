@@ -1,0 +1,31 @@
+id: bunching-onion
+names:
+  en: Bunching onion
+scientificName: Allium fistulosum
+wikidataId: Q27938
+family: amaryllidaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 5
+  betweenRows: 30
+sowingDepthCm: 0.6
+minSoilTemperatureC: 10
+soilPh: { min: 6.2, max: 7.2 }
+cropCoefficients:
+  initial: 0.7
+  mid: 1.0
+  end: 1.0
+windows:
+  directSow: { frost: last, weeksEarliest: -2, weeksLatest: 10 }
+daysToMaturity: { min: 60, max: 70 }
+notes: Welsh onion, grown for green scallions; it never forms a bulb. Pull it any time after it is about 15 cm tall, and sow every few weeks through spring and summer. Left in place it forms a perennial clump that can be divided. Values from Penn State, Oregon State, Colorado State, and University of California guides; crop coefficients from FAO-56 Table 12 (green onions).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation
