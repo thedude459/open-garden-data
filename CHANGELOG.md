@@ -21,6 +21,28 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+### Improvements
+
+### Bug fixes
+
+### Documentation
+
+### Security
+
+### Known issues
+
+### Deprecated features
+
+## v0.3.0 (2026-11-23)
+
+### Summary
+
+The first v0.3 release: 32 more vegetables and herbs, for 90 crops in all,
+each with values from named extension guides and, for most, crop
+coefficients for watering by water balance.
+
+### New features
+
 - **Eight more vegetables and herbs:** fava bean, bunching onion, black
   salsify, watercress, chamomile, garlic chives, lovage, and stevia. Fava
   bean, black salsify, garlic chives, and lovage have no frost-anchored
@@ -67,6 +89,12 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 ### Security
 
 ### Known issues
+
+- Fava bean, black salsify, garlic chives, and lovage borrow the sowing
+  windows of pea, salsify, and chives, as no guide found ties them to frost
+  dates; lovage's and stevia's hardiness zones come from seed-company guides.
+- Edamame, sage, marjoram, lemongrass, garlic chives, lovage, and watercress
+  have no crop coefficients, so Open Garden waters them on a fixed interval.
 
 ### Deprecated features
 
