@@ -607,7 +607,8 @@ export function checkIcons(cropIds, dir = join(ROOT, 'icons')) {
   for (const file of [...top, ...svgs('library')]) {
     const svg = readFileSync(join(dir, file), 'utf8');
     const where = `icons/${file.replace(/^\.\//, '')}`;
-    if (!/^(?:<\?xml[^>]*\?>\s*)?<svg[\s>]/.test(svg)) errors.push(`${where}: must be an SVG file`);
+    // Starting with <svg (no XML declaration) lets apps inline the file as is.
+    if (!/^<svg[\s>]/.test(svg)) errors.push(`${where}: must start with <svg`);
     else if (!/viewBox=/.test(svg)) errors.push(`${where}: needs a viewBox`);
     if (UNSAFE_SVG.test(svg)) {
       errors.push(
