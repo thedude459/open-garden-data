@@ -24,15 +24,14 @@ For this repository:
      by water balance, on the 39 crops FAO-56 lists.
    - **Done, v0.2.2:** companion plants as crops, and 31 companion pairs
      from research and extension guidance, each with where it was shown.
-4. **Done, ships in the next release:** crop icons (`icons/`), one per crop
-   with a style guide, continuing OpenFarm's open-crop-icons. Merged and
-   listed under **Unreleased** in `CHANGELOG.md`.
-5. **Next: before v0.3**, two small steps:
-   - **Done: releases ship the icons.** Each release attaches
+4. **Done, v0.2.3:** crop icons (`icons/`), one per crop
+   with a style guide, continuing OpenFarm's open-crop-icons.
+5. **Done, v0.2.3:** two small steps before v0.3:
+   - **Releases ship the icons.** Each release attaches
      `open-garden-icons-<version>.zip` beside the catalog, under the same
      attestation, so Open Garden can copy them from the version it pins
      instead of keeping a hand-copied set.
-   - **Done, ships in the next release: fill gaps in today's crops.**
+   - **Fill gaps in today's crops.**
      Crop coefficients for kale, basil, cilantro, parsley, oregano, thyme,
      and okra (Pereira et al. 2024) and, from FAO-56's group values, for
      rhubarb, chives, leek, Swiss chard, and dill; soil temperatures for
@@ -40,7 +39,7 @@ For this repository:
      flowers (no open source measures them) and sweet alyssum's soil
      temperature (only seed-company germination optimums). The completeness
      report lists the rest.
-6. **Then: v0.3**, about 150 crops and [pests and diseases, organized for
+6. **Next: v0.3**, about 150 crops and [pests and diseases, organized for
    integrated pest management](#pests-and-diseases-ipm), in parallel with
    the app's test and CI fixes, account basics, and remaining care
    features. The app's light catalog query lands first, so the larger
@@ -147,7 +146,7 @@ Pacific Northwest guidance is still to add.
 | Common names beyond English (`names.<locale>`)                                                                                                                                                                                                           | Contributions              | Already allowed by the schema. Added by people who speak the language ([CONTRIBUTING](CONTRIBUTING.md#names-in-other-languages)); Open Garden shows English only until its own translation is contributed. See the Wikidata findings below                                               |
 | Frost-free sowing by wet/dry season                                                                                                                                                                                                                      | Later                      | By temperature is done: Open Garden places windows from `temperatureC` and `minSoilTemperatureC` where frost is rare ([its ADR 0025](https://github.com/thedude459/open-garden/blob/main/docs/adr/0025-sowing-by-temperature-where-frost-is-rare.md)). Wet and dry seasons need new data |
 | Per-value `confidence`                                                                                                                                                                                                                                   | If needed                  | Sources are recorded per crop today, optionally per field; add confidence only if reviewers need it                                                                                                                                                                                      |
-| Crop icons (CC0, made for the project)                                                                                                                                                                                                                   | Done, next release         | One colour SVG per crop, 51 from OpenFarm's CC0 open-crop-icons and the rest drawn to match (`icons/README.md` is the style guide). Photos, if ever added, only from Wikimedia Commons with each image's license stored alongside                                                        |
+| Crop icons (CC0, made for the project)                                                                                                                                                                                                                   | Done, v0.2.3               | One colour SVG per crop, 51 from OpenFarm's CC0 open-crop-icons and the rest drawn to match (`icons/README.md` is the style guide). Photos, if ever added, only from Wikimedia Commons with each image's license stored alongside                                                        |
 | `deprecated: true` and `replacedBy: <id>` on a crop or variety                                                                                                                                                                                           | Before the first removal   | Ids never change and files are never deleted (that would be a major release); a deprecated record points apps at its replacement so plantings can move                                                                                                                                   |
 | `soilPh: { min, max }` per crop                                                                                                                                                                                                                          | Done, v0.2.0               | Soil-test advice in the app: blueberries need 4.5–5.5, most vegetables 6.0–7.0, potatoes 5.0–6.5                                                                                                                                                                                         |
 | `cropCoefficients`: `{ initial, mid, end }` crop coefficients (Kc) and the length of each growth stage in days (`stageDays`)                                                                                                                             | Done, v0.2.1               | Watering by water balance in the app: daily water use = reference evapotranspiration (ET₀) × Kc for the stage, minus rain. FAO-56 publishes Kc and stage lengths for common crops; write them in our own words and cite it                                                               |
