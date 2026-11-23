@@ -25,31 +25,33 @@ rootstocks:
         name: Bud 9 (B.9)
         sizePercent: { min: 25, max: 25 }
         support: always
-        notes: Very hardy; a replacement for M.9 where winters are cold.
+        notes: Very hardy, a replacement for M.9 where winters are cold, and had the least spring-frost bud loss in Virginia Tech trials.
       - id: m9
         name: M.9
         sizePercent: { min: 35, max: 50 }
         support: always
-        notes: Brittle roots and heavy crops for its size, so it needs a stake for life.
+        notes: Brittle roots, so it needs a stake for life. Among the least cold hardy in early winter (Cornell) and the most spring-frost bud loss (Virginia Tech).
       - id: g41
         name: G.41
-        sizePercent: { min: 35, max: 35 }
+        sizePercent: { min: 30, max: 50 }
         support: always
-        notes: Like M.9 in size but more productive, with fewer root suckers; resists fire blight and crown rot.
+        notes: Like M.9 in size but more productive; resists fire blight and crown rot, and kept deep winter hardiness in Cornell tests.
       - id: g11
         name: G.11
-        support: young
+        sizePercent: { min: 30, max: 50 }
+        support: always
         notes: Close to M.9 in size; cold hardy and resists fire blight and crown rot.
       - id: m26
         name: M.26
         sizePercent: { min: 40, max: 60 }
         spacingCm: { inRow: 240, betweenRows: 490 }
-        support: young
-        notes: Reliably hardy but very prone to fire blight; on windy sites keep the stake for life.
+        support: always
+        notes: Quite hardy but very prone to fire blight, and grows burr knots. New Hampshire advises a stake for life; Minnesota for the first years, or for life on windy sites.
       - id: g935
         name: G.935
-        sizePercent: { min: 40, max: 45 }
+        sizePercent: { min: 40, max: 50 }
         spacingCm: { inRow: 230, betweenRows: 400 }
+        support: always
         notes: A little larger than M.26; resists fire blight and crown rot but not woolly apple aphid.
       - id: bud-10
         name: Bud 10 (B.10)
@@ -65,6 +67,8 @@ rootstocks:
         name: M.7
         sizePercent: { min: 60, max: 60 }
         spacingCm: { inRow: 360, betweenRows: 600 }
+        support: young
+        notes: Tolerates collar rot and is very fruitful, but suckers freely; stake it for the first four or five years.
       - id: mm106
         name: MM.106
         support: none

@@ -24,6 +24,10 @@ rootstocks:
     spacingCm: { inRow: 450, betweenRows: 550 }
     heightM: { min: 3.5, max: 5 }
     yearsToFruit: { min: 3, max: 4 }
+    named:
+      - id: mp-29
+        name: MP-29
+        notes: Semi-dwarf; resists peach tree short life and Armillaria root rot.
   standard:
     spacingCm: { inRow: 600, betweenRows: 750 }
     heightM: { min: 5, max: 7 }
@@ -32,13 +36,16 @@ rootstocks:
       - id: lovell
         name: Lovell
         sizePercent: { min: 100, max: 100 }
-        notes: The long-standing reference rootstock, with high tree survival in northern trials.
+        notes: The long-standing reference rootstock, with good anchorage, high survival in northern trials, and more cold hardy than Nemaguard, but suffers in waterlogged soil.
       - id: bailey
         name: Bailey
-        notes: Cold hardy and slightly dwarfing, with yield efficiency at least as good as Lovell.
+        notes: Good cold hardiness; slightly dwarfing, with yield efficiency at least as good as Lovell.
       - id: guardian
         name: Guardian
         notes: Preferred in the Southeast for tolerance of peach tree short life.
+      - id: krymsk-86
+        name: Krymsk 86
+        notes: Hardy to USDA zone 4 with excellent anchorage, and tolerates wet soil; prone to bacterial canker in the Southeast.
       - id: halford
         name: Halford
         notes: An older, vigorous rootstock.

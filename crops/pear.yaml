@@ -20,6 +20,10 @@ rootstocks:
     spacingCm: { inRow: 300, betweenRows: 450 }
     heightM: { min: 3, max: 4.5 }
     yearsToFruit: { min: 3, max: 4 }
+    named:
+      - id: quince
+        name: Quince
+        notes: The traditional dwarfing root for pears, but less winter hardy than pear seedlings, poor in wet or dry soil, and very prone to fire blight; Bartlett and Bosc are incompatible with it.
   semiDwarf:
     spacingCm: { inRow: 450, betweenRows: 600 }
     heightM: { min: 4.5, max: 6 }
@@ -36,6 +40,12 @@ rootstocks:
       - id: ohxf-97
         name: OHxF 97
         notes: Resists fire blight and suits Asian pears; less precocious than OHxF 87.
+      - id: ohxf-40
+        name: OHxF 40
+        notes: Semi-dwarf; the OHxF rootstocks give trees about two-thirds of standard size.
+      - id: ohxf-513
+        name: OHxF 513
+        notes: Semi-dwarf; the OHxF rootstocks give trees about two-thirds of standard size.
   standard:
     spacingCm: { inRow: 750, betweenRows: 900 }
     heightM: { min: 7, max: 12 }
@@ -45,6 +55,10 @@ rootstocks:
         name: Seedling
         sizePercent: { min: 100, max: 100 }
         spacingCm: { inRow: 610, betweenRows: 850 }
+        notes: Reasonably winter hardy and vigorous; trees grow tall.
+      - id: calleryana
+        name: Calleryana (Pyrus calleryana)
+        notes: Preferred in the Southeast for European and Asian pears; trees on Pyrus betulifolia are more prone to fire blight.
 soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45

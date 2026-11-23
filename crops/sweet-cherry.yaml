@@ -20,6 +20,11 @@ rootstocks:
     spacingCm: { inRow: 300, betweenRows: 450 }
     heightM: { min: 2.5, max: 3.5 }
     yearsToFruit: { min: 2, max: 4 }
+    named:
+      - id: gisela-3
+        name: Gisela 3
+        sizePercent: { min: 35, max: 40 }
+        notes: The most dwarfing Gisela; only for the best soils, with fair anchorage. USDA zone 5.
   semiDwarf:
     spacingCm: { inRow: 450, betweenRows: 600 }
     heightM: { min: 4, max: 6 }
@@ -32,20 +37,21 @@ rootstocks:
         notes: Needs well-drained soil and does poorly in heavy soil; may lean away from strong wind.
       - id: gisela-6
         name: Gisela 6
-        sizePercent: { min: 60, max: 90 }
+        sizePercent: { min: 60, max: 95 }
         support: none
-        notes: About 60 percent of full size in the eastern U.S. and up to 90 percent in the Pacific Northwest.
+        notes: Does well in heavy soil, with good anchorage; smaller in the eastern U.S. than in the Pacific Northwest.
       - id: gisela-12
         name: Gisela 12
-        sizePercent: { min: 80, max: 90 }
+        sizePercent: { min: 55, max: 90 }
+        notes: Adapts to a wide range of soils, with excellent anchorage.
       - id: krymsk-5
         name: Krymsk 5
         sizePercent: { min: 80, max: 90 }
-        notes: Adapted to cold and hot climates and to heavier soils.
+        notes: Excellent cold and heat tolerance (USDA zone 5) and anchorage; suits heavier soils.
       - id: krymsk-6
         name: Krymsk 6
-        sizePercent: { min: 80, max: 90 }
-        notes: Adapted to cold and hot climates and to heavier soils.
+        sizePercent: { min: 70, max: 90 }
+        notes: Hardier than sweet cherry seedlings (USDA zone 5) and tolerates heat; suits heavier soils.
   standard:
     spacingCm: { inRow: 750, betweenRows: 900 }
     heightM: { min: 8, max: 12 }
@@ -54,12 +60,14 @@ rootstocks:
       - id: mazzard
         name: Mazzard
         sizePercent: { min: 100, max: 100 }
+        notes: Excellent anchorage; reasonably cold hardy, though less so than the Gisela series.
       - id: mahaleb
         name: Mahaleb
-        notes: One of the most drought tolerant; very sensitive to waterlogged soil.
+        notes: Slightly dwarfing and very drought tolerant, but very sensitive to waterlogged soil; resists bacterial canker.
       - id: colt
         name: Colt
         sizePercent: { min: 100, max: 100 }
+        notes: Tolerates wet, heavy soil better than Mahaleb or Gisela 5, but is not cold hardy.
 soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45
