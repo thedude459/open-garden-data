@@ -34,11 +34,13 @@ For this repository:
      instead of keeping a hand-copied set.
    - **Partly done: fill gaps in today's crops.** Crop coefficients for
      kale, basil, cilantro, parsley, oregano, thyme, and okra (Pereira et
-     al. 2024), and calendula's soil temperature for sowing, are under
-     **Unreleased**. No open source found yet for the crop coefficients of
-     chives, dill, leek, rhubarb, Swiss chard, and the companion flowers, or
-     a soil temperature for borage and sweet alyssum; Open Garden waters
-     those on a fixed interval. The completeness report lists the rest.
+     al. 2024), and soil temperatures for sowing calendula and borage, are
+     under **Unreleased**. No open standard value found for the crop
+     coefficients of chives, dill, leek, rhubarb, Swiss chard, and the
+     companion flowers (searched FAO-56, the 2021 and 2024 reviews,
+     extension services, and OpenAlex), so Open Garden waters those on a
+     fixed interval. Sweet alyssum's soil temperature has only seed-company
+     germination optimums so far. The completeness report lists the rest.
 6. **Then: v0.3**, about 150 crops and [pests and diseases, organized for
    integrated pest management](#pests-and-diseases-ipm), in parallel with
    the app's test and CI fixes, account basics, and remaining care

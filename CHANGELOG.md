@@ -45,7 +45,12 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   rhubarb, Swiss chard, and the companion flowers.
 - **Calendula's soil temperature for sowing:** 16 °C (`minSoilTemperatureC`),
   from UNH Extension's "How to grow calendula" (60 °F), so its sowing window
-  works where frost is rare; its `notes` cite the guide. Borage and sweet alyssum still have none.
+  works where frost is rare; its `notes` cite the guide.
+- **Borage's soil temperature for sowing:** 10 °C, from the Ontario Ministry
+  of Agriculture's borage crop profile (above 10 °C at planting), in line
+  with a North Dakota State University germination study (9 °C minimum).
+  Sweet alyssum still has none: the figures found are seed companies'
+  germination optimums, not a minimum.
 - Release notes start with the Summary under a release titled with the
   version, and have a Documentation section for guide and install changes.
 
