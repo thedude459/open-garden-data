@@ -32,15 +32,14 @@ For this repository:
      `open-garden-icons-<version>.zip` beside the catalog, under the same
      attestation, so Open Garden can copy them from the version it pins
      instead of keeping a hand-copied set.
-   - **Partly done: fill gaps in today's crops.** Crop coefficients for
-     kale, basil, cilantro, parsley, oregano, thyme, and okra (Pereira et
-     al. 2024), and soil temperatures for sowing calendula and borage, are
-     under **Unreleased**. No open standard value found for the crop
-     coefficients of chives, dill, leek, rhubarb, Swiss chard, and the
-     companion flowers (searched FAO-56, the 2021 and 2024 reviews,
-     extension services, and OpenAlex), so Open Garden waters those on a
-     fixed interval. Sweet alyssum's soil temperature has only seed-company
-     germination optimums so far. The completeness report lists the rest.
+   - **Done, ships in the next release: fill gaps in today's crops.**
+     Crop coefficients for kale, basil, cilantro, parsley, oregano, thyme,
+     and okra (Pereira et al. 2024) and, from FAO-56's group values, for
+     rhubarb, chives, leek, Swiss chard, and dill; soil temperatures for
+     sowing calendula and borage. Left: crop coefficients for the companion
+     flowers (no open source measures them) and sweet alyssum's soil
+     temperature (only seed-company germination optimums). The completeness
+     report lists the rest.
 6. **Then: v0.3**, about 150 crops and [pests and diseases, organized for
    integrated pest management](#pests-and-diseases-ipm), in parallel with
    the app's test and CI fixes, account basics, and remaining care
@@ -308,7 +307,8 @@ while working on something else ([CONTRIBUTING](CONTRIBUTING.md#making-a-change)
 Not planned yet: move one into the [order of work](#order-of-work) when it is
 chosen. Size is a rough guess: S is under a day, M a few days, L longer.
 
-| Idea                                                                                                                                                | Why                                                                                                                                                                                                                  | Size |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| **Data:** a `successionDays` per crop: how often to resow it for a steady harvest (radish and leaf lettuce about 7 days, bush beans 10, carrots 21) | Open Garden's succession planting (its ADR 0037) defaults to two weeks for every crop. Extension tables vary by crop, but the one found (Kentucky's) credits Johnny's Seeds, so the values need an open source first | S    |
-| **Data:** `stageDays` for kale, basil, cilantro, parsley, oregano, thyme, and okra                                                                  | Their crop coefficients (Pereira et al. 2024) come without growth-stage lengths, so apps use one Kc curve shape for them; field studies in that review give stage lengths for some sites                             | S    |
+| Idea                                                                                                                                                        | Why                                                                                                                                                                                                                  | Size |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| **Data:** a `successionDays` per crop: how often to resow it for a steady harvest (radish and leaf lettuce about 7 days, bush beans 10, carrots 21)         | Open Garden's succession planting (its ADR 0037) defaults to two weeks for every crop. Extension tables vary by crop, but the one found (Kentucky's) credits Johnny's Seeds, so the values need an open source first | S    |
+| **Data:** `stageDays` for kale, basil, cilantro, parsley, oregano, thyme, and okra                                                                          | Their crop coefficients (Pereira et al. 2024) come without growth-stage lengths, so apps use one Kc curve shape for them; field studies in that review give stage lengths for some sites                             | S    |
+| **Data:** crop-specific coefficients for leek, Swiss chard, dill, and chives from Geisenheim's irrigation scheduling tables, if they use FAO-56's reference | Those four use FAO-56 group values today; Geisenheim publishes measured values for German vegetable crops                                                                                                            | S    |

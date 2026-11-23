@@ -17,12 +17,16 @@ spacingCm:
   betweenRows: 120
 sowingDepthCm: 5
 soilPh: { min: 6.0, max: 7.0 }
+cropCoefficients:
+  initial: 0.5
+  mid: 1.0
+  end: 0.8
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
 varieties:
   - id: rhubarb-victoria
     name: Victoria
-notes: Planted as crowns, with the buds just below the surface. Eat only the stalks; the leaves are poisonous. Skip harvest the first year, then pull stalks in spring and early summer. Needs a cold winter to do well.
+notes: Planted as crowns, with the buds just below the surface. Eat only the stalks; the leaves are poisonous. Skip harvest the first year, then pull stalks in spring and early summer. Needs a cold winter to do well. Crop coefficients are FAO-56 Table 12's values for perennial vegetables with winter dormancy; FAO-56 does not list rhubarb.
 sources:
   - source: wikidata
     fields: [scientificName, family]

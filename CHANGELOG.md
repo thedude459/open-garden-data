@@ -42,8 +42,14 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   (doi:10.1007/s00271-024-00960-4), values unchanged, used under
   [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The review gives no stage
   lengths, so none are set. Each
-  crop's `notes` cites the review. Still without values: chives, dill, leek,
-  rhubarb, Swiss chard, and the companion flowers.
+  crop's `notes` cites the review.
+- **Crop coefficients from FAO-56's group values** for five crops FAO-56
+  does not list by name, as v0.2.1 did for the cane berries: rhubarb takes
+  the perennial vegetables with winter dormancy (0.5 / 1.00 / 0.80); chives
+  take green onions' mid and end with the small-vegetable initial value
+  (0.7 / 1.00 / 1.00); leek, Swiss chard, and dill take the small-vegetable
+  group (0.7 / 1.05 / 0.95). No stage lengths. Each crop's `notes` says so.
+  The companion flowers still have none.
 - **Calendula's soil temperature for sowing:** 16 °C (`minSoilTemperatureC`),
   from UNH Extension's "How to grow calendula" (60 °F), so its sowing window
   works where frost is rare; its `notes` cite the guide.
