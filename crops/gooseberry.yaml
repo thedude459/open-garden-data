@@ -1,0 +1,29 @@
+id: gooseberry
+names:
+  en: Gooseberry
+scientificName: Ribes uva-crispa
+wikidataId: Q41503
+family: grossulariaceae
+habit: shrub
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 6 }
+sun: part
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 120
+  betweenRows: 270
+soilPh: { min: 6.0, max: 7.0 }
+cropCoefficients:
+  initial: 0.3
+  mid: 1.05
+  end: 0.5
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: A thorny bush 1 to 1.5 m tall and wide; self-fertile, so one plant bears. Needs at least 1,000 hours of winter chill and does best with some shade in the hottest part of the day. Fruits on one-year-old wood and older spurs. Values from Utah State and Minnesota extension guides; crop coefficients from FAO-56 Table 12 (berries, bushes).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

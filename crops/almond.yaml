@@ -1,0 +1,32 @@
+id: almond
+names:
+  en: Almond
+scientificName: Prunus dulcis
+wikidataId: Q39918
+family: rosaceae
+habit: tree
+use: nut
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 6, max: 9 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 460
+  betweenRows: 610
+rootstocks:
+  standard:
+    spacingCm: { inRow: 460, betweenRows: 610 }
+    yearsToFruit: { min: 3, max: 4 }
+cropCoefficients:
+  initial: 0.4
+  mid: 0.9
+  end: 0.65
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: Not self-fruitful; plant a second almond variety, or a peach that blooms at the same time. It blooms very early, and frost below about -2 °C during or after bloom kills the flowers, so it suits warm, low sites with mild springs and needs 400 to 500 hours below 7 °C in winter. Values from Utah State, University of California, and Oregon State guides; crop coefficients from FAO-56 Table 12.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

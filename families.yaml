@@ -1,10 +1,16 @@
 # Botanical families, used for crop rotation. id: lower-case family name.
+- id: actinidiaceae
+  name: Actinidiaceae
+  commonName: Kiwi family (kiwi)
 - id: amaranthaceae
   name: Amaranthaceae
   commonName: Amaranth family (beet, chard, spinach)
 - id: amaryllidaceae
   name: Amaryllidaceae
   commonName: Onion family (onion, garlic, leek)
+- id: annonaceae
+  name: Annonaceae
+  commonName: Custard apple family (pawpaw)
 - id: apiaceae
   name: Apiaceae
   commonName: Carrot family (carrot, parsnip, celery, dill)
@@ -14,30 +20,45 @@
 - id: asteraceae
   name: Asteraceae
   commonName: Daisy family (lettuce, sunflower, endive)
+- id: betulaceae
+  name: Betulaceae
+  commonName: Birch family (hazelnut)
 - id: boraginaceae
   name: Boraginaceae
   commonName: Borage family (borage, comfrey)
 - id: brassicaceae
   name: Brassicaceae
   commonName: Cabbage family (cabbage, kale, broccoli, radish)
+- id: caprifoliaceae
+  name: Caprifoliaceae
+  commonName: Honeysuckle family (haskap)
 - id: convolvulaceae
   name: Convolvulaceae
   commonName: Morning glory family (sweet potato)
 - id: cucurbitaceae
   name: Cucurbitaceae
   commonName: Gourd family (cucumber, squash, melon)
+- id: ebenaceae
+  name: Ebenaceae
+  commonName: Ebony family (persimmon)
 - id: ericaceae
   name: Ericaceae
   commonName: Heath family (blueberry)
 - id: fabaceae
   name: Fabaceae
   commonName: Legume family (bean, pea)
+- id: grossulariaceae
+  name: Grossulariaceae
+  commonName: Currant family (currant, gooseberry)
 - id: lamiaceae
   name: Lamiaceae
   commonName: Mint family (basil, mint, oregano)
 - id: malvaceae
   name: Malvaceae
   commonName: Mallow family (okra)
+- id: moraceae
+  name: Moraceae
+  commonName: Mulberry family (fig, mulberry)
 - id: poaceae
   name: Poaceae
   commonName: Grass family (corn)
@@ -53,3 +74,9 @@
 - id: tropaeolaceae
   name: Tropaeolaceae
   commonName: Nasturtium family (nasturtium)
+- id: viburnaceae
+  name: Viburnaceae
+  commonName: Viburnum family (elderberry)
+- id: vitaceae
+  name: Vitaceae
+  commonName: Grape family (grape)

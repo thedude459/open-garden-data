@@ -1,0 +1,28 @@
+id: aronia
+names:
+  en: Aronia
+scientificName: Aronia melanocarpa
+wikidataId: Q162774
+family: rosaceae
+habit: shrub
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 8 }
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 180
+  betweenRows: 300
+cropCoefficients:
+  initial: 0.3
+  mid: 1.05
+  end: 0.5
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: Black chokeberry, a native shrub that spreads to 2 to 3 m across, with tart, dark berries for juice and jam. Self-compatible, though a second variety can improve fruit set. Fruits best in full sun. Values from Illinois, Minnesota, and Oregon State guides; crop coefficients from FAO-56 Table 12 (berries, bushes).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

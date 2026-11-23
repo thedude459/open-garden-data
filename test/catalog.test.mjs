@@ -403,3 +403,16 @@ test('the changelog makes release notes in the template layout', () => {
   const real = readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8');
   assert.deepEqual(changelogProblems(real), []);
 });
+
+test('named rootstocks: ids unique per crop, size in order, spacing checked', () => {
+  const data = clone(load());
+  const apple = data.crops.find((c) => c.crop.id === 'apple').crop;
+  apple.rootstocks.dwarf.named = [
+    { id: 'm9', name: 'M.9', sizePercent: { min: 50, max: 35 } },
+    { id: 'm9', name: 'M.9 again', spacingCm: { inRow: 300, betweenRows: 100 } },
+  ];
+  const errors = validate(data).join('\n');
+  assert.match(errors, /rootstock id "m9" is used twice/);
+  assert.match(errors, /rootstock "m9" sizePercent.min is above max/);
+  assert.match(errors, /rootstock "m9" spacingCm rows cannot be closer than plants in a row/);
+});

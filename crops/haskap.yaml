@@ -1,0 +1,28 @@
+id: haskap
+names:
+  en: Haskap
+scientificName: Lonicera caerulea
+wikidataId: Q157699
+family: caprifoliaceae
+habit: shrub
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 6 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 110
+  betweenRows: 240
+cropCoefficients:
+  initial: 0.3
+  mid: 1.05
+  end: 0.5
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: Honeyberry, an extremely hardy shrub up to 1.8 m that lives about 30 years and ripens blue berries early in summer. Needs an unrelated variety that blooms at the same time for pollination. Above zone 6 it suffers leaf scorch, mildew, and early leaf drop. Values from Utah State extension; crop coefficients from FAO-56 Table 12 (berries, bushes).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

@@ -1,0 +1,24 @@
+id: hazelnut
+names:
+  en: Hazelnut
+scientificName: Corylus americana
+wikidataId: Q468659
+family: betulaceae
+habit: shrub
+use: nut
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 9 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 300
+  betweenRows: 460
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: American hazelnut and its hybrids, hardy to zone 3 or 4; European filberts are less hardy. Every hazelnut needs another to pollinate it, so plant two or three within about 15 m. Starts bearing in about five or six years. Usually kept as a shrub about 4.5 m tall and 3 m wide; in orchards space plants 4.5 to 6 m apart. Values from Utah State and Oregon State guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

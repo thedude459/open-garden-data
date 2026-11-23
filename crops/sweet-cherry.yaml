@@ -20,14 +20,53 @@ rootstocks:
     spacingCm: { inRow: 300, betweenRows: 450 }
     heightM: { min: 2.5, max: 3.5 }
     yearsToFruit: { min: 2, max: 4 }
+    named:
+      - id: gisela-3
+        name: Gisela 3
+        sizePercent: { min: 35, max: 40 }
+        notes: The most dwarfing Gisela; only for the best soils, with fair anchorage. USDA zone 5.
   semiDwarf:
     spacingCm: { inRow: 450, betweenRows: 600 }
     heightM: { min: 4, max: 6 }
     yearsToFruit: { min: 3, max: 5 }
+    named:
+      - id: gisela-5
+        name: Gisela 5
+        sizePercent: { min: 50, max: 60 }
+        support: always
+        notes: Needs well-drained soil and does poorly in heavy soil; fair to good anchorage, and trees lean away from strong wind.
+      - id: gisela-12
+        name: Gisela 12
+        sizePercent: { min: 50, max: 90 }
+        notes: Very winter hardy (to about -29 °C), precocious, and adapts to a wide range of soils.
+      - id: gisela-6
+        name: Gisela 6
+        sizePercent: { min: 60, max: 95 }
+        support: always
+        notes: Tolerates heavier soil; very productive, so West Virginia advises support. Smaller in the eastern U.S. than in the Pacific Northwest.
+      - id: krymsk-6
+        name: Krymsk 6
+        sizePercent: { min: 70, max: 90 }
+        notes: Winter hardy (USDA zone 5) and heat tolerant, with good anchorage; needs good drainage.
+      - id: krymsk-5
+        name: Krymsk 5
+        sizePercent: { min: 80, max: 90 }
+        notes: Winter hardy (USDA zone 5), with good anchorage; tolerates heavy, wet soil and drought better than the Gisela rootstocks.
   standard:
     spacingCm: { inRow: 750, betweenRows: 900 }
     heightM: { min: 8, max: 12 }
     yearsToFruit: { min: 5, max: 7 }
+    named:
+      - id: mazzard
+        name: Mazzard
+        sizePercent: { min: 100, max: 100 }
+        notes: Winter hardy (zone 4), with good anchorage and wide soil tolerance given good drainage; not precocious.
+      - id: mahaleb
+        name: Mahaleb
+        notes: Slightly dwarfing, drought tolerant, and winter hardy, but very sensitive to waterlogged soil. Some newer varieties, such as Chelan and Tieton, are incompatible with it.
+      - id: colt
+        name: Colt
+        notes: Tolerates wet, heavy soil better than Mahaleb or Gisela 5, but is not winter hardy; semi-vigorous in Europe, full size in the Pacific Northwest.
 soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45

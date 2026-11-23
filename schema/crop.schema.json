@@ -23,31 +23,63 @@
     "sources"
   ],
   "properties": {
-    "id": { "$ref": "#/$defs/slug", "description": "Matches the file name: crops/<id>.yaml." },
+    "id": {
+      "$ref": "#/$defs/slug",
+      "description": "Matches the file name: crops/<id>.yaml."
+    },
     "names": {
       "type": "object",
       "description": "Common names by locale. English is required.",
       "required": ["en"],
-      "properties": { "en": { "type": "string", "minLength": 1, "maxLength": 80 } },
-      "propertyNames": { "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
-      "additionalProperties": { "type": "string", "minLength": 1, "maxLength": 80 }
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        }
+      },
+      "propertyNames": {
+        "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 80
+      }
     },
-    "scientificName": { "type": "string", "minLength": 3, "maxLength": 120 },
+    "scientificName": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 120
+    },
     "wikidataId": {
       "type": "string",
       "pattern": "^Q[1-9][0-9]*$",
       "description": "The Wikidata item for this crop's taxon (Q…). Its taxon name must equal scientificName; npm run verify:wikidata checks it."
     },
-    "family": { "$ref": "#/$defs/slug", "description": "An id from families.yaml." },
+    "family": {
+      "$ref": "#/$defs/slug",
+      "description": "An id from families.yaml."
+    },
     "habit": {
       "enum": ["herbaceous", "vine", "cane", "shrub", "tree"],
       "description": "Growth habit. Area types accept plants by habit and use."
     },
-    "use": { "enum": ["vegetable", "fruit", "nut", "herb", "flower"] },
-    "lifeCycle": { "enum": ["annual", "biennial", "perennial"] },
-    "frostTolerance": { "enum": ["tender", "half-hardy", "hardy"] },
-    "sun": { "enum": ["full", "part", "shade"] },
-    "water": { "enum": ["low", "moderate", "high"] },
+    "use": {
+      "enum": ["vegetable", "fruit", "nut", "herb", "flower"]
+    },
+    "lifeCycle": {
+      "enum": ["annual", "biennial", "perennial"]
+    },
+    "frostTolerance": {
+      "enum": ["tender", "half-hardy", "hardy"]
+    },
+    "sun": {
+      "enum": ["full", "part", "shade"]
+    },
+    "water": {
+      "enum": ["low", "moderate", "high"]
+    },
     "feeding": {
       "enum": ["light", "moderate", "heavy"],
       "description": "How much feeding it needs: heavy feeders (tomato, corn, squash) need fertilizer often, light feeders (peas, beans, most herbs) rarely."
@@ -57,8 +89,13 @@
       "additionalProperties": false,
       "required": ["inRow"],
       "properties": {
-        "inRow": { "$ref": "#/$defs/cm", "description": "Between plants in a row or block." },
-        "betweenRows": { "$ref": "#/$defs/cm" }
+        "inRow": {
+          "$ref": "#/$defs/cm",
+          "description": "Between plants in a row or block."
+        },
+        "betweenRows": {
+          "$ref": "#/$defs/cm"
+        }
       }
     },
     "rootstocks": {
@@ -67,22 +104,40 @@
       "additionalProperties": false,
       "minProperties": 1,
       "properties": {
-        "dwarf": { "$ref": "#/$defs/rootstock" },
-        "semiDwarf": { "$ref": "#/$defs/rootstock" },
-        "standard": { "$ref": "#/$defs/rootstock" }
+        "dwarf": {
+          "$ref": "#/$defs/rootstock"
+        },
+        "semiDwarf": {
+          "$ref": "#/$defs/rootstock"
+        },
+        "standard": {
+          "$ref": "#/$defs/rootstock"
+        }
       }
     },
-    "sowingDepthCm": { "type": "number", "minimum": 0, "maximum": 30 },
-    "germinationDays": { "$ref": "#/$defs/dayRange" },
+    "sowingDepthCm": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 30
+    },
+    "germinationDays": {
+      "$ref": "#/$defs/dayRange"
+    },
     "temperatureC": {
       "type": "object",
       "description": "Air temperatures for growth.",
       "additionalProperties": false,
       "required": ["min", "max"],
       "properties": {
-        "min": { "$ref": "#/$defs/celsius" },
-        "optimal": { "$ref": "#/$defs/celsius" },
-        "max": { "$ref": "#/$defs/celsius" }
+        "min": {
+          "$ref": "#/$defs/celsius"
+        },
+        "optimal": {
+          "$ref": "#/$defs/celsius"
+        },
+        "max": {
+          "$ref": "#/$defs/celsius"
+        }
       }
     },
     "hardinessZones": {
@@ -91,8 +146,16 @@
       "additionalProperties": false,
       "required": ["min", "max"],
       "properties": {
-        "min": { "type": "integer", "minimum": 1, "maximum": 13 },
-        "max": { "type": "integer", "minimum": 1, "maximum": 13 }
+        "min": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 13
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 13
+        }
       }
     },
     "minSoilTemperatureC": {
@@ -105,8 +168,16 @@
       "additionalProperties": false,
       "required": ["min", "max"],
       "properties": {
-        "min": { "type": "number", "minimum": 3, "maximum": 10 },
-        "max": { "type": "number", "minimum": 3, "maximum": 10 }
+        "min": {
+          "type": "number",
+          "minimum": 3,
+          "maximum": 10
+        },
+        "max": {
+          "type": "number",
+          "minimum": 3,
+          "maximum": 10
+        }
       }
     },
     "cropCoefficients": {
@@ -123,17 +194,36 @@
           "$ref": "#/$defs/kc",
           "description": "Kc at full cover, from flowering to the start of ripening."
         },
-        "end": { "$ref": "#/$defs/kc", "description": "Kc at harvest or leaf fall." },
+        "end": {
+          "$ref": "#/$defs/kc",
+          "description": "Kc at harvest or leaf fall."
+        },
         "stageDays": {
           "type": "object",
           "description": "Typical days in each growth stage for one spring planting in FAO-56 Table 11. Apps scale them to the crop's or variety's days to maturity.",
           "additionalProperties": false,
           "required": ["initial", "development", "mid", "late"],
           "properties": {
-            "initial": { "type": "integer", "minimum": 1, "maximum": 400 },
-            "development": { "type": "integer", "minimum": 1, "maximum": 400 },
-            "mid": { "type": "integer", "minimum": 1, "maximum": 400 },
-            "late": { "type": "integer", "minimum": 1, "maximum": 400 }
+            "initial": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 400
+            },
+            "development": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 400
+            },
+            "mid": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 400
+            },
+            "late": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 400
+            }
           }
         }
       }
@@ -144,9 +234,15 @@
       "additionalProperties": false,
       "minProperties": 1,
       "properties": {
-        "indoorStart": { "$ref": "#/$defs/window" },
-        "directSow": { "$ref": "#/$defs/window" },
-        "transplant": { "$ref": "#/$defs/window" },
+        "indoorStart": {
+          "$ref": "#/$defs/window"
+        },
+        "directSow": {
+          "$ref": "#/$defs/window"
+        },
+        "transplant": {
+          "$ref": "#/$defs/window"
+        },
         "fallSow": {
           "$ref": "#/$defs/window",
           "description": "A second sowing outdoors for a fall crop, counted from the first fall frost."
@@ -159,9 +255,14 @@
     },
     "varieties": {
       "type": "array",
-      "items": { "$ref": "#/$defs/variety" }
+      "items": {
+        "$ref": "#/$defs/variety"
+      }
     },
-    "notes": { "type": "string", "maxLength": 500 },
+    "notes": {
+      "type": "string",
+      "maxLength": 500
+    },
     "sources": {
       "type": "array",
       "minItems": 1,
@@ -171,25 +272,60 @@
         "additionalProperties": false,
         "required": ["source"],
         "properties": {
-          "source": { "$ref": "#/$defs/slug" },
-          "fields": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
-          "note": { "type": "string", "maxLength": 300 }
+          "source": {
+            "$ref": "#/$defs/slug"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 300
+          }
         }
       }
     }
   },
   "$defs": {
-    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 60 },
-    "cm": { "type": "number", "exclusiveMinimum": 0, "maximum": 2000 },
-    "celsius": { "type": "number", "minimum": -40, "maximum": 50 },
-    "kc": { "type": "number", "minimum": 0.1, "maximum": 1.5 },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 60
+    },
+    "cm": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 2000
+    },
+    "celsius": {
+      "type": "number",
+      "minimum": -40,
+      "maximum": 50
+    },
+    "kc": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 1.5
+    },
     "dayRange": {
       "type": "object",
       "additionalProperties": false,
       "required": ["min", "max"],
       "properties": {
-        "min": { "type": "integer", "minimum": 1, "maximum": 1000 },
-        "max": { "type": "integer", "minimum": 1, "maximum": 1000 }
+        "min": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        }
       }
     },
     "window": {
@@ -201,8 +337,16 @@
           "enum": ["last", "first"],
           "description": "Last spring frost or first fall frost."
         },
-        "weeksEarliest": { "type": "integer", "minimum": -52, "maximum": 52 },
-        "weeksLatest": { "type": "integer", "minimum": -52, "maximum": 52 }
+        "weeksEarliest": {
+          "type": "integer",
+          "minimum": -52,
+          "maximum": 52
+        },
+        "weeksLatest": {
+          "type": "integer",
+          "minimum": -52,
+          "maximum": 52
+        }
       }
     },
     "rootstock": {
@@ -210,15 +354,25 @@
       "additionalProperties": false,
       "required": ["spacingCm"],
       "properties": {
-        "spacingCm": { "$ref": "#/properties/spacingCm" },
+        "spacingCm": {
+          "$ref": "#/properties/spacingCm"
+        },
         "heightM": {
           "type": "object",
           "description": "Typical mature height in metres.",
           "additionalProperties": false,
           "required": ["min", "max"],
           "properties": {
-            "min": { "type": "number", "exclusiveMinimum": 0, "maximum": 40 },
-            "max": { "type": "number", "exclusiveMinimum": 0, "maximum": 40 }
+            "min": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 40
+            },
+            "max": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 40
+            }
           }
         },
         "yearsToFruit": {
@@ -226,8 +380,24 @@
           "additionalProperties": false,
           "required": ["min", "max"],
           "properties": {
-            "min": { "type": "integer", "minimum": 1, "maximum": 20 },
-            "max": { "type": "integer", "minimum": 1, "maximum": 20 }
+            "min": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20
+            },
+            "max": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20
+            }
+          }
+        },
+        "named": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Rootstocks sold under a name (M.9, Bud 9, Gisela 5) that fall in this size class. The class values stay the fallback when the rootstock is not known.",
+          "items": {
+            "$ref": "#/$defs/namedRootstock"
           }
         }
       }
@@ -237,11 +407,72 @@
       "additionalProperties": false,
       "required": ["id", "name"],
       "properties": {
-        "id": { "$ref": "#/$defs/slug", "description": "Starts with the crop id: tomato-sungold." },
-        "name": { "type": "string", "minLength": 1, "maxLength": 80 },
-        "daysToMaturity": { "$ref": "#/$defs/dayRange" },
-        "spacingCm": { "$ref": "#/properties/spacingCm" },
-        "notes": { "type": "string", "maxLength": 300 }
+        "id": {
+          "$ref": "#/$defs/slug",
+          "description": "Starts with the crop id: tomato-sungold."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "daysToMaturity": {
+          "$ref": "#/$defs/dayRange"
+        },
+        "spacingCm": {
+          "$ref": "#/properties/spacingCm"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 300
+        }
+      }
+    },
+    "namedRootstock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/slug",
+          "description": "Unique within the crop and permanent, like crop ids."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40,
+          "description": "The name nurseries sell it under."
+        },
+        "sizePercent": {
+          "type": "object",
+          "description": "Tree size as a percent of a tree on standard (seedling) rootstock.",
+          "additionalProperties": false,
+          "required": ["min", "max"],
+          "properties": {
+            "min": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 150
+            },
+            "max": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 150
+            }
+          }
+        },
+        "spacingCm": {
+          "$ref": "#/properties/spacingCm",
+          "description": "Where it differs from the class's spacing."
+        },
+        "support": {
+          "enum": ["none", "young", "always"],
+          "description": "Whether a tree on it needs a stake or trellis: not at all, while young, or for life."
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 300
+        }
       }
     }
   }

@@ -1,0 +1,38 @@
+id: asian-pear
+names:
+  en: Asian pear
+scientificName: Pyrus pyrifolia
+wikidataId: Q838963
+family: rosaceae
+habit: tree
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 5, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 610
+  betweenRows: 610
+rootstocks:
+  standard:
+    spacingCm: { inRow: 610, betweenRows: 610 }
+    named:
+      - id: calleryana
+        name: Calleryana (Pyrus calleryana)
+        notes: Good in California and the Southeast, but lacks winter hardiness in most colder areas.
+      - id: betulifolia
+        name: Betulifolia (Pyrus betulifolia)
+        notes: Takes every Asian pear variety; vigorous and tolerates heavy, wet soil.
+cropCoefficients:
+  initial: 0.45
+  mid: 0.95
+  end: 0.7
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+notes: Partly self-fruitful, but crops much better with two or more varieties planted together. About as winter hardy as Bosc pear, to roughly -29 °C, though less hardy than Bartlett. The crisp fruit has tender skin that bruises easily. European pear rootstocks such as OHxF 87 and 97 also take it and dwarf it somewhat. Values from University of California, North Carolina State, and Georgia extension guides; crop coefficients from FAO-56 Table 12 (pears).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

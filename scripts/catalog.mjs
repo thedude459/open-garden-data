@@ -142,10 +142,17 @@ export function validate(data, schema = readSchema()) {
     if (crop.rootstocks && crop.habit !== 'tree') {
       errors.push(`${at}: rootstocks apply only to trees`);
     }
+    const namedIds = new Set();
     for (const [size, r] of Object.entries(crop.rootstocks ?? {})) {
       for (const field of ['heightM', 'yearsToFruit']) {
         if (r[field] && r[field].min > r[field].max)
           errors.push(`${at}: rootstocks.${size}.${field}.min is above max`);
+      }
+      for (const named of r.named ?? []) {
+        if (namedIds.has(named.id)) errors.push(`${at}: rootstock id "${named.id}" is used twice`);
+        namedIds.add(named.id);
+        if (named.sizePercent && named.sizePercent.min > named.sizePercent.max)
+          errors.push(`${at}: rootstock "${named.id}" sizePercent.min is above max`);
       }
     }
     const t = crop.temperatureC;
@@ -489,8 +496,11 @@ function checkPlausible(at, crop) {
     ['spacingCm', crop.spacingCm],
     ...(crop.varieties ?? []).map((v) => [`variety "${v.id}" spacingCm`, v.spacingCm]),
   ];
-  for (const [size, r] of Object.entries(crop.rootstocks ?? {}))
+  for (const [size, r] of Object.entries(crop.rootstocks ?? {})) {
     rows.push([`rootstocks.${size}.spacingCm`, r.spacingCm]);
+    for (const named of r.named ?? [])
+      if (named.spacingCm) rows.push([`rootstock "${named.id}" spacingCm`, named.spacingCm]);
+  }
   for (const [where, sp] of rows) {
     if (sp?.betweenRows !== undefined && sp.betweenRows < sp.inRow)
       errors.push(`${at}: ${where} rows cannot be closer than plants in a row`);

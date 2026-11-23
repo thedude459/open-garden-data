@@ -20,14 +20,55 @@ rootstocks:
     spacingCm: { inRow: 300, betweenRows: 450 }
     heightM: { min: 3, max: 4.5 }
     yearsToFruit: { min: 3, max: 4 }
+    named:
+      - id: pyrodwarf
+        name: Pyrodwarf
+        sizePercent: { min: 40, max: 50 }
+        notes: Winter hardy, very precocious, and highly tolerant of fire blight; does not sucker.
+      - id: quince
+        name: Quince
+        sizePercent: { min: 55, max: 55 }
+        notes: The European dwarfing root, but not recommended in the U.S. as it is sensitive to cold; very prone to fire blight, and Bartlett and Bosc are incompatible with it.
   semiDwarf:
     spacingCm: { inRow: 450, betweenRows: 600 }
     heightM: { min: 4.5, max: 6 }
     yearsToFruit: { min: 4, max: 6 }
+    named:
+      - id: ohxf-333
+        name: OHxF 333
+        sizePercent: { min: 50, max: 70 }
+        notes: Winter hardy and well anchored, replacing quince; resists fire blight, collar rot, and woolly aphid.
+      - id: pyro-222
+        name: Pyro 222
+        sizePercent: { min: 70, max: 80 }
+        notes: Precocious and productive; tolerates a wide range of soils.
+      - id: ohxf-87
+        name: OHxF 87
+        sizePercent: { min: 85, max: 90 }
+        notes: The most precocious Old Home x Farmingdale; winter hardy, well anchored, does not sucker, and resists fire blight.
+      - id: ohxf-40
+        name: OHxF 40
+        notes: About two-thirds of standard size; resists fire blight, crown rot, and pear decline.
   standard:
     spacingCm: { inRow: 750, betweenRows: 900 }
     heightM: { min: 7, max: 12 }
     yearsToFruit: { min: 5, max: 8 }
+    named:
+      - id: pear-seedling
+        name: Seedling
+        sizePercent: { min: 100, max: 100 }
+        spacingCm: { inRow: 610, betweenRows: 850 }
+        notes: Bartlett seedlings are the standard; winter hardy and very productive, but tree size varies.
+      - id: ohxf-97
+        name: OHxF 97
+        sizePercent: { min: 90, max: 100 }
+        notes: Vigorous, near seedling size but more uniform; winter hardy (zone 3 to 4) and well anchored, resists fire blight, and suits Asian pears.
+      - id: calleryana
+        name: Calleryana (Pyrus calleryana)
+        notes: Preferred in the Southeast for European and Asian pears.
+      - id: betulifolia
+        name: Betulifolia (Pyrus betulifolia)
+        notes: Vigorous and tolerates heavy, wet soil; suits Asian pears, but is less winter hardy than other pear rootstocks. Sources differ on its fire blight tolerance.
 soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45

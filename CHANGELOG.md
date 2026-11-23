@@ -21,6 +21,50 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Pawpaw, American persimmon, and aronia:** native fruits, with zones,
+  spacing, and pollination from Clemson, Maryland, Penn State, Illinois,
+  Minnesota, Missouri, Oregon State, and North Carolina State guides, and
+  icons drawn to the style guide. Two families join (Annonaceae,
+  Ebenaceae). Quince, mulberry, and serviceberry wait for a source giving
+  both their zones and spacing.
+- **Grape, hardy kiwi, and haskap:** grape covers American and cold-hardy
+  hybrid grapes (zones 3 to 8, with Concord, Marquette, and Bluebell), hardy
+  kiwi needs a male vine near the females, and haskap needs a second
+  variety. Values from Illinois, Minnesota, Oregon State, and Utah State
+  guides and the Fedco Trees catalog; crop coefficients from FAO-56
+  (table grapes, kiwi, and berry bushes); icons drawn to the style guide.
+  Three families join for them (Actinidiaceae, Caprifoliaceae, Vitaceae).
+- Red currant, gooseberry, and elderberry get FAO-56's berry-bush crop
+  coefficients, and the named apple, pear, cherry, and plum rootstocks get
+  hardiness zones from the Fedco Trees catalog; Antonovka joins as apple's
+  hardiest standard rootstock.
+- **Seven more fruits and nuts:** nectarine and sour cherry (trees), red
+  currant, gooseberry, elderberry, and fig (shrubs), and hazelnut, with
+  zones, spacing, pollination, and site advice from Utah State, Minnesota,
+  Penn State, Oregon State, Illinois, Wisconsin, North Carolina State,
+  Georgia, and Alabama guides. Four families join for them (Betulaceae,
+  Grossulariaceae, Moraceae, Viburnaceae). New icons were drawn for sour
+  cherry, red currant, gooseberry, elderberry, fig, and hazelnut; nectarine's
+  comes from `icons/library/`.
+- **Four tree crops:** apricot and European plum (zones 5 to 8), almond
+  (zones 6 to 9), and Asian pear (zones 5 to 8), with spacing, pollination,
+  and spring-frost advice from Utah State, University of California,
+  Oregon State, North Carolina State, Georgia, and Alabama guides, crop
+  coefficients from FAO-56 Table 12, and named rootstocks for plum and
+  Asian pear.
+- **Named rootstocks** (`rootstocks.<class>.named`): each rootstock a
+  nursery sells by name, in the size class it falls in, with its size as a
+  percent of a standard tree, spacing where it differs, whether the tree
+  needs support, and notes on hardiness, soil, and disease. Apple has 17
+  (Bud 9 to seedling, including the Geneva series), pear 10, sweet cherry 9
+  (Gisela 3 to Mazzard), and peach 7. Where sources give different sizes,
+  the range spans them. Sources: Kentucky (HO-82), West Virginia, Penn
+  State, Maryland, Minnesota, New Hampshire, and Alabama extension guides;
+  Oregon State's PNW 619; Michigan State; Ontario's peach guide; UC Davis Foundation Plant
+  Services rootstock records; Cornell and Virginia Tech cold and
+  spring-frost trials. The size classes stay the fallback when the
+  rootstock is not known.
+
 ### Improvements
 
 ### Bug fixes
