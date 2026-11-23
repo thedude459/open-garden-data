@@ -28,7 +28,7 @@ windows:
   indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
   transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
 daysToMaturity: { min: 60, max: 90 }
-notes: A small woody subshrub. Needs sharp drainage and dislikes wet winters more than cold ones. Trim after flowering to keep it bushy; replace plants that turn woody after a few years. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4.
+notes: A small woody subshrub. Needs sharp drainage and dislikes wet winters more than cold ones. Trim after flowering to keep it bushy; replace plants that turn woody after a few years. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
 sources:
   - source: wikidata
     fields: [scientificName, family]

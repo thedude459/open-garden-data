@@ -29,7 +29,7 @@ daysToMaturity: { min: 45, max: 70 }
 varieties:
   - id: cilantro-santo
     name: Santo
-notes: Bolts quickly in heat, so sow small batches every few weeks in spring and again in fall. The seeds are coriander. Does not like being transplanted. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4.
+notes: Bolts quickly in heat, so sow small batches every few weeks in spring and again in fall. The seeds are coriander. Does not like being transplanted. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
 sources:
   - source: wikidata
     fields: [scientificName, family]

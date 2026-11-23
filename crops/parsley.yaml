@@ -31,7 +31,7 @@ daysToMaturity: { min: 60, max: 90 }
 varieties:
   - id: parsley-giant-of-italy
     name: Giant of Italy
-notes: Very slow to germinate; soaking seed overnight helps. Grows in part shade. It flowers and turns bitter in its second year, so most gardeners sow it fresh each year. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4.
+notes: Very slow to germinate; soaking seed overnight helps. Grows in part shade. It flowers and turns bitter in its second year, so most gardeners sow it fresh each year. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
 sources:
   - source: wikidata
     fields: [scientificName, family]
