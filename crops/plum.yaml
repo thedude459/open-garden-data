@@ -24,7 +24,7 @@ rootstocks:
         notes: The preferred rootstock for European plums in Alabama.
       - id: myrobalan
         name: Myrobalan
-        notes: A plum seedling rootstock, acceptable for European plums.
+        notes: A plum seedling rootstock for European plums, hardy to zone 3.
 cropCoefficients:
   initial: 0.45
   mid: 0.9

@@ -16,9 +16,13 @@ spacingCm:
   inRow: 120
   betweenRows: 270
 soilPh: { min: 6.0, max: 7.0 }
+cropCoefficients:
+  initial: 0.3
+  mid: 1.05
+  end: 0.5
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
-notes: A bush 1 to 1.5 m tall that stays productive for 20 years; self-fertile. Grows best with morning sun and afternoon shade and good air flow; heat above about 29 °C and strong sun scorch the leaves. Blooms very early, so avoid frost pockets. Values from Utah State and Minnesota extension guides.
+notes: A bush 1 to 1.5 m tall that stays productive for 20 years; self-fertile. Grows best with morning sun and afternoon shade and good air flow; heat above about 29 °C and strong sun scorch the leaves. Blooms very early, so avoid frost pockets. Values from Utah State and Minnesota extension guides; crop coefficients from FAO-56 Table 12 (berries, bushes).
 sources:
   - source: wikidata
     fields: [scientificName, family]

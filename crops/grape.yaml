@@ -1,0 +1,35 @@
+id: grape
+names:
+  en: Grape
+scientificName: Vitis
+wikidataId: Q191019
+family: vitaceae
+habit: vine
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 8 }
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 240
+  betweenRows: 300
+cropCoefficients:
+  initial: 0.3
+  mid: 0.85
+  end: 0.45
+windows:
+  transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: grape-concord
+    name: Concord
+  - id: grape-marquette
+    name: Marquette
+  - id: grape-bluebell
+    name: Bluebell
+notes: American and cold-hardy hybrid grapes for eating, juice, and wine; hardiness depends on the variety, from Marquette and Bluebell (zone 3 to 4) to Concord (zone 5). American varieties are the hardiest and most disease resistant; European wine grapes need milder winters. Needs a trellis and pruning every year. Values from Illinois, Minnesota, and Oregon State guides and the Fedco Trees catalog (2026); crop coefficients from FAO-56 Table 12 (table grapes).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

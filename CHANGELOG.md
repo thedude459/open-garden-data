@@ -21,6 +21,17 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Grape, hardy kiwi, and haskap:** grape covers American and cold-hardy
+  hybrid grapes (zones 3 to 8, with Concord, Marquette, and Bluebell), hardy
+  kiwi needs a male vine near the females, and haskap needs a second
+  variety. Values from Illinois, Minnesota, Oregon State, and Utah State
+  guides and the Fedco Trees catalog; crop coefficients from FAO-56
+  (table grapes, kiwi, and berry bushes); icons drawn to the style guide.
+  Three families join for them (Actinidiaceae, Caprifoliaceae, Vitaceae).
+- Red currant, gooseberry, and elderberry get FAO-56's berry-bush crop
+  coefficients, and the named apple, pear, cherry, and plum rootstocks get
+  hardiness zones from the Fedco Trees catalog; Antonovka joins as apple's
+  hardiest standard rootstock.
 - **Seven more fruits and nuts:** nectarine and sour cherry (trees), red
   currant, gooseberry, elderberry, and fig (shrubs), and hazelnut, with
   zones, spacing, pollination, and site advice from Utah State, Minnesota,

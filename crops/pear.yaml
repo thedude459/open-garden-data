@@ -62,7 +62,7 @@ rootstocks:
       - id: ohxf-97
         name: OHxF 97
         sizePercent: { min: 90, max: 100 }
-        notes: Vigorous, near seedling size but more uniform; winter hardy and well anchored, resists fire blight, and suits Asian pears.
+        notes: Vigorous, near seedling size but more uniform; winter hardy (zone 3 to 4) and well anchored, resists fire blight, and suits Asian pears.
       - id: calleryana
         name: Calleryana (Pyrus calleryana)
         notes: Preferred in the Southeast for European and Asian pears.

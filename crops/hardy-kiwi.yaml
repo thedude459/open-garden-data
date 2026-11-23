@@ -1,0 +1,33 @@
+id: hardy-kiwi
+names:
+  en: Hardy kiwi
+scientificName: Actinidia arguta
+wikidataId: Q848074
+family: actinidiaceae
+habit: vine
+use: fruit
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 4, max: 8 }
+sun: full
+water: moderate
+feeding: moderate
+spacingCm:
+  inRow: 300
+  betweenRows: 300
+cropCoefficients:
+  initial: 0.4
+  mid: 1.05
+  end: 1.05
+windows:
+  transplant: { frost: last, weeksEarliest: -2, weeksLatest: 2 }
+varieties:
+  - id: hardy-kiwi-anna
+    name: Anna (Ananasnaya)
+  - id: hardy-kiwi-issai
+    name: Issai
+notes: Kiwiberry, a vigorous vine up to 12 m long with smooth, grape-sized fruit. Plants are male or female, so plant a male within about 12 m of the females; only Issai sets some fruit alone. Needs a sturdy trellis. Hardy to about -23 to -32 °C, but late spring frost can kill new shoots. Values from Utah State extension and the Fedco Trees catalog (2026); crop coefficients from FAO-56 Table 12 (kiwi).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

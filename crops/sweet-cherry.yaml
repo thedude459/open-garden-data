@@ -60,7 +60,7 @@ rootstocks:
       - id: mazzard
         name: Mazzard
         sizePercent: { min: 100, max: 100 }
-        notes: Winter hardy, with good anchorage and wide soil tolerance given good drainage; not precocious.
+        notes: Winter hardy (zone 4), with good anchorage and wide soil tolerance given good drainage; not precocious.
       - id: mahaleb
         name: Mahaleb
         notes: Slightly dwarfing, drought tolerant, and winter hardy, but very sensitive to waterlogged soil. Some newer varieties, such as Chelan and Tieton, are incompatible with it.

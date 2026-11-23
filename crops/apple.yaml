@@ -25,7 +25,7 @@ rootstocks:
         name: Bud 9 (B.9)
         sizePercent: { min: 25, max: 45 }
         support: always
-        notes: Very winter hardy, with the least spring-frost bud loss in Virginia Tech trials. Prone to collar rot and replant disease, so plant it on well-drained, fresh ground.
+        notes: Very winter hardy (zone 4), with the least spring-frost bud loss in Virginia Tech trials. Prone to collar rot and replant disease, so plant it on well-drained, fresh ground.
       - id: m9
         name: M.9
         sizePercent: { min: 30, max: 50 }
@@ -40,7 +40,7 @@ rootstocks:
         name: G.11
         sizePercent: { min: 35, max: 50 }
         support: always
-        notes: Between M.9 and M.26 in size; winter hardy and resists fire blight and collar rot, but not woolly apple aphid.
+        notes: Between M.9 and M.26 in size; winter hardy (zone 4 to 5) and resists fire blight and collar rot, but not woolly apple aphid.
       - id: g16
         name: G.16
         sizePercent: { min: 35, max: 45 }
@@ -102,21 +102,26 @@ rootstocks:
         sizePercent: { min: 70, max: 90 }
         spacingCm: { inRow: 550, betweenRows: 790 }
         support: none
-        notes: Very cold hardy and the best semi-dwarf for heavy soil; tolerates drier soil and resists woolly apple aphid. Slow to come into bearing.
+        notes: Very cold hardy (zone 3 to 4) and the best semi-dwarf for heavy soil; tolerates drier soil and resists woolly apple aphid. Slow to come into bearing.
       - id: bud-118
         name: Bud 118 (B.118)
         sizePercent: { min: 75, max: 90 }
         support: none
-        notes: Extremely winter hardy, well anchored, and productive; suits spur-type varieties and poor soil.
+        notes: Extremely winter hardy (zone 3), well anchored, and productive; suits spur-type varieties and poor soil.
   standard:
     spacingCm: { inRow: 750, betweenRows: 900 }
     heightM: { min: 6, max: 9 }
     yearsToFruit: { min: 5, max: 8 }
     named:
+      - id: antonovka
+        name: Antonovka
+        sizePercent: { min: 100, max: 100 }
+        spacingCm: { inRow: 610, betweenRows: 910 }
+        notes: A hardy Russian seedling rootstock for full-size trees, rated to zone 3; the hardiest of the common apple rootstocks.
       - id: apple-seedling
         name: Seedling
         sizePercent: { min: 100, max: 100 }
-        notes: Grown from seed of a hardy variety; excellent hardiness, anchorage, and soil tolerance.
+        notes: Grown from seed of a hardy variety (zone 3); excellent hardiness, anchorage, and soil tolerance.
 soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45

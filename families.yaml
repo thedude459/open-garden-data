@@ -1,4 +1,7 @@
 # Botanical families, used for crop rotation. id: lower-case family name.
+- id: actinidiaceae
+  name: Actinidiaceae
+  commonName: Kiwi family (kiwi)
 - id: amaranthaceae
   name: Amaranthaceae
   commonName: Amaranth family (beet, chard, spinach)
@@ -23,6 +26,9 @@
 - id: brassicaceae
   name: Brassicaceae
   commonName: Cabbage family (cabbage, kale, broccoli, radish)
+- id: caprifoliaceae
+  name: Caprifoliaceae
+  commonName: Honeysuckle family (haskap)
 - id: convolvulaceae
   name: Convolvulaceae
   commonName: Morning glory family (sweet potato)
@@ -65,3 +71,6 @@
 - id: viburnaceae
   name: Viburnaceae
   commonName: Viburnum family (elderberry)
+- id: vitaceae
+  name: Vitaceae
+  commonName: Grape family (grape)
