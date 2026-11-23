@@ -34,6 +34,30 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### Improvements
 
+- **Crop coefficients for seven more crops:** kale, basil, cilantro, parsley,
+  oregano, thyme, and okra now have `cropCoefficients { initial, mid, end }`,
+  from the standard values in Table 7 of Pereira, Mota, Raziei, and Paredes
+  (2024), "Water requirements and crop coefficients of edible, spicy and
+  medicinal herbs and vegetables", _Irrigation Science_ 42:1199–1228
+  (doi:10.1007/s00271-024-00960-4), values unchanged, used under
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The review gives no stage
+  lengths, so none are set. Each
+  crop's `notes` cites the review.
+- **Crop coefficients from FAO-56's group values** for five crops FAO-56
+  does not list by name, as v0.2.1 did for the cane berries: rhubarb takes
+  the perennial vegetables with winter dormancy (0.5 / 1.00 / 0.80); chives
+  take green onions' mid and end with the small-vegetable initial value
+  (0.7 / 1.00 / 1.00); leek, Swiss chard, and dill take the small-vegetable
+  group (0.7 / 1.05 / 0.95). No stage lengths. Each crop's `notes` says so.
+  The companion flowers still have none.
+- **Calendula's soil temperature for sowing:** 16 °C (`minSoilTemperatureC`),
+  from UNH Extension's "How to grow calendula" (60 °F), so its sowing window
+  works where frost is rare; its `notes` cite the guide.
+- **Borage's soil temperature for sowing:** 10 °C, from the Ontario Ministry
+  of Agriculture's borage crop profile (above 10 °C at planting), in line
+  with a North Dakota State University germination study (9 °C minimum).
+  Sweet alyssum still has none: the figures found are seed companies'
+  germination optimums, not a minimum.
 - Release notes start with the Summary under a release titled with the
   version, and have a Documentation section for guide and install changes.
 

@@ -19,6 +19,10 @@ germinationDays: { min: 7, max: 14 }
 temperatureC: { min: 4, optimal: 18, max: 24 }
 minSoilTemperatureC: 7
 soilPh: { min: 6.0, max: 7.5 }
+cropCoefficients:
+  initial: 0.7
+  mid: 1.05
+  end: 0.95
 windows:
   indoorStart: { frost: last, weeksEarliest: -12, weeksLatest: -10 }
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
@@ -27,7 +31,7 @@ varieties:
   - id: leek-american-flag
     name: American Flag
     daysToMaturity: { min: 100, max: 120 }
-notes: Plant seedlings deep, or mound soil around the stems as they grow, to get long white shanks. Stands in the ground through frost for a late harvest.
+notes: Plant seedlings deep, or mound soil around the stems as they grow, to get long white shanks. Stands in the ground through frost for a late harvest. Crop coefficients are FAO-56 Table 12's small-vegetable group values; FAO-56 does not list leek.
 sources:
   - source: wikidata
     fields: [scientificName, family]

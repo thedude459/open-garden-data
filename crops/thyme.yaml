@@ -20,11 +20,15 @@ germinationDays: { min: 7, max: 21 }
 temperatureC: { min: 7, optimal: 21, max: 29 }
 minSoilTemperatureC: 13
 soilPh: { min: 6.0, max: 8.0 }
+cropCoefficients:
+  initial: 0.3
+  mid: 0.95
+  end: 0.8
 windows:
   indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
   transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
 daysToMaturity: { min: 60, max: 90 }
-notes: A small woody subshrub. Needs sharp drainage and dislikes wet winters more than cold ones. Trim after flowering to keep it bushy; replace plants that turn woody after a few years.
+notes: A small woody subshrub. Needs sharp drainage and dislikes wet winters more than cold ones. Trim after flowering to keep it bushy; replace plants that turn woody after a few years. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
 sources:
   - source: wikidata
     fields: [scientificName, family]
