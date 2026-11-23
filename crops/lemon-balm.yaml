@@ -1,0 +1,29 @@
+id: lemon-balm
+names:
+  en: Lemon balm
+scientificName: Melissa officinalis
+wikidataId: Q148396
+family: lamiaceae
+habit: herbaceous
+use: herb
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 3, max: 9 }
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 45
+  betweenRows: 45
+cropCoefficients:
+  initial: 0.6
+  mid: 1.05
+  end: 1.0
+windows:
+  indoorStart: { frost: last, weeksEarliest: -6, weeksLatest: -4 }
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+notes: A lemon-scented mint relative that forms large clumps and grows in sun or part shade. It self-sows freely, so cut off the flowers; cutting hard after flowering also brings fresh leaves. Seed is slow to germinate. Values from Wisconsin and Clemson extension guides. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

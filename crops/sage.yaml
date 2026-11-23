@@ -1,0 +1,27 @@
+id: sage
+names:
+  en: Sage
+scientificName: Salvia officinalis
+wikidataId: Q1111359
+family: lamiaceae
+habit: shrub
+use: herb
+lifeCycle: perennial
+frostTolerance: hardy
+hardinessZones: { min: 4, max: 10 }
+sun: full
+water: low
+feeding: light
+spacingCm:
+  inRow: 60
+  betweenRows: 60
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  directSow: { frost: last, weeksEarliest: 0, weeksLatest: 1 }
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+daysToMaturity: { min: 75, max: 75 }
+notes: A woody, short-lived perennial; replace plants every few years as they turn leggy. Needs excellent drainage and tolerates drought. Cut it back in spring and through summer for fresh shoots, never more than half the plant at once. Days to maturity are to the first harvest. Values from Wisconsin, Clemson, Missouri, and Texas A&M extension guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

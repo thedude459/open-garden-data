@@ -40,11 +40,21 @@ For this repository:
      temperature (only seed-company germination optimums). The completeness
      report lists the rest.
 6. **Next: v0.3**, about 150 crops and [pests and diseases, organized for
-   integrated pest management](#pests-and-diseases-ipm), in parallel with
-   the app's test and CI fixes, account basics, and remaining care
-   features. The app's light catalog query lands first, so the larger
-   catalog stays fast. `icons/library/` already holds icons for many of the
-   crops to come.
+   integrated pest management](#pests-and-diseases-ipm), in small releases
+   like v0.2, each crop's values from extension guides named in its notes:
+   - **In progress, v0.3.0:** vegetables and herbs first. Kohlrabi, turnip,
+     rutabaga, collards, lima bean, edamame, tomatillo, arugula, bok choy,
+     mustard greens, Florence fennel, lemon balm, lavender, rosemary, sage,
+     and sweet marjoram are under **Unreleased**.
+   - **v0.3.1:** shallot, bunching onion, fava bean, and chamomile, which
+     still need a source for frost-anchored windows (and for bunching onion,
+     hardiness zones), plus the next vegetables and herbs.
+   - **v0.3.2:** fruit and nut trees with
+     [named rootstocks](#schema-changes-planned), cane fruit, and soft fruit,
+     for the app's orchard and bramble areas.
+   - **v0.3.3:** `pests.yaml` and the first pests and diseases.
+   - Then more crops in batches toward about 150. `icons/library/` already
+     holds icons for many of them.
 7. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
    soil texture, and nutrient recommendations by soil-test level, so the app
    can turn a bed's soil test into advice.
@@ -311,3 +321,5 @@ chosen. Size is a rough guess: S is under a day, M a few days, L longer.
 | **Data:** a `successionDays` per crop: how often to resow it for a steady harvest (radish and leaf lettuce about 7 days, bush beans 10, carrots 21)         | Open Garden's succession planting (its ADR 0037) defaults to two weeks for every crop. Extension tables vary by crop, but the one found (Kentucky's) credits Johnny's Seeds, so the values need an open source first | S    |
 | **Data:** `stageDays` for kale, basil, cilantro, parsley, oregano, thyme, and okra                                                                          | Their crop coefficients (Pereira et al. 2024) come without growth-stage lengths, so apps use one Kc curve shape for them; field studies in that review give stage lengths for some sites                             | S    |
 | **Data:** crop-specific coefficients for leek, Swiss chard, dill, and chives from Geisenheim's irrigation scheduling tables, if they use FAO-56's reference | Those four use FAO-56 group values today; Geisenheim publishes measured values for German vegetable crops                                                                                                            | S    |
+| **Data:** a `references` list per crop (title and URL of each extension guide used)                                                                         | New crops name their guides in `notes`, which apps show as prose and which runs into the 500-character limit; a field keeps citations as data and lets the validator check them                                      | S    |
+| **Pipeline:** use Penn State's York County seed-planting guide as a frost-anchored cross-check                                                              | It gives earliest and latest sowing dates against a stated last frost (May 1) and first frost (October 1), so its dates convert directly to `weeksEarliest`/`weeksLatest` for many crops                             | S    |

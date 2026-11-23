@@ -1,0 +1,31 @@
+id: tomatillo
+names:
+  en: Tomatillo
+scientificName: Physalis philadelphica
+wikidataId: Q622525
+family: solanaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 60
+  betweenRows: 90
+sowingDepthCm: 1.3
+minSoilTemperatureC: 16
+cropCoefficients:
+  initial: 0.6
+  mid: 1.15
+  end: 0.8
+windows:
+  indoorStart: { frost: last, weeksEarliest: -8, weeksLatest: -6 }
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+daysToMaturity: { min: 60, max: 75 }
+notes: Plant at least two, since one plant does not set fruit on its own. Sprawls and keeps fruiting until frost; a stake or cage keeps the husked fruit off the ground. Too much fertilizer gives leaves instead of fruit. Days to maturity are from transplanting. Values from Utah State extension. Crop coefficients are FAO-56 Table 12's values for the tomato family (Solanaceae); FAO-56 does not list tomatillo.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

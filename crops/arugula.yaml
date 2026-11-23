@@ -1,0 +1,30 @@
+id: arugula
+names:
+  en: Arugula
+scientificName: Eruca vesicaria
+wikidataId: Q5395935
+family: brassicaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: hardy
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 20
+  betweenRows: 40
+sowingDepthCm: 0.6
+cropCoefficients:
+  initial: 0.7
+  mid: 1.0
+  end: 1.0
+windows:
+  directSow: { frost: last, weeksEarliest: -4, weeksLatest: 6 }
+  fallSow: { frost: first, weeksEarliest: -12, weeksLatest: -4 }
+daysToMaturity: { min: 25, max: 45 }
+notes: Fast and frost tolerant. Sow every two to three weeks for a steady supply, and cut leaves young; older leaves grow strong and bitter. Heat above about 27 °C and dry soil make it bolt, so light shade helps in summer. Values from Wisconsin, Utah State, Clemson, and Maryland extension guides. Crop coefficients from Pereira et al. (2024), Irrigation Science 42:1199–1228, doi:10.1007/s00271-024-00960-4 (CC BY 4.0).
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

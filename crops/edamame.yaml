@@ -1,0 +1,27 @@
+id: edamame
+names:
+  en: Edamame
+scientificName: Glycine max
+wikidataId: Q11006
+family: fabaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: tender
+sun: full
+water: moderate
+feeding: light
+spacingCm:
+  inRow: 10
+  betweenRows: 40
+sowingDepthCm: 2.5
+minSoilTemperatureC: 16
+soilPh: { min: 5.8, max: 6.8 }
+windows:
+  directSow: { frost: last, weeksEarliest: 3, weeksLatest: 7 }
+daysToMaturity: { min: 70, max: 90 }
+notes: Vegetable soybean, picked while the pods are plump and still green. Bushes stand 35 to 60 cm and need no support. Plants flower as days shorten, so sowing one variety again later does not spread the harvest; sow early and late varieties together instead. Values from Utah State and Penn State extension guides.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

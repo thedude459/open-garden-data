@@ -1,0 +1,34 @@
+id: florence-fennel
+names:
+  en: Florence fennel
+scientificName: Foeniculum vulgare var. azoricum
+wikidataId: Q41777547
+family: apiaceae
+habit: herbaceous
+use: vegetable
+lifeCycle: annual
+frostTolerance: half-hardy
+sun: full
+water: high
+feeding: moderate
+spacingCm:
+  inRow: 25
+  betweenRows: 45
+sowingDepthCm: 0.6
+germinationDays: { min: 7, max: 10 }
+minSoilTemperatureC: 10
+soilPh: { min: 6.5, max: 8.0 }
+cropCoefficients:
+  initial: 0.7
+  mid: 1.05
+  end: 0.95
+windows:
+  indoorStart: { frost: last, weeksEarliest: -6, weeksLatest: -4 }
+  directSow: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+  transplant: { frost: last, weeksEarliest: 0, weeksLatest: 2 }
+daysToMaturity: { min: 60, max: 90 }
+notes: The bulbing fennel, not the seed fennel grown as an herb. Keep the soil evenly moist; drought, root damage, long days, and heat make it bolt, so pick a slow-bolting variety and time it to mature in cool weather. Sow a short row every three to four weeks for a steady supply. Values from Utah State extension. Crop coefficients are FAO-56 Table 12's small-vegetable group values; FAO-56 does not list fennel.
+sources:
+  - source: wikidata
+    fields: [scientificName, family]
+  - source: hand-curation

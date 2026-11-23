@@ -21,6 +21,21 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Sixteen crops:** the vegetables kohlrabi, turnip, rutabaga, collards,
+  lima bean, edamame, tomatillo, arugula, bok choy, mustard greens, and
+  Florence fennel, and the herbs lemon balm, lavender, rosemary, sage, and
+  sweet marjoram. Each has spacing and sowing windows, and where a guide
+  gives them soil pH, a sowing soil temperature, and hardiness zones. Values
+  come from extension guides (Utah State, Minnesota, Colorado State, Penn
+  State, Clemson, Wisconsin, Oregon State, Maine, Maryland, Missouri, Texas
+  A&M, Illinois, and Florida), named in each crop's `notes`. Crop
+  coefficients come from Pereira et al. (2024) for collards, lima bean,
+  arugula, bok choy, lemon balm, lavender, and rosemary; from FAO-56 for
+  turnip and rutabaga; and from FAO-56's group values for kohlrabi, mustard
+  greens, Florence fennel, and tomatillo. Edamame, sage, and marjoram have
+  none: FAO-56's soybean values are for a dry-seed harvest, and no open
+  source covers the two herbs. Icons come from `icons/library/`.
+
 ### Improvements
 
 ### Bug fixes
