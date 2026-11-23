@@ -39,7 +39,7 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   from the standard values in Table 7 of Pereira, Mota, Raziei, and Paredes
   (2024), "Water requirements and crop coefficients of edible, spicy and
   medicinal herbs and vegetables", _Irrigation Science_ 42:1199–1228
-  (doi:10.1007/s00271-024-00960-4), Table 7, values unchanged, used under
+  (doi:10.1007/s00271-024-00960-4), values unchanged, used under
   [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The review gives no stage
   lengths, so none are set. Each
   crop's `notes` cites the review. Still without values: chives, dill, leek,
