@@ -21,6 +21,10 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Shallot**, from Utah State and Washington State guides, with FAO-56's
+  dry-onion crop coefficients. The guides say only to plant sets as soon as
+  the soil can be worked; its window assumes two to four weeks before the
+  last frost, as for onion sets, and its `notes` say so.
 - **Sixteen crops:** the vegetables kohlrabi, turnip, rutabaga, collards,
   lima bean, edamame, tomatillo, arugula, bok choy, mustard greens, and
   Florence fennel, and the herbs lemon balm, lavender, rosemary, sage, and
@@ -37,6 +41,10 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   source covers the two herbs. Icons come from `icons/library/`.
 
 ### Improvements
+
+- Bok choy has days to maturity (30 to 50), and mustard greens' `notes`
+  give the spacing for full-size plants, from Washington State's
+  _Home Vegetable Gardening in Washington_ (EM057E).
 
 ### Bug fixes
 
