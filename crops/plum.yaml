@@ -25,13 +25,27 @@ rootstocks:
       - id: myrobalan
         name: Myrobalan
         notes: A plum seedling rootstock for European plums, hardy to zone 3.
+soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45
   mid: 0.9
   end: 0.65
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
-notes: European plum. Many are self-fruitful but bear more with a second European variety nearby. Japanese plums (zones 5 to 9) need a Japanese or American plum to pollinate them, as European plum pollen does not work. Poor in wet or heavy soil. Values from Utah State and Alabama extension guides; crop coefficients from FAO-56 Table 12 (stone fruit).
+varieties:
+  - id: plum-stanley
+    name: Stanley
+    notes: A European plum that grows well in New Hampshire.
+  - id: plum-early-italian
+    name: Early Italian
+    notes: A European plum that grows well in New Hampshire.
+  - id: plum-green-gage
+    name: Green Gage
+    notes: A European plum that grows well in New Hampshire.
+  - id: plum-castleton
+    name: Castleton
+    notes: A European plum that grows well in New Hampshire.
+notes: European plum. Many are self-fruitful but bear more with a second European variety nearby. Japanese plums (zones 5 to 9) need a Japanese or American plum to pollinate them, as European plum pollen does not work. Poor in wet or heavy soil. Values from Utah State, Alabama, and New Hampshire extension guides; crop coefficients from FAO-56 Table 12 (stone fruit).
 sources:
   - source: wikidata
     fields: [scientificName, family]

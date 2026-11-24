@@ -21,6 +21,16 @@ cropCoefficients:
   end: 0.5
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: haskap-tundra
+    name: Tundra
+    notes: Firm, fairly large fruit; resists powdery mildew.
+  - id: haskap-borealis
+    name: Borealis
+    notes: About 1.2 m tall, with large, very good-tasting fruit; suits a home garden.
+  - id: haskap-indigo-gem
+    name: Indigo Gem
+    notes: Heavy crops of smaller, tangier fruit; somewhat prone to powdery mildew.
 notes: Honeyberry, an extremely hardy shrub up to 1.8 m that lives about 30 years and ripens blue berries early in summer. Needs an unrelated variety that blooms at the same time for pollination. Above zone 6 it suffers leaf scorch, mildew, and early leaf drop. Values from Utah State extension; crop coefficients from FAO-56 Table 12 (berries, bushes).
 sources:
   - source: wikidata

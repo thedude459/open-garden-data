@@ -21,6 +21,24 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Keep berries away from the tomato family:** 16 companion pairs warn
+  against planting strawberries, raspberries, or blackberries beside or
+  after tomatoes, potatoes, eggplant, or peppers (and raspberries after
+  strawberries), which carry Verticillium wilt in the soil. From Utah
+  State, Penn State, and Illinois extension guides.
+- **Varieties for thirteen fruits and nuts**, as named in extension
+  guides: almond, apricot, aronia, Asian pear, elderberry, fig, gooseberry,
+  haskap, pawpaw, American persimmon, plum, red currant, and sour cherry
+  (for example Montmorency and North Star, Hosui and Shinseiki, Poorman and
+  Invicta). Sources: Utah State, New Hampshire, Penn State, Minnesota,
+  North Carolina State, and Alabama.
+- **Soil pH for twelve fruits**, so soil tests give advice for them:
+  plum, apricot, and sour cherry (6.0 to 7.0, New Hampshire), nectarine
+  and Asian pear (6.0 to 6.5, Penn State), fig (6.0 to 6.5, North Carolina
+  State), pawpaw (5.5 to 6.5, Missouri), American persimmon (4.4 to 7.0,
+  Mississippi State), aronia (5.1 to 6.5, Minnesota), hardy kiwi (5.6 to
+  6.5, Oregon State), elderberry (5.5 to 7.0, Utah State), and grape (5.5
+  to 7.0, Penn State). Almond, haskap, and hazelnut wait for a source.
 - **Pawpaw, American persimmon, and aronia:** native fruits, with zones,
   spacing, and pollination from Clemson, Maryland, Penn State, Illinois,
   Minnesota, Missouri, Oregon State, and North Carolina State guides, and
