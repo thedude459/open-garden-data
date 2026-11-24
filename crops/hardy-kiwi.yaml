@@ -15,6 +15,7 @@ feeding: moderate
 spacingCm:
   inRow: 300
   betweenRows: 300
+soilPh: { min: 5.6, max: 6.5 }
 cropCoefficients:
   initial: 0.4
   mid: 1.05
@@ -26,7 +27,7 @@ varieties:
     name: Anna (Ananasnaya)
   - id: hardy-kiwi-issai
     name: Issai
-notes: Kiwiberry, a vigorous vine up to 12 m long with smooth, grape-sized fruit. Plants are male or female, so plant a male within about 12 m of the females; only Issai sets some fruit alone. Needs a sturdy trellis. Hardy to about -23 to -32 °C, but late spring frost can kill new shoots. Values from Utah State extension and the Fedco Trees catalog (2026); crop coefficients from FAO-56 Table 12 (kiwi).
+notes: Kiwiberry, a vigorous vine up to 12 m long with smooth, grape-sized fruit. Plants are male or female, so plant a male within about 12 m of the females; only Issai sets some fruit alone. Needs a sturdy trellis. Hardy to about -23 to -32 °C, but late spring frost can kill new shoots. Values from Utah State and Oregon State extension and the Fedco Trees catalog (2026); crop coefficients from FAO-56 Table 12 (kiwi).
 sources:
   - source: wikidata
     fields: [scientificName, family]

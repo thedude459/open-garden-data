@@ -15,6 +15,7 @@ feeding: light
 spacingCm:
   inRow: 300
   betweenRows: 460
+soilPh: { min: 6.0, max: 6.5 }
 windows:
   transplant: { frost: last, weeksEarliest: 0, weeksLatest: 4 }
 notes: Grown as a bush or small tree. Choose a variety that sets fruit without pollination, such as Celeste, Brown Turkey, or Marseilles. Temperatures near -18 °C kill parts of the plant, so give it a sunny, sheltered spot; it starts bearing in about five or six years. Values from North Carolina State, Georgia, and Oregon State guides.
