@@ -347,3 +347,160 @@
       zones: { min: 7, max: 9 }
   reference: Clemson
   source: hand-curation
+
+# Verticillium wilt: tomato-family crops leave it in the soil for fruit that follows
+- crops: [strawberry, tomato]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Do not plant strawberries where this crop grew recently, or next to it.
+  shownIn:
+    - where: Utah, USA
+    - where: Pennsylvania, USA
+  reference: Utah State University Extension, "How to Grow Strawberries in Your Garden"; Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  source: hand-curation
+- crops: [strawberry, potato]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Do not plant strawberries where this crop grew recently, or next to it.
+  shownIn:
+    - where: Utah, USA
+    - where: Pennsylvania, USA
+  reference: Utah State University Extension, "How to Grow Strawberries in Your Garden"; Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  source: hand-curation
+- crops: [strawberry, eggplant]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Do not plant strawberries where this crop grew recently, or next to it.
+  shownIn:
+    - where: Utah, USA
+    - where: Pennsylvania, USA
+  reference: Utah State University Extension, "How to Grow Strawberries in Your Garden"; Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  source: hand-curation
+- crops: [strawberry, sweet-pepper]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Do not plant strawberries where this crop grew recently, or next to it.
+  shownIn:
+    - where: Utah, USA
+    - where: Pennsylvania, USA
+  reference: Utah State University Extension, "How to Grow Strawberries in Your Garden"; Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  source: hand-curation
+- crops: [strawberry, hot-pepper]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Do not plant strawberries where this crop grew recently, or next to it.
+  shownIn:
+    - where: Utah, USA
+    - where: Pennsylvania, USA
+  reference: Utah State University Extension, "How to Grow Strawberries in Your Garden"; Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  source: hand-curation
+- crops: [raspberry, tomato]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant raspberries where this crop has not grown for four or five years, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+    - where: Illinois, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  source: hand-curation
+- crops: [raspberry, potato]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant raspberries where this crop has not grown for four or five years, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+    - where: Illinois, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  source: hand-curation
+- crops: [raspberry, eggplant]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant raspberries where this crop has not grown for four or five years, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+    - where: Illinois, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  source: hand-curation
+- crops: [raspberry, sweet-pepper]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant raspberries where this crop has not grown for four or five years, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+    - where: Illinois, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  source: hand-curation
+- crops: [raspberry, hot-pepper]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant raspberries where this crop has not grown for four or five years, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+    - where: Illinois, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  source: hand-curation
+- crops: [raspberry, strawberry]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant raspberries where this crop has not grown for four or five years, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+    - where: Illinois, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  source: hand-curation
+- crops: [blackberry, tomato]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant blackberries where this crop has not grown recently, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  source: hand-curation
+- crops: [blackberry, potato]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant blackberries where this crop has not grown recently, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  source: hand-curation
+- crops: [blackberry, eggplant]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant blackberries where this crop has not grown recently, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  source: hand-curation
+- crops: [blackberry, sweet-pepper]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant blackberries where this crop has not grown recently, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  source: hand-curation
+- crops: [blackberry, hot-pepper]
+  kind: hinders
+  benefits: [shares-pests]
+  evidence: extension
+  reason: Both get Verticillium wilt, which stays in the soil for years. Plant blackberries where this crop has not grown recently, and not beside it.
+  shownIn:
+    - where: Pennsylvania, USA
+  reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  source: hand-curation

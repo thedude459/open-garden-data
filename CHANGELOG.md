@@ -21,6 +21,11 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Keep berries away from the tomato family:** 16 companion pairs warn
+  against planting strawberries, raspberries, or blackberries beside or
+  after tomatoes, potatoes, eggplant, or peppers (and raspberries after
+  strawberries), which carry Verticillium wilt in the soil. From Utah
+  State, Penn State, and Illinois extension guides.
 - **Varieties for thirteen fruits and nuts**, as named in extension
   guides: almond, apricot, aronia, Asian pear, elderberry, fig, gooseberry,
   haskap, pawpaw, American persimmon, plum, red currant, and sour cherry
