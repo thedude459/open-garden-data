@@ -18,6 +18,16 @@ spacingCm:
 soilPh: { min: 6.0, max: 6.5 }
 windows:
   transplant: { frost: last, weeksEarliest: 0, weeksLatest: 4 }
+varieties:
+  - id: fig-celeste
+    name: Celeste
+    notes: Fairly hardy; small violet-brown fruit with pink pulp, ripening from mid-July in North Carolina.
+  - id: fig-brown-turkey
+    name: Brown Turkey
+    notes: Also sold as Texas Everbearing. Medium to large coppery fruit; regrows and fruits on suckers after a freeze.
+  - id: fig-brunswick
+    name: Brunswick
+    notes: Also called Magnolia. Large fruit that splits in hot, humid weather, so best for preserves; fairly cold hardy.
 notes: Grown as a bush or small tree. Choose a variety that sets fruit without pollination, such as Celeste, Brown Turkey, or Marseilles. Temperatures near -18 °C kill parts of the plant, so give it a sunny, sheltered spot; it starts bearing in about five or six years. Values from North Carolina State, Georgia, and Oregon State guides.
 sources:
   - source: wikidata

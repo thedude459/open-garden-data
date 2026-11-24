@@ -22,6 +22,19 @@ cropCoefficients:
   end: 0.5
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: gooseberry-poorman
+    name: Poorman
+    notes: An American type, very productive and very cold hardy, with medium red fruit; resists powdery mildew.
+  - id: gooseberry-hinnomaki-red
+    name: Hinnomaki Red
+    notes: Sweet berries with tart skins; resists powdery mildew and may fruit the year it is planted.
+  - id: gooseberry-invicta
+    name: Invicta
+    notes: A European type with heavy crops of large green berries on very spiny bushes; resists powdery mildew.
+  - id: gooseberry-captivator
+    name: Captivator
+    notes: Large, sweet, reddish fruit on tall bushes with few spines; resists powdery mildew.
 notes: A thorny bush 1 to 1.5 m tall and wide; self-fertile, so one plant bears. Needs at least 1,000 hours of winter chill and does best with some shade in the hottest part of the day. Fruits on one-year-old wood and older spurs. Values from Utah State and Minnesota extension guides; crop coefficients from FAO-56 Table 12 (berries, bushes).
 sources:
   - source: wikidata

@@ -22,6 +22,13 @@ cropCoefficients:
   end: 0.5
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: aronia-viking
+    name: Viking
+    notes: Large, abundant fruit clusters and fall color.
+  - id: aronia-autumn-magic
+    name: Autumn Magic
+    notes: Compact, with large, abundant fruit clusters and fall color.
 notes: Black chokeberry, a native shrub that spreads to 2 to 3 m across, with tart, dark berries for juice and jam. Self-compatible, though a second variety can improve fruit set. Fruits best in full sun. Values from Illinois, Minnesota, and Oregon State guides; crop coefficients from FAO-56 Table 12 (berries, bushes).
 sources:
   - source: wikidata

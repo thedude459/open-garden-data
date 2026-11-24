@@ -21,6 +21,12 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Varieties for thirteen fruits and nuts**, as named in extension
+  guides: almond, apricot, aronia, Asian pear, elderberry, fig, gooseberry,
+  haskap, pawpaw, American persimmon, plum, red currant, and sour cherry
+  (for example Montmorency and North Star, Hosui and Shinseiki, Poorman and
+  Invicta). Sources: Utah State, New Hampshire, Penn State, Minnesota,
+  North Carolina State, and Alabama.
 - **Soil pH for twelve fruits**, so soil tests give advice for them:
   plum, apricot, and sour cherry (6.0 to 7.0, New Hampshire), nectarine
   and Asian pear (6.0 to 6.5, Penn State), fig (6.0 to 6.5, North Carolina

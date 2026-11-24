@@ -22,6 +22,16 @@ cropCoefficients:
   end: 0.5
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: elderberry-wyldewood
+    name: Wyldewood
+    notes: Selected in Missouri; fairly tolerant of alkaline soil, with large clusters of medium to large berries.
+  - id: elderberry-adams-2
+    name: Adams 2
+    notes: Tolerates alkaline soil; medium berries in large clusters.
+  - id: elderberry-york
+    name: York
+    notes: An older variety with the largest berries of the American kinds; ripens early.
 notes: American elderberry, a large shrub 2 to 2.5 m tall and wide. Only partly self-fruitful, so plant two varieties for good crops. Tolerates some shade but fruits best in full sun; prune every year. In zone 3 it survives but may not ripen. Values from Utah State, Minnesota, and Wisconsin extension guides; crop coefficients from FAO-56 Table 12 (berries, bushes).
 sources:
   - source: wikidata

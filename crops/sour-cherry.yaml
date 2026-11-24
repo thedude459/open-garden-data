@@ -30,6 +30,16 @@ cropCoefficients:
   end: 0.7
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: sour-cherry-montmorency
+    name: Montmorency
+    notes: The standard tart cherry.
+  - id: sour-cherry-north-star
+    name: North Star
+    notes: Naturally dwarf, so it suits a home orchard.
+  - id: sour-cherry-meteor
+    name: Meteor
+    notes: Naturally dwarf, so it suits a home orchard.
 notes: Tart or pie cherry, such as Montmorency. Self-fruitful, so one tree is enough, and hardier than sweet cherry. Sweet and sour cherries cannot pollinate each other. Compact varieties such as North Star stay near 3 m. Values from Penn State, Oregon State, Illinois, Minnesota, and New Hampshire extension guides; crop coefficients from FAO-56 Table 12 (cherries).
 sources:
   - source: wikidata

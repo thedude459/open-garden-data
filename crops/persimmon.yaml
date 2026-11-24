@@ -21,6 +21,13 @@ rootstocks:
 soilPh: { min: 4.4, max: 7.0 }
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: persimmon-prok
+    name: Prok
+    notes: Grafted and self-pollinating, with large crops of sweet fruit from mid-September.
+  - id: persimmon-yates
+    name: Yates
+    notes: Grafted and self-pollinating; fast-growing, with sweet fruit ripening in early September.
 notes: A native fruit tree hardy to zone 5. Sources differ on pollination; some named varieties bear alone, but planting two trees gives the most reliable crop. Fruit ripens late in fall and is astringent until fully soft. Asian persimmons are less hardy, surviving only to about -12 °C. Values from Illinois, Oregon State, Penn State, Missouri, North Carolina State, and Mississippi State guides.
 sources:
   - source: wikidata

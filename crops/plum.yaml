@@ -32,6 +32,19 @@ cropCoefficients:
   end: 0.65
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
+varieties:
+  - id: plum-stanley
+    name: Stanley
+    notes: A European plum that grows well in New Hampshire.
+  - id: plum-early-italian
+    name: Early Italian
+    notes: A European plum that grows well in New Hampshire.
+  - id: plum-green-gage
+    name: Green Gage
+    notes: A European plum that grows well in New Hampshire.
+  - id: plum-castleton
+    name: Castleton
+    notes: A European plum that grows well in New Hampshire.
 notes: European plum. Many are self-fruitful but bear more with a second European variety nearby. Japanese plums (zones 5 to 9) need a Japanese or American plum to pollinate them, as European plum pollen does not work. Poor in wet or heavy soil. Values from Utah State, Alabama, and New Hampshire extension guides; crop coefficients from FAO-56 Table 12 (stone fruit).
 sources:
   - source: wikidata
