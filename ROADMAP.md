@@ -52,7 +52,7 @@ For this repository:
      elderberry, fig, hazelnut, grape, hardy kiwi, haskap, pawpaw, American
      persimmon, and aronia are under **Unreleased**; quince, mulberry, and
      serviceberry wait for sources), cane fruit, and soft fruit,
-     for the app's orchard and bramble areas.
+     for the app's fruit gardens.
    - **v0.3.2:** `pests.yaml` and the first pests and diseases.
    - Then more crops in batches toward about 150. `icons/library/` already
      holds icons for many of them.
@@ -68,7 +68,7 @@ For this repository:
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | **v0.1**  | Schema v1 and the [first 50 crops](#v01-the-first-50-crops), each with family, habit, use, spacing, and sowing windows                                                                                                           | The catalog importer, sowing calendars, crop rotation by family, and typed areas (habit and use decide what an area accepts)                    |
 | **v0.2**  | Companion pairs, each with benefits, an evidence level, a reason, and a source; the [companion plants they need](#v02-companion-plants-first) as crops; hot pepper; fall sowing windows; `soilPh` and crop coefficients per crop | Companion advice from data instead of only household-entered pairs, fall crops in the calendar, soil-test advice, and watering by water balance |
-| **v0.3**  | About 150 crops: more vegetables and herbs, fruit and nut trees (with [named rootstocks](#schema-changes-planned)), cane fruit, and soft fruit; [common pests and diseases](#pests-and-diseases) linked to crops and companions  | Orchard and bramble areas with real plants, a catalog broad enough for most home gardens, and pest advice on plant pages                        |
+| **v0.3**  | About 150 crops: more vegetables and herbs, fruit and nut trees (with [named rootstocks](#schema-changes-planned)), cane fruit, and soft fruit; [common pests and diseases](#pests-and-diseases) linked to crops and companions  | Fruit gardens with real plants, a catalog broad enough for most home gardens, and pest advice on plant pages                                    |
 | **Later** | Wet and dry seasons; names in other languages as they are contributed                                                                                                                                                            | Worldwide climate support and a localized catalog                                                                                               |
 
 A release is a tag (`v0.1.0`); pushing it publishes the GitHub Release with
