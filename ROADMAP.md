@@ -50,9 +50,14 @@ For this repository:
      apple, pear, sweet cherry, and peach, and apricot, plum, almond,
      Asian pear, nectarine, sour cherry, red currant, gooseberry,
      elderberry, fig, hazelnut, grape, hardy kiwi, haskap, pawpaw, American
-     persimmon, and aronia are under **Unreleased**; quince, mulberry, and
-     serviceberry wait for sources), cane fruit, and soft fruit,
-     for the app's fruit gardens.
+     persimmon, and aronia are under **Unreleased**, with soil pH,
+     varieties, and Verticillium warnings for berries; quince, mulberry,
+     and serviceberry wait for sources), cane fruit, and soft fruit,
+     for the app's fruit gardens. Still waiting for a source: soil pH for
+     almond, haskap, and hazelnut; varieties for nectarine and American
+     hazelnut; crop coefficients for fig, hazelnut, pawpaw, and persimmon,
+     which FAO-56 Table 12 does not list (research gives only monthly or
+     transpiration-only values).
    - **v0.3.2:** `pests.yaml` and the first pests and diseases.
    - Then more crops in batches toward about 150. `icons/library/` already
      holds icons for many of them.
