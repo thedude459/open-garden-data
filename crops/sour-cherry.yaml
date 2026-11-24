@@ -23,13 +23,14 @@ rootstocks:
       - id: mahaleb
         name: Mahaleb
         notes: The usual rootstock for standard sour cherries; Gisela semi-dwarfs are becoming common.
+soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45
   mid: 0.95
   end: 0.7
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
-notes: Tart or pie cherry, such as Montmorency. Self-fruitful, so one tree is enough, and hardier than sweet cherry. Sweet and sour cherries cannot pollinate each other. Compact varieties such as North Star stay near 3 m. Values from Penn State, Oregon State, Illinois, and Minnesota extension guides; crop coefficients from FAO-56 Table 12 (cherries).
+notes: Tart or pie cherry, such as Montmorency. Self-fruitful, so one tree is enough, and hardier than sweet cherry. Sweet and sour cherries cannot pollinate each other. Compact varieties such as North Star stay near 3 m. Values from Penn State, Oregon State, Illinois, Minnesota, and New Hampshire extension guides; crop coefficients from FAO-56 Table 12 (cherries).
 sources:
   - source: wikidata
     fields: [scientificName, family]

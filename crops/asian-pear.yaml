@@ -25,13 +25,14 @@ rootstocks:
       - id: betulifolia
         name: Betulifolia (Pyrus betulifolia)
         notes: Takes every Asian pear variety; vigorous and tolerates heavy, wet soil.
+soilPh: { min: 6.0, max: 6.5 }
 cropCoefficients:
   initial: 0.45
   mid: 0.95
   end: 0.7
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
-notes: Partly self-fruitful, but crops much better with two or more varieties planted together. About as winter hardy as Bosc pear, to roughly -29 °C, though less hardy than Bartlett. The crisp fruit has tender skin that bruises easily. European pear rootstocks such as OHxF 87 and 97 also take it and dwarf it somewhat. Values from University of California, North Carolina State, and Georgia extension guides; crop coefficients from FAO-56 Table 12 (pears).
+notes: Partly self-fruitful, but crops much better with two or more varieties planted together. About as winter hardy as Bosc pear, to roughly -29 °C, though less hardy than Bartlett. The crisp fruit has tender skin that bruises easily. European pear rootstocks such as OHxF 87 and 97 also take it and dwarf it somewhat. Values from University of California, North Carolina State, Georgia, and Penn State extension guides; crop coefficients from FAO-56 Table 12 (pears).
 sources:
   - source: wikidata
     fields: [scientificName, family]

@@ -18,9 +18,10 @@ spacingCm:
 rootstocks:
   standard:
     spacingCm: { inRow: 300, betweenRows: 300 }
+soilPh: { min: 5.5, max: 6.5 }
 windows:
   transplant: { frost: last, weeksEarliest: -2, weeksLatest: 2 }
-notes: A native understory tree up to about 9 m in full sun. Not self-pollinating, so plant two unrelated trees within about 9 m of each other; hand pollination helps where pollinators are scarce. Young own-root plants need shade to establish, and it suckers into a patch. Grafted trees bear in a few years, seedlings in up to 10. Values from Clemson, Maryland, Penn State, Illinois, and North Carolina State guides.
+notes: A native understory tree up to about 9 m in full sun. Not self-pollinating, so plant two unrelated trees within about 9 m of each other; hand pollination helps where pollinators are scarce. Young own-root plants need shade to establish, and it suckers into a patch. Grafted trees bear in a few years, seedlings in up to 10. Values from Clemson, Maryland, Penn State, Illinois, Missouri, and North Carolina State guides.
 sources:
   - source: wikidata
     fields: [scientificName, family]

@@ -21,10 +21,13 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
-- **Soil pH for five fruits**, so soil tests give advice for them: fig
-  (6.0 to 6.5, North Carolina State), aronia (5.1 to 6.5, Minnesota),
-  hardy kiwi (5.6 to 6.5, Oregon State), elderberry (5.5 to 7.0, Utah
-  State), and grape (5.5 to 7.0, Penn State).
+- **Soil pH for twelve fruits**, so soil tests give advice for them:
+  plum, apricot, and sour cherry (6.0 to 7.0, New Hampshire), nectarine
+  and Asian pear (6.0 to 6.5, Penn State), fig (6.0 to 6.5, North Carolina
+  State), pawpaw (5.5 to 6.5, Missouri), American persimmon (4.4 to 7.0,
+  Mississippi State), aronia (5.1 to 6.5, Minnesota), hardy kiwi (5.6 to
+  6.5, Oregon State), elderberry (5.5 to 7.0, Utah State), and grape (5.5
+  to 7.0, Penn State). Almond, haskap, and hazelnut wait for a source.
 - **Pawpaw, American persimmon, and aronia:** native fruits, with zones,
   spacing, and pollination from Clemson, Maryland, Penn State, Illinois,
   Minnesota, Missouri, Oregon State, and North Carolina State guides, and

@@ -18,13 +18,14 @@ spacingCm:
 rootstocks:
   standard:
     spacingCm: { inRow: 550, betweenRows: 670 }
+soilPh: { min: 6.0, max: 7.0 }
 cropCoefficients:
   initial: 0.45
   mid: 0.9
   end: 0.65
 windows:
   transplant: { frost: last, weeksEarliest: -4, weeksLatest: -2 }
-notes: Usually self-fruitful, but crops better with a second variety that blooms at the same time. It blooms very early, so spring frost often takes the crop even in zones where the tree is hardy; choose later-blooming varieties and a slope, not a frost pocket. Poor in wet or heavy soil. Values from Utah State extension; crop coefficients from FAO-56 Table 12 (stone fruit).
+notes: Usually self-fruitful, but crops better with a second variety that blooms at the same time. It blooms very early, so spring frost often takes the crop even in zones where the tree is hardy; choose later-blooming varieties and a slope, not a frost pocket. Poor in wet or heavy soil. Values from Utah State and New Hampshire extension; crop coefficients from FAO-56 Table 12 (stone fruit).
 sources:
   - source: wikidata
     fields: [scientificName, family]
