@@ -45,12 +45,12 @@ For this repository:
    - **Done, v0.3.0:** vegetables and herbs, 32 crops (90 in all).
      Horseradish waits for an icon; fava bean, black salsify, garlic chives,
      and lovage still want a frost-anchored source for their windows.
-   - **In progress, v0.3.1:** fruit and nut trees with
+   - **Done, v0.3.1:** fruit and nut trees with
      [named rootstocks](#schema-changes-planned) (the field, the rootstocks of
      apple, pear, sweet cherry, and peach, and apricot, plum, almond,
      Asian pear, nectarine, sour cherry, red currant, gooseberry,
      elderberry, fig, hazelnut, grape, hardy kiwi, haskap, pawpaw, American
-     persimmon, and aronia are under **Unreleased**, with soil pH,
+     persimmon, and aronia, with soil pH,
      varieties, and Verticillium warnings for berries; quince, mulberry,
      and serviceberry wait for sources), cane fruit, and soft fruit,
      for the app's fruit gardens. Still waiting for a source: soil pH for

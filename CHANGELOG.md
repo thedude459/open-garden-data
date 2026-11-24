@@ -21,6 +21,29 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+### Improvements
+
+### Bug fixes
+
+### Documentation
+
+### Security
+
+### Known issues
+
+### Deprecated features
+
+## v0.3.1 (2026-11-24)
+
+### Summary
+
+Fruit for Open Garden's fruit gardens: named rootstocks for apple, pear,
+sweet cherry, and peach, and 17 more fruits and nuts (107 crops in all),
+from trees to bushes and woody vines, with soil pH, varieties, and
+warnings to keep berries away from the tomato family.
+
+### New features
+
 - **Keep berries away from the tomato family:** 16 companion pairs warn
   against planting strawberries, raspberries, or blackberries beside or
   after tomatoes, potatoes, eggplant, or peppers (and raspberries after
@@ -96,6 +119,12 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 ### Security
 
 ### Known issues
+
+- Almond, haskap, and hazelnut have no soil pH, and nectarine and
+  hazelnut no varieties, until a source is found.
+- Fig, hazelnut, pawpaw, and American persimmon have no crop coefficients
+  (FAO-56 does not list them), so Open Garden waters them on a fixed
+  interval.
 
 ### Deprecated features
 
