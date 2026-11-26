@@ -22,22 +22,25 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 ### New features
 
 - **Pests and diseases** (`pests.yaml`), organized for integrated pest
-  management, eighteen to start: aphids, flea beetles, twospotted spider
-  mite, Colorado potato beetle, tomato hornworm, squash bug, squash vine
-  borer, cucumber beetles, imported cabbageworm, cabbage looper, Mexican bean
-  beetle, and Japanese beetle; and early blight, late blight, Septoria leaf
-  spot, bacterial wilt of cucurbits, powdery mildew of cucurbits, and apple
-  scab. Each names the crops it attacks, how to recognize it, the crop
+  management, 26 to start. Vegetables: aphids, flea beetles, twospotted
+  spider mite, Colorado potato beetle, tomato hornworm, brown marmorated stink
+  bug, squash bug, squash vine borer, cucumber beetles, imported cabbageworm,
+  cabbage looper, Mexican bean beetle, onion thrips, and carrot rust fly.
+  Fruit: Japanese beetle, spotted wing drosophila, codling moth, and plum
+  curculio. Diseases: early blight, late blight, Septoria leaf spot,
+  bacterial wilt and powdery and downy mildew of cucurbits, apple scab, and
+  fire blight. Each names the crops it attacks, how to recognize it, the crop
   stages to scout at, and the controls that work anywhere, in IPM order
   (cultural, physical, biological). What changes with place is per region:
   when to look, the threshold for acting, and chemical controls, least toxic
   first, since each country registers its own. Each region names its country
   and zones, so an app can pick guidance near a garden; guidance comes from
-  Minnesota, Maryland, North Carolina, and South Carolina, and Septoria leaf
-  spot has two regions. `occursIn` lists the countries a pest lives in, from
-  EPPO's Global Database, for the three it records: Colorado potato beetle
-  (49 countries; absent from others such as Great Britain, Ireland, Japan,
-  and Norway), Japanese beetle (10), and Mexican bean beetle (8). EPPO
+  Minnesota, Maryland, North Carolina, South Carolina, New Hampshire, Utah,
+  and California, and Septoria leaf spot has two regions. `occursIn` lists the countries a pest lives in, from
+  EPPO's Global Database, for the nine it records, among them Colorado potato
+  beetle (49 countries; absent from others such as Great Britain, Ireland,
+  Japan, and Norway), Japanese beetle (10), codling moth (71), and plum
+  curculio (Canada and the US only). EPPO
   records distribution only for regulated pests, so the rest have none yet,
   which apps read as not known.
 - A pest has `names` by locale, as crops do, and `aliases` for search

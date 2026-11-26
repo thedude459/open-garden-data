@@ -773,3 +773,515 @@
           - Never use an all-purpose fruit spray during bloom; its insecticide kills pollinators.
       reference: UMN, "Apple scab" (reviewed 2026)
   source: hand-curation
+
+- id: brown-marmorated-stink-bug
+  names:
+    en: Brown marmorated stink bug
+  aliases: [BMSB]
+  scientificName: Halyomorpha halys
+  kind: insect
+  crops:
+    [
+      apple,
+      bush-bean,
+      pole-bean,
+      eggplant,
+      grape,
+      sweet-pepper,
+      hot-pepper,
+      sweet-corn,
+      swiss-chard,
+      tomato,
+    ]
+  signs: A shield-shaped, mottled brown bug with alternating light and dark bands on its antennae and along the edge of its abdomen, which tell it from native stink bugs; it smells when crushed. It lays clusters of barrel-shaped eggs on leaves, and young nymphs have a yellow-red abdomen. Feeding on developing fruit leaves misshapen, discoloured patches.
+  scout:
+    stages: [flowering, fruiting]
+  controls:
+    physical:
+      - Pick or shake bugs into soapy water.
+  occursIn:
+    countries:
+      [
+        AL,
+        AM,
+        AR,
+        AT,
+        AZ,
+        BA,
+        BE,
+        BG,
+        CA,
+        CH,
+        CL,
+        CN,
+        CZ,
+        DE,
+        DZ,
+        ES,
+        FR,
+        GB,
+        GE,
+        GR,
+        GU,
+        HR,
+        HU,
+        IT,
+        JP,
+        KP,
+        KR,
+        KZ,
+        LI,
+        MA,
+        MD,
+        MK,
+        MT,
+        NL,
+        NP,
+        PL,
+        PR,
+        PT,
+        RO,
+        RS,
+        RU,
+        SI,
+        SK,
+        TR,
+        TW,
+        US,
+        UZ,
+        VN,
+      ]
+    reference: EPPO (2026), EPPO Global Database, Halyomorpha halys distribution, countries where present (accessed 2026-11-26)
+  regions:
+    - where: Minnesota, USA
+      country: US
+      zones: { min: 3, max: 5 }
+      when: Adults come out in May and numbers peak from mid-August through October, when they gather on buildings to spend the winter indoors.
+      threshold: No garden damage has been reported in Minnesota, so no management aimed at it is needed there; it is a major pest of these crops in other states.
+      reference: UMN, "Brown marmorated stink bug" (reviewed 2022)
+  source: hand-curation
+
+- id: spotted-wing-drosophila
+  names:
+    en: Spotted wing drosophila
+  aliases: [SWD]
+  scientificName: Drosophila suzukii
+  kind: insect
+  crops: [raspberry, blackberry, blueberry, strawberry, grape, plum, sweet-cherry, sour-cherry]
+  signs: A small fruit fly, 2 to 3 mm, yellowish-brown with red eyes; the male has a dark spot near each wingtip. Unlike other fruit flies it lays eggs in sound, ripening fruit, and tiny white maggots feed inside, leaving soft, sunken, sour-smelling berries, sometimes only after picking. Healthy apples, pears, and cherry tomatoes are not attacked.
+  scout:
+    stages: [fruiting]
+  controls:
+    cultural:
+      - Pick often so ripe fruit does not linger, and remove old and fallen fruit.
+      - Seal infested fruit in a plastic bag for the sun or the trash; do not compost or bury it, as the flies survive both.
+      - Chill picked fruit to slow any larvae inside; it is safe to eat.
+    physical:
+      - Cover plants with fine insect netting (80-gram) or a small tunnel; coarser netting lets the flies through. Raspberries still set fruit under it.
+      - Hang vinegar traps (a cup with small holes and a little cider vinegar) near the fruit from fruit set to the end of harvest, and check them weekly, to know when flies are active.
+  occursIn:
+    countries:
+      [
+        AR,
+        AT,
+        AZ,
+        BA,
+        BE,
+        BG,
+        BR,
+        CA,
+        CH,
+        CL,
+        CN,
+        CO,
+        CR,
+        CY,
+        CZ,
+        DE,
+        DZ,
+        ES,
+        FI,
+        FR,
+        GB,
+        GE,
+        GR,
+        HN,
+        HR,
+        HU,
+        IE,
+        IL,
+        IN,
+        IR,
+        IT,
+        JP,
+        KE,
+        KM,
+        KP,
+        KR,
+        MA,
+        ME,
+        MM,
+        NL,
+        PF,
+        PK,
+        PL,
+        PT,
+        RE,
+        RO,
+        RS,
+        SE,
+        SI,
+        SK,
+        TH,
+        TR,
+        TW,
+        UA,
+        US,
+        UY,
+        YT,
+        ZA,
+      ]
+    reference: EPPO (2026), EPPO Global Database, Drosophila suzukii distribution, countries where present (accessed 2026-11-26)
+  regions:
+    - where: Minnesota, USA
+      country: US
+      zones: { min: 3, max: 5 }
+      when: Flies appear in late June or early July and peak in August and September; watch most closely from when fruit starts to colour until harvest.
+      controls:
+        chemical:
+          - Spinosad or pyrethrin, both allowed in organic growing; carbaryl or malathion. They kill adults before they lay eggs, not larvae already in fruit; spray in the evening to spare pollinators, and rotate classes, as it can develop resistance.
+      reference: UMN, "Spotted wing drosophila" (reviewed 2026)
+  source: hand-curation
+
+- id: onion-thrips
+  names:
+    en: Onion thrips
+  scientificName: Thrips tabaci
+  kind: insect
+  crops:
+    [onion, garlic, leek, cabbage, cauliflower, bush-bean, pole-bean, tomato, cucumber, asparagus]
+  signs: Slender, yellow-brown insects about 1.5 mm long with fringed wings, hiding deep in the neck of onion plants among the youngest leaves. Feeding leaves white to silver patches and streaks, heavy feeding stunts the bulbs, and thrips spread iris yellow spot virus, which makes straw-coloured, diamond-shaped spots on onion leaves.
+  scout:
+    stages: [vegetative]
+  controls:
+    cultural:
+      - Check onion transplants and discard any carrying thrips.
+      - Feed enough nitrogen but not too much, and mulch beds with straw.
+      - Grow carrots among onions, which draws thrips away from them.
+      - Overhead watering washes thrips off and slows them.
+      - Remove volunteer onions and onion debris before planting and after harvest.
+      - Varieties with an open neck and dark, glossy leaves draw fewer thrips; red onions suffer most.
+    biological:
+      - Predators build up by late summer where broad-spectrum insecticides are not used.
+  regions:
+    - where: Utah, USA
+      country: US
+      zones: { min: 4, max: 9 }
+      when: From when plants have four or five leaves, or mid-June; open the neck and count the thrips at the base of the youngest leaves. Bulb swelling, in July and early August, is when they do most harm.
+      threshold: About 15 thrips per plant in early summer or on red onions; about 30 per plant in July and August on tolerant yellow and white onions.
+      controls:
+        chemical:
+          - Thrips quickly resist insecticides; spray as few times as possible, rotate insecticide classes, and drive the spray into the neck where they hide.
+      reference: Utah State University Extension, "Onion thrips" fact sheet (D. Alston and D. Drost, 2008)
+  source: hand-curation
+
+- id: codling-moth
+  names:
+    en: Codling moth
+  scientificName: Cydia pomonella
+  kind: insect
+  crops: [apple, pear]
+  signs: The pinkish-white "worm" in the apple, with a dark brown head. It bores into fruit soon after hatching and tunnels to the core, leaving entry holes plugged with reddish-brown, crumbly droppings. The grey moth, 1.3 to 2 cm, holds its wings like a tent and has a coppery band at the wingtips.
+  scout:
+    stages: [fruiting]
+  controls:
+    cultural:
+      - Choose early-maturing varieties, which suffer less, and keep trees low enough to reach the fruit.
+      - Every week or two from six to eight weeks after bloom, remove fruit with frass-filled holes, and pick up dropped fruit at once.
+    physical:
+      - Four to six weeks after bloom, when fruit is 1.3 to 2.5 cm across, thin to one fruit per cluster and enclose each in a paper lunch bag slit at the bottom and stapled shut; this alone protects fruit even in bad years.
+  occursIn:
+    countries:
+      [
+        AF,
+        AL,
+        AM,
+        AR,
+        AT,
+        AU,
+        AZ,
+        BE,
+        BG,
+        BO,
+        BY,
+        CA,
+        CH,
+        CL,
+        CN,
+        CO,
+        CY,
+        CZ,
+        DE,
+        DK,
+        DZ,
+        EE,
+        EG,
+        ES,
+        FI,
+        FR,
+        GB,
+        GE,
+        GR,
+        HU,
+        IE,
+        IL,
+        IN,
+        IQ,
+        IR,
+        IT,
+        JO,
+        KG,
+        KZ,
+        LB,
+        LT,
+        LV,
+        LY,
+        MA,
+        MD,
+        MT,
+        MU,
+        MX,
+        NL,
+        NO,
+        NZ,
+        PE,
+        PK,
+        PL,
+        PT,
+        RO,
+        RS,
+        RU,
+        SE,
+        SI,
+        SK,
+        SY,
+        TJ,
+        TM,
+        TN,
+        TR,
+        UA,
+        US,
+        UY,
+        UZ,
+        ZA,
+      ]
+    reference: EPPO (2026), EPPO Global Database, Cydia pomonella distribution, countries where present (accessed 2026-11-26)
+  regions:
+    - where: California, USA
+      country: US
+      zones: { min: 5, max: 11 }
+      when: Moths emerge from mid-March to April and mate once sunset temperatures pass 17 °C; two to four generations follow. Hang a pheromone trap in March and check it every few days; eggs hatch about 250 to 300 degree-days (°F) after the first moths are caught.
+      controls:
+        chemical:
+          - Time every spray to egg hatch, by degree-days or the first fresh entry holes; sprays miss larvae already inside fruit.
+          - Codling moth granulosis virus, with 1 percent horticultural oil, every 7 days, three or four times a generation; it spares bees and beneficial insects.
+          - Spinosad with 1 percent horticultural oil, every 10 days, about three times a generation.
+      reference: UC IPM, "Codling moth" Pest Notes and Quick Tips (Home and Landscape)
+  source: hand-curation
+
+- id: plum-curculio
+  names:
+    en: Plum curculio
+  scientificName: Conotrachelus nenuphar
+  kind: insect
+  crops: [apple, peach, plum, pear, apricot]
+  signs: A dark brown snout beetle about 5 mm long, its snout a third as long as its body, with four bumps and grey-white patches on its back. Females cut small crescent scars in young fruit to lay eggs; the legless, curved white grubs feed inside, and infested apples drop with the June drop. Egg scars stay on fruit that does not fall.
+  scout:
+    stages: [flowering, fruiting]
+  controls:
+    physical:
+      - Repeated coats of kaolin clay protect fruit, and organic growers rely on it.
+  occursIn:
+    countries: [CA, US]
+    reference: EPPO (2026), EPPO Global Database, Conotrachelus nenuphar distribution, countries where present (accessed 2026-11-26)
+  regions:
+    - where: New Hampshire, USA
+      country: US
+      zones: { min: 3, max: 6 }
+      when: From bloom until about two weeks after petal fall, check the outer trees for fresh feeding and egg scars; attacks on apple start once fruit is about 6 mm across.
+      controls:
+        chemical:
+          - Usually two or three sprays aimed at the beetle, timed by the current regional tree fruit guide.
+      reference: University of New Hampshire Extension, "Plum curculio" fact sheet (A. T. Eaton)
+  source: hand-curation
+
+- id: carrot-rust-fly
+  names:
+    en: Carrot rust fly
+  scientificName: Chamaepsila rosae (formerly Psila rosae)
+  kind: insect
+  crops: [carrot, parsley, celery]
+  signs: Stiff white maggots about 8 mm long tunnel just under the skin of carrot roots, leaving tunnels filled with rusty mush. Nothing shows above ground.
+  scout:
+    stages: [vegetative]
+  controls:
+    cultural:
+      - Harvest as soon as roots are ready, a whole block at a time rather than a few, and do not leave carrots in the ground over winter.
+      - Remove parsley, celery, and related plants that harbour it, and peel off damaged parts before eating.
+    physical:
+      - Cover seedbeds with row cover, or single plants with protective cones.
+  occursIn:
+    countries:
+      [
+        AT,
+        BE,
+        BY,
+        CA,
+        CH,
+        CZ,
+        DE,
+        DK,
+        ES,
+        FI,
+        FR,
+        GB,
+        GE,
+        HU,
+        IE,
+        IT,
+        LV,
+        MN,
+        NL,
+        NO,
+        NZ,
+        PL,
+        RU,
+        SE,
+        TR,
+        UA,
+        US,
+      ]
+    reference: EPPO (2026), EPPO Global Database, Chamaepsila rosae (its accepted name) distribution, countries where present (accessed 2026-11-26)
+  regions:
+    - where: California, USA
+      country: US
+      zones: { min: 5, max: 11 }
+      when: Check roots as you harvest; there is no sign above ground.
+      controls:
+        cultural:
+          - Sow to miss the fly's egg-laying, in early summer in cold areas and in late winter or late summer in mild ones.
+      reference: UC IPM, "Carrot rust fly" (Home and Landscape)
+  source: hand-curation
+
+- id: cucurbit-downy-mildew
+  names:
+    en: Downy mildew of cucurbits
+  scientificName: Pseudoperonospora cubensis
+  kind: disease
+  crops: [cucumber, melon, watermelon, pumpkin, summer-squash, winter-squash]
+  signs: Pale green to yellow spots on the upper side of leaves, angular because the veins bound them (clearest on cucumber), with dark purplish-grey fuzz underneath in humid weather. The spots brown and run together until leaves look frost-killed; watermelon leaves curl upward. Angular leaf spot and powdery mildew can look similar.
+  scout:
+    stages: [flowering, fruiting]
+  controls:
+    cultural:
+      - Grow resistant varieties where you have had it before; cucumbers have the best resistance, melons less.
+      - Water by drip, space rows widely, and trellis plants so leaves dry quickly.
+      - Remove plants with symptoms.
+  regions:
+    - where: Minnesota, USA
+      country: US
+      zones: { min: 3, max: 5 }
+      when: It does not survive Minnesota winters and arrives on winds from the south, in many years not at all, and often not before August. It spreads fastest at 15 to 20 °C with wet leaves.
+      controls:
+        chemical:
+          - No product that works against it is available to home gardeners.
+      reference: UMN, "Downy mildew of cucurbits" (reviewed 2022)
+  source: hand-curation
+
+- id: fire-blight
+  names:
+    en: Fire blight
+  scientificName: Erwinia amylovora
+  kind: disease
+  crops: [apple, raspberry]
+  signs: Young shoots wilt, turn grey-green, and bend into a shepherd's hook, then blacken, so the tree looks scorched; the dead leaves cling into winter. Blossoms turn water-soaked and then brown or black, fruit shrivels into mummies, and sunken, cracked cankers on branches ooze cream to yellow droplets in humid weather. It can kill young trees.
+  scout:
+    stages: [vegetative, flowering]
+  controls:
+    cultural:
+      - Plant resistant varieties; none is immune, but resistant ones slow it enough to prune it out.
+      - During the season, cut out infected shoots at least 30 cm below the infection; cut larger branches in late winter, at least 20 cm below the canker into healthy wood, and disinfect tools if a cut may have touched diseased wood.
+      - Avoid heavy pruning and too much nitrogen, which push the soft new growth it infects; fertilize by soil test.
+  occursIn:
+    countries:
+      [
+        AL,
+        AM,
+        AT,
+        AZ,
+        BA,
+        BE,
+        BG,
+        BM,
+        BY,
+        CA,
+        CH,
+        CN,
+        CY,
+        CZ,
+        DE,
+        DK,
+        DZ,
+        EG,
+        ES,
+        FR,
+        GB,
+        GE,
+        GR,
+        GT,
+        HR,
+        HU,
+        IE,
+        IL,
+        IQ,
+        IR,
+        IT,
+        JO,
+        KG,
+        KZ,
+        LB,
+        LT,
+        LU,
+        MA,
+        ME,
+        MK,
+        MX,
+        NL,
+        NO,
+        NZ,
+        PL,
+        PT,
+        RO,
+        RS,
+        RU,
+        SA,
+        SE,
+        SI,
+        SK,
+        SY,
+        TN,
+        TR,
+        UA,
+        US,
+      ]
+    reference: EPPO (2026), EPPO Global Database, Erwinia amylovora distribution, countries where present (accessed 2026-11-26)
+  regions:
+    - where: Minnesota, USA
+      country: US
+      zones: { min: 3, max: 5 }
+      when: In warm (above 18 °C), humid or rainy spells in spring and summer; blossom infection is less common in Minnesota, where it is usually cool at bloom.
+      controls:
+        cultural:
+          - Most resistant of the apples hardy in Minnesota, Haralson, Liberty, Red Baron, SnowSweet, and the Chestnut and Dolgo crabs; Honeycrisp and Zestar! are somewhat resistant.
+      reference: UMN, "Fire blight" (reviewed 2026)
+  source: hand-curation
