@@ -122,7 +122,7 @@
     },
     "pests": {
       "type": "array",
-      "description": "Common garden pests and diseases, organized for integrated pest management (IPM). Advice, never a rule.",
+      "description": "Common garden pests and diseases, organized for integrated pest management (IPM). Advice, never a rule. What a pest is and the controls that work anywhere are shared; timing, thresholds, and chemical controls are per region.",
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -134,8 +134,7 @@
           "signs",
           "scout",
           "controls",
-          "shownIn",
-          "reference",
+          "regions",
           "source"
         ],
         "properties": {
@@ -157,7 +156,7 @@
           "scout": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["stages", "when"],
+            "required": ["stages"],
             "properties": {
               "stages": {
                 "type": "array",
@@ -165,29 +164,80 @@
                 "uniqueItems": true,
                 "items": { "enum": ["seedling", "vegetative", "flowering", "fruiting"] },
                 "description": "The crop stages worth looking at, so an app can time a reminder from a planting."
-              },
-              "when": { "type": "string", "description": "When and how to look, in words." }
+              }
             }
-          },
-          "threshold": {
-            "type": "string",
-            "description": "When damage is worth acting on, where the guidance gives one."
           },
           "controls": {
             "type": "object",
             "additionalProperties": false,
-            "description": "In IPM order: cultural, physical, and biological before chemical. Chemical steps name active ingredients, least toxic first; apps add that the label is the law.",
+            "description": "Controls that work wherever the pest occurs, in IPM order. Chemical controls are per region.",
             "properties": {
               "cultural": { "$ref": "#/$defs/steps" },
               "physical": { "$ref": "#/$defs/steps" },
-              "biological": { "$ref": "#/$defs/steps" },
-              "chemical": { "$ref": "#/$defs/steps" }
+              "biological": { "$ref": "#/$defs/steps" }
             }
           },
-          "shownIn": { "$ref": "#/properties/companions/items/properties/shownIn" },
-          "reference": {
-            "type": "string",
-            "description": "The extension guides behind the entry, as a citation. The facts are written in our own words."
+          "occursIn": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["countries", "reference"],
+            "description": "Where it lives, when known. Without it, where it occurs is not known; apps should not read that as absent.",
+            "properties": {
+              "countries": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "$ref": "#/$defs/country" }
+              },
+              "reference": { "type": "string" }
+            }
+          },
+          "regions": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Guidance for each place it was written for. Apps pick the region in a property's country nearest its zone, and show no timing or chemicals from another country.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["where", "country", "when", "reference"],
+              "properties": {
+                "where": { "type": "string" },
+                "country": { "$ref": "#/$defs/country" },
+                "zones": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["min", "max"],
+                  "description": "The USDA hardiness zones of that place.",
+                  "properties": {
+                    "min": { "type": "integer", "minimum": 1, "maximum": 13 },
+                    "max": { "type": "integer", "minimum": 1, "maximum": 13 }
+                  }
+                },
+                "when": {
+                  "type": "string",
+                  "description": "When and how to look there, in words."
+                },
+                "threshold": {
+                  "type": "string",
+                  "description": "When damage is worth acting on, where the guidance gives one."
+                },
+                "controls": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "description": "Controls that depend on the place: local timing, and chemical controls by active ingredient, least toxic first. Apps add that the label is the law.",
+                  "properties": {
+                    "cultural": { "$ref": "#/$defs/steps" },
+                    "physical": { "$ref": "#/$defs/steps" },
+                    "biological": { "$ref": "#/$defs/steps" },
+                    "chemical": { "$ref": "#/$defs/steps" }
+                  }
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "The extension guides behind this region's guidance, as a citation. The facts are written in our own words."
+                }
+              }
+            }
           },
           "source": { "type": "string" }
         }
@@ -195,6 +245,11 @@
     }
   },
   "$defs": {
-    "steps": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+    "steps": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "An ISO 3166-1 alpha-2 country code."
+    }
   }
 }

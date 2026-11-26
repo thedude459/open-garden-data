@@ -205,9 +205,14 @@ Each pest or disease carries:
   traps), biological (beneficial insects, and the companion pairs and trap
   crops that act on this pest, linked by id), and chemical last, by active
   ingredient and least-toxic first, with a reminder to follow the label.
-- **`shownIn` and `reference`**, as for companion pairs: which regions the
-  guidance comes from, so advice for squash bugs in New England is not
-  offered unchanged in California.
+- **By region** (`regions`): pests differ from place to place, so what
+  changes with place, when to look, the threshold, and chemical controls
+  (each country registers its own), sits under a region with its country,
+  USDA zones, and reference, so advice for squash bugs in New England is not
+  offered unchanged in California. What a pest is and the controls that work
+  anywhere are shared. **`occursIn`** lists the countries it lives in, from
+  a distribution reference, so a garden is not warned of a pest its country
+  does not have.
 
 Companion benefits can then name the pest they act on (`pests: [squash-bug]`).
 Crop rotation by family is the other half of disease control and needs no
@@ -337,5 +342,6 @@ chosen. Size is a rough guess: S is under a day, M a few days, L longer.
 | **Data:** crop-specific coefficients for leek, Swiss chard, dill, and chives from Geisenheim's irrigation scheduling tables, if they use FAO-56's reference | Those four use FAO-56 group values today; Geisenheim publishes measured values for German vegetable crops                                                                                                            | S    |
 | **Data:** a `references` list per crop (title and URL of each extension guide used)                                                                         | New crops name their guides in `notes`, which apps show as prose and which runs into the 500-character limit; a field keeps citations as data and lets the validator check them                                      | S    |
 | **Data:** more pests and diseases: cabbage looper, Japanese beetle, spider mites, Mexican bean beetle, Septoria leaf spot, bacterial wilt, and apple scab   | The first eleven cover the commonest vegetable pests; fruit gardens and beans have none yet                                                                                                                          | M    |
-| **Data:** `shownIn` beyond Minnesota and South Carolina for each pest, from UC IPM, Cornell, and other extension services                                   | Each pest has guidance from one region today, and timing and thresholds can differ elsewhere; a second region per pest lets apps rank advice near a garden                                                           | M    |
+| **Data:** a second region for each pest, from UC IPM, Cornell, and other extension services                                                                 | Each pest has guidance from one region today; another region lets apps pick advice nearer a garden                                                                                                                   | M    |
+| **Data:** `occursIn` for each pest, from EPPO's Global Database (country distribution with status)                                                          | Without it apps cannot tell which pests a property's country has; needs EPPO's terms checked and its site reached from the session                                                                                   | S    |
 | **Pipeline:** use Penn State's York County seed-planting guide as a frost-anchored cross-check                                                              | It gives earliest and latest sowing dates against a stated last frost (May 1) and first frost (October 1), so its dates convert directly to `weeksEarliest`/`weeksLatest` for many crops                             | S    |

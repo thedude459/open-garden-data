@@ -75,18 +75,23 @@ extension services teach it:
 - `crops` lists the crops it attacks. The pest lists its crops, the way a
   companion pair lists its two, so a crop file never needs to change for a new
   pest.
-- `signs` says how to recognize it and its damage, and `scout` says when to
-  look: `stages` from `seedling`, `vegetative`, `flowering`, and `fruiting`,
-  which an app can turn into a reminder from a planting's date, and `when` in
-  words.
-- `threshold`, where the guidance gives one, says when damage is worth acting
-  on.
-- `controls` run `cultural`, `physical`, `biological`, then `chemical`. Every
-  entry has at least one control that is not chemical. Chemical steps name
-  active ingredients, least toxic first, never product names; apps add that
-  the label is the law.
-- `shownIn` and `reference` work as for companion pairs: the region the
-  guidance comes from, and the extension guides behind it, in your own words.
+- `signs` says how to recognize it and its damage, and `scout.stages` the
+  crop stages to look at (`seedling`, `vegetative`, `flowering`,
+  `fruiting`), which an app can turn into a reminder from a planting's date.
+- `controls` holds what works wherever the pest lives, in IPM order:
+  `cultural`, `physical`, then `biological`. Every entry has at least one.
+- `regions` holds what changes with place, one entry per place the guidance
+  was written for: `where`, its `country` (an ISO 3166 code such as `US`),
+  its USDA `zones`, `when` to look there, the `threshold` for acting where the
+  guidance gives one, `controls` that depend on the place (a sowing date that
+  dodges the local flight, and every `chemical` step, since each country
+  registers its own), and the `reference` behind it, in your own words.
+  Chemical steps name active ingredients, least toxic first, never product
+  names; apps add that the label is the law. Add a region rather than
+  changing another's: guidance from Minnesota stays Minnesota's.
+- `occursIn`, when a distribution reference gives it, lists the `countries`
+  the pest lives in, with its `reference`. Leave it out rather than guess;
+  without it, apps treat where it occurs as not known, not as absent.
 
 ## Changelog and releases
 

@@ -425,12 +425,11 @@ test('a pest says what it attacks, when to look, and controls in IPM order', () 
     {
       ...clone(good),
       id: 'chemical-only',
-      scout: { stages: ['harvest'], when: ' ' },
+      scout: { stages: ['harvest'] },
       controls: { chemical: ['malathion'], magic: ['wishing'] },
-      shownIn: [],
-      reference: '',
       source: 'rumour',
     },
+    { ...clone(good), id: 'no-regions', regions: [] },
     clone(good),
     clone(good),
   ];
@@ -440,15 +439,45 @@ test('a pest says what it attacks, when to look, and controls in IPM order', () 
   assert.match(errors, /unknown crop "kudzu"/);
   assert.match(errors, /a crop is listed twice/);
   assert.match(errors, /scout stage "harvest" is not one of/);
-  assert.match(errors, /scout.when is required/);
   assert.match(errors, /controls.magic is not one of/);
+  assert.match(
+    errors,
+    /chemical controls depend on what a country registers; put them under regions/,
+  );
   assert.match(errors, /IPM reaches for a cultural, physical, or biological control first/);
-  assert.match(errors, /reference is required/);
   assert.match(errors, /unknown source "rumour"/);
-  assert.match(errors, /shownIn must say where the evidence comes from/);
+  assert.match(errors, /no-regions: regions must give the guidance for at least one place/);
   assert.match(errors, /pests.yaml: duplicate id "aphids"/);
   // The companion pairs that name aphids still find them.
   assert.doesNotMatch(errors, /unknown pest "aphids"/);
+});
+
+test('regional guidance names its country, and fits where the pest occurs', () => {
+  const data = clone(load());
+  const good = clone(data.pests.find((p) => p.id === 'aphids'));
+  const region = good.regions[0];
+  data.pests = [
+    {
+      ...good,
+      regions: [
+        { ...region, country: 'usa', when: ' ', reference: '', zones: { min: 6, max: 5 } },
+        { ...region, controls: { chemical: [''] } },
+      ],
+    },
+    { ...good, id: 'abroad', occursIn: { countries: ['AU', 'nz'], reference: '' } },
+    { ...good, id: 'listed', occursIn: { countries: ['US', 'CA'], reference: 'EPPO' } },
+  ];
+  const errors = validate(data).filter((e) => e.startsWith('pests.yaml'));
+  assert.deepEqual(errors, [
+    'pests.yaml[0] aphids regions[0]: country must be an ISO 3166 code, such as US',
+    'pests.yaml[0] aphids regions[0]: zones.min is above max',
+    'pests.yaml[0] aphids regions[0]: when is required',
+    'pests.yaml[0] aphids regions[0]: reference is required',
+    'pests.yaml[0] aphids regions[1]: controls.chemical must be a list of steps',
+    'pests.yaml[1] abroad: occursIn country "nz" is not an ISO 3166 code',
+    'pests.yaml[1] abroad: occursIn needs a reference',
+    'pests.yaml[1] abroad regions[0]: US is not in occursIn',
+  ]);
 });
 
 test('a companion pair names only real pests, and only when it acts on pests', () => {

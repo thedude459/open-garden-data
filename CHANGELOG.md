@@ -26,9 +26,13 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   beetle, squash bug, squash vine borer, tomato hornworm, cucumber beetles,
   imported cabbageworm, early blight, late blight, and powdery mildew of
   cucurbits. Each names the crops it attacks, how to recognize it, the crop
-  stages to scout at, the threshold for acting where extension guidance gives
-  one, and controls in IPM order (cultural, physical, biological, then
-  chemical, least toxic first), with where the guidance comes from.
+  stages to scout at, and the controls that work anywhere, in IPM order
+  (cultural, physical, biological). What changes with place is per region:
+  when to look, the threshold for acting, and chemical controls, least toxic
+  first, since each country registers its own. Each region names its country
+  and zones, so an app can pick guidance near a garden; the first eleven have
+  guidance from Minnesota or South Carolina. An optional `occursIn` will list
+  the countries a pest lives in.
 - Companion pairs that act on a pest name it (`pests`), so an app can show
   the trap crops and deterrents for a pest; 21 pairs do.
 
