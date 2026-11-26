@@ -22,24 +22,29 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 ### New features
 
 - **Pests and diseases** (`pests.yaml`), organized for integrated pest
-  management: the first eleven are aphids, flea beetles, Colorado potato
-  beetle, squash bug, squash vine borer, tomato hornworm, cucumber beetles,
-  imported cabbageworm, early blight, late blight, and powdery mildew of
-  cucurbits. Each names the crops it attacks, how to recognize it, the crop
+  management, eighteen to start: aphids, flea beetles, twospotted spider
+  mite, Colorado potato beetle, tomato hornworm, squash bug, squash vine
+  borer, cucumber beetles, imported cabbageworm, cabbage looper, Mexican bean
+  beetle, and Japanese beetle; and early blight, late blight, Septoria leaf
+  spot, bacterial wilt of cucurbits, powdery mildew of cucurbits, and apple
+  scab. Each names the crops it attacks, how to recognize it, the crop
   stages to scout at, and the controls that work anywhere, in IPM order
   (cultural, physical, biological). What changes with place is per region:
   when to look, the threshold for acting, and chemical controls, least toxic
   first, since each country registers its own. Each region names its country
-  and zones, so an app can pick guidance near a garden; the first eleven have
-  guidance from Minnesota or South Carolina. `occursIn` lists the countries a
-  pest lives in, from EPPO's Global Database: the Colorado potato beetle is
-  recorded in 49 countries and absent from others such as Great Britain,
-  Ireland, Japan, and Norway. EPPO records distribution only for regulated
-  pests, so the other ten have none yet, which apps read as not known.
+  and zones, so an app can pick guidance near a garden; guidance comes from
+  Minnesota, Maryland, North Carolina, and South Carolina, and Septoria leaf
+  spot has two regions. `occursIn` lists the countries a pest lives in, from
+  EPPO's Global Database, for the three it records: Colorado potato beetle
+  (49 countries; absent from others such as Great Britain, Ireland, Japan,
+  and Norway), Japanese beetle (10), and Mexican bean beetle (8). EPPO
+  records distribution only for regulated pests, so the rest have none yet,
+  which apps read as not known.
 - A pest has `names` by locale, as crops do, and `aliases` for search
   ("cabbage white" finds the imported cabbageworm).
 - Companion pairs that act on a pest name it (`pests`), so an app can show
-  the trap crops and deterrents for a pest; 21 pairs do.
+  the trap crops and deterrents for a pest; 21 pairs do, 12 of them for the
+  cabbage looper as well as the imported cabbageworm.
 
 ### Improvements
 

@@ -58,13 +58,12 @@ For this repository:
      hazelnut; crop coefficients for fig, hazelnut, pawpaw, and persimmon,
      which FAO-56 Table 12 does not list (research gives only monthly or
      transpiration-only values).
-   - **In progress, v0.3.2:** `pests.yaml` with the first eleven pests and
-     diseases (aphids, flea beetles, Colorado potato beetle, squash bug,
-     squash vine borer, tomato hornworm, cucumber beetles, imported
-     cabbageworm, early and late blight, and powdery mildew of cucurbits),
-     from University of Minnesota and Clemson extension guides, and companion
-     pairs linked to the pests they act on. More pests, and guidance from
-     other regions, follow before the release is cut.
+   - **In progress, v0.3.2:** `pests.yaml` with eighteen pests and
+     diseases by region, from Minnesota, Maryland, North Carolina, and
+     Clemson extension guides, among them the bean, fruit, and mite pests
+     (Mexican bean beetle, Japanese beetle, twospotted spider mite, apple
+     scab), with `occursIn` from EPPO where it records a distribution, and
+     companion pairs linked to the pests they act on.
    - Then more crops in batches toward about 150. `icons/library/` already
      holds icons for many of them.
 7. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
@@ -341,7 +340,7 @@ chosen. Size is a rough guess: S is under a day, M a few days, L longer.
 | **Data:** `stageDays` for kale, basil, cilantro, parsley, oregano, thyme, and okra                                                                                                                                    | Their crop coefficients (Pereira et al. 2024) come without growth-stage lengths, so apps use one Kc curve shape for them; field studies in that review give stage lengths for some sites                             | S    |
 | **Data:** crop-specific coefficients for leek, Swiss chard, dill, and chives from Geisenheim's irrigation scheduling tables, if they use FAO-56's reference                                                           | Those four use FAO-56 group values today; Geisenheim publishes measured values for German vegetable crops                                                                                                            | S    |
 | **Data:** a `references` list per crop (title and URL of each extension guide used)                                                                                                                                   | New crops name their guides in `notes`, which apps show as prose and which runs into the 500-character limit; a field keeps citations as data and lets the validator check them                                      | S    |
-| **Data:** more pests and diseases: cabbage looper, Japanese beetle, spider mites, Mexican bean beetle, Septoria leaf spot, bacterial wilt, and apple scab                                                             | The first eleven cover the commonest vegetable pests; fruit gardens and beans have none yet                                                                                                                          | M    |
+| **Data:** more pests and diseases: brown marmorated stink bug, codling moth, plum curculio, spotted wing drosophila, onion thrips, carrot rust fly, downy mildews, and fire blight                                    | Eighteen cover the commonest vegetable pests and a first few for beans and fruit; tree fruit and the onion and carrot families have little yet                                                                       | M    |
 | **Data:** a second region for each pest, from UC IPM, Cornell, and other extension services                                                                                                                           | Each pest has guidance from one region today; another region lets apps pick advice nearer a garden                                                                                                                   | M    |
 | **Data:** `occursIn` for the pests EPPO's Global Database has no distribution for (it covers regulated pests only; the Colorado potato beetle is done), from another distribution reference such as CABI's Compendium | Without it apps cannot tell which pests a property's country has; the reference's terms need checking and its site reaching from the session                                                                         | S    |
 | **Data:** growing degree days for each pest's emergence or flight (base temperature and accumulated warmth), where extension guidance gives them                                                                      | A region's `when` is words ("late June"), which apps cannot schedule from and which does not carry to other places or the Southern Hemisphere; degree days computed from a property's temperatures do                | M    |
