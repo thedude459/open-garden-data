@@ -58,13 +58,11 @@ For this repository:
      hazelnut; crop coefficients for fig, hazelnut, pawpaw, and persimmon,
      which FAO-56 Table 12 does not list (research gives only monthly or
      transpiration-only values).
-   - **In progress, v0.3.2:** `pests.yaml` with the first eleven pests and
-     diseases (aphids, flea beetles, Colorado potato beetle, squash bug,
-     squash vine borer, tomato hornworm, cucumber beetles, imported
-     cabbageworm, early and late blight, and powdery mildew of cucurbits),
-     from University of Minnesota and Clemson extension guides, and companion
-     pairs linked to the pests they act on. More pests, and guidance from
-     other regions, follow before the release is cut.
+   - **In progress, v0.3.2:** `pests.yaml` with 26 pests and diseases by
+     region, from Minnesota, Maryland, NC State, Clemson, New Hampshire,
+     Utah State, and UC IPM extension guides: vegetable, bean, onion, carrot,
+     and tree and soft fruit pests, with `occursIn` from EPPO for the nine it
+     records, and companion pairs linked to the pests they act on.
    - Then more crops in batches toward about 150. `icons/library/` already
      holds icons for many of them.
 7. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
@@ -203,11 +201,13 @@ Each pest or disease carries:
 - **Controls, in IPM order**: cultural (rotation, timing, resistant
   varieties, clean-up), physical (row covers until bloom, hand-picking,
   traps), biological (beneficial insects, and the companion pairs and trap
-  crops that act on this pest, linked by id), and chemical last, by active
-  ingredient and least-toxic first, with a reminder to follow the label.
+  crops that act on this pest, linked by id), then products by active
+  ingredient, least toxic first: organic ones (allowed by the country's
+  organic rules) before conventional ones, which apps show only on request,
+  with a reminder to follow the label.
 - **By region** (`regions`): pests differ from place to place, so what
-  changes with place, when to look, the threshold, and chemical controls
-  (each country registers its own), sits under a region with its country,
+  changes with place, when to look, the threshold, and products (each
+  country allows its own), sits under a region with its country,
   USDA zones, and reference, so advice for squash bugs in New England is not
   offered unchanged in California. What a pest is and the controls that work
   anywhere are shared. **`occursIn`** lists the countries it lives in, from
@@ -341,14 +341,14 @@ chosen. Size is a rough guess: S is under a day, M a few days, L longer.
 | **Data:** `stageDays` for kale, basil, cilantro, parsley, oregano, thyme, and okra                                                                                                                                    | Their crop coefficients (Pereira et al. 2024) come without growth-stage lengths, so apps use one Kc curve shape for them; field studies in that review give stage lengths for some sites                             | S    |
 | **Data:** crop-specific coefficients for leek, Swiss chard, dill, and chives from Geisenheim's irrigation scheduling tables, if they use FAO-56's reference                                                           | Those four use FAO-56 group values today; Geisenheim publishes measured values for German vegetable crops                                                                                                            | S    |
 | **Data:** a `references` list per crop (title and URL of each extension guide used)                                                                                                                                   | New crops name their guides in `notes`, which apps show as prose and which runs into the 500-character limit; a field keeps citations as data and lets the validator check them                                      | S    |
-| **Data:** more pests and diseases: cabbage looper, Japanese beetle, spider mites, Mexican bean beetle, Septoria leaf spot, bacterial wilt, and apple scab                                                             | The first eleven cover the commonest vegetable pests; fruit gardens and beans have none yet                                                                                                                          | M    |
+| **Data:** more pests and diseases: slugs, cutworms, wireworms, cabbage root maggot, leafminers, whiteflies, clubroot, Fusarium and Verticillium wilts, and anthracnose                                                | 26 cover the commonest pests of the catalog's crops; soil pests and root diseases have none yet                                                                                                                      | M    |
 | **Data:** a second region for each pest, from UC IPM, Cornell, and other extension services                                                                                                                           | Each pest has guidance from one region today; another region lets apps pick advice nearer a garden                                                                                                                   | M    |
 | **Data:** `occursIn` for the pests EPPO's Global Database has no distribution for (it covers regulated pests only; the Colorado potato beetle is done), from another distribution reference such as CABI's Compendium | Without it apps cannot tell which pests a property's country has; the reference's terms need checking and its site reaching from the session                                                                         | S    |
 | **Data:** growing degree days for each pest's emergence or flight (base temperature and accumulated warmth), where extension guidance gives them                                                                      | A region's `when` is words ("late June"), which apps cannot schedule from and which does not carry to other places or the Southern Hemisphere; degree days computed from a property's temperatures do                | M    |
 | **Data:** weather windows for diseases (temperature range and humidity or leaf wetness), such as early blight at 15 to 27 °C with humidity of 90 percent or more                                                      | Open Garden already fetches a forecast for frost and heat alerts; with these it could warn of blight weather for tomatoes and potatoes                                                                               | S    |
 | **Data:** `rotationYears` per disease (early blight 2, late blight 3 to 4), with the family it rotates away from                                                                                                      | Feeds Open Garden's crop rotation hints, which work by family                                                                                                                                                        | S    |
 | **Data:** disease resistance on varieties, by the codes seed catalogues use (EB, LB, PM, V, F)                                                                                                                        | Lets apps suggest a resistant variety for a pest a garden has had, and ties pests to the variety data                                                                                                                | M    |
-| **Data:** structured chemical controls: each active ingredient with flags such as `organic` and `beeHazard`, never rates or harvest intervals, which belong to the label                                              | Chemical steps are words today, so apps cannot offer organic-only advice or hide chemical advice for households that want none                                                                                       | M    |
+| **Data:** structured products: each active ingredient with flags such as `beeHazard` and `organic`, never rates or harvest intervals, which belong to the label                                                       | Products are words today, grouped `organic` and `conventional`; per-ingredient flags would let apps warn about bees and check organic status against the National List automatically                                 | M    |
 | **Data:** pest photos from public-domain sources such as USDA ARS                                                                                                                                                     | Identifying a pest from words alone is hard; most pest photos (Bugwood among them) are CC BY-NC, which CC0 output cannot use                                                                                         | M    |
 | **Data:** pest guidance from outside the US: AHDB (UK), Australian state agriculture departments, and other extension services                                                                                        | The first pests come from Minnesota and South Carolina, but the catalog is meant to work worldwide                                                                                                                   | M    |
 | **Pipeline:** use Penn State's York County seed-planting guide as a frost-anchored cross-check                                                                                                                        | It gives earliest and latest sowing dates against a stated last frost (May 1) and first frost (October 1), so its dates convert directly to `weeksEarliest`/`weeksLatest` for many crops                             | S    |

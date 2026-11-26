@@ -426,7 +426,7 @@ test('a pest says what it attacks, when to look, and controls in IPM order', () 
       ...clone(good),
       id: 'chemical-only',
       scout: { stages: ['harvest'] },
-      controls: { chemical: ['malathion'], magic: ['wishing'] },
+      controls: { conventional: ['malathion'], magic: ['wishing'] },
       source: 'rumour',
     },
     { ...clone(good), id: 'no-regions', regions: [] },
@@ -443,7 +443,7 @@ test('a pest says what it attacks, when to look, and controls in IPM order', () 
   assert.match(errors, /controls.magic is not one of/);
   assert.match(
     errors,
-    /chemical controls depend on what a country registers; put them under regions/,
+    /conventional products depend on what a country allows; put them under regions/,
   );
   assert.match(errors, /IPM reaches for a cultural, physical, or biological control first/);
   assert.match(errors, /unknown source "rumour"/);
@@ -465,7 +465,7 @@ test('regional guidance names its country, and fits where the pest occurs', () =
       ...good,
       regions: [
         { ...region, country: 'usa', when: ' ', reference: '', zones: { min: 6, max: 5 } },
-        { ...region, controls: { chemical: [''] } },
+        { ...region, controls: { organic: [''] } },
       ],
     },
     { ...good, id: 'abroad', occursIn: { countries: ['AU', 'nz'], reference: '' } },
@@ -477,7 +477,7 @@ test('regional guidance names its country, and fits where the pest occurs', () =
     'pests.yaml[0] aphids regions[0]: zones.min is above max',
     'pests.yaml[0] aphids regions[0]: when is required',
     'pests.yaml[0] aphids regions[0]: reference is required',
-    'pests.yaml[0] aphids regions[1]: controls.chemical must be a list of steps',
+    'pests.yaml[0] aphids regions[1]: controls.organic must be a list of steps',
     'pests.yaml[1] abroad: occursIn country "nz" is not an ISO 3166 code',
     'pests.yaml[1] abroad: occursIn needs a reference',
     'pests.yaml[1] abroad regions[0]: US is not in occursIn',
