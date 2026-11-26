@@ -128,7 +128,7 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "name",
+          "names",
           "kind",
           "crops",
           "signs",
@@ -139,7 +139,20 @@
         ],
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
-          "name": { "type": "string" },
+          "names": {
+            "type": "object",
+            "description": "Common names by locale, as for crops. English is required.",
+            "required": ["en"],
+            "properties": { "en": { "type": "string", "minLength": 1, "maxLength": 80 } },
+            "propertyNames": { "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+            "additionalProperties": { "type": "string", "minLength": 1, "maxLength": 80 }
+          },
+          "aliases": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 },
+            "description": "Other common names it goes by, for search, such as the adult's name or a regional name."
+          },
           "scientificName": {
             "type": "string",
             "description": "The species, genus, or family; for a disease, the pathogen."
@@ -150,7 +163,7 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": { "type": "string" },
-            "description": "Crop ids it attacks."
+            "description": "Crop ids the guidance names as hosts. Not a complete host list: a crop missing here may still be attacked, so apps must not read its absence as safety."
           },
           "signs": { "type": "string", "description": "How to recognize it and its damage." },
           "scout": {

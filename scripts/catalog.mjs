@@ -35,6 +35,8 @@ const SCOUT_STAGES = new Set(['seedling', 'vegetative', 'flowering', 'fruiting']
 const CONTROL_GROUPS = ['cultural', 'physical', 'biological', 'chemical'];
 /** A country as an ISO 3166-1 alpha-2 code, the form apps get from a place lookup. */
 const COUNTRY = /^[A-Z]{2}$/;
+/** A locale key for names, as crops use: en, pt-BR. */
+const LOCALE = /^[a-z]{2}(-[A-Z]{2})?$/;
 /** Companion benefits that act on pests, so a pair with one may name them. */
 const PEST_BENEFITS = new Set([
   'deters-pests',
@@ -240,9 +242,17 @@ function checkPest(at, pest, cropIds, sourceIds) {
   const errors = [];
   if (!/^[a-z][a-z0-9-]*$/.test(pest.id ?? ''))
     errors.push(`${at}: id must be lower case with hyphens`);
-  for (const field of ['name', 'signs'])
-    if (typeof pest[field] !== 'string' || !pest[field].trim())
-      errors.push(`${at}: ${field} is required`);
+  if (typeof pest.names?.en !== 'string' || !pest.names.en.trim())
+    errors.push(`${at}: names.en is required`);
+  for (const [locale, name] of Object.entries(pest.names ?? {}))
+    if (!LOCALE.test(locale) || typeof name !== 'string' || !name.trim())
+      errors.push(`${at}: names.${locale} must be a name under a locale such as en or pt-BR`);
+  if (
+    pest.aliases !== undefined &&
+    (!Array.isArray(pest.aliases) || pest.aliases.some((a) => typeof a !== 'string' || !a.trim()))
+  )
+    errors.push(`${at}: aliases must be a list of other names`);
+  if (typeof pest.signs !== 'string' || !pest.signs.trim()) errors.push(`${at}: signs is required`);
   if (!PEST_KINDS.has(pest.kind))
     errors.push(`${at}: kind must be one of ${[...PEST_KINDS].join(', ')}`);
   if (!Array.isArray(pest.crops) || pest.crops.length === 0) {

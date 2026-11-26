@@ -72,9 +72,13 @@ the enemies of a pest in `pests.yaml` names it in `pests`.
 An entry in `pests.yaml` follows integrated pest management (IPM), as
 extension services teach it:
 
-- `crops` lists the crops it attacks. The pest lists its crops, the way a
-  companion pair lists its two, so a crop file never needs to change for a new
-  pest.
+- `names` gives its common names by locale, as for crops (`en` required),
+  and `aliases` other names it goes by, for search, where a source uses them
+  (the adult's name, a regional name).
+- `crops` lists the crops the guidance names as hosts. The pest lists its
+  crops, the way a companion pair lists its two, so a crop file never needs to
+  change for a new pest. It is not a complete host list: apps must not read a
+  crop's absence as safety.
 - `signs` says how to recognize it and its damage, and `scout.stages` the
   crop stages to look at (`seedling`, `vegetative`, `flowering`,
   `fruiting`), which an app can turn into a reminder from a planting's date.

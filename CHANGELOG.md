@@ -36,6 +36,8 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   recorded in 49 countries and absent from others such as Great Britain,
   Ireland, Japan, and Norway. EPPO records distribution only for regulated
   pests, so the other ten have none yet, which apps read as not known.
+- A pest has `names` by locale, as crops do, and `aliases` for search
+  ("cabbage white" finds the imported cabbageworm).
 - Companion pairs that act on a pest name it (`pests`), so an app can show
   the trap crops and deterrents for a pest; 21 pairs do.
 

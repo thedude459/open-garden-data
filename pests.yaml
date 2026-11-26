@@ -24,7 +24,8 @@
 #         regulate, so most entries have no occursIn yet.
 
 - id: aphids
-  name: Aphids
+  names:
+    en: Aphids
   scientificName: Aphididae
   kind: insect
   crops:
@@ -72,7 +73,8 @@
   source: hand-curation
 
 - id: flea-beetles
-  name: Flea beetles
+  names:
+    en: Flea beetles
   scientificName: Phyllotreta, Epitrix, and related genera
   kind: insect
   crops:
@@ -120,7 +122,8 @@
   source: hand-curation
 
 - id: colorado-potato-beetle
-  name: Colorado potato beetle
+  names:
+    en: Colorado potato beetle
   scientificName: Leptinotarsa decemlineata
   kind: insect
   crops:
@@ -214,7 +217,8 @@
   source: hand-curation
 
 - id: squash-bug
-  name: Squash bug
+  names:
+    en: Squash bug
   scientificName: Anasa tristis
   kind: insect
   crops:
@@ -253,7 +257,8 @@
   source: hand-curation
 
 - id: squash-vine-borer
-  name: Squash vine borer
+  names:
+    en: Squash vine borer
   scientificName: Melittia cucurbitae
   kind: insect
   crops:
@@ -289,7 +294,8 @@
   source: hand-curation
 
 - id: tomato-hornworm
-  name: Tomato hornworm
+  names:
+    en: Tomato hornworm
   scientificName: Manduca quinquemaculata
   kind: insect
   crops:
@@ -330,7 +336,9 @@
   source: hand-curation
 
 - id: cucumber-beetles
-  name: Cucumber beetles
+  names:
+    en: Cucumber beetles
+  aliases: [striped cucumber beetle, spotted cucumber beetle]
   scientificName: Acalymma vittatum and Diabrotica undecimpunctata
   kind: insect
   crops:
@@ -368,7 +376,9 @@
   source: hand-curation
 
 - id: imported-cabbageworm
-  name: Imported cabbageworm
+  names:
+    en: Imported cabbageworm
+  aliases: [cabbage white]
   scientificName: Pieris rapae
   kind: insect
   crops:
@@ -408,7 +418,8 @@
   source: hand-curation
 
 - id: early-blight
-  name: Early blight
+  names:
+    en: Early blight
   scientificName: Alternaria tomatophila and Alternaria solani
   kind: disease
   crops:
@@ -445,7 +456,8 @@
   source: hand-curation
 
 - id: late-blight
-  name: Late blight
+  names:
+    en: Late blight
   scientificName: Phytophthora infestans
   kind: disease
   crops:
@@ -480,7 +492,8 @@
   source: hand-curation
 
 - id: cucurbit-powdery-mildew
-  name: Powdery mildew of cucurbits
+  names:
+    en: Powdery mildew of cucurbits
   scientificName: Podosphaera xanthii
   kind: disease
   crops:

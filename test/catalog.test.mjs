@@ -430,6 +430,7 @@ test('a pest says what it attacks, when to look, and controls in IPM order', () 
       source: 'rumour',
     },
     { ...clone(good), id: 'no-regions', regions: [] },
+    { ...clone(good), id: 'unnamed', names: { fr: 'Puceron', 'en-us': 'x' }, aliases: ['', 3] },
     clone(good),
     clone(good),
   ];
@@ -447,6 +448,9 @@ test('a pest says what it attacks, when to look, and controls in IPM order', () 
   assert.match(errors, /IPM reaches for a cultural, physical, or biological control first/);
   assert.match(errors, /unknown source "rumour"/);
   assert.match(errors, /no-regions: regions must give the guidance for at least one place/);
+  assert.match(errors, /unnamed: names.en is required/);
+  assert.match(errors, /unnamed: names.en-us must be a name under a locale such as en or pt-BR/);
+  assert.match(errors, /unnamed: aliases must be a list of other names/);
   assert.match(errors, /pests.yaml: duplicate id "aphids"/);
   // The companion pairs that name aphids still find them.
   assert.doesNotMatch(errors, /unknown pest "aphids"/);
