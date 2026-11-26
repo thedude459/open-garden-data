@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/thedude459/open-garden-data/schema/catalog.schema.json",
   "title": "Open Garden catalog release",
-  "description": "The release file open-garden-catalog-<version>.json: every crop, family, source, and companion pair. Attached to each GitHub Release so apps can validate what they download. Units are metric: centimetres and degrees Celsius.",
+  "description": "The release file open-garden-catalog-<version>.json: every crop, family, source, companion pair, and pest. Attached to each GitHub Release so apps can validate what they download. Units are metric: centimetres and degrees Celsius.",
   "type": "object",
   "additionalProperties": false,
   "required": ["version", "license", "units", "families", "sources", "crops", "companions"],
@@ -109,9 +109,92 @@
             "type": "string",
             "description": "The studies or extension guides behind the pair, as a citation. Not a data source: the facts are written in our own words."
           },
+          "pests": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "type": "string" },
+            "description": "Ids from pests: the pests this pair acts on, for a pair that deters pests, traps them, draws their natural enemies, or shares them."
+          },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "pests": {
+      "type": "array",
+      "description": "Common garden pests and diseases, organized for integrated pest management (IPM). Advice, never a rule.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "crops",
+          "signs",
+          "scout",
+          "controls",
+          "shownIn",
+          "reference",
+          "source"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "name": { "type": "string" },
+          "scientificName": {
+            "type": "string",
+            "description": "The species, genus, or family; for a disease, the pathogen."
+          },
+          "kind": { "enum": ["insect", "mite", "disease"] },
+          "crops": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "type": "string" },
+            "description": "Crop ids it attacks."
+          },
+          "signs": { "type": "string", "description": "How to recognize it and its damage." },
+          "scout": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["stages", "when"],
+            "properties": {
+              "stages": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "enum": ["seedling", "vegetative", "flowering", "fruiting"] },
+                "description": "The crop stages worth looking at, so an app can time a reminder from a planting."
+              },
+              "when": { "type": "string", "description": "When and how to look, in words." }
+            }
+          },
+          "threshold": {
+            "type": "string",
+            "description": "When damage is worth acting on, where the guidance gives one."
+          },
+          "controls": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "In IPM order: cultural, physical, and biological before chemical. Chemical steps name active ingredients, least toxic first; apps add that the label is the law.",
+            "properties": {
+              "cultural": { "$ref": "#/$defs/steps" },
+              "physical": { "$ref": "#/$defs/steps" },
+              "biological": { "$ref": "#/$defs/steps" },
+              "chemical": { "$ref": "#/$defs/steps" }
+            }
+          },
+          "shownIn": { "$ref": "#/properties/companions/items/properties/shownIn" },
+          "reference": {
+            "type": "string",
+            "description": "The extension guides behind the entry, as a citation. The facts are written in our own words."
+          },
           "source": { "type": "string" }
         }
       }
     }
+  },
+  "$defs": {
+    "steps": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
   }
 }

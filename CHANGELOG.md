@@ -21,11 +21,24 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Pests and diseases** (`pests.yaml`), organized for integrated pest
+  management: the first eleven are aphids, flea beetles, Colorado potato
+  beetle, squash bug, squash vine borer, tomato hornworm, cucumber beetles,
+  imported cabbageworm, early blight, late blight, and powdery mildew of
+  cucurbits. Each names the crops it attacks, how to recognize it, the crop
+  stages to scout at, the threshold for acting where extension guidance gives
+  one, and controls in IPM order (cultural, physical, biological, then
+  chemical, least toxic first), with where the guidance comes from.
+- Companion pairs that act on a pest name it (`pests`), so an app can show
+  the trap crops and deterrents for a pest; 21 pairs do.
+
 ### Improvements
 
 ### Bug fixes
 
 ### Documentation
+
+- CONTRIBUTING says how to write a pest or disease.
 
 ### Security
 

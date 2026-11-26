@@ -416,3 +416,58 @@ test('named rootstocks: ids unique per crop, size in order, spacing checked', ()
   assert.match(errors, /rootstock "m9" sizePercent.min is above max/);
   assert.match(errors, /rootstock "m9" spacingCm rows cannot be closer than plants in a row/);
 });
+
+test('a pest says what it attacks, when to look, and controls in IPM order', () => {
+  const data = clone(load());
+  const good = clone(data.pests.find((p) => p.id === 'aphids'));
+  data.pests = [
+    { ...clone(good), id: 'Bad Id', kind: 'fungus', crops: ['tomato', 'tomato', 'kudzu'] },
+    {
+      ...clone(good),
+      id: 'chemical-only',
+      scout: { stages: ['harvest'], when: ' ' },
+      controls: { chemical: ['malathion'], magic: ['wishing'] },
+      shownIn: [],
+      reference: '',
+      source: 'rumour',
+    },
+    clone(good),
+    clone(good),
+  ];
+  const errors = validate(data).join('\n');
+  assert.match(errors, /id must be lower case with hyphens/);
+  assert.match(errors, /kind must be one of insect, mite, disease/);
+  assert.match(errors, /unknown crop "kudzu"/);
+  assert.match(errors, /a crop is listed twice/);
+  assert.match(errors, /scout stage "harvest" is not one of/);
+  assert.match(errors, /scout.when is required/);
+  assert.match(errors, /controls.magic is not one of/);
+  assert.match(errors, /IPM reaches for a cultural, physical, or biological control first/);
+  assert.match(errors, /reference is required/);
+  assert.match(errors, /unknown source "rumour"/);
+  assert.match(errors, /shownIn must say where the evidence comes from/);
+  assert.match(errors, /pests.yaml: duplicate id "aphids"/);
+  // The companion pairs that name aphids still find them.
+  assert.doesNotMatch(errors, /unknown pest "aphids"/);
+});
+
+test('a companion pair names only real pests, and only when it acts on pests', () => {
+  const data = clone(load());
+  const pair = {
+    crops: ['tomato', 'basil'],
+    kind: 'helps',
+    evidence: 'traditional',
+    reason: 'x',
+    shownIn: [{ where: 'Anywhere' }],
+    source: 'hand-curation',
+  };
+  data.companions = [
+    { ...pair, benefits: ['deters-pests'], pests: ['aphids', 'gremlins'] },
+    { ...pair, benefits: ['support'], pests: ['aphids'] },
+  ];
+  const errors = validate(data);
+  assert.deepEqual(errors, [
+    'companions.yaml[0]: unknown pest "gremlins"',
+    'companions.yaml[1]: only a pair that acts on pests may name pests',
+  ]);
+});

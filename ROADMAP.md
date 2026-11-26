@@ -58,7 +58,13 @@ For this repository:
      hazelnut; crop coefficients for fig, hazelnut, pawpaw, and persimmon,
      which FAO-56 Table 12 does not list (research gives only monthly or
      transpiration-only values).
-   - **v0.3.2:** `pests.yaml` and the first pests and diseases.
+   - **In progress, v0.3.2:** `pests.yaml` with the first eleven pests and
+     diseases (aphids, flea beetles, Colorado potato beetle, squash bug,
+     squash vine borer, tomato hornworm, cucumber beetles, imported
+     cabbageworm, early and late blight, and powdery mildew of cucurbits),
+     from University of Minnesota and Clemson extension guides, and companion
+     pairs linked to the pests they act on. More pests, and guidance from
+     other regions, follow before the release is cut.
    - Then more crops in batches toward about 150. `icons/library/` already
      holds icons for many of them.
 7. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
@@ -185,9 +191,11 @@ the least disruptive control that works.
 Each pest or disease carries:
 
 - **Identification**: the signs to look for and the crops it attacks.
-  Crops list the pests they are prone to (`pests: [aphids, cabbage-worm]`).
-- **When to scout**: the season or crop stage it appears, so an app can
-  remind a household to look (for example flea beetles on young brassica
+  The pest lists its crops (`crops: [cabbage, broccoli]`), the way a companion
+  pair lists its two, so adding a pest never touches the crop files.
+- **When to scout**: the crop stages it appears at (`scout.stages`:
+  seedling, vegetative, flowering, fruiting) and the season in words, so an
+  app can remind a household to look (for example flea beetles on young brassica
   and eggplant transplants in spring).
 - **Threshold**, where extension guidance gives one: when damage is worth
   acting on (for example spray seedlings only after they lose about a third
@@ -328,4 +336,6 @@ chosen. Size is a rough guess: S is under a day, M a few days, L longer.
 | **Data:** `stageDays` for kale, basil, cilantro, parsley, oregano, thyme, and okra                                                                          | Their crop coefficients (Pereira et al. 2024) come without growth-stage lengths, so apps use one Kc curve shape for them; field studies in that review give stage lengths for some sites                             | S    |
 | **Data:** crop-specific coefficients for leek, Swiss chard, dill, and chives from Geisenheim's irrigation scheduling tables, if they use FAO-56's reference | Those four use FAO-56 group values today; Geisenheim publishes measured values for German vegetable crops                                                                                                            | S    |
 | **Data:** a `references` list per crop (title and URL of each extension guide used)                                                                         | New crops name their guides in `notes`, which apps show as prose and which runs into the 500-character limit; a field keeps citations as data and lets the validator check them                                      | S    |
+| **Data:** more pests and diseases: cabbage looper, Japanese beetle, spider mites, Mexican bean beetle, Septoria leaf spot, bacterial wilt, and apple scab   | The first eleven cover the commonest vegetable pests; fruit gardens and beans have none yet                                                                                                                          | M    |
+| **Data:** `shownIn` beyond Minnesota and South Carolina for each pest, from UC IPM, Cornell, and other extension services                                   | Each pest has guidance from one region today, and timing and thresholds can differ elsewhere; a second region per pest lets apps rank advice near a garden                                                           | M    |
 | **Pipeline:** use Penn State's York County seed-planting guide as a frost-anchored cross-check                                                              | It gives earliest and latest sowing dates against a stated last frost (May 1) and first frost (October 1), so its dates convert directly to `weeksEarliest`/`weeksLatest` for many crops                             | S    |

@@ -64,7 +64,29 @@ traditional), where it was shown (`shownIn`, with USDA hardiness zones), and
 for research or extension evidence a `reference` to the study or extension
 guide. Write the reason in your own words; extension pages and papers are
 references, not sources, because they are not CC0. Advice that only appears
-in gardening charts is `traditional`.
+in gardening charts is `traditional`. A pair that deters, traps, or draws
+the enemies of a pest in `pests.yaml` names it in `pests`.
+
+## Pests and diseases
+
+An entry in `pests.yaml` follows integrated pest management (IPM), as
+extension services teach it:
+
+- `crops` lists the crops it attacks. The pest lists its crops, the way a
+  companion pair lists its two, so a crop file never needs to change for a new
+  pest.
+- `signs` says how to recognize it and its damage, and `scout` says when to
+  look: `stages` from `seedling`, `vegetative`, `flowering`, and `fruiting`,
+  which an app can turn into a reminder from a planting's date, and `when` in
+  words.
+- `threshold`, where the guidance gives one, says when damage is worth acting
+  on.
+- `controls` run `cultural`, `physical`, `biological`, then `chemical`. Every
+  entry has at least one control that is not chemical. Chemical steps name
+  active ingredients, least toxic first, never product names; apps add that
+  the label is the law.
+- `shownIn` and `reference` work as for companion pairs: the region the
+  guidance comes from, and the extension guides behind it, in your own words.
 
 ## Changelog and releases
 
