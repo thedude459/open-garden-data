@@ -28,6 +28,22 @@ const HELPS = new Set([
 ]);
 const HINDERS = new Set(['competes', 'suppresses-growth', 'shares-pests']);
 const EVIDENCE = new Set(['research', 'extension', 'traditional']);
+const PEST_KINDS = new Set(['insect', 'mite', 'disease']);
+/** Crop stages worth scouting at, so an app can time a reminder from a planting. */
+const SCOUT_STAGES = new Set(['seedling', 'vegetative', 'flowering', 'fruiting']);
+/** Controls in IPM order: the least disruptive first, chemical last. */
+const CONTROL_GROUPS = ['cultural', 'physical', 'biological', 'chemical'];
+/** A country as an ISO 3166-1 alpha-2 code, the form apps get from a place lookup. */
+const COUNTRY = /^[A-Z]{2}$/;
+/** A locale key for names, as crops use: en, pt-BR. */
+const LOCALE = /^[a-z]{2}(-[A-Z]{2})?$/;
+/** Companion benefits that act on pests, so a pair with one may name them. */
+const PEST_BENEFITS = new Set([
+  'deters-pests',
+  'trap-crop',
+  'attracts-beneficials',
+  'shares-pests',
+]);
 /** Licenses whose terms allow CC0 output. Anything else (BY-SA, NC, unknown) is refused. */
 const ALLOWED_LICENSES = new Set(['CC0-1.0', 'Public domain']);
 const SOURCE_KINDS = new Set(['reference', 'curation', 'bootstrap']);
@@ -57,6 +73,7 @@ export function load(dir = ROOT) {
     families: read('families.yaml') ?? [],
     sources: read('sources.yaml') ?? [],
     companions: read('companions.yaml') ?? [],
+    pests: read('pests.yaml') ?? [],
     crops,
   };
 }
@@ -173,6 +190,14 @@ export function validate(data, schema = readSchema()) {
     }
   }
 
+  const pests = data.pests ?? [];
+  const pestIds = idSet(pests, 'pests.yaml', errors);
+  (Array.isArray(pests) ? pests : []).forEach((pest, i) =>
+    errors.push(
+      ...checkPest(`pests.yaml[${i}] ${pest?.id ?? ''}`.trim(), pest, cropIds, sourceIds),
+    ),
+  );
+
   if (!Array.isArray(data.companions)) {
     errors.push('companions.yaml: must be a list');
   } else {
@@ -200,16 +225,116 @@ export function validate(data, schema = readSchema()) {
         errors.push(`${at}: evidence must be one of ${[...EVIDENCE].join(', ')}`);
       if (pair.evidence !== 'traditional' && !pair.reference?.trim())
         errors.push(`${at}: ${pair.evidence} evidence needs a reference`);
-      if (!Array.isArray(pair.shownIn) || pair.shownIn.length === 0) {
-        errors.push(`${at}: shownIn must say where the evidence comes from`);
-      } else {
-        for (const place of pair.shownIn) {
-          if (!place?.where?.trim()) errors.push(`${at}: each shownIn entry needs where`);
-          if (place?.zones && place.zones.min > place.zones.max)
-            errors.push(`${at}: shownIn "${place.where}" zones.min is above max`);
-        }
+      errors.push(...checkShownIn(at, pair.shownIn));
+      if (pair.pests !== undefined) {
+        if (!pair.benefits?.some((b) => PEST_BENEFITS.has(b)))
+          errors.push(`${at}: only a pair that acts on pests may name pests`);
+        for (const id of Array.isArray(pair.pests) ? pair.pests : [pair.pests])
+          if (!pestIds.has(id)) errors.push(`${at}: unknown pest "${id}"`);
       }
     });
+  }
+  return errors;
+}
+
+/** Problems with one pest or disease in pests.yaml. */
+function checkPest(at, pest, cropIds, sourceIds) {
+  const errors = [];
+  if (!/^[a-z][a-z0-9-]*$/.test(pest.id ?? ''))
+    errors.push(`${at}: id must be lower case with hyphens`);
+  if (typeof pest.names?.en !== 'string' || !pest.names.en.trim())
+    errors.push(`${at}: names.en is required`);
+  for (const [locale, name] of Object.entries(pest.names ?? {}))
+    if (!LOCALE.test(locale) || typeof name !== 'string' || !name.trim())
+      errors.push(`${at}: names.${locale} must be a name under a locale such as en or pt-BR`);
+  if (
+    pest.aliases !== undefined &&
+    (!Array.isArray(pest.aliases) || pest.aliases.some((a) => typeof a !== 'string' || !a.trim()))
+  )
+    errors.push(`${at}: aliases must be a list of other names`);
+  if (typeof pest.signs !== 'string' || !pest.signs.trim()) errors.push(`${at}: signs is required`);
+  if (!PEST_KINDS.has(pest.kind))
+    errors.push(`${at}: kind must be one of ${[...PEST_KINDS].join(', ')}`);
+  if (!Array.isArray(pest.crops) || pest.crops.length === 0) {
+    errors.push(`${at}: crops must list the crops it attacks`);
+  } else {
+    for (const id of pest.crops) if (!cropIds.has(id)) errors.push(`${at}: unknown crop "${id}"`);
+    if (new Set(pest.crops).size !== pest.crops.length)
+      errors.push(`${at}: a crop is listed twice`);
+  }
+  const stages = pest.scout?.stages;
+  if (!Array.isArray(stages) || stages.length === 0)
+    errors.push(`${at}: scout.stages must say when in a crop's life to look`);
+  else
+    for (const s of stages)
+      if (!SCOUT_STAGES.has(s))
+        errors.push(`${at}: scout stage "${s}" is not one of ${[...SCOUT_STAGES].join(', ')}`);
+  errors.push(...checkControls(at, 'controls', pest.controls ?? {}));
+  if (pest.controls?.chemical)
+    errors.push(
+      `${at}: chemical controls depend on what a country registers; put them under regions`,
+    );
+  if (!CONTROL_GROUPS.slice(0, 3).some((g) => pest.controls?.[g]?.length))
+    errors.push(`${at}: IPM reaches for a cultural, physical, or biological control first`);
+  if (!sourceIds.has(pest.source)) errors.push(`${at}: unknown source "${pest.source}"`);
+
+  const occurs = pest.occursIn;
+  if (occurs !== undefined) {
+    const countries = occurs?.countries;
+    if (!Array.isArray(countries) || countries.length === 0)
+      errors.push(`${at}: occursIn.countries must list where it lives`);
+    else
+      for (const c of countries)
+        if (!COUNTRY.test(c ?? ''))
+          errors.push(`${at}: occursIn country "${c}" is not an ISO 3166 code`);
+    if (!occurs?.reference?.trim()) errors.push(`${at}: occursIn needs a reference`);
+  }
+  if (!Array.isArray(pest.regions) || pest.regions.length === 0) {
+    errors.push(`${at}: regions must give the guidance for at least one place`);
+    return errors;
+  }
+  pest.regions.forEach((region, i) => {
+    const where = `${at} regions[${i}]`;
+    if (!region?.where?.trim()) errors.push(`${where}: where is required`);
+    if (!COUNTRY.test(region?.country ?? ''))
+      errors.push(`${where}: country must be an ISO 3166 code, such as US`);
+    else if (Array.isArray(occurs?.countries) && !occurs.countries.includes(region.country))
+      errors.push(`${where}: ${region.country} is not in occursIn`);
+    if (region?.zones && region.zones.min > region.zones.max)
+      errors.push(`${where}: zones.min is above max`);
+    if (typeof region?.when !== 'string' || !region.when.trim())
+      errors.push(`${where}: when is required`);
+    if (!region?.reference?.trim()) errors.push(`${where}: reference is required`);
+    errors.push(...checkControls(where, 'controls', region?.controls ?? {}));
+  });
+  return errors;
+}
+
+/** Control groups are known names, each a list of steps. */
+function checkControls(at, name, controls) {
+  const errors = [];
+  for (const group of Object.keys(controls))
+    if (!CONTROL_GROUPS.includes(group))
+      errors.push(`${at}: ${name}.${group} is not one of ${CONTROL_GROUPS.join(', ')}`);
+  for (const group of CONTROL_GROUPS) {
+    const list = controls[group];
+    if (
+      list !== undefined &&
+      (!Array.isArray(list) || list.some((c) => typeof c !== 'string' || !c.trim()))
+    )
+      errors.push(`${at}: ${name}.${group} must be a list of steps`);
+  }
+  return errors;
+}
+
+function checkShownIn(at, shownIn) {
+  if (!Array.isArray(shownIn) || shownIn.length === 0)
+    return [`${at}: shownIn must say where the evidence comes from`];
+  const errors = [];
+  for (const place of shownIn) {
+    if (!place?.where?.trim()) errors.push(`${at}: each shownIn entry needs where`);
+    if (place?.zones && place.zones.min > place.zones.max)
+      errors.push(`${at}: shownIn "${place.where}" zones.min is above max`);
   }
   return errors;
 }
@@ -226,6 +351,7 @@ export function build(data, version) {
     sources: data.sources,
     crops: data.crops.map((c) => c.crop),
     companions: data.companions,
+    pests: data.pests ?? [],
   };
 }
 
@@ -646,7 +772,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   }
   if (command === 'validate') {
     console.log(
-      `Valid: ${data.crops.length} crop(s) with icons, ${data.families.length} families, ${data.companions.length} companion pair(s).`,
+      `Valid: ${data.crops.length} crop(s) with icons, ${data.families.length} families, ${data.companions.length} companion pair(s), ${data.pests.length} pest(s) and disease(s).`,
     );
   } else if (command === 'notes') {
     // node scripts/catalog.mjs notes <current.json> [previous.json]

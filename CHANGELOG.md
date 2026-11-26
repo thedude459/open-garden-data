@@ -21,11 +21,33 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **Pests and diseases** (`pests.yaml`), organized for integrated pest
+  management: the first eleven are aphids, flea beetles, Colorado potato
+  beetle, squash bug, squash vine borer, tomato hornworm, cucumber beetles,
+  imported cabbageworm, early blight, late blight, and powdery mildew of
+  cucurbits. Each names the crops it attacks, how to recognize it, the crop
+  stages to scout at, and the controls that work anywhere, in IPM order
+  (cultural, physical, biological). What changes with place is per region:
+  when to look, the threshold for acting, and chemical controls, least toxic
+  first, since each country registers its own. Each region names its country
+  and zones, so an app can pick guidance near a garden; the first eleven have
+  guidance from Minnesota or South Carolina. `occursIn` lists the countries a
+  pest lives in, from EPPO's Global Database: the Colorado potato beetle is
+  recorded in 49 countries and absent from others such as Great Britain,
+  Ireland, Japan, and Norway. EPPO records distribution only for regulated
+  pests, so the other ten have none yet, which apps read as not known.
+- A pest has `names` by locale, as crops do, and `aliases` for search
+  ("cabbage white" finds the imported cabbageworm).
+- Companion pairs that act on a pest name it (`pests`), so an app can show
+  the trap crops and deterrents for a pest; 21 pairs do.
+
 ### Improvements
 
 ### Bug fixes
 
 ### Documentation
+
+- CONTRIBUTING says how to write a pest or disease.
 
 ### Security
 

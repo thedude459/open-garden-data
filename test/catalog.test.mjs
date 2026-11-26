@@ -416,3 +416,91 @@ test('named rootstocks: ids unique per crop, size in order, spacing checked', ()
   assert.match(errors, /rootstock "m9" sizePercent.min is above max/);
   assert.match(errors, /rootstock "m9" spacingCm rows cannot be closer than plants in a row/);
 });
+
+test('a pest says what it attacks, when to look, and controls in IPM order', () => {
+  const data = clone(load());
+  const good = clone(data.pests.find((p) => p.id === 'aphids'));
+  data.pests = [
+    { ...clone(good), id: 'Bad Id', kind: 'fungus', crops: ['tomato', 'tomato', 'kudzu'] },
+    {
+      ...clone(good),
+      id: 'chemical-only',
+      scout: { stages: ['harvest'] },
+      controls: { chemical: ['malathion'], magic: ['wishing'] },
+      source: 'rumour',
+    },
+    { ...clone(good), id: 'no-regions', regions: [] },
+    { ...clone(good), id: 'unnamed', names: { fr: 'Puceron', 'en-us': 'x' }, aliases: ['', 3] },
+    clone(good),
+    clone(good),
+  ];
+  const errors = validate(data).join('\n');
+  assert.match(errors, /id must be lower case with hyphens/);
+  assert.match(errors, /kind must be one of insect, mite, disease/);
+  assert.match(errors, /unknown crop "kudzu"/);
+  assert.match(errors, /a crop is listed twice/);
+  assert.match(errors, /scout stage "harvest" is not one of/);
+  assert.match(errors, /controls.magic is not one of/);
+  assert.match(
+    errors,
+    /chemical controls depend on what a country registers; put them under regions/,
+  );
+  assert.match(errors, /IPM reaches for a cultural, physical, or biological control first/);
+  assert.match(errors, /unknown source "rumour"/);
+  assert.match(errors, /no-regions: regions must give the guidance for at least one place/);
+  assert.match(errors, /unnamed: names.en is required/);
+  assert.match(errors, /unnamed: names.en-us must be a name under a locale such as en or pt-BR/);
+  assert.match(errors, /unnamed: aliases must be a list of other names/);
+  assert.match(errors, /pests.yaml: duplicate id "aphids"/);
+  // The companion pairs that name aphids still find them.
+  assert.doesNotMatch(errors, /unknown pest "aphids"/);
+});
+
+test('regional guidance names its country, and fits where the pest occurs', () => {
+  const data = clone(load());
+  const good = clone(data.pests.find((p) => p.id === 'aphids'));
+  const region = good.regions[0];
+  data.pests = [
+    {
+      ...good,
+      regions: [
+        { ...region, country: 'usa', when: ' ', reference: '', zones: { min: 6, max: 5 } },
+        { ...region, controls: { chemical: [''] } },
+      ],
+    },
+    { ...good, id: 'abroad', occursIn: { countries: ['AU', 'nz'], reference: '' } },
+    { ...good, id: 'listed', occursIn: { countries: ['US', 'CA'], reference: 'EPPO' } },
+  ];
+  const errors = validate(data).filter((e) => e.startsWith('pests.yaml'));
+  assert.deepEqual(errors, [
+    'pests.yaml[0] aphids regions[0]: country must be an ISO 3166 code, such as US',
+    'pests.yaml[0] aphids regions[0]: zones.min is above max',
+    'pests.yaml[0] aphids regions[0]: when is required',
+    'pests.yaml[0] aphids regions[0]: reference is required',
+    'pests.yaml[0] aphids regions[1]: controls.chemical must be a list of steps',
+    'pests.yaml[1] abroad: occursIn country "nz" is not an ISO 3166 code',
+    'pests.yaml[1] abroad: occursIn needs a reference',
+    'pests.yaml[1] abroad regions[0]: US is not in occursIn',
+  ]);
+});
+
+test('a companion pair names only real pests, and only when it acts on pests', () => {
+  const data = clone(load());
+  const pair = {
+    crops: ['tomato', 'basil'],
+    kind: 'helps',
+    evidence: 'traditional',
+    reason: 'x',
+    shownIn: [{ where: 'Anywhere' }],
+    source: 'hand-curation',
+  };
+  data.companions = [
+    { ...pair, benefits: ['deters-pests'], pests: ['aphids', 'gremlins'] },
+    { ...pair, benefits: ['support'], pests: ['aphids'] },
+  ];
+  const errors = validate(data);
+  assert.deepEqual(errors, [
+    'companions.yaml[0]: unknown pest "gremlins"',
+    'companions.yaml[1]: only a pair that acts on pests may name pests',
+  ]);
+});

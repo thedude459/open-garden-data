@@ -28,6 +28,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Pinero (2017), University of Missouri Environment & Garden; UMN; Clemson (Hubbard types are the most damaged by squash bug)
+  pests: [squash-bug, cucumber-beetles, squash-vine-borer]
   source: hand-curation
 - crops: [winter-squash, cucumber]
   kind: helps
@@ -38,6 +39,7 @@
     - where: Minnesota, USA
       zones: { min: 3, max: 5 }
   reference: UMN
+  pests: [cucumber-beetles]
   source: hand-curation
 - crops: [nasturtium, summer-squash]
   kind: helps
@@ -48,6 +50,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; Doughty et al. (2016), Journal of Integrated Pest Management 7(1); UMN
+  pests: [squash-bug, cucumber-beetles]
   source: hand-curation
 - crops: [marigold, summer-squash]
   kind: helps
@@ -60,6 +63,7 @@
     - where: Florida, USA
       zones: { min: 9, max: 9 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; Lopez & Liburd (2019), SARE report GS17-171; UMN
+  pests: [squash-bug, cucumber-beetles, aphids]
   source: hand-curation
 - crops: [sweet-alyssum, summer-squash]
   kind: helps
@@ -70,6 +74,7 @@
     - where: Florida, USA
       zones: { min: 9, max: 9 }
   reference: Lopez & Liburd (2019), SARE report GS17-171; UMN
+  pests: [aphids]
   source: hand-curation
 
 # Cabbage family
@@ -82,6 +87,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [nasturtium, broccoli]
   kind: helps
@@ -92,6 +98,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [onion, broccoli]
   kind: helps
@@ -102,6 +109,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [marigold, cabbage]
   kind: helps
@@ -112,6 +120,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [nasturtium, cabbage]
   kind: helps
@@ -122,6 +131,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [onion, cabbage]
   kind: helps
@@ -132,6 +142,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [dill, cabbage]
   kind: helps
@@ -142,6 +153,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [dill, broccoli]
   kind: helps
@@ -152,6 +164,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [parsley, cabbage]
   kind: helps
@@ -162,6 +175,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [parsley, broccoli]
   kind: helps
@@ -172,6 +186,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [tansy, cabbage]
   kind: helps
@@ -182,6 +197,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [tansy, broccoli]
   kind: helps
@@ -192,6 +208,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  pests: [imported-cabbageworm]
   source: hand-curation
 - crops: [thyme, brussels-sprouts]
   kind: helps
@@ -236,6 +253,7 @@
     - where: California Central Coast, USA
       zones: { min: 9, max: 10 }
   reference: UC IPM
+  pests: [aphids]
   source: hand-curation
 - crops: [sweet-alyssum, lettuce]
   kind: helps
@@ -246,6 +264,7 @@
     - where: California Central Coast, USA
       zones: { min: 9, max: 10 }
   reference: UC IPM
+  pests: [aphids]
   source: hand-curation
 
 # Three sisters and space sharing
@@ -326,6 +345,7 @@
     - where: Minnesota, USA
       zones: { min: 3, max: 5 }
   reference: University of Minnesota Extension, "Late blight of tomato and potato"
+  pests: [late-blight]
   source: hand-curation
 - crops: [potato, eggplant]
   kind: hinders
@@ -336,6 +356,7 @@
     - where: Minnesota, USA
       zones: { min: 3, max: 5 }
   reference: University of Minnesota Extension, "Colorado potato beetle"
+  pests: [colorado-potato-beetle]
   source: hand-curation
 - crops: [tomato, sweet-corn]
   kind: hinders

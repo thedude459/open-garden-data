@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/thedude459/open-garden-data/schema/catalog.schema.json",
   "title": "Open Garden catalog release",
-  "description": "The release file open-garden-catalog-<version>.json: every crop, family, source, and companion pair. Attached to each GitHub Release so apps can validate what they download. Units are metric: centimetres and degrees Celsius.",
+  "description": "The release file open-garden-catalog-<version>.json: every crop, family, source, companion pair, and pest. Attached to each GitHub Release so apps can validate what they download. Units are metric: centimetres and degrees Celsius.",
   "type": "object",
   "additionalProperties": false,
   "required": ["version", "license", "units", "families", "sources", "crops", "companions"],
@@ -109,9 +109,160 @@
             "type": "string",
             "description": "The studies or extension guides behind the pair, as a citation. Not a data source: the facts are written in our own words."
           },
+          "pests": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "type": "string" },
+            "description": "Ids from pests: the pests this pair acts on, for a pair that deters pests, traps them, draws their natural enemies, or shares them."
+          },
           "source": { "type": "string" }
         }
       }
+    },
+    "pests": {
+      "type": "array",
+      "description": "Common garden pests and diseases, organized for integrated pest management (IPM). Advice, never a rule. What a pest is and the controls that work anywhere are shared; timing, thresholds, and chemical controls are per region.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "names",
+          "kind",
+          "crops",
+          "signs",
+          "scout",
+          "controls",
+          "regions",
+          "source"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "names": {
+            "type": "object",
+            "description": "Common names by locale, as for crops. English is required.",
+            "required": ["en"],
+            "properties": { "en": { "type": "string", "minLength": 1, "maxLength": 80 } },
+            "propertyNames": { "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+            "additionalProperties": { "type": "string", "minLength": 1, "maxLength": 80 }
+          },
+          "aliases": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 },
+            "description": "Other common names it goes by, for search, such as the adult's name or a regional name."
+          },
+          "scientificName": {
+            "type": "string",
+            "description": "The species, genus, or family; for a disease, the pathogen."
+          },
+          "kind": { "enum": ["insect", "mite", "disease"] },
+          "crops": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "type": "string" },
+            "description": "Crop ids the guidance names as hosts. Not a complete host list: a crop missing here may still be attacked, so apps must not read its absence as safety."
+          },
+          "signs": { "type": "string", "description": "How to recognize it and its damage." },
+          "scout": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["stages"],
+            "properties": {
+              "stages": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "enum": ["seedling", "vegetative", "flowering", "fruiting"] },
+                "description": "The crop stages worth looking at, so an app can time a reminder from a planting."
+              }
+            }
+          },
+          "controls": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Controls that work wherever the pest occurs, in IPM order. Chemical controls are per region.",
+            "properties": {
+              "cultural": { "$ref": "#/$defs/steps" },
+              "physical": { "$ref": "#/$defs/steps" },
+              "biological": { "$ref": "#/$defs/steps" }
+            }
+          },
+          "occursIn": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["countries", "reference"],
+            "description": "Where it lives, when known. Without it, where it occurs is not known; apps should not read that as absent.",
+            "properties": {
+              "countries": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "$ref": "#/$defs/country" }
+              },
+              "reference": { "type": "string" }
+            }
+          },
+          "regions": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Guidance for each place it was written for. Apps pick the region in a property's country nearest its zone, and show no timing or chemicals from another country.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["where", "country", "when", "reference"],
+              "properties": {
+                "where": { "type": "string" },
+                "country": { "$ref": "#/$defs/country" },
+                "zones": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["min", "max"],
+                  "description": "The USDA hardiness zones of that place.",
+                  "properties": {
+                    "min": { "type": "integer", "minimum": 1, "maximum": 13 },
+                    "max": { "type": "integer", "minimum": 1, "maximum": 13 }
+                  }
+                },
+                "when": {
+                  "type": "string",
+                  "description": "When and how to look there, in words."
+                },
+                "threshold": {
+                  "type": "string",
+                  "description": "When damage is worth acting on, where the guidance gives one."
+                },
+                "controls": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "description": "Controls that depend on the place: local timing, and chemical controls by active ingredient, least toxic first. Apps add that the label is the law.",
+                  "properties": {
+                    "cultural": { "$ref": "#/$defs/steps" },
+                    "physical": { "$ref": "#/$defs/steps" },
+                    "biological": { "$ref": "#/$defs/steps" },
+                    "chemical": { "$ref": "#/$defs/steps" }
+                  }
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "The extension guides behind this region's guidance, as a citation. The facts are written in our own words."
+                }
+              }
+            }
+          },
+          "source": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "steps": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "An ISO 3166-1 alpha-2 country code."
     }
   }
 }

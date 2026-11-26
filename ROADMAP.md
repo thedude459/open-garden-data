@@ -58,7 +58,13 @@ For this repository:
      hazelnut; crop coefficients for fig, hazelnut, pawpaw, and persimmon,
      which FAO-56 Table 12 does not list (research gives only monthly or
      transpiration-only values).
-   - **v0.3.2:** `pests.yaml` and the first pests and diseases.
+   - **In progress, v0.3.2:** `pests.yaml` with the first eleven pests and
+     diseases (aphids, flea beetles, Colorado potato beetle, squash bug,
+     squash vine borer, tomato hornworm, cucumber beetles, imported
+     cabbageworm, early and late blight, and powdery mildew of cucurbits),
+     from University of Minnesota and Clemson extension guides, and companion
+     pairs linked to the pests they act on. More pests, and guidance from
+     other regions, follow before the release is cut.
    - Then more crops in batches toward about 150. `icons/library/` already
      holds icons for many of them.
 7. **v0.4**, [soil amendments](#soil-amendments): lime and sulfur rates by
@@ -185,9 +191,11 @@ the least disruptive control that works.
 Each pest or disease carries:
 
 - **Identification**: the signs to look for and the crops it attacks.
-  Crops list the pests they are prone to (`pests: [aphids, cabbage-worm]`).
-- **When to scout**: the season or crop stage it appears, so an app can
-  remind a household to look (for example flea beetles on young brassica
+  The pest lists its crops (`crops: [cabbage, broccoli]`), the way a companion
+  pair lists its two, so adding a pest never touches the crop files.
+- **When to scout**: the crop stages it appears at (`scout.stages`:
+  seedling, vegetative, flowering, fruiting) and the season in words, so an
+  app can remind a household to look (for example flea beetles on young brassica
   and eggplant transplants in spring).
 - **Threshold**, where extension guidance gives one: when damage is worth
   acting on (for example spray seedlings only after they lose about a third
@@ -197,9 +205,14 @@ Each pest or disease carries:
   traps), biological (beneficial insects, and the companion pairs and trap
   crops that act on this pest, linked by id), and chemical last, by active
   ingredient and least-toxic first, with a reminder to follow the label.
-- **`shownIn` and `reference`**, as for companion pairs: which regions the
-  guidance comes from, so advice for squash bugs in New England is not
-  offered unchanged in California.
+- **By region** (`regions`): pests differ from place to place, so what
+  changes with place, when to look, the threshold, and chemical controls
+  (each country registers its own), sits under a region with its country,
+  USDA zones, and reference, so advice for squash bugs in New England is not
+  offered unchanged in California. What a pest is and the controls that work
+  anywhere are shared. **`occursIn`** lists the countries it lives in, from
+  a distribution reference, so a garden is not warned of a pest its country
+  does not have.
 
 Companion benefits can then name the pest they act on (`pests: [squash-bug]`).
 Crop rotation by family is the other half of disease control and needs no
@@ -322,10 +335,20 @@ while working on something else ([CONTRIBUTING](CONTRIBUTING.md#making-a-change)
 Not planned yet: move one into the [order of work](#order-of-work) when it is
 chosen. Size is a rough guess: S is under a day, M a few days, L longer.
 
-| Idea                                                                                                                                                        | Why                                                                                                                                                                                                                  | Size |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| **Data:** a `successionDays` per crop: how often to resow it for a steady harvest (radish and leaf lettuce about 7 days, bush beans 10, carrots 21)         | Open Garden's succession planting (its ADR 0037) defaults to two weeks for every crop. Extension tables vary by crop, but the one found (Kentucky's) credits Johnny's Seeds, so the values need an open source first | S    |
-| **Data:** `stageDays` for kale, basil, cilantro, parsley, oregano, thyme, and okra                                                                          | Their crop coefficients (Pereira et al. 2024) come without growth-stage lengths, so apps use one Kc curve shape for them; field studies in that review give stage lengths for some sites                             | S    |
-| **Data:** crop-specific coefficients for leek, Swiss chard, dill, and chives from Geisenheim's irrigation scheduling tables, if they use FAO-56's reference | Those four use FAO-56 group values today; Geisenheim publishes measured values for German vegetable crops                                                                                                            | S    |
-| **Data:** a `references` list per crop (title and URL of each extension guide used)                                                                         | New crops name their guides in `notes`, which apps show as prose and which runs into the 500-character limit; a field keeps citations as data and lets the validator check them                                      | S    |
-| **Pipeline:** use Penn State's York County seed-planting guide as a frost-anchored cross-check                                                              | It gives earliest and latest sowing dates against a stated last frost (May 1) and first frost (October 1), so its dates convert directly to `weeksEarliest`/`weeksLatest` for many crops                             | S    |
+| Idea                                                                                                                                                                                                                  | Why                                                                                                                                                                                                                  | Size |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| **Data:** a `successionDays` per crop: how often to resow it for a steady harvest (radish and leaf lettuce about 7 days, bush beans 10, carrots 21)                                                                   | Open Garden's succession planting (its ADR 0037) defaults to two weeks for every crop. Extension tables vary by crop, but the one found (Kentucky's) credits Johnny's Seeds, so the values need an open source first | S    |
+| **Data:** `stageDays` for kale, basil, cilantro, parsley, oregano, thyme, and okra                                                                                                                                    | Their crop coefficients (Pereira et al. 2024) come without growth-stage lengths, so apps use one Kc curve shape for them; field studies in that review give stage lengths for some sites                             | S    |
+| **Data:** crop-specific coefficients for leek, Swiss chard, dill, and chives from Geisenheim's irrigation scheduling tables, if they use FAO-56's reference                                                           | Those four use FAO-56 group values today; Geisenheim publishes measured values for German vegetable crops                                                                                                            | S    |
+| **Data:** a `references` list per crop (title and URL of each extension guide used)                                                                                                                                   | New crops name their guides in `notes`, which apps show as prose and which runs into the 500-character limit; a field keeps citations as data and lets the validator check them                                      | S    |
+| **Data:** more pests and diseases: cabbage looper, Japanese beetle, spider mites, Mexican bean beetle, Septoria leaf spot, bacterial wilt, and apple scab                                                             | The first eleven cover the commonest vegetable pests; fruit gardens and beans have none yet                                                                                                                          | M    |
+| **Data:** a second region for each pest, from UC IPM, Cornell, and other extension services                                                                                                                           | Each pest has guidance from one region today; another region lets apps pick advice nearer a garden                                                                                                                   | M    |
+| **Data:** `occursIn` for the pests EPPO's Global Database has no distribution for (it covers regulated pests only; the Colorado potato beetle is done), from another distribution reference such as CABI's Compendium | Without it apps cannot tell which pests a property's country has; the reference's terms need checking and its site reaching from the session                                                                         | S    |
+| **Data:** growing degree days for each pest's emergence or flight (base temperature and accumulated warmth), where extension guidance gives them                                                                      | A region's `when` is words ("late June"), which apps cannot schedule from and which does not carry to other places or the Southern Hemisphere; degree days computed from a property's temperatures do                | M    |
+| **Data:** weather windows for diseases (temperature range and humidity or leaf wetness), such as early blight at 15 to 27 °C with humidity of 90 percent or more                                                      | Open Garden already fetches a forecast for frost and heat alerts; with these it could warn of blight weather for tomatoes and potatoes                                                                               | S    |
+| **Data:** `rotationYears` per disease (early blight 2, late blight 3 to 4), with the family it rotates away from                                                                                                      | Feeds Open Garden's crop rotation hints, which work by family                                                                                                                                                        | S    |
+| **Data:** disease resistance on varieties, by the codes seed catalogues use (EB, LB, PM, V, F)                                                                                                                        | Lets apps suggest a resistant variety for a pest a garden has had, and ties pests to the variety data                                                                                                                | M    |
+| **Data:** structured chemical controls: each active ingredient with flags such as `organic` and `beeHazard`, never rates or harvest intervals, which belong to the label                                              | Chemical steps are words today, so apps cannot offer organic-only advice or hide chemical advice for households that want none                                                                                       | M    |
+| **Data:** pest photos from public-domain sources such as USDA ARS                                                                                                                                                     | Identifying a pest from words alone is hard; most pest photos (Bugwood among them) are CC BY-NC, which CC0 output cannot use                                                                                         | M    |
+| **Data:** pest guidance from outside the US: AHDB (UK), Australian state agriculture departments, and other extension services                                                                                        | The first pests come from Minnesota and South Carolina, but the catalog is meant to work worldwide                                                                                                                   | M    |
+| **Pipeline:** use Penn State's York County seed-planting guide as a frost-anchored cross-check                                                                                                                        | It gives earliest and latest sowing dates against a stated last frost (May 1) and first frost (October 1), so its dates convert directly to `weeksEarliest`/`weeksLatest` for many crops                             | S    |

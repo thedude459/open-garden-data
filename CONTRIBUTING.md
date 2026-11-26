@@ -64,7 +64,38 @@ traditional), where it was shown (`shownIn`, with USDA hardiness zones), and
 for research or extension evidence a `reference` to the study or extension
 guide. Write the reason in your own words; extension pages and papers are
 references, not sources, because they are not CC0. Advice that only appears
-in gardening charts is `traditional`.
+in gardening charts is `traditional`. A pair that deters, traps, or draws
+the enemies of a pest in `pests.yaml` names it in `pests`.
+
+## Pests and diseases
+
+An entry in `pests.yaml` follows integrated pest management (IPM), as
+extension services teach it:
+
+- `names` gives its common names by locale, as for crops (`en` required),
+  and `aliases` other names it goes by, for search, where a source uses them
+  (the adult's name, a regional name).
+- `crops` lists the crops the guidance names as hosts. The pest lists its
+  crops, the way a companion pair lists its two, so a crop file never needs to
+  change for a new pest. It is not a complete host list: apps must not read a
+  crop's absence as safety.
+- `signs` says how to recognize it and its damage, and `scout.stages` the
+  crop stages to look at (`seedling`, `vegetative`, `flowering`,
+  `fruiting`), which an app can turn into a reminder from a planting's date.
+- `controls` holds what works wherever the pest lives, in IPM order:
+  `cultural`, `physical`, then `biological`. Every entry has at least one.
+- `regions` holds what changes with place, one entry per place the guidance
+  was written for: `where`, its `country` (an ISO 3166 code such as `US`),
+  its USDA `zones`, `when` to look there, the `threshold` for acting where the
+  guidance gives one, `controls` that depend on the place (a sowing date that
+  dodges the local flight, and every `chemical` step, since each country
+  registers its own), and the `reference` behind it, in your own words.
+  Chemical steps name active ingredients, least toxic first, never product
+  names; apps add that the label is the law. Add a region rather than
+  changing another's: guidance from Minnesota stays Minnesota's.
+- `occursIn`, when a distribution reference gives it, lists the `countries`
+  the pest lives in, with its `reference`. Leave it out rather than guess;
+  without it, apps treat where it occurs as not known, not as absent.
 
 ## Changelog and releases
 
