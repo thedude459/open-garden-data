@@ -19,6 +19,9 @@
 #         Other Cole Crop Insect Pests" (updated 2025)
 #   Clemson 2207 = Clemson Cooperative Extension HGIC 2207, "Cucumber, Squash,
 #         Melon & Other Cucurbit Insect Pests" (updated 2025)
+#   EPPO = EPPO Global Database, https://gd.eppo.int, for where a pest
+#         occurs. It records distribution only for pests that countries
+#         regulate, so most entries have no occursIn yet.
 
 - id: aphids
   name: Aphids
@@ -140,6 +143,60 @@
       - Cover rows with row cover before any beetles appear, where potatoes did not grow last year; remove it when weather turns hot and humid.
     biological:
       - Lady beetles and stink bugs eat the eggs, though they seldom keep numbers down on their own.
+  occursIn:
+    countries:
+      [
+        AD,
+        AL,
+        AM,
+        AT,
+        AZ,
+        BA,
+        BE,
+        BG,
+        BY,
+        CA,
+        CH,
+        CN,
+        CU,
+        CZ,
+        DE,
+        EE,
+        ES,
+        FI,
+        FR,
+        GE,
+        GR,
+        GT,
+        HR,
+        HU,
+        IQ,
+        IR,
+        IT,
+        KG,
+        KZ,
+        LT,
+        LU,
+        LV,
+        MD,
+        MK,
+        MX,
+        NL,
+        PL,
+        PT,
+        RO,
+        RS,
+        RU,
+        SI,
+        SK,
+        TJ,
+        TM,
+        TR,
+        UA,
+        US,
+        UZ,
+      ]
+    reference: EPPO (2026), EPPO Global Database, Leptinotarsa decemlineata distribution, countries where present (accessed 2026-11-26); absent, eradicated, transient, or only intercepted elsewhere
   regions:
     - where: Minnesota, USA
       country: US

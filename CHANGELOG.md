@@ -31,8 +31,11 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   when to look, the threshold for acting, and chemical controls, least toxic
   first, since each country registers its own. Each region names its country
   and zones, so an app can pick guidance near a garden; the first eleven have
-  guidance from Minnesota or South Carolina. An optional `occursIn` will list
-  the countries a pest lives in.
+  guidance from Minnesota or South Carolina. `occursIn` lists the countries a
+  pest lives in, from EPPO's Global Database: the Colorado potato beetle is
+  recorded in 49 countries and absent from others such as Great Britain,
+  Ireland, Japan, and Norway. EPPO records distribution only for regulated
+  pests, so the other ten have none yet, which apps read as not known.
 - Companion pairs that act on a pest name it (`pests`), so an app can show
   the trap crops and deterrents for a pest; 21 pairs do.
 
