@@ -77,6 +77,7 @@ export function load(dir = ROOT) {
     sources: read('sources.yaml') ?? [],
     companions: read('companions.yaml') ?? [],
     pests: read('pests.yaml') ?? [],
+    references: read('references.yaml') ?? [],
     crops,
   };
 }
@@ -87,6 +88,7 @@ export function validate(data, schema = readSchema()) {
   const check = new Ajv2020({ allErrors: true, strict: true }).compile(schema);
   const familyIds = idSet(data.families, 'families.yaml', errors);
   const sourceIds = idSet(data.sources, 'sources.yaml', errors);
+  const cite = citations(data.references ?? [], errors);
   const sourceKind = new Map();
   for (const src of Array.isArray(data.sources) ? data.sources : []) {
     if (!ALLOWED_LICENSES.has(src?.license)) {
@@ -197,7 +199,7 @@ export function validate(data, schema = readSchema()) {
   const pestIds = idSet(pests, 'pests.yaml', errors);
   (Array.isArray(pests) ? pests : []).forEach((pest, i) =>
     errors.push(
-      ...checkPest(`pests.yaml[${i}] ${pest?.id ?? ''}`.trim(), pest, cropIds, sourceIds),
+      ...checkPest(`pests.yaml[${i}] ${pest?.id ?? ''}`.trim(), pest, cropIds, sourceIds, cite),
     ),
   );
 
@@ -228,6 +230,7 @@ export function validate(data, schema = readSchema()) {
         errors.push(`${at}: evidence must be one of ${[...EVIDENCE].join(', ')}`);
       if (pair.evidence !== 'traditional' && !pair.reference?.trim())
         errors.push(`${at}: ${pair.evidence} evidence needs a reference`);
+      cite(at, pair.references, pair.evidence !== 'traditional');
       errors.push(...checkShownIn(at, pair.shownIn));
       if (pair.pests !== undefined) {
         if (!pair.benefits?.some((b) => PEST_BENEFITS.has(b)))
@@ -237,11 +240,12 @@ export function validate(data, schema = readSchema()) {
       }
     });
   }
+  cite.unused();
   return errors;
 }
 
 /** Problems with one pest or disease in pests.yaml. */
-function checkPest(at, pest, cropIds, sourceIds) {
+function checkPest(at, pest, cropIds, sourceIds, cite) {
   const errors = [];
   if (!/^[a-z][a-z0-9-]*$/.test(pest.id ?? ''))
     errors.push(`${at}: id must be lower case with hyphens`);
@@ -292,6 +296,7 @@ function checkPest(at, pest, cropIds, sourceIds) {
         if (!COUNTRY.test(c ?? ''))
           errors.push(`${at}: occursIn country "${c}" is not an ISO 3166 code`);
     if (!occurs?.reference?.trim()) errors.push(`${at}: occursIn needs a reference`);
+    cite(`${at} occursIn`, occurs?.references, true);
   }
   if (!Array.isArray(pest.regions) || pest.regions.length === 0) {
     errors.push(`${at}: regions must give the guidance for at least one place`);
@@ -309,6 +314,7 @@ function checkPest(at, pest, cropIds, sourceIds) {
     if (typeof region?.when !== 'string' || !region.when.trim())
       errors.push(`${where}: when is required`);
     if (!region?.reference?.trim()) errors.push(`${where}: reference is required`);
+    cite(where, region?.references, true);
     errors.push(...checkControls(where, 'controls', region?.controls ?? {}));
   });
   return errors;
@@ -329,6 +335,49 @@ function checkControls(at, name, controls) {
       errors.push(`${at}: ${name}.${group} must be a list of steps`);
   }
   return errors;
+}
+
+const REFERENCE_KINDS = new Set(['extension', 'journal', 'report', 'database', 'regulation']);
+
+/**
+ * Checks references.yaml, and returns cite(at, ids, required): the ids an
+ * entry cites must be in it, and an entry that needs a citation must cite one.
+ * cite.unused() reports references nothing cites.
+ */
+function citations(references, errors) {
+  const ids = idSet(references, 'references.yaml', errors);
+  for (const ref of Array.isArray(references) ? references : []) {
+    const at = `references.yaml ${ref?.id ?? ''}`.trim();
+    if (!/^[a-z0-9][a-z0-9-]*$/.test(ref?.id ?? ''))
+      errors.push(`${at}: id must be lower case with hyphens`);
+    for (const field of ['title', 'publisher'])
+      if (typeof ref?.[field] !== 'string' || !ref[field].trim())
+        errors.push(`${at}: ${field} is required`);
+    if (!REFERENCE_KINDS.has(ref?.kind))
+      errors.push(`${at}: kind must be one of ${[...REFERENCE_KINDS].join(', ')}`);
+    if (ref?.url !== undefined && !/^https:\/\/\S+$/.test(ref.url))
+      errors.push(`${at}: url must be an https address`);
+    if (ref?.url === undefined && !ref?.note?.trim())
+      errors.push(`${at}: without a url, a note must say why there is none`);
+  }
+  const used = new Set();
+  const cite = (at, cited, required) => {
+    if (cited === undefined) {
+      if (required) errors.push(`${at}: references must cite ids from references.yaml`);
+      return;
+    }
+    if (!Array.isArray(cited) || cited.length === 0)
+      return errors.push(`${at}: references must be a list of ids from references.yaml`);
+    for (const id of cited) {
+      if (!ids.has(id)) errors.push(`${at}: unknown reference "${id}"`);
+      used.add(id);
+    }
+  };
+  cite.unused = () => {
+    for (const id of ids)
+      if (!used.has(id)) errors.push(`references.yaml ${id}: nothing cites it; remove it`);
+  };
+  return cite;
 }
 
 function checkShownIn(at, shownIn) {
@@ -356,6 +405,7 @@ export function build(data, version) {
     crops: data.crops.map((c) => c.crop),
     companions: data.companions,
     pests: data.pests ?? [],
+    references: data.references ?? [],
   };
 }
 
@@ -776,7 +826,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   }
   if (command === 'validate') {
     console.log(
-      `Valid: ${data.crops.length} crop(s) with icons, ${data.families.length} families, ${data.companions.length} companion pair(s), ${data.pests.length} pest(s) and disease(s).`,
+      `Valid: ${data.crops.length} crop(s) with icons, ${data.families.length} families, ${data.companions.length} companion pair(s), ${data.pests.length} pest(s) and disease(s), ${data.references.length} reference(s).`,
     );
   } else if (command === 'notes') {
     // node scripts/catalog.mjs notes <current.json> [previous.json]

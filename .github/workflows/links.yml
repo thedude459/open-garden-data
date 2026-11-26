@@ -1,0 +1,35 @@
+name: Check references
+
+# Check that every address in references.yaml still answers, so a guide that
+# moves or disappears is found before a reader follows a dead link. Runs on
+# pull requests that change references.yaml and weekly. It needs the network,
+# so it is not a required check: a publisher's outage must not block merges.
+# 403 and 429 count as alive: some publishers refuse automated requests to
+# pages that exist. A 404 or 410 fails.
+on:
+  pull_request:
+    paths: ['references.yaml', '.github/workflows/links.yml']
+  schedule:
+    - cron: '41 6 * * 3'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    name: links
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --no-progress
+            --max-retries 3
+            --accept 200..=299,403,429
+            references.yaml
+          fail: true

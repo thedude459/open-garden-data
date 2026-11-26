@@ -1,0 +1,298 @@
+# Every guide, paper, database, and regulation the dataset cites, once each.
+# A reference is not a data source: the facts are written in our own words,
+# and sources.yaml lists where data comes from. Entries cite these by id in
+# `references`; the free-text `reference` beside it stays for readers.
+#
+#   kind      extension | journal | report | database | regulation
+#   url       the page itself; a weekly link check reports any that break.
+#             Left out only when no checkable address is known (say why in
+#             note).
+#   terms     what the publisher says about reuse, where it matters
+
+# Extension guides: University of Minnesota
+- id: umn-companion-planting
+  title: Companion planting in home gardens
+  publisher: University of Minnesota Extension
+  authors: N. Hoidal
+  year: 2026
+  kind: extension
+  url: https://extension.umn.edu/planting-and-growing-guides/companion-planting-home-gardens
+- id: umn-aphids
+  title: Aphids
+  publisher: University of Minnesota Extension
+  year: 2019
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/aphids
+- id: umn-flea-beetles
+  title: Flea beetles
+  publisher: University of Minnesota Extension
+  year: 2022
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/flea-beetles
+- id: umn-colorado-potato-beetles
+  title: Colorado potato beetles
+  publisher: University of Minnesota Extension
+  year: 2026
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/colorado-potato-beetles
+- id: umn-squash-bugs
+  title: Squash bugs
+  publisher: University of Minnesota Extension
+  year: 2026
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/squash-bugs
+- id: umn-squash-vine-borers
+  title: Squash vine borers
+  publisher: University of Minnesota Extension
+  year: 2026
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/squash-vine-borers
+- id: umn-tomato-hornworms
+  title: Tomato hornworms
+  publisher: University of Minnesota Extension
+  year: 2020
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/tomato-hornworms
+- id: umn-cucumber-beetles
+  title: Cucumber beetles
+  publisher: University of Minnesota Extension
+  year: 2026
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/cucumber-beetles
+- id: umn-japanese-beetles
+  title: Japanese beetles
+  publisher: University of Minnesota Extension
+  year: 2025
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/japanese-beetles
+- id: umn-spider-mites
+  title: Twospotted spider mites
+  publisher: University of Minnesota Extension
+  year: 2020
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/spider-mites
+- id: umn-brown-marmorated-stink-bug
+  title: Brown marmorated stink bug
+  publisher: University of Minnesota Extension
+  year: 2022
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/brown-marmorated-stink-bug
+- id: umn-spotted-wing-drosophila
+  title: Spotted wing drosophila
+  publisher: University of Minnesota Extension
+  year: 2026
+  kind: extension
+  url: https://extension.umn.edu/yard-and-garden-insects/spotted-wing-drosophila
+- id: umn-early-blight
+  title: Early blight in tomato and potato
+  publisher: University of Minnesota Extension
+  year: 2024
+  kind: extension
+  url: https://extension.umn.edu/disease-management/early-blight-tomato-and-potato
+- id: umn-late-blight
+  title: Late blight
+  publisher: University of Minnesota Extension
+  year: 2021
+  kind: extension
+  url: https://extension.umn.edu/disease-management/late-blight
+- id: umn-powdery-mildew-cucurbits
+  title: Powdery mildew of cucurbits
+  publisher: University of Minnesota Extension
+  year: 2026
+  kind: extension
+  url: https://extension.umn.edu/disease-management/powdery-mildew-cucurbits
+- id: umn-downy-mildew-cucurbits
+  title: Downy mildew of cucurbits
+  publisher: University of Minnesota Extension
+  year: 2022
+  kind: extension
+  url: https://extension.umn.edu/disease-management/downy-mildew-cucurbits
+- id: umn-bacterial-wilt
+  title: Bacterial wilt of cucurbits
+  publisher: University of Minnesota Extension
+  year: 2022
+  kind: extension
+  url: https://extension.umn.edu/disease-management/bacterial-wilt
+- id: umn-apple-scab
+  title: Apple scab
+  publisher: University of Minnesota Extension
+  year: 2026
+  kind: extension
+  url: https://extension.umn.edu/plant-diseases/apple-scab
+- id: umn-fire-blight
+  title: Fire blight
+  publisher: University of Minnesota Extension
+  year: 2026
+  kind: extension
+  url: https://extension.umn.edu/plant-diseases/fire-blight
+
+# Extension guides: Clemson
+- id: clemson-plant-partners
+  title: 'Plant Partners: 5 Benefits of Companion Planting'
+  publisher: Clemson Cooperative Extension, Home & Garden Information Center
+  authors: J. Nichols
+  year: 2025
+  kind: extension
+  url: https://hgic.clemson.edu/plant-partners-5-benefits-of-companion-planting/
+- id: clemson-repel-insects
+  title: Can Plants Repel Problematic Insects?
+  publisher: Clemson Cooperative Extension, Home & Garden Information Center
+  authors: J. Jordan
+  year: 2025
+  kind: extension
+  url: https://hgic.clemson.edu/can-plants-repel-problematic-insects/
+- id: clemson-beneficial-insects
+  title: Attracting Beneficial Insects
+  publisher: Clemson Cooperative Extension, Home & Garden Information Center
+  authors: A. Jeffers
+  year: 2020
+  kind: extension
+  url: https://hgic.clemson.edu/attracting-beneficial-insects/
+- id: clemson-hgic-2203
+  title: Cabbage, Broccoli & Other Cole Crop Insect Pests (HGIC 2203)
+  publisher: Clemson Cooperative Extension, Home & Garden Information Center
+  year: 2025
+  kind: extension
+  url: https://hgic.clemson.edu/factsheet/cabbage-broccoli-other-cole-crop-insect-pests/
+- id: clemson-hgic-2207
+  title: Cucumber, Squash, Melon & Other Cucurbit Insect Pests (HGIC 2207)
+  publisher: Clemson Cooperative Extension, Home & Garden Information Center
+  year: 2025
+  kind: extension
+  url: https://hgic.clemson.edu/factsheet/cucumber-squash-melon-other-cucurbit-insect-pests/
+
+# Extension guides: other universities
+- id: umd-mexican-bean-beetle
+  title: Mexican bean beetle
+  publisher: University of Maryland Extension, Home and Garden Information Center
+  year: 2023
+  kind: extension
+  url: https://extension.umd.edu/resource/mexican-bean-beetle-vegetables
+- id: umd-septoria-leaf-spot
+  title: Septoria leaf spot on tomatoes
+  publisher: University of Maryland Extension, Home and Garden Information Center
+  year: 2024
+  kind: extension
+  url: https://extension.umd.edu/resource/septoria-leaf-spot-tomatoes
+- id: ncsu-septoria-leaf-spot
+  title: Septoria leaf spot of tomato
+  publisher: NC State Extension
+  authors: I. Meadows and T. Clabby
+  kind: extension
+  url: https://content.ces.ncsu.edu/septoria-leaf-spot-of-tomato
+- id: usu-onion-thrips
+  title: Onion thrips
+  publisher: Utah State University Extension
+  authors: D. Alston and D. Drost
+  year: 2008
+  kind: extension
+  url: https://extension.usu.edu/planthealth/research/onion-thrips
+- id: usu-strawberries
+  title: How to Grow Strawberries in Your Garden
+  publisher: Utah State University Extension
+  kind: extension
+  url: https://extension.usu.edu/yardandgarden/research/strawberries-in-the-garden
+- id: unh-plum-curculio
+  title: Plum curculio fact sheet
+  publisher: University of New Hampshire Extension
+  authors: A. T. Eaton
+  kind: extension
+  url: https://extension.unh.edu/resource/plum-curculio-fact-sheet
+- id: psu-bramble-verticillium-wilt
+  title: Bramble Disease - Verticillium Wilt
+  publisher: Penn State Extension
+  kind: extension
+  url: https://extension.psu.edu/bramble-disease-verticillium-wilt
+- id: illinois-raspberries
+  title: Growing Raspberries
+  publisher: University of Illinois Extension
+  kind: extension
+  url: https://extension.illinois.edu/fruit/raspberries
+  note: Redirects to web.extension.illinois.edu.
+- id: ucipm-lettuce-aphid
+  title: 'Lettuce aphid (Pest Management Guidelines: Lettuce)'
+  publisher: UC Statewide IPM Program
+  kind: extension
+  url: https://ipm.ucanr.edu/agriculture/lettuce/lettuce-aphid/
+- id: ucipm-codling-moth
+  title: Codling moth (Pest Notes and Quick Tips, Home and Landscape)
+  publisher: UC Statewide IPM Program
+  kind: extension
+  url: https://ipm.ucanr.edu/home-and-landscape/codling-moth/
+- id: ucipm-carrot-rust-fly
+  title: Carrot rust fly (Home and Landscape)
+  publisher: UC Statewide IPM Program
+  kind: extension
+  url: https://ipm.ucanr.edu/home-and-landscape/carrot-rust-fly/
+- id: mu-pinero-2017
+  title: Blue Hubbard squash as a trap crop (Missouri Environment & Garden)
+  publisher: University of Missouri
+  authors: J. C. Pinero
+  year: 2017
+  kind: extension
+  note: No address could be checked; the newsletter's site was not reachable when this was recorded.
+
+# Research
+- id: riesselman-2006
+  title: Companion planting trials (Iowa State Research Farm Progress Reports 295)
+  publisher: Iowa State University
+  authors: Riesselman
+  year: 2006
+  kind: report
+  note: No address could be checked in Iowa State's digital repository when this was recorded.
+- id: lopez-liburd-2019
+  title: SARE graduate student report GS17-171
+  publisher: Sustainable Agriculture Research and Education (SARE)
+  authors: Lopez and Liburd
+  year: 2019
+  kind: report
+  note: No address could be checked; SARE's project site was not reachable when this was recorded.
+- id: doughty-2016
+  title: 'Squash Bug (Hemiptera: Coreidae): Biology and Management in Cucurbitaceous Crops'
+  publisher: Journal of Integrated Pest Management 7(1)
+  authors: Doughty et al.
+  year: 2016
+  kind: journal
+  url: https://doi.org/10.1093/jipm/pmv024
+- id: dover-1986
+  title: The effect of labiate herbs and white clover on Plutella xylostella oviposition
+  publisher: Entomologia Experimentalis et Applicata 42
+  authors: J. W. Dover
+  year: 1986
+  kind: journal
+  url: https://doi.org/10.1111/j.1570-7458.1986.tb01029.x
+- id: conboy-2019
+  title: Companion planting with French marigolds protects tomato plants from glasshouse whiteflies through the emission of airborne limonene
+  publisher: PLOS ONE 14(3) e0213071
+  authors: Conboy et al.
+  year: 2019
+  kind: journal
+  url: https://doi.org/10.1371/journal.pone.0213071
+- id: mutisya-2016
+  title: Synergistic Effects of Agronet Covers and Companion Cropping on Reducing Whitefly Infestation and Improving Yield of Open Field-Grown Tomatoes
+  publisher: Agronomy 6(3) 42
+  authors: Mutisya et al.
+  year: 2016
+  kind: journal
+  url: https://doi.org/10.3390/agronomy6030042
+- id: ahmad-2020
+  title: Changes in Secondary Metabolites and Free Amino Acid Content in Tomato with Lamiaceae Herbs Companion Planting
+  publisher: American Journal of Plant Sciences 11
+  authors: H. Ahmad and M. Kobayashi
+  year: 2020
+  kind: journal
+  url: https://doi.org/10.4236/ajps.2020.1112134
+
+# Databases and regulations
+- id: eppo-gd
+  title: EPPO Global Database
+  publisher: European and Mediterranean Plant Protection Organization (EPPO)
+  kind: database
+  url: https://gd.eppo.int/
+  terms: Freely accessible; no licence published. Cited as EPPO (year) EPPO Global Database, with the date accessed. Facts only, in our own words.
+- id: ecfr-7-cfr-205
+  title: 7 CFR Part 205, National Organic Program (205.206, 205.601, 205.602)
+  publisher: U.S. Department of Agriculture, Electronic Code of Federal Regulations
+  kind: regulation
+  url: https://www.ecfr.gov/current/title-7/subtitle-B/chapter-I/subchapter-M/part-205
+  terms: Public domain (U.S. government work).

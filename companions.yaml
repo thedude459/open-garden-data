@@ -28,6 +28,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Pinero (2017), University of Missouri Environment & Garden; UMN; Clemson (Hubbard types are the most damaged by squash bug)
+  references: [mu-pinero-2017, umn-companion-planting, clemson-hgic-2207]
   pests: [squash-bug, cucumber-beetles, squash-vine-borer]
   source: hand-curation
 - crops: [winter-squash, cucumber]
@@ -39,6 +40,7 @@
     - where: Minnesota, USA
       zones: { min: 3, max: 5 }
   reference: UMN
+  references: [umn-companion-planting]
   pests: [cucumber-beetles]
   source: hand-curation
 - crops: [nasturtium, summer-squash]
@@ -50,6 +52,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; Doughty et al. (2016), Journal of Integrated Pest Management 7(1); UMN
+  references: [riesselman-2006, doughty-2016, umn-companion-planting]
   pests: [squash-bug, cucumber-beetles]
   source: hand-curation
 - crops: [marigold, summer-squash]
@@ -63,6 +66,7 @@
     - where: Florida, USA
       zones: { min: 9, max: 9 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; Lopez & Liburd (2019), SARE report GS17-171; UMN
+  references: [riesselman-2006, lopez-liburd-2019, umn-companion-planting]
   pests: [squash-bug, cucumber-beetles, aphids]
   source: hand-curation
 - crops: [sweet-alyssum, summer-squash]
@@ -74,6 +78,7 @@
     - where: Florida, USA
       zones: { min: 9, max: 9 }
   reference: Lopez & Liburd (2019), SARE report GS17-171; UMN
+  references: [lopez-liburd-2019, umn-companion-planting]
   pests: [aphids]
   source: hand-curation
 
@@ -87,6 +92,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  references: [riesselman-2006, umn-companion-planting]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [nasturtium, broccoli]
@@ -98,6 +104,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  references: [riesselman-2006, umn-companion-planting]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [onion, broccoli]
@@ -109,6 +116,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  references: [riesselman-2006, umn-companion-planting]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [marigold, cabbage]
@@ -120,6 +128,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  references: [riesselman-2006, umn-companion-planting]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [nasturtium, cabbage]
@@ -131,6 +140,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  references: [riesselman-2006, umn-companion-planting]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [onion, cabbage]
@@ -142,6 +152,7 @@
     - where: Iowa, USA
       zones: { min: 5, max: 5 }
   reference: Riesselman (2006), Iowa State Research Farm Progress Reports 295; UMN
+  references: [riesselman-2006, umn-companion-planting]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [dill, cabbage]
@@ -153,6 +164,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  references: [clemson-beneficial-insects]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [dill, broccoli]
@@ -164,6 +176,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  references: [clemson-beneficial-insects]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [parsley, cabbage]
@@ -175,6 +188,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  references: [clemson-beneficial-insects]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [parsley, broccoli]
@@ -186,6 +200,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  references: [clemson-beneficial-insects]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [tansy, cabbage]
@@ -197,6 +212,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  references: [clemson-beneficial-insects]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [tansy, broccoli]
@@ -208,6 +224,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson Cooperative Extension HGIC, "Attracting Beneficial Insects" (A. Jeffers, 2020)
+  references: [clemson-beneficial-insects]
   pests: [imported-cabbageworm, cabbage-looper]
   source: hand-curation
 - crops: [thyme, brussels-sprouts]
@@ -218,6 +235,7 @@
   shownIn:
     - where: Greenhouse, United Kingdom
   reference: Dover (1986), Entomologia Experimentalis et Applicata 42; UMN; Clemson
+  references: [dover-1986, umn-companion-planting, clemson-repel-insects]
   source: hand-curation
 
 # Tomato
@@ -229,6 +247,7 @@
   shownIn:
     - where: Greenhouse, United Kingdom
   reference: Conboy et al. (2019), PLOS ONE 14(3) e0213071; UMN
+  references: [conboy-2019, umn-companion-planting]
   source: hand-curation
 - crops: [basil, tomato]
   kind: helps
@@ -241,6 +260,14 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Mutisya et al. (2016), Agronomy 6(3) 42; Ahmad et al. (2020), American Journal of Plant Sciences 11; UMN; Clemson
+  references:
+    [
+      mutisya-2016,
+      ahmad-2020,
+      umn-companion-planting,
+      clemson-plant-partners,
+      clemson-repel-insects,
+    ]
   source: hand-curation
 
 # Lettuce
@@ -253,6 +280,7 @@
     - where: California Central Coast, USA
       zones: { min: 9, max: 10 }
   reference: UC IPM
+  references: [ucipm-lettuce-aphid]
   pests: [aphids]
   source: hand-curation
 - crops: [sweet-alyssum, lettuce]
@@ -264,6 +292,7 @@
     - where: California Central Coast, USA
       zones: { min: 9, max: 10 }
   reference: UC IPM
+  references: [ucipm-lettuce-aphid]
   pests: [aphids]
   source: hand-curation
 
@@ -279,6 +308,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: UMN; Clemson
+  references: [umn-companion-planting, clemson-plant-partners]
   source: hand-curation
 - crops: [sweet-corn, winter-squash]
   kind: helps
@@ -291,6 +321,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: UMN; Clemson
+  references: [umn-companion-planting, clemson-plant-partners]
   source: hand-curation
 
 # Pollinators for crops that need them
@@ -303,6 +334,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson
+  references: [clemson-plant-partners]
   source: hand-curation
 - crops: [borage, melon]
   kind: helps
@@ -313,6 +345,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson
+  references: [clemson-plant-partners]
   source: hand-curation
 - crops: [calendula, summer-squash]
   kind: helps
@@ -323,6 +356,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson
+  references: [clemson-plant-partners]
   source: hand-curation
 - crops: [calendula, melon]
   kind: helps
@@ -333,6 +367,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson
+  references: [clemson-plant-partners]
   source: hand-curation
 
 # Keep apart
@@ -345,6 +380,7 @@
     - where: Minnesota, USA
       zones: { min: 3, max: 5 }
   reference: University of Minnesota Extension, "Late blight of tomato and potato"
+  references: [umn-late-blight]
   pests: [late-blight]
   source: hand-curation
 - crops: [potato, eggplant]
@@ -356,6 +392,7 @@
     - where: Minnesota, USA
       zones: { min: 3, max: 5 }
   reference: University of Minnesota Extension, "Colorado potato beetle"
+  references: [umn-colorado-potato-beetles]
   pests: [colorado-potato-beetle]
   source: hand-curation
 - crops: [tomato, sweet-corn]
@@ -367,6 +404,7 @@
     - where: South Carolina, USA
       zones: { min: 7, max: 9 }
   reference: Clemson
+  references: [clemson-plant-partners]
   source: hand-curation
 
 # Verticillium wilt: tomato-family crops leave it in the soil for fruit that follows
@@ -379,6 +417,7 @@
     - where: Utah, USA
     - where: Pennsylvania, USA
   reference: Utah State University Extension, "How to Grow Strawberries in Your Garden"; Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  references: [usu-strawberries, psu-bramble-verticillium-wilt]
   source: hand-curation
 - crops: [strawberry, potato]
   kind: hinders
@@ -389,6 +428,7 @@
     - where: Utah, USA
     - where: Pennsylvania, USA
   reference: Utah State University Extension, "How to Grow Strawberries in Your Garden"; Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  references: [usu-strawberries, psu-bramble-verticillium-wilt]
   source: hand-curation
 - crops: [strawberry, eggplant]
   kind: hinders
@@ -399,6 +439,7 @@
     - where: Utah, USA
     - where: Pennsylvania, USA
   reference: Utah State University Extension, "How to Grow Strawberries in Your Garden"; Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  references: [usu-strawberries, psu-bramble-verticillium-wilt]
   source: hand-curation
 - crops: [strawberry, sweet-pepper]
   kind: hinders
@@ -409,6 +450,7 @@
     - where: Utah, USA
     - where: Pennsylvania, USA
   reference: Utah State University Extension, "How to Grow Strawberries in Your Garden"; Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  references: [usu-strawberries, psu-bramble-verticillium-wilt]
   source: hand-curation
 - crops: [strawberry, hot-pepper]
   kind: hinders
@@ -419,6 +461,7 @@
     - where: Utah, USA
     - where: Pennsylvania, USA
   reference: Utah State University Extension, "How to Grow Strawberries in Your Garden"; Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  references: [usu-strawberries, psu-bramble-verticillium-wilt]
   source: hand-curation
 - crops: [raspberry, tomato]
   kind: hinders
@@ -429,6 +472,7 @@
     - where: Pennsylvania, USA
     - where: Illinois, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  references: [psu-bramble-verticillium-wilt, illinois-raspberries]
   source: hand-curation
 - crops: [raspberry, potato]
   kind: hinders
@@ -439,6 +483,7 @@
     - where: Pennsylvania, USA
     - where: Illinois, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  references: [psu-bramble-verticillium-wilt, illinois-raspberries]
   source: hand-curation
 - crops: [raspberry, eggplant]
   kind: hinders
@@ -449,6 +494,7 @@
     - where: Pennsylvania, USA
     - where: Illinois, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  references: [psu-bramble-verticillium-wilt, illinois-raspberries]
   source: hand-curation
 - crops: [raspberry, sweet-pepper]
   kind: hinders
@@ -459,6 +505,7 @@
     - where: Pennsylvania, USA
     - where: Illinois, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  references: [psu-bramble-verticillium-wilt, illinois-raspberries]
   source: hand-curation
 - crops: [raspberry, hot-pepper]
   kind: hinders
@@ -469,6 +516,7 @@
     - where: Pennsylvania, USA
     - where: Illinois, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  references: [psu-bramble-verticillium-wilt, illinois-raspberries]
   source: hand-curation
 - crops: [raspberry, strawberry]
   kind: hinders
@@ -479,6 +527,7 @@
     - where: Pennsylvania, USA
     - where: Illinois, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"; University of Illinois Extension, "Growing Raspberries"
+  references: [psu-bramble-verticillium-wilt, illinois-raspberries]
   source: hand-curation
 - crops: [blackberry, tomato]
   kind: hinders
@@ -488,6 +537,7 @@
   shownIn:
     - where: Pennsylvania, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  references: [psu-bramble-verticillium-wilt]
   source: hand-curation
 - crops: [blackberry, potato]
   kind: hinders
@@ -497,6 +547,7 @@
   shownIn:
     - where: Pennsylvania, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  references: [psu-bramble-verticillium-wilt]
   source: hand-curation
 - crops: [blackberry, eggplant]
   kind: hinders
@@ -506,6 +557,7 @@
   shownIn:
     - where: Pennsylvania, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  references: [psu-bramble-verticillium-wilt]
   source: hand-curation
 - crops: [blackberry, sweet-pepper]
   kind: hinders
@@ -515,6 +567,7 @@
   shownIn:
     - where: Pennsylvania, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  references: [psu-bramble-verticillium-wilt]
   source: hand-curation
 - crops: [blackberry, hot-pepper]
   kind: hinders
@@ -524,4 +577,5 @@
   shownIn:
     - where: Pennsylvania, USA
   reference: Penn State Extension, "Bramble Disease - Verticillium Wilt"
+  references: [psu-bramble-verticillium-wilt]
   source: hand-curation

@@ -18,6 +18,7 @@ catalog, but nothing here depends on that app.
 | `crops/<id>.yaml`         | One crop per file (what gardeners grow as one kind), varieties nested                 |
 | `families.yaml`           | Botanical families, used for crop rotation                                            |
 | `companions.yaml`         | Companion pairs: two crops, a kind, a reason, a source                                |
+| `references.yaml`         | Every guide, paper, database, and regulation cited, by id, with its address           |
 | `pests.yaml`              | Pests and diseases for IPM: crops attacked, signs, when to scout, controls in order   |
 | `sources.yaml`            | Every source, with its license and URL                                                |
 | `icons/<id>.svg`          | One icon per crop; the [style guide](icons/README.md) and [credits](icons/CREDITS.md) |
