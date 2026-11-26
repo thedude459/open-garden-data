@@ -58,7 +58,7 @@ For this repository:
      hazelnut; crop coefficients for fig, hazelnut, pawpaw, and persimmon,
      which FAO-56 Table 12 does not list (research gives only monthly or
      transpiration-only values).
-   - **In progress, v0.3.2:** `pests.yaml` with 26 pests and diseases by
+   - **Done, v0.3.2:** `pests.yaml` with 26 pests and diseases by
      region, from Minnesota, Maryland, NC State, Clemson, New Hampshire,
      Utah State, and UC IPM extension guides: vegetable, bean, onion, carrot,
      and tree and soft fruit pests, with `occursIn` from EPPO for the nine it

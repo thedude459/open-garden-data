@@ -21,6 +21,31 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+### Improvements
+
+### Bug fixes
+
+### Documentation
+
+### Security
+
+### Known issues
+
+### Deprecated features
+
+## v0.3.2 (2026-11-26)
+
+### Summary
+
+Pests and diseases for integrated pest management: 26 to start, from
+aphids and squash vine borer to codling moth, apple scab, and fire blight,
+each with the crops it attacks, when to scout, and controls in IPM order.
+Guidance is by region, with the countries a pest lives in where EPPO
+records them, and products allowed in organic growing come before
+conventional ones.
+
+### New features
+
 - **Pests and diseases** (`pests.yaml`), organized for integrated pest
   management, 26 to start. Vegetables: aphids, flea beetles, twospotted
   spider mite, Colorado potato beetle, tomato hornworm, brown marmorated stink
