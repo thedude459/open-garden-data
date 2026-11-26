@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/thedude459/open-garden-data/schema/catalog.schema.json",
   "title": "Open Garden catalog release",
-  "description": "The release file open-garden-catalog-<version>.json: every crop, family, source, companion pair, and pest. Attached to each GitHub Release so apps can validate what they download. Units are metric: centimetres and degrees Celsius.",
+  "description": "The release file open-garden-catalog-<version>.json: every crop, family, source, companion pair, pest, and reference. Attached to each GitHub Release so apps can validate what they download. Units are metric: centimetres and degrees Celsius.",
   "type": "object",
   "additionalProperties": false,
   "required": ["version", "license", "units", "families", "sources", "crops", "companions"],
@@ -109,6 +109,13 @@
             "type": "string",
             "description": "The studies or extension guides behind the pair, as a citation. Not a data source: the facts are written in our own words."
           },
+          "references": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "type": "string" },
+            "description": "Ids from references: the guides, papers, and rules behind it."
+          },
           "pests": {
             "type": "array",
             "minItems": 1,
@@ -202,7 +209,14 @@
                 "uniqueItems": true,
                 "items": { "$ref": "#/$defs/country" }
               },
-              "reference": { "type": "string" }
+              "reference": { "type": "string" },
+              "references": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "type": "string" },
+                "description": "Ids from references."
+              }
             }
           },
           "regions": {
@@ -249,11 +263,38 @@
                 "reference": {
                   "type": "string",
                   "description": "The extension guides behind this region's guidance, as a citation. The facts are written in our own words."
+                },
+                "references": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": { "type": "string" },
+                  "description": "Ids from references."
                 }
               }
             }
           },
           "source": { "type": "string" }
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "description": "Every guide, paper, database, and regulation the catalog cites, by id. Not data sources: the facts are written in our own words.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "publisher", "kind"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+          "title": { "type": "string" },
+          "publisher": { "type": "string" },
+          "authors": { "type": "string" },
+          "year": { "type": "integer" },
+          "kind": { "enum": ["extension", "journal", "report", "database", "regulation"] },
+          "url": { "type": "string", "pattern": "^https://" },
+          "terms": { "type": "string", "description": "What the publisher says about reuse." },
+          "note": { "type": "string" }
         }
       }
     }

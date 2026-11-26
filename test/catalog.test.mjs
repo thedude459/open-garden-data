@@ -468,8 +468,16 @@ test('regional guidance names its country, and fits where the pest occurs', () =
         { ...region, controls: { organic: [''] } },
       ],
     },
-    { ...good, id: 'abroad', occursIn: { countries: ['AU', 'nz'], reference: '' } },
-    { ...good, id: 'listed', occursIn: { countries: ['US', 'CA'], reference: 'EPPO' } },
+    {
+      ...good,
+      id: 'abroad',
+      occursIn: { countries: ['AU', 'nz'], reference: '', references: ['eppo-gd'] },
+    },
+    {
+      ...good,
+      id: 'listed',
+      occursIn: { countries: ['US', 'CA'], reference: 'EPPO', references: ['eppo-gd'] },
+    },
   ];
   const errors = validate(data).filter((e) => e.startsWith('pests.yaml'));
   assert.deepEqual(errors, [
@@ -498,9 +506,31 @@ test('a companion pair names only real pests, and only when it acts on pests', (
     { ...pair, benefits: ['deters-pests'], pests: ['aphids', 'gremlins'] },
     { ...pair, benefits: ['support'], pests: ['aphids'] },
   ];
-  const errors = validate(data);
+  const errors = validate(data).filter((e) => e.startsWith('companions.yaml'));
   assert.deepEqual(errors, [
     'companions.yaml[0]: unknown pest "gremlins"',
     'companions.yaml[1]: only a pair that acts on pests may name pests',
   ]);
+});
+
+test('citations name ids from references.yaml, and every reference is cited', () => {
+  const data = clone(load());
+  const pair = data.companions.find((c) => c.evidence !== 'traditional');
+  delete pair.references;
+  data.pests[0].regions[0].references = ['umn-aphids', 'no-such-guide'];
+  data.references.push(
+    { id: 'Bad_Id', title: 'x', publisher: 'y', kind: 'blog', url: 'http://example.org' },
+    { id: 'unused-guide', title: 'x', publisher: 'y', kind: 'extension' },
+  );
+  const errors = validate(data).join('\n');
+  assert.match(errors, /references must cite ids from references.yaml/);
+  assert.match(errors, /unknown reference "no-such-guide"/);
+  assert.match(errors, /Bad_Id: id must be lower case with hyphens/);
+  assert.match(
+    errors,
+    /Bad_Id: kind must be one of extension, journal, report, database, regulation/,
+  );
+  assert.match(errors, /Bad_Id: url must be an https address/);
+  assert.match(errors, /unused-guide: without a url, a note must say why there is none/);
+  assert.match(errors, /unused-guide: nothing cites it; remove it/);
 });

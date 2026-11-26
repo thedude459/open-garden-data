@@ -80,6 +80,7 @@
         conventional:
           - Long-lasting broad-spectrum insecticides kill natural enemies too and can make aphids worse.
       reference: UMN, "Aphids" (reviewed 2019)
+      references: [umn-aphids, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: flea-beetles
@@ -130,6 +131,7 @@
         conventional:
           - Broad-spectrum insecticides such as carbaryl, malathion, permethrin, lambda-cyhalothrin, or cyfluthrin.
       reference: UMN, "Flea beetles" (reviewed 2022); Clemson
+      references: [umn-flea-beetles, clemson-hgic-2203, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: colorado-potato-beetle
@@ -209,6 +211,7 @@
       - US
       - UZ
     reference: EPPO (2026), EPPO Global Database, Leptinotarsa decemlineata distribution, countries where present (accessed 2026-11-26); absent, eradicated, transient, or only intercepted elsewhere
+    references: [eppo-gd]
   regions:
     - where: Minnesota, USA
       country: US
@@ -223,6 +226,7 @@
           - Spinosad, though some populations resist it.
           - This beetle resists more than 50 insecticides; never rely on one product, and treat young larvae, not eggs or adults.
       reference: UMN, "Colorado potato beetles" (reviewed 2026)
+      references: [umn-colorado-potato-beetles, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: squash-bug
@@ -263,6 +267,7 @@
         conventional:
           - Seldom needed in a garden. Treat newly hatched nymphs and cover the leaf undersides, late in the day when the flowers have closed, to spare bees.
       reference: UMN, "Squash bugs" (reviewed 2026)
+      references: [umn-squash-bugs]
   source: hand-curation
 
 - id: squash-vine-borer
@@ -301,6 +306,7 @@
         conventional:
           - Spray or dust the stem bases when vines start to run or the first moth is seen, and repeat every 7 to 10 days through July, before larvae enter the stems; carbaryl, permethrin, bifenthrin, or esfenvalerate. Spray in the evening, not on open flowers.
       reference: UMN, "Squash vine borers" (reviewed 2026); Clemson 2207 (scientific name)
+      references: [umn-squash-vine-borers, clemson-hgic-2207, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: tomato-hornworm
@@ -344,6 +350,7 @@
         conventional:
           - Broad-spectrum pyrethroids such as bifenthrin or permethrin kill beneficial insects too.
       reference: UMN, "Tomato hornworms" (reviewed 2020)
+      references: [umn-tomato-hornworms, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: cucumber-beetles
@@ -386,6 +393,7 @@
         conventional:
           - Treat only at the threshold, with a product labelled for cucumber beetles on that crop.
       reference: UMN, "Cucumber beetles" (reviewed 2026)
+      references: [umn-cucumber-beetles]
   source: hand-curation
 
 - id: imported-cabbageworm
@@ -430,6 +438,7 @@
         conventional:
           - Broad-spectrum insecticides such as carbaryl or bifenthrin, as a last resort.
       reference: Clemson
+      references: [clemson-hgic-2203, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: early-blight
@@ -468,6 +477,7 @@
         conventional:
           - Rarely needed in a garden. Where used, time fungicides to wet weather and rotate fungicide groups so resistance does not build.
       reference: UMN, "Early blight in tomato and potato" (reviewed 2024)
+      references: [umn-early-blight]
   source: hand-curation
 
 - id: late-blight
@@ -504,6 +514,7 @@
         conventional:
           - Not recommended in home gardens. Farms use fungicides made for water moulds, applied before infection and rotated.
       reference: UMN, "Late blight" (reviewed 2021)
+      references: [umn-late-blight]
   source: hand-curation
 
 - id: cucurbit-powdery-mildew
@@ -540,6 +551,7 @@
         conventional:
           - Only where susceptible varieties lost yield before; start when it first appears, and check current recommendations, as it keeps developing resistance.
       reference: UMN, "Powdery mildew of cucurbits" (reviewed 2026)
+      references: [umn-powdery-mildew-cucurbits]
   source: hand-curation
 
 - id: japanese-beetle
@@ -584,6 +596,7 @@
       - RU
       - US
     reference: EPPO (2026), EPPO Global Database, Popillia japonica distribution, countries where present (accessed 2026-11-26); absent, transient, or only intercepted elsewhere
+    references: [eppo-gd]
   regions:
     - where: Minnesota, USA
       country: US
@@ -602,6 +615,7 @@
           - Chlorantraniliprole protects for two to four weeks and is low risk to bees.
           - Pyrethroids (bifenthrin, cyfluthrin, lambda-cyhalothrin, permethrin) and carbaryl last longer but are toxic to bees and other pollinators.
       reference: UMN, "Japanese beetles" (reviewed 2025)
+      references: [umn-japanese-beetles, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: mexican-bean-beetle
@@ -641,6 +655,7 @@
       - SV
       - US
     reference: EPPO (2026), EPPO Global Database, Epilachna varivestis distribution, countries where present (accessed 2026-11-26)
+    references: [eppo-gd]
   regions:
     - where: Maryland, USA
       country: US
@@ -653,6 +668,7 @@
         organic:
           - For severe infestations, spinosad, neem, or pyrethrum.
       reference: University of Maryland Extension HGIC, "Mexican bean beetle" (updated 2023)
+      references: [umd-mexican-bean-beetle, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: twospotted-spider-mite
@@ -698,6 +714,7 @@
         organic:
           - Insecticidal soap or horticultural oil kill only the mites they touch and have little effect on other insects; spray both sides of the leaves, repeat, and water plants first and spray in the cool of morning or evening.
       reference: UMN, "Twospotted spider mites" (reviewed 2020)
+      references: [umn-spider-mites, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: cabbage-looper
@@ -740,6 +757,7 @@
         conventional:
           - Broad-spectrum insecticides such as carbaryl or bifenthrin, as a last resort.
       reference: Clemson
+      references: [clemson-hgic-2203, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: septoria-leaf-spot
@@ -773,6 +791,7 @@
         conventional:
           - A synthetic fungicide, at the same time and only in the same case.
       reference: University of Maryland Extension HGIC, "Septoria leaf spot on tomatoes" (updated 2024)
+      references: [umd-septoria-leaf-spot, ecfr-7-cfr-205]
     - where: North Carolina, USA
       country: US
       zones:
@@ -787,6 +806,7 @@
         conventional:
           - Chlorothalonil or mancozeb.
       reference: NC State Extension, "Septoria leaf spot of tomato" (I. Meadows and T. Clabby)
+      references: [ncsu-septoria-leaf-spot, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: bacterial-wilt
@@ -824,6 +844,7 @@
       when: Watch for plants that wilt in the afternoon and have not recovered by morning; it does not appear every year.
       threshold: No spray cures an infected plant; any insecticide is aimed at the cucumber beetles that spread it.
       reference: UMN, "Bacterial wilt of cucurbits" (reviewed 2022)
+      references: [umn-bacterial-wilt]
   source: hand-curation
 
 - id: apple-scab
@@ -862,6 +883,7 @@
           - Captan, at the same times; do not follow captan closely with lime-sulfur.
           - Never use an all-purpose fruit spray during bloom; its insecticide kills pollinators.
       reference: UMN, "Apple scab" (reviewed 2026)
+      references: [umn-apple-scab, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: brown-marmorated-stink-bug
@@ -941,6 +963,7 @@
       - UZ
       - VN
     reference: EPPO (2026), EPPO Global Database, Halyomorpha halys distribution, countries where present (accessed 2026-11-26)
+    references: [eppo-gd]
   regions:
     - where: Minnesota, USA
       country: US
@@ -950,6 +973,7 @@
       when: Adults come out in May and numbers peak from mid-August through October, when they gather on buildings to spend the winter indoors.
       threshold: No garden damage has been reported in Minnesota, so no management aimed at it is needed there; it is a major pest of these crops in other states.
       reference: UMN, "Brown marmorated stink bug" (reviewed 2022)
+      references: [umn-brown-marmorated-stink-bug]
   source: hand-curation
 
 - id: spotted-wing-drosophila
@@ -1041,6 +1065,7 @@
       - YT
       - ZA
     reference: EPPO (2026), EPPO Global Database, Drosophila suzukii distribution, countries where present (accessed 2026-11-26)
+    references: [eppo-gd]
   regions:
     - where: Minnesota, USA
       country: US
@@ -1054,6 +1079,7 @@
         conventional:
           - Carbaryl or malathion, with the same timing.
       reference: UMN, "Spotted wing drosophila" (reviewed 2026)
+      references: [umn-spotted-wing-drosophila, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: onion-thrips
@@ -1098,6 +1124,7 @@
         conventional:
           - Thrips quickly resist insecticides; spray as few times as possible, rotate insecticide classes, and drive the spray into the neck where they hide.
       reference: Utah State University Extension, "Onion thrips" fact sheet (D. Alston and D. Drost, 2008)
+      references: [usu-onion-thrips]
   source: hand-curation
 
 - id: codling-moth
@@ -1192,6 +1219,7 @@
       - UZ
       - ZA
     reference: EPPO (2026), EPPO Global Database, Cydia pomonella distribution, countries where present (accessed 2026-11-26)
+    references: [eppo-gd]
   regions:
     - where: California, USA
       country: US
@@ -1205,6 +1233,7 @@
           - Codling moth granulosis virus, with 1 percent horticultural oil, every 7 days, three or four times a generation; it spares bees and beneficial insects.
           - Spinosad with 1 percent horticultural oil, every 10 days, about three times a generation.
       reference: UC IPM, "Codling moth" Pest Notes and Quick Tips (Home and Landscape)
+      references: [ucipm-codling-moth, ecfr-7-cfr-205]
   source: hand-curation
 
 - id: plum-curculio
@@ -1231,6 +1260,7 @@
       - CA
       - US
     reference: EPPO (2026), EPPO Global Database, Conotrachelus nenuphar distribution, countries where present (accessed 2026-11-26)
+    references: [eppo-gd]
   regions:
     - where: New Hampshire, USA
       country: US
@@ -1242,6 +1272,7 @@
         conventional:
           - Usually two or three sprays aimed at the beetle, timed by the current regional tree fruit guide.
       reference: University of New Hampshire Extension, "Plum curculio" fact sheet (A. T. Eaton)
+      references: [unh-plum-curculio]
   source: hand-curation
 
 - id: carrot-rust-fly
@@ -1293,6 +1324,7 @@
       - UA
       - US
     reference: EPPO (2026), EPPO Global Database, Chamaepsila rosae (its accepted name) distribution, countries where present (accessed 2026-11-26)
+    references: [eppo-gd]
   regions:
     - where: California, USA
       country: US
@@ -1304,6 +1336,7 @@
         cultural:
           - Sow to miss the fly's egg-laying, in early summer in cold areas and in late winter or late summer in mild ones.
       reference: UC IPM, "Carrot rust fly" (Home and Landscape)
+      references: [ucipm-carrot-rust-fly]
   source: hand-curation
 
 - id: cucurbit-downy-mildew
@@ -1337,6 +1370,7 @@
       when: It does not survive Minnesota winters and arrives on winds from the south, in many years not at all, and often not before August. It spreads fastest at 15 to 20 °C with wet leaves.
       threshold: No product that works against it is available to home gardeners.
       reference: UMN, "Downy mildew of cucurbits" (reviewed 2022)
+      references: [umn-downy-mildew-cucurbits]
   source: hand-curation
 
 - id: fire-blight
@@ -1418,6 +1452,7 @@
       - UA
       - US
     reference: EPPO (2026), EPPO Global Database, Erwinia amylovora distribution, countries where present (accessed 2026-11-26)
+    references: [eppo-gd]
   regions:
     - where: Minnesota, USA
       country: US
@@ -1429,4 +1464,5 @@
         cultural:
           - Most resistant of the apples hardy in Minnesota, Haralson, Liberty, Red Baron, SnowSweet, and the Chestnut and Dolgo crabs; Honeycrisp and Zestar! are somewhat resistant.
       reference: UMN, "Fire blight" (reviewed 2026)
+      references: [umn-fire-blight]
   source: hand-curation

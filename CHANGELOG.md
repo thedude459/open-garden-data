@@ -21,11 +21,19 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### New features
 
+- **References** (`references.yaml`): every guide, paper, database, and
+  regulation the dataset cites, once, with its address, 45 in all. Companion
+  pairs, pest regions, and `occursIn` cite them by id in `references`, so an
+  app can link to the guide behind any advice, and the release file carries
+  them. Citations that named only "UMN" or "Clemson" now say which guide.
+
 ### Improvements
 
 ### Bug fixes
 
 ### Documentation
+
+- CONTRIBUTING says how to cite a guide or paper.
 
 ### Security
 

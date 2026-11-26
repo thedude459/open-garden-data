@@ -67,6 +67,25 @@ references, not sources, because they are not CC0. Advice that only appears
 in gardening charts is `traditional`. A pair that deters, traps, or draws
 the enemies of a pest in `pests.yaml` names it in `pests`.
 
+## Citing guides and papers
+
+Every guide, paper, database, or regulation behind a value is listed once in
+`references.yaml`: an `id`, its `title`, `publisher`, `authors` and `year`
+where known, its `kind` (extension, journal, report, database, or
+regulation), and its `url`. Prefer a DOI (`https://doi.org/...`) for a paper.
+Leave the url out only when no checkable address exists, and say why in
+`note`; record a publisher's reuse terms in `terms` when it states them, or
+that it states none.
+
+Entries cite references by id in `references`, beside the free-text
+`reference` readers see: a companion pair with research or extension
+evidence, every pest region, and every `occursIn`. The validator rejects an
+unknown id, a missing citation, and a reference nothing cites. A weekly
+workflow checks every url and fails on one that no longer answers.
+
+A reference is not a data source. Read it, then write the facts in your own
+words; never copy its sentences.
+
 ## Pests and diseases
 
 An entry in `pests.yaml` follows integrated pest management (IPM), as
