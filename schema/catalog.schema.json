@@ -122,7 +122,7 @@
     },
     "pests": {
       "type": "array",
-      "description": "Common garden pests and diseases, organized for integrated pest management (IPM). Advice, never a rule. What a pest is and the controls that work anywhere are shared; timing, thresholds, and chemical controls are per region.",
+      "description": "Common garden pests and diseases, organized for integrated pest management (IPM). Advice, never a rule. What a pest is and the controls that work anywhere are shared; timing, thresholds, and products (organic and conventional) are per region.",
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -183,7 +183,7 @@
           "controls": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Controls that work wherever the pest occurs, in IPM order. Chemical controls are per region.",
+            "description": "Controls that work wherever the pest occurs, in IPM order. Products, organic or conventional, are per region.",
             "properties": {
               "cultural": { "$ref": "#/$defs/steps" },
               "physical": { "$ref": "#/$defs/steps" },
@@ -208,7 +208,7 @@
           "regions": {
             "type": "array",
             "minItems": 1,
-            "description": "Guidance for each place it was written for. Apps pick the region in a property's country nearest its zone, and show no timing or chemicals from another country.",
+            "description": "Guidance for each place it was written for. Apps pick the region in a property's country nearest its zone, and show no timing or products from another country.",
             "items": {
               "type": "object",
               "additionalProperties": false,
@@ -237,12 +237,13 @@
                 "controls": {
                   "type": "object",
                   "additionalProperties": false,
-                  "description": "Controls that depend on the place: local timing, and chemical controls by active ingredient, least toxic first. Apps add that the label is the law.",
+                  "description": "Controls that depend on the place: local timing, and products by active ingredient, least toxic first. organic holds products the country's organic rules allow (in the US, the National Organic Program); conventional the rest. Apps show organic options by default and conventional ones only on request, and add that the label is the law.",
                   "properties": {
                     "cultural": { "$ref": "#/$defs/steps" },
                     "physical": { "$ref": "#/$defs/steps" },
                     "biological": { "$ref": "#/$defs/steps" },
-                    "chemical": { "$ref": "#/$defs/steps" }
+                    "organic": { "$ref": "#/$defs/steps" },
+                    "conventional": { "$ref": "#/$defs/steps" }
                   }
                 },
                 "reference": {

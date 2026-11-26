@@ -201,11 +201,13 @@ Each pest or disease carries:
 - **Controls, in IPM order**: cultural (rotation, timing, resistant
   varieties, clean-up), physical (row covers until bloom, hand-picking,
   traps), biological (beneficial insects, and the companion pairs and trap
-  crops that act on this pest, linked by id), and chemical last, by active
-  ingredient and least-toxic first, with a reminder to follow the label.
+  crops that act on this pest, linked by id), then products by active
+  ingredient, least toxic first: organic ones (allowed by the country's
+  organic rules) before conventional ones, which apps show only on request,
+  with a reminder to follow the label.
 - **By region** (`regions`): pests differ from place to place, so what
-  changes with place, when to look, the threshold, and chemical controls
-  (each country registers its own), sits under a region with its country,
+  changes with place, when to look, the threshold, and products (each
+  country allows its own), sits under a region with its country,
   USDA zones, and reference, so advice for squash bugs in New England is not
   offered unchanged in California. What a pest is and the controls that work
   anywhere are shared. **`occursIn`** lists the countries it lives in, from
@@ -346,7 +348,7 @@ chosen. Size is a rough guess: S is under a day, M a few days, L longer.
 | **Data:** weather windows for diseases (temperature range and humidity or leaf wetness), such as early blight at 15 to 27 °C with humidity of 90 percent or more                                                      | Open Garden already fetches a forecast for frost and heat alerts; with these it could warn of blight weather for tomatoes and potatoes                                                                               | S    |
 | **Data:** `rotationYears` per disease (early blight 2, late blight 3 to 4), with the family it rotates away from                                                                                                      | Feeds Open Garden's crop rotation hints, which work by family                                                                                                                                                        | S    |
 | **Data:** disease resistance on varieties, by the codes seed catalogues use (EB, LB, PM, V, F)                                                                                                                        | Lets apps suggest a resistant variety for a pest a garden has had, and ties pests to the variety data                                                                                                                | M    |
-| **Data:** structured chemical controls: each active ingredient with flags such as `organic` and `beeHazard`, never rates or harvest intervals, which belong to the label                                              | Chemical steps are words today, so apps cannot offer organic-only advice or hide chemical advice for households that want none                                                                                       | M    |
+| **Data:** structured products: each active ingredient with flags such as `beeHazard` and `organic`, never rates or harvest intervals, which belong to the label                                                       | Products are words today, grouped `organic` and `conventional`; per-ingredient flags would let apps warn about bees and check organic status against the National List automatically                                 | M    |
 | **Data:** pest photos from public-domain sources such as USDA ARS                                                                                                                                                     | Identifying a pest from words alone is hard; most pest photos (Bugwood among them) are CC BY-NC, which CC0 output cannot use                                                                                         | M    |
 | **Data:** pest guidance from outside the US: AHDB (UK), Australian state agriculture departments, and other extension services                                                                                        | The first pests come from Minnesota and South Carolina, but the catalog is meant to work worldwide                                                                                                                   | M    |
 | **Pipeline:** use Penn State's York County seed-planting guide as a frost-anchored cross-check                                                                                                                        | It gives earliest and latest sowing dates against a stated last frost (May 1) and first frost (October 1), so its dates convert directly to `weeksEarliest`/`weeksLatest` for many crops                             | S    |

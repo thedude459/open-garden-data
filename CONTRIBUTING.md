@@ -88,11 +88,23 @@ extension services teach it:
   was written for: `where`, its `country` (an ISO 3166 code such as `US`),
   its USDA `zones`, `when` to look there, the `threshold` for acting where the
   guidance gives one, `controls` that depend on the place (a sowing date that
-  dodges the local flight, and every `chemical` step, since each country
-  registers its own), and the `reference` behind it, in your own words.
-  Chemical steps name active ingredients, least toxic first, never product
-  names; apps add that the label is the law. Add a region rather than
-  changing another's: guidance from Minnesota stays Minnesota's.
+  dodges the local flight, and every product, since each country allows its
+  own), and the `reference` behind it, in your own words. Add a region rather
+  than changing another's: guidance from Minnesota stays Minnesota's.
+- Products go in two groups, after the cultural, physical, and biological
+  steps. `organic` holds active ingredients the region's country allows in
+  organic growing; in the US, the National Organic Program (7 CFR 205):
+  biological and botanical substances such as Bt, spinosad, neem,
+  pyrethrins, and insect viruses (205.206(e)), minerals such as kaolin clay
+  that 205.602 does not prohibit, and the synthetics 205.601 lists for the
+  use (insecticidal soap, horticultural oils, sulfur, lime sulfur, fixed
+  copper, potassium bicarbonate). `conventional` holds everything else.
+  Apps show organic options by default and conventional ones only on
+  request. Steps name active ingredients, least toxic first, never product
+  names; apps add that the label is the law and to choose products labelled
+  for organic use, since a formulation can add what the rules do not allow
+  (pyrethrins with the synergist PBO are not organic). Advice that names no
+  product, such as "no spray cures it", goes in `threshold`.
 - `occursIn`, when a distribution reference gives it, lists the `countries`
   the pest lives in, with its `reference`. Leave it out rather than guess;
   without it, apps treat where it occurs as not known, not as absent.

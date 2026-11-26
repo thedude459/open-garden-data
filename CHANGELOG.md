@@ -32,8 +32,11 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   fire blight. Each names the crops it attacks, how to recognize it, the crop
   stages to scout at, and the controls that work anywhere, in IPM order
   (cultural, physical, biological). What changes with place is per region:
-  when to look, the threshold for acting, and chemical controls, least toxic
-  first, since each country registers its own. Each region names its country
+  when to look, the threshold for acting, and products, least toxic first,
+  since each country allows its own. Products allowed in organic growing
+  (`organic`, by the US National Organic Program in US regions) come before
+  conventional ones (`conventional`), and apps show organic options by
+  default. Each region names its country
   and zones, so an app can pick guidance near a garden; guidance comes from
   Minnesota, Maryland, North Carolina, South Carolina, New Hampshire, Utah,
   and California, and Septoria leaf spot has two regions. `occursIn` lists the countries a pest lives in, from

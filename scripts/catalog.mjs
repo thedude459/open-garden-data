@@ -31,8 +31,11 @@ const EVIDENCE = new Set(['research', 'extension', 'traditional']);
 const PEST_KINDS = new Set(['insect', 'mite', 'disease']);
 /** Crop stages worth scouting at, so an app can time a reminder from a planting. */
 const SCOUT_STAGES = new Set(['seedling', 'vegetative', 'flowering', 'fruiting']);
-/** Controls in IPM order: the least disruptive first, chemical last. */
-const CONTROL_GROUPS = ['cultural', 'physical', 'biological', 'chemical'];
+/**
+ * Controls in IPM order, the least disruptive first: products allowed in
+ * organic growing before conventional ones, which apps show only on request.
+ */
+const CONTROL_GROUPS = ['cultural', 'physical', 'biological', 'organic', 'conventional'];
 /** A country as an ISO 3166-1 alpha-2 code, the form apps get from a place lookup. */
 const COUNTRY = /^[A-Z]{2}$/;
 /** A locale key for names, as crops use: en, pt-BR. */
@@ -270,10 +273,11 @@ function checkPest(at, pest, cropIds, sourceIds) {
       if (!SCOUT_STAGES.has(s))
         errors.push(`${at}: scout stage "${s}" is not one of ${[...SCOUT_STAGES].join(', ')}`);
   errors.push(...checkControls(at, 'controls', pest.controls ?? {}));
-  if (pest.controls?.chemical)
-    errors.push(
-      `${at}: chemical controls depend on what a country registers; put them under regions`,
-    );
+  for (const group of ['organic', 'conventional'])
+    if (pest.controls?.[group])
+      errors.push(
+        `${at}: ${group} products depend on what a country allows; put them under regions`,
+      );
   if (!CONTROL_GROUPS.slice(0, 3).some((g) => pest.controls?.[g]?.length))
     errors.push(`${at}: IPM reaches for a cultural, physical, or biological control first`);
   if (!sourceIds.has(pest.source)) errors.push(`${at}: unknown source "${pest.source}"`);
