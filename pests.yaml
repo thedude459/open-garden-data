@@ -143,7 +143,7 @@
     - potato
     - eggplant
     - tomatillo
-  signs: Oval beetles about 1 cm long with an orange shield behind the head and cream wing covers with ten narrow black stripes. Clusters of bright yellow-orange eggs sit under the leaves. Larvae are brick red when young, then pink to salmon, with black heads and two rows of dark spots on each side. Larvae and adults chew the leaves and can strip a plant.
+  signs: Oval beetles about 1 cm long with an orange shield behind the head and cream wing covers with ten narrow black stripes. Clusters of bright yellow-orange eggs sit under the leaves. Larvae are brick red when young, then pink to salmon, with black heads and a double row of dark spots down each flank. Larvae and adults chew the leaves and can strip a plant.
   scout:
     stages:
       - seedling
@@ -249,7 +249,7 @@
     cultural:
       - Keep plants watered and fed, as sturdy plants tolerate feeding.
       - Clear plant debris during the season, and cucurbit vines in fall, where adults hide and spend the winter.
-      - Butternut and buttercup squash and Sweet Cheese pumpkins tolerate feeding better than other kinds.
+      - Butternut, buttercup, and Sweet Cheese pumpkin stand up to feeding better than other kinds.
       - A border of Blue Hubbard squash draws squash bugs away from the main crop; deal with the bugs on it.
       - Where squash bugs are a steady problem, skip straw mulch, which shelters them.
     physical:
@@ -320,7 +320,7 @@
     - eggplant
     - sweet-pepper
     - hot-pepper
-  signs: A green caterpillar up to 10 cm long with eight white V-shaped marks on each side and a black horn at the tail; young ones are pale and unmarked. It strips leaves from the top of the plant down and chews holes in fruit, and leaves dark green or black droppings. It blends in and is often found only after much damage.
+  signs: A green caterpillar up to 10 cm long with eight white V marks along each flank and a black horn at the tail; young ones are pale and unmarked. It strips leaves from the top of the plant down and chews holes in fruit, and leaves dark green or black droppings. It blends in and is often found only after much damage.
   scout:
     stages:
       - vegetative
@@ -423,7 +423,7 @@
       - Hand-pick caterpillars every few days on small plantings.
       - Cover plants with fine mesh netting to keep the butterflies from laying eggs.
     biological:
-      - Grow small flowers such as sweet alyssum, parsley, dill, cilantro, buckwheat, and fennel, which draw parasitic flies and wasps.
+      - Grow small-flowered plants, such as buckwheat, dill, fennel, cilantro, parsley, and sweet alyssum, which draw parasitic flies and wasps.
       - Avoid broad-spectrum insecticides, which kill these natural enemies.
   regions:
     - where: South Carolina, USA
@@ -462,7 +462,7 @@
       - Grow resistant varieties, often marked EB in catalogues; they still show some spots.
       - Wait at least two years before growing tomatoes, potatoes, or peppers in the same place, and pull nightshade weeds.
       - Mulch under plants, water at the base, and stake, space, and prune the lowest leaves so leaves stay dry and soil does not splash onto them.
-      - Use clean seed, and remove or bury plants at the end of the season.
+      - Use clean seed, and once the season ends, clear away or bury the plants.
     physical:
       - Remove spotted leaves, no more than a third of the plant, and wash hands and tools afterwards.
   regions:
@@ -496,11 +496,11 @@
       - fruiting
   controls:
     cultural:
-      - Plant tomatoes where no tomatoes, potatoes, peppers, or eggplant have grown for three to four years.
+      - Rotate, giving tomatoes ground that has had no tomatoes, potatoes, peppers, or eggplant in it for three to four years.
       - Grow resistant varieties; they still show some symptoms in very wet years.
       - Plant certified seed potatoes, check transplants for spots, and pull volunteer potatoes.
       - Keep leaves dry with drip or soaker watering in the morning, and stake and space plants for air.
-      - Remove or bury plants at the end of the season, and let potato culls break down over winter.
+      - Once the season ends, clear away or bury the plants, and let potato culls break down over winter.
     physical:
       - Remove diseased leaves, and pull badly infected plants before it spreads.
   regions:
@@ -603,11 +603,11 @@
       zones:
         min: 3
         max: 5
-      when: Adults come out of the ground in late June or early July and feed for six to eight weeks, mostly finished by mid to late August. Start removing them as soon as the first appear.
+      when: Adults emerge from the soil from late June into early July and feed for six to eight weeks, mostly finished by mid to late August. Start removing them as soon as the first appear.
       threshold: Damage to mature plants is mostly cosmetic; young or weak plants and fruit are worth protecting.
       controls:
         biological:
-          - Two natural enemies are established in Minnesota, the Winsome fly (Istocheta aldrichi) on adults and the wasp Tiphia vernalis on grubs. Leave any beetle with a white egg on its back; the fly laid it and will kill the beetle within a week.
+          - Minnesota now has two natural enemies of it, the Winsome fly (Istocheta aldrichi) on adults and the wasp Tiphia vernalis on grubs. Leave any beetle with a white egg on its back; the fly laid it and will kill the beetle within a week.
         organic:
           - Neem oil deters feeding for a few days and is low risk to bees; repeat it.
           - Pyrethrins kill only beetles they hit and are toxic to bees.
@@ -641,7 +641,7 @@
       - Pull and bag bean plants after harvest, which kills the eggs, larvae, and pupae on them.
     physical:
       - Cover bean rows with row cover after sowing; it can stay on until harvest, as beans need no pollinators.
-      - Crush egg clusters, larvae, and adults by hand, and seal badly infested plants in a plastic bag for a week before composting them.
+      - By hand, squash the egg clusters and kill larvae and adults, and seal badly infested plants in a plastic bag for a week before composting them.
     biological:
       - Release the parasitic wasp Pediobius faveolatus when the first larvae appear; it suits large plantings and community gardens.
   occursIn:
@@ -702,7 +702,7 @@
     physical:
       - Knock mites off with a strong spray of water, which also breaks up their webbing.
     biological:
-      - Predatory mites and the small lady beetles that eat mites keep numbers down; long-lasting insecticides such as bifenthrin and permethrin kill them and can make mites worse.
+      - Predatory mites and the small lady beetles that eat mites keep numbers down; persistent insecticides (bifenthrin, permethrin) kill them and can make mites worse.
   regions:
     - where: Minnesota, USA
       country: US
@@ -742,7 +742,7 @@
       - Hand-pick caterpillars every few days on small plantings.
       - Cover plants with fine mesh netting to keep the moths from laying eggs.
     biological:
-      - Grow small flowers such as sweet alyssum, parsley, dill, cilantro, buckwheat, and fennel, which draw parasitic flies and wasps.
+      - Grow small-flowered plants, such as buckwheat, dill, fennel, cilantro, parsley, and sweet alyssum, which draw parasitic flies and wasps.
       - Avoid broad-spectrum insecticides, which kill these natural enemies.
   regions:
     - where: South Carolina, USA
@@ -1072,7 +1072,7 @@
       zones:
         min: 3
         max: 5
-      when: Flies appear in late June or early July and peak in August and September; watch most closely from when fruit starts to colour until harvest.
+      when: Flies show up from late June into early July and peak in August and September; watch most closely from when fruit starts to colour until harvest.
       controls:
         organic:
           - Spinosad or pyrethrin, both allowed in organic growing. They kill adults before they lay eggs, not larvae already in fruit; spray in the evening to spare pollinators, and rotate classes, as it can develop resistance.

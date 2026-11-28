@@ -7,7 +7,10 @@ the Open Garden app to contribute: everything here is YAML.
 
 - **Facts, in your own words.** Sowing windows, spacing, and temperatures are
   facts and can be shared freely; the wording of a book, website, or seed
-  packet cannot. Never copy sentences or tables.
+  packet cannot. Never copy sentences or tables. `npm run check:wording`
+  compares each value that cites a reference with the page it points to and
+  flags 8 or more words in a row shared with it; it runs in CI when pests or
+  companions change, and weekly.
 - **Compatible sources only.** Use public-domain or CC0 sources, extension
   service guides and seed packets as cross-checks, and your own records. Do
   not import from share-alike (CC BY-SA) or non-commercial sources such as

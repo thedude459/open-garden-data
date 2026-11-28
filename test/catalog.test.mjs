@@ -572,3 +572,69 @@ test('REUSE.toml credits OpenFarm for exactly the icons CREDITS.md says came fro
     'an icon both taken and drawn',
   );
 });
+
+test('the wording check flags 8 words in a row shared with a source, and nothing shorter', async () => {
+  const { words, pageText, shingles, copiedRuns, citedValues, RUN } =
+    await import('../scripts/wording.mjs');
+  assert.equal(RUN, 8);
+  assert.deepEqual(words('Hand-pick, then CRUSH—the eggs!'), [
+    'hand',
+    'pick',
+    'then',
+    'crush',
+    'the',
+    'eggs',
+  ]);
+  const page = shingles(
+    words(
+      pageText(
+        '<html><script>var x = 1;</script><p>Remove or bury plants at the end of the season.</p>' +
+          '<p>Use insecticidal soap.</p></html>',
+      ),
+    ),
+  );
+  // A sentence copied with other punctuation and case is still found, merged into one run.
+  assert.deepEqual(
+    copiedRuns('Use clean seed; remove or bury plants at the END of the season.', page),
+    ['remove or bury plants at the end of the season'],
+  );
+  // A short shared phrase is fine, and so is the same fact in other words.
+  assert.deepEqual(copiedRuns('Spray insecticidal soap on both sides of the leaves.', page), []);
+  assert.deepEqual(copiedRuns('Once the season ends, clear away or bury the plants.', page), []);
+  // Scripts are not page text.
+  assert.equal(
+    [...page].some((s) => s.includes('var')),
+    false,
+  );
+
+  const values = citedValues(
+    [
+      {
+        id: 'aphids',
+        signs: 'Small insects.',
+        controls: { physical: ['Hose them off.'] },
+        occursIn: { references: ['eppo-gd'] },
+        regions: [
+          {
+            where: 'Minnesota, USA',
+            when: 'All season.',
+            threshold: null,
+            controls: { organic: ['Soap.'] },
+            references: ['umn-aphids'],
+          },
+        ],
+      },
+    ],
+    [{ crops: ['basil', 'tomato'], kind: 'helps', reason: 'Fewer thrips.', references: ['x'] }],
+  );
+  assert.deepEqual(
+    values.map((v) => [v.where, v.text, v.refs]),
+    [
+      ['pests/aphids', 'Small insects.', ['umn-aphids', 'eppo-gd']],
+      ['pests/aphids', 'Hose them off.', ['umn-aphids', 'eppo-gd']],
+      ['pests/aphids (Minnesota, USA)', 'All season.', ['umn-aphids']],
+      ['pests/aphids (Minnesota, USA)', 'Soap.', ['umn-aphids']],
+      ['companions/basil+tomato (helps)', 'Fewer thrips.', ['x']],
+    ],
+  );
+});

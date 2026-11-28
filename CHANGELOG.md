@@ -33,6 +33,10 @@ later release removes; see "Ids never change" in CONTRIBUTING).
   way ([REUSE](https://reuse.software), `REUSE.toml` and `LICENSES/`), checked
   in CI: CC0 throughout, and icons from OpenFarm's open-crop-icons credited
   to its contributors.
+- A wording check (`npm run check:wording`, in CI weekly and when pests or
+  companions change) compares each value with the guide it cites and flags 8
+  or more words in a row shared with it. Twelve pest values that followed
+  their guide's wording too closely are reworded; the facts are unchanged.
 
 ### Bug fixes
 

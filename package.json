@@ -13,7 +13,8 @@
     "test": "node --test \"test/**/*.test.mjs\"",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "verify:wikidata": "node scripts/verify-wikidata.mjs"
+    "verify:wikidata": "node scripts/verify-wikidata.mjs",
+    "check:wording": "node scripts/wording.mjs"
   },
   "devDependencies": {
     "ajv": "8.20.0",
