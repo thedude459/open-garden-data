@@ -29,6 +29,11 @@ later release removes; see "Ids never change" in CONTRIBUTING).
 
 ### Improvements
 
+- Every file states its licence and copyright holder in a machine-readable
+  way ([REUSE](https://reuse.software), `REUSE.toml` and `LICENSES/`), checked
+  in CI: CC0 throughout, and icons from OpenFarm's open-crop-icons credited
+  to its contributors.
+
 ### Bug fixes
 
 ### Documentation

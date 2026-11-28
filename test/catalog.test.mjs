@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
@@ -533,4 +533,42 @@ test('citations name ids from references.yaml, and every reference is cited', ()
   assert.match(errors, /Bad_Id: url must be an https address/);
   assert.match(errors, /unused-guide: without a url, a note must say why there is none/);
   assert.match(errors, /unused-guide: nothing cites it; remove it/);
+});
+
+test('REUSE.toml credits OpenFarm for exactly the icons CREDITS.md says came from it', () => {
+  const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
+  const credits = read('icons/CREDITS.md');
+  const list = (heading) =>
+    credits
+      .match(new RegExp(`${heading}([\\s\\S]*?)\\.\\n`))[1]
+      .split(',')
+      .map((name) => name.trim())
+      .filter(Boolean);
+  const same = list('under the same name:');
+  const renamed = [...credits.matchAll(/^\| `([a-z0-9-]+)\.svg`/gm)].map((m) => m[1]);
+  const drawn = list('with the rest of it:\n');
+  const fromOpenFarm = [...same, ...renamed];
+
+  const toml = read('REUSE.toml');
+  const block = toml.slice(toml.indexOf('open-crop-icons'));
+  const credited = [...block.matchAll(/"icons\/([a-z0-9-]+)\.svg"/g)]
+    .map((m) => m[1])
+    .filter((name) => !name.startsWith('generic-'));
+  assert.deepEqual(credited.sort(), fromOpenFarm.sort());
+
+  // Every crop icon is credited one way or the other.
+  const icons = readdirSync(new URL('../icons', import.meta.url))
+    .filter((f) => f.endsWith('.svg') && !f.startsWith('generic-'))
+    .map((f) => f.slice(0, -4));
+  const known = new Set([...fromOpenFarm, ...drawn]);
+  assert.deepEqual(
+    icons.filter((name) => !known.has(name)),
+    [],
+    'icons missing from icons/CREDITS.md',
+  );
+  assert.deepEqual(
+    fromOpenFarm.filter((name) => drawn.includes(name)),
+    [],
+    'an icon both taken and drawn',
+  );
 });

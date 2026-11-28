@@ -174,7 +174,9 @@ By opening a pull request you agree to release your contribution under
    crop id (`pole-bean-kentucky-wonder`).
 2. A new crop needs an icon at `icons/<crop id>.svg`: look in
    `icons/library/` first, or draw one to the
-   [icon style guide](icons/README.md).
+   [icon style guide](icons/README.md). Credit it in
+   [icons/CREDITS.md](icons/CREDITS.md): an icon taken from open-crop-icons
+   also goes in the OpenFarm list in `REUSE.toml`, which `npm test` checks.
 3. Run `npm ci`, then `npm run validate` and `npm test`.
 4. Open a pull request. CI runs the same checks.
 
